@@ -1,0 +1,7 @@
+{"id": "src_deepsec", "url": "https://github.com/vercel-labs/deepsec", "org": "vercel", "type": "repository", "quality_rating": "A"}
+{"id": "src_semgrep", "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/src/semgrep/formatter/json.py", "org": "semgrep", "type": "repository", "quality_rating": "A"}
+{"id": "src_gitleaks", "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/cmd/root.go", "org": "gitleaks", "type": "repository", "quality_rating": "A"}
+{"id": "src_codex", "url": "https://developers.openai.com/codex/plugins/", "org": "openai", "type": "official_docs", "quality_rating": "A"}
+{"id": "src_claude", "url": "https://code.claude.com/docs/en/plugins-reference", "org": "anthropic", "type": "official_docs", "quality_rating": "A"}
+{"id": "src_kimi", "url": "https://github.com/MoonshotAI/kimi-cli/blob/9ab1286b8fe4e6bcd116949a27ce5e0ac3389c82/docs/en/customization/plugins.md", "org": "moonshot", "type": "repository", "quality_rating": "A"}
+{"id": "src_local_validation", "url": "artifact:research/VALIDATION.md", "org": "local-build", "type": "execution_record", "quality_rating": "A"}

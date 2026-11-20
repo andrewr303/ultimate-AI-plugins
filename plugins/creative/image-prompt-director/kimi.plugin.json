@@ -1,0 +1,9 @@
+{
+  "name": "image-prompt-director",
+  "version": "1.0.1",
+  "description": "Create five detailed, distinct, copy-ready image prompts by default, with reference-aware art direction and model-specific adaptation.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Image Prompt Director"
+  }
+}

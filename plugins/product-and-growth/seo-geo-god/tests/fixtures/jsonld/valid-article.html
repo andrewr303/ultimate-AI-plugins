@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cleaning a widget hinge</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://example.com/#organization",
+      "name": "Example Widgets",
+      "description": "Synthetic widget maker used in test fixtures.",
+      "url": "https://example.com/",
+      "logo": "https://example.com/assets/logo.png"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://example.com/authors/sam/#person",
+      "name": "Sam Example",
+      "url": "https://example.com/authors/sam/"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://example.com/blog/hinge/#article",
+      "headline": "Cleaning a widget hinge",
+      "datePublished": "2026-09-14T09:00:00+00:00",
+      "dateModified": "2026-10-02",
+      "image": ["https://example.com/assets/hinge.png"],
+      "author": {"@id": "https://example.com/authors/sam/#person"},
+      "publisher": {"@id": "https://example.com/#organization"},
+      "mainEntityOfPage": "https://example.com/blog/hinge/"
+    }
+  ]
+}
+</script>
+<script>
+  // A regular script whose string mentions a JSON-LD tag must not be extracted.
+  var tpl = '<script type="application/ld+json">{"broken": </' + 'script>';
+</script>
+<!-- <script type="application/ld+json">{"commented": out</script> -->
+</head>
+<body><h1>Cleaning a widget hinge</h1><p>Wipe the hinge with a dry cloth.</p></body>
+</html>

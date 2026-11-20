@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-exports",
+  "productRevision": "tandem-fixture-v1",
+  "campaignId": "tandem-launch",
+  "variants": [
+    {
+      "id": "tandem-landscape",
+      "jobPath": "jobs/landscape.json",
+      "placement": "landscape",
+      "aspectRatio": "16:9",
+      "width": 1920,
+      "height": 1080,
+      "duration": 8,
+      "hookId": "overload",
+      "bodyId": "workflow",
+      "cta": "Try the sample workflow",
+      "hypothesis": "A visible next action helps support leads understand the workflow.",
+      "posterPath": "posters/landscape.png",
+      "captionsPath": "captions/landscape.srt",
+      "outputPath": "renders/landscape.mp4"
+    },
+    {
+      "id": "tandem-vertical-short",
+      "jobPath": "jobs/vertical-short.json",
+      "placement": "vertical-short",
+      "aspectRatio": "9:16",
+      "width": 1080,
+      "height": 1920,
+      "duration": 8,
+      "hookId": "overload",
+      "bodyId": "workflow",
+      "cta": "Try the sample workflow",
+      "hypothesis": "A visible next action helps support leads understand the workflow.",
+      "posterPath": "posters/vertical-short.png",
+      "captionsPath": "captions/vertical-short.srt",
+      "outputPath": "renders/vertical-short.mp4"
+    }
+  ]
+}

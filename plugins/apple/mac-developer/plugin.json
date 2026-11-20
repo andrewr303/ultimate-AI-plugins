@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mac-developer",
+  "version": "1.0.1",
+  "description": "Research-backed coding workflows for native macOS apps, Node.js adaptation, background services, browser companions, debugging, and distribution while preserving existing products.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "macos",
+    "swiftui",
+    "appkit",
+    "nodejs",
+    "electron",
+    "tauri",
+    "background-services",
+    "chrome-extension",
+    "native-messaging"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "mac-developer",
+        "shortDescription": "Build and adapt macOS apps",
+        "longDescription": "A coding agent toolkit for macOS Golden Gate and recent releases. Research current platform and SDK requirements, build SwiftUI/AppKit apps, adapt Node.js/web/CLI projects with a native shell or desktop runtime, implement user-controlled background services, and connect Chrome or Safari extensions to companion apps. Preserve the original app or extension with shared contracts, durable screenshot transfer, compatibility tests, and reversible migration. Includes project inspection, native messaging framing utilities, templates, release and debugging workflows. Uses the coding agent's existing filesystem, terminal, and research tools; Xcode builds, signing, and macOS runtime validation require a Mac. No hosted server or Apple account connection is bundled.",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg",
+        "defaultPrompt": [
+          "Build a native macOS app from scratch, researching the current SDK and verifying the result.",
+          "Turn my Node.js project into a Mac app with optional background services while preserving its original form.",
+          "Create a Mac companion for my Chrome extension that receives and organizes screenshots reliably."
+        ]
+      }
+    }
+  }
+}

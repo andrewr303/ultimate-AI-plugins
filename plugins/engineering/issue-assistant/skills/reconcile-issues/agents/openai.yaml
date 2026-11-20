@@ -1,0 +1,7 @@
+interface:
+  display_name: Reconcile Issues
+  short_description: Audit PRs against the backlog
+  default_prompt: Audit merged PRs and update my Linear or GitHub issues using verified
+    evidence.
+policy:
+  allow_implicit_invocation: true

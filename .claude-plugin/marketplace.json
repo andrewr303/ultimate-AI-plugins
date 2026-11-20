@@ -1,0 +1,179 @@
+{
+  "name": "ultimate-ai-plugins",
+  "owner": {
+    "name": "Andrew Rodriguez"
+  },
+  "metadata": {
+    "description": "Reusable skills and plugins for coding agents."
+  },
+  "plugins": [
+    {
+      "name": "apple-compliance",
+      "source": "./plugins/apple/apple-compliance",
+      "description": "Prepare Apple-platform apps for policy review, privacy evidence, signing, metadata, TestFlight, submission and distribution with source-backed checks.",
+      "category": "Apple"
+    },
+    {
+      "name": "apple-swift-ios-and-macos",
+      "source": "./plugins/apple/apple-swift-ios-and-macos",
+      "description": "Apple platform engineering plugin for Swift 6.2+ concurrency, SwiftUI UI patterns, MV view refactoring, iOS 26+ Liquid Glass adoption, SwiftUI & Instruments performance profiling, XcodeBuildMCP iOS simulator debugging, macOS Tuist menubar apps, Xcode-free SwiftPM app packaging, and App Store release notes.",
+      "category": "Apple"
+    },
+    {
+      "name": "ios-backend-studio",
+      "source": "./plugins/apple/ios-backend-studio",
+      "description": "Integrate native iOS and Node.js backends with shared cross-platform contracts, Apple system surfaces, and reproducible Xcode/Mac workflows.",
+      "category": "Apple"
+    },
+    {
+      "name": "ios-development-studio",
+      "source": "./plugins/apple/ios-development-studio",
+      "description": "A curated iOS development toolkit with focused skills for Swift, SwiftUI, persistence, diagnostics, simulator testing, App Store delivery, and optional Expo, Chat, and Nuke integrations.",
+      "category": "Apple"
+    },
+    {
+      "name": "mac-developer",
+      "source": "./plugins/apple/mac-developer",
+      "description": "Research-backed coding workflows for native macOS apps, Node.js adaptation, background services, browser companions, debugging, and distribution while preserving existing products.",
+      "category": "Apple"
+    },
+    {
+      "name": "image-prompt-director",
+      "source": "./plugins/creative/image-prompt-director",
+      "description": "Create five detailed, distinct, copy-ready image prompts by default, with reference-aware art direction and model-specific adaptation.",
+      "category": "Creative"
+    },
+    {
+      "name": "video-prompt-director",
+      "source": "./plugins/creative/video-prompt-director",
+      "description": "Create five detailed video prompt variations by default, with scene-by-scene direction, timed action, reference roles, and continuity controls.",
+      "category": "Creative"
+    },
+    {
+      "name": "anti-slop-and-design-quality",
+      "source": "./plugins/design/anti-slop-and-design-quality",
+      "description": "Guardrail and audit layer against generic AI output in UI design, copywriting, responsive layouts, accessibility and contrast, and code comments. Eight skills routed by the antislop core skill; includes an optional WCAG 2.x contrast checker script.",
+      "category": "Design"
+    },
+    {
+      "name": "design-variations",
+      "source": "./plugins/design/design-variations",
+      "description": "Ten fully interactive design variations per round, from small refinements to radical redesigns, with inspiration from connected design-reference MCPs and iteration on your picks.",
+      "category": "Design"
+    },
+    {
+      "name": "ui-component-expert",
+      "source": "./plugins/design/ui-component-expert",
+      "description": "Manual Claude Design export to reviewed React and TypeScript components, with explicit verification and integration gates.",
+      "category": "Design"
+    },
+    {
+      "name": "web-design-and-ui-systems",
+      "source": "./plugins/design/web-design-and-ui-systems",
+      "description": "Web design guidance and tools: a searchable UI/UX database (79 styles, 192 palettes, 74 font pairings, 22 stacks), 21 aesthetic design systems, landing and pricing page skills, brand, token and slide tools, 10 UI detail skills, and a router skill ($web-design-router).",
+      "category": "Design"
+    },
+    {
+      "name": "doc-atlas",
+      "source": "./plugins/documentation/doc-atlas",
+      "description": "Evidence-led repository documentation for coding agents: polished READMEs, structured guides, docs sites, API references, diagrams, audits, and maintenance.",
+      "category": "Documentation"
+    },
+    {
+      "name": "ultimate-prose",
+      "source": "./plugins/documentation/ultimate-prose",
+      "description": "Draft, edit, and review prose in Andrew Rodriguez’s writing voice, with local editorial and fidelity checks.",
+      "category": "Documentation"
+    },
+    {
+      "name": "ultimate-prose-universal",
+      "source": "./plugins/documentation/ultimate-prose-universal",
+      "description": "Write and edit natural, accurate prose for any user, with flexible tones and optional personal calibration.",
+      "category": "Documentation"
+    },
+    {
+      "name": "issue-assistant",
+      "source": "./plugins/engineering/issue-assistant",
+      "description": "Reconcile Linear or GitHub issues with source-backed evidence, safely recover planned changes, and resolve one issue decision at a time.",
+      "category": "Engineering"
+    },
+    {
+      "name": "ult-engineer",
+      "source": "./plugins/engineering/ult-engineer",
+      "description": "Ultimate TypeScript, React, and Node.js engineering plugin: write, debug, refactor, review, and health-audit code.",
+      "category": "Engineering"
+    },
+    {
+      "name": "ultimate-sdd",
+      "source": "./plugins/engineering/ultimate-sdd",
+      "description": "Local-first spec-driven development: PRDs, EPICs, REQs, verifiable TASKs, CHANGE deltas, and delivery pipelines.",
+      "category": "Engineering"
+    },
+    {
+      "name": "liquid-glass-studio",
+      "source": "./plugins/motion/liquid-glass-studio",
+      "description": "Design, implement, tune, and review liquid glass style interfaces: refraction, frost, rim light, motion, native glass APIs, accessibility fallbacks, and performance, with an original engine and a live lab.",
+      "category": "Motion"
+    },
+    {
+      "name": "platform-motion-wizard",
+      "source": "./plugins/motion/platform-motion-wizard",
+      "description": "Design, implement, and review responsive platform motion and interactions with immediate feedback, spatial continuity, interruption safety, and accessible reduced-motion behavior.",
+      "category": "Motion"
+    },
+    {
+      "name": "creator-intelligence",
+      "source": "./plugins/product-and-growth/creator-intelligence",
+      "description": "Find creators, capture their public business contact, vet them with a transparent score, and research their audience and content, from public data only.",
+      "category": "Product & Growth"
+    },
+    {
+      "name": "freelance-legend",
+      "source": "./plugins/product-and-growth/freelance-legend",
+      "description": "Upwork and freelance toolkit for Andrew Rodriguez: elite proposals and cover letters, rule-compliant job scanning across platforms, job vetting and scam checks, pricing and milestones, client communications, profile and portfolio writing, a personal portfolio website, contracts, outreach, and a pipeline ledger.",
+      "category": "Product & Growth"
+    },
+    {
+      "name": "marketing-page-studio",
+      "source": "./plugins/product-and-growth/marketing-page-studio",
+      "description": "Build accurate product marketing sites with working interactive demonstrations and browser evidence.",
+      "category": "Product & Growth"
+    },
+    {
+      "name": "product-demo-studio",
+      "source": "./plugins/product-and-growth/product-demo-studio",
+      "description": "Produce evidence-backed product videos, social variants, captions and reproducible render receipts.",
+      "category": "Product & Growth"
+    },
+    {
+      "name": "seo-geo-god",
+      "source": "./plugins/product-and-growth/seo-geo-god",
+      "description": "SEO and GEO for coding agents: detect the stack, fix crawlability, rendering, metadata, structured data, sitemaps, hreflang and AI-crawler access in code, and verify with an offline, stdlib-only audit CLI and CI gates.",
+      "category": "Product & Growth"
+    },
+    {
+      "name": "deepsec-agent",
+      "source": "./plugins/quality/deepsec-agent",
+      "description": "Local source security review, evidence, baselines, and remediation planning for coding agents.",
+      "category": "Quality"
+    },
+    {
+      "name": "security-audit",
+      "source": "./plugins/quality/security-audit",
+      "description": "Source-first security audits with scan planning, scanner-result triage, baseline comparison, and report exports.",
+      "category": "Quality"
+    },
+    {
+      "name": "ult-accessability",
+      "source": "./plugins/quality/ult-accessability",
+      "description": "Ultimate web accessibility plugin: WCAG 2.2 AA/AAA audits, contrast and color, remediation, testing, and before/after reports.",
+      "category": "Quality"
+    },
+    {
+      "name": "ult-performance",
+      "source": "./plugins/quality/ult-performance",
+      "description": "Ultimate web performance plugin: measured Core Web Vitals, loading, interaction, media, animation, accessibility, SEO, and quality audits.",
+      "category": "Quality"
+    }
+  ]
+}

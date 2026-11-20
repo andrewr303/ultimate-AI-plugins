@@ -1,0 +1,12 @@
+# Original DeepSec Agent rules. No third-party rule pack is bundled.
+rules:
+  - id: deepsec-agent.python-subprocess-shell
+    languages: [python]
+    severity: WARNING
+    message: Shell execution needs review of input provenance and argument handling.
+    pattern: subprocess.$FUNC(..., shell=True, ...)
+  - id: deepsec-agent.javascript-eval
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: Dynamic evaluation needs review of input provenance and trust boundaries.
+    pattern: eval(...)

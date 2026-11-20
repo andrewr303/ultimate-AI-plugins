@@ -1,0 +1,3 @@
+https://example.com/
+/relative/path
+https://user@example.com/x

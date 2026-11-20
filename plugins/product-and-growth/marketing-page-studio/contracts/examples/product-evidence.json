@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-evidence",
+  "product": {
+    "name": "Tandem",
+    "revision": "tandem-fixture-v1",
+    "synthetic": true
+  },
+  "claims": [
+    {
+      "id": "triage-draft",
+      "text": "The fixture groups sample requests and prepares an editable draft.",
+      "status": "verified",
+      "sources": [
+        {
+          "type": "repository",
+          "path": "product/index.html",
+          "revision": "tandem-fixture-v1",
+          "note": "Synthetic support triage fixture. No customer or commercial claims."
+        }
+      ],
+      "allowedUses": [
+        "website",
+        "video",
+        "ads"
+      ],
+      "limitations": "Verified in the local synthetic fixture only; does not establish real AI service behavior."
+    },
+    {
+      "id": "automatic-integrations",
+      "text": "External integrations are planned.",
+      "status": "unsupported",
+      "sources": [],
+      "allowedUses": [
+        "internal"
+      ],
+      "limitations": "Do not publish as shipped."
+    }
+  ],
+  "brief": {
+    "audience": "Small support teams",
+    "buyer": "Support lead",
+    "problem": "Requests arrive without a clear next step.",
+    "outcome": "Review a grouped queue and edit a draft reply.",
+    "workflow": [
+      "Open the sample inbox",
+      "Select a request",
+      "Prepare a draft",
+      "Edit and reset"
+    ],
+    "primaryCapability": "Editable draft from a bounded sample workflow",
+    "shipped": [
+      "Local sample triage",
+      "Editable drafts",
+      "Search and filter"
+    ],
+    "planned": [
+      "External integrations"
+    ],
+    "conversionAction": "Try the sample workflow",
+    "constraints": [
+      "Synthetic data",
+      "Deterministic local demo",
+      "No external AI calls"
+    ]
+  }
+}

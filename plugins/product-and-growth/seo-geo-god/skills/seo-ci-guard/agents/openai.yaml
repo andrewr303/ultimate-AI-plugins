@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO CI Guard"
+  short_description: "SEO regression gates in CI"
+  default_prompt: "Use $seo-ci-guard to add opt-in SEO and GEO regression gates to the CI of this repository with pinned placeholders and read-only permissions, then prove the gate fails on a seeded defect."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: Glass Accessibility
+  short_description: Legible, accessible glass
+  default_prompt: Use $glass-accessibility to make these glass surfaces honor user
+    preferences, pass measured contrast and keep focus and semantics intact.
+policy:
+  allow_implicit_invocation: true

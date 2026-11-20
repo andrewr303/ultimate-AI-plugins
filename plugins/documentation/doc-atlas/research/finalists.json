@@ -1,0 +1,527 @@
+[
+  {
+    "repo": "facebook/docusaurus",
+    "sha": "4e6fe61666a521d35d328ec0561d84eb96609017",
+    "default_branch": "main",
+    "observed_stars": 66588,
+    "commit_date": "2026-10-23T20:43:28Z",
+    "changed_files": 5,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/LICENSE"
+      },
+      {
+        "path": "packages/docusaurus-plugin-content-docs/package.json",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/packages/docusaurus-plugin-content-docs/package.json"
+      },
+      {
+        "path": "packages/docusaurus-plugin-content-docs/src/sidebars/generator.ts",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/packages/docusaurus-plugin-content-docs/src/sidebars/generator.ts"
+      },
+      {
+        "path": "packages/docusaurus-plugin-content-docs/src/sidebars/__tests__/generator.test.ts",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/packages/docusaurus-plugin-content-docs/src/sidebars/__tests__/generator.test.ts"
+      },
+      {
+        "path": "packages/docusaurus-theme-classic/src/theme/DocSidebar/Desktop/index.tsx",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/packages/docusaurus-theme-classic/src/theme/DocSidebar/Desktop/index.tsx"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/CHANGELOG.md"
+      },
+      {
+        "path": "LICENSE-docs",
+        "url": "https://raw.githubusercontent.com/facebook/docusaurus/4e6fe61666a521d35d328ec0561d84eb96609017/LICENSE-docs"
+      }
+    ]
+  },
+  {
+    "repo": "fuma-nama/fumadocs",
+    "sha": "da4ca7b86ad97fa98ae648ed35403559f89d7c74",
+    "default_branch": "dev",
+    "observed_stars": 13483,
+    "commit_date": "2026-10-26T14:22:25Z",
+    "changed_files": 7,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/LICENSE"
+      },
+      {
+        "path": "packages/core/package.json",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/core/package.json"
+      },
+      {
+        "path": "apps/docs/app/api/search/route.ts",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/apps/docs/app/api/search/route.ts"
+      },
+      {
+        "path": "apps/docs/lib/source/navigation.ts",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/apps/docs/lib/source/navigation.ts"
+      },
+      {
+        "path": "packages/radix-ui/package.json",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/radix-ui/package.json"
+      },
+      {
+        "path": "packages/radix-ui/src/components/sidebar/base.tsx",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/radix-ui/src/components/sidebar/base.tsx"
+      },
+      {
+        "path": "packages/radix-ui/src/components/sidebar/link-item.tsx",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/radix-ui/src/components/sidebar/link-item.tsx"
+      },
+      {
+        "path": "packages/radix-ui/src/layouts/docs/slots/sidebar.tsx",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/radix-ui/src/layouts/docs/slots/sidebar.tsx"
+      },
+      {
+        "path": "packages/core/test/loader.test.ts",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/core/test/loader.test.ts"
+      },
+      {
+        "path": "packages/core/test/search.test.ts",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/core/test/search.test.ts"
+      },
+      {
+        "path": "packages/radix-ui/CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/fuma-nama/fumadocs/da4ca7b86ad97fa98ae648ed35403559f89d7c74/packages/radix-ui/CHANGELOG.md"
+      }
+    ]
+  },
+  {
+    "repo": "shuding/nextra",
+    "sha": "d6e80e1dd627b781429a6ee989b15ebba688c8ea",
+    "default_branch": "main",
+    "observed_stars": 13944,
+    "commit_date": "2026-06-23T16:02:07Z",
+    "changed_files": 3,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/d6e80e1dd627b781429a6ee989b15ebba688c8ea/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/d6e80e1dd627b781429a6ee989b15ebba688c8ea/LICENSE"
+      },
+      {
+        "path": "packages/nextra-theme-docs/package.json",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/d6e80e1dd627b781429a6ee989b15ebba688c8ea/packages/nextra-theme-docs/package.json"
+      },
+      {
+        "path": "packages/nextra-theme-docs/src/components/sidebar.tsx",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/d6e80e1dd627b781429a6ee989b15ebba688c8ea/packages/nextra-theme-docs/src/components/sidebar.tsx"
+      },
+      {
+        "path": "packages/nextra/src/client/components/search.tsx",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/d6e80e1dd627b781429a6ee989b15ebba688c8ea/packages/nextra/src/client/components/search.tsx"
+      },
+      {
+        "path": "packages/nextra-theme-docs/src/__tests__/layout-props.test-d.ts",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/d6e80e1dd627b781429a6ee989b15ebba688c8ea/packages/nextra-theme-docs/src/__tests__/layout-props.test-d.ts"
+      },
+      {
+        "path": "packages/nextra-theme-docs/CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/shuding/nextra/d6e80e1dd627b781429a6ee989b15ebba688c8ea/packages/nextra-theme-docs/CHANGELOG.md"
+      }
+    ]
+  },
+  {
+    "repo": "vuejs/vitepress",
+    "sha": "415a6a39507af37e282c02eb57ca50594f1bc237",
+    "default_branch": "main",
+    "observed_stars": 18441,
+    "commit_date": "2026-10-26T21:58:29Z",
+    "changed_files": 5,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/LICENSE"
+      },
+      {
+        "path": "package.json",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/package.json"
+      },
+      {
+        "path": "src/client/theme-default/components/VPLocalSearchBox.vue",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/src/client/theme-default/components/VPLocalSearchBox.vue"
+      },
+      {
+        "path": "src/client/theme-default/styles/vars.css",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/src/client/theme-default/styles/vars.css"
+      },
+      {
+        "path": "__tests__/e2e/local-search/local-search.test.ts",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/__tests__/e2e/local-search/local-search.test.ts"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/CHANGELOG.md"
+      },
+      {
+        "path": "docs/en/reference/default-theme-search.md",
+        "url": "https://raw.githubusercontent.com/vuejs/vitepress/415a6a39507af37e282c02eb57ca50594f1bc237/docs/en/reference/default-theme-search.md"
+      }
+    ]
+  },
+  {
+    "repo": "withastro/starlight",
+    "sha": "982a22f2c83b1926f0db7eaa9d557fb488957acb",
+    "default_branch": "main",
+    "observed_stars": 9475,
+    "commit_date": "2026-10-26T21:48:55Z",
+    "changed_files": 1,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/LICENSE"
+      },
+      {
+        "path": "packages/starlight/package.json",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/packages/starlight/package.json"
+      },
+      {
+        "path": "packages/starlight/src/components/Sidebar.astro",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/packages/starlight/src/components/Sidebar.astro"
+      },
+      {
+        "path": "packages/starlight/src/props.ts",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/packages/starlight/src/props.ts"
+      },
+      {
+        "path": "docs/__a11y__/docs.test.ts",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/docs/__a11y__/docs.test.ts"
+      },
+      {
+        "path": "packages/starlight/CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/packages/starlight/CHANGELOG.md"
+      },
+      {
+        "path": "packages/starlight/README.md",
+        "url": "https://raw.githubusercontent.com/withastro/starlight/982a22f2c83b1926f0db7eaa9d557fb488957acb/packages/starlight/README.md"
+      }
+    ]
+  },
+  {
+    "repo": "DavidAnson/markdownlint",
+    "sha": "5dd44fe44481cfbc8c6fee955719773fa17dc5d5",
+    "default_branch": "main",
+    "observed_stars": 6399,
+    "commit_date": "2026-10-20T02:28:05Z",
+    "changed_files": 1,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/LICENSE"
+      },
+      {
+        "path": "package.json",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/package.json"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/CHANGELOG.md"
+      },
+      {
+        "path": "test/rules/npm/sample-rule.js",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/test/rules/npm/sample-rule.js"
+      },
+      {
+        "path": "lib/configuration-strict.d.ts",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/lib/configuration-strict.d.ts"
+      },
+      {
+        "path": "lib/configuration.d.ts",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/lib/configuration.d.ts"
+      },
+      {
+        "path": "lib/md045.mjs",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/lib/md045.mjs"
+      },
+      {
+        "path": "lib/md051.mjs",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/lib/md051.mjs"
+      },
+      {
+        "path": "doc/md051.md",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/doc/md051.md"
+      },
+      {
+        "path": "lib/markdownlint.mjs",
+        "url": "https://raw.githubusercontent.com/DavidAnson/markdownlint/5dd44fe44481cfbc8c6fee955719773fa17dc5d5/lib/markdownlint.mjs"
+      }
+    ]
+  },
+  {
+    "repo": "Redocly/redoc",
+    "sha": "1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8",
+    "default_branch": "main",
+    "observed_stars": 25979,
+    "commit_date": "2026-10-21T12:32:25Z",
+    "changed_files": 1,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/LICENSE"
+      },
+      {
+        "path": "package.json",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/package.json"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/CHANGELOG.md"
+      },
+      {
+        "path": "demo/src/specs.ts",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/demo/src/specs.ts"
+      },
+      {
+        "path": "e2e/playwright/ce/docker/smoke.spec.ts",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/e2e/playwright/ce/docker/smoke.spec.ts"
+      },
+      {
+        "path": "src/adapters/asyncapi/build/context.ts",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/src/adapters/asyncapi/build/context.ts"
+      },
+      {
+        "path": "src/adapters/asyncapi/build/navigation.ts",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/src/adapters/asyncapi/build/navigation.ts"
+      },
+      {
+        "path": "src/components/Security/SecuritySection.tsx",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/src/components/Security/SecuritySection.tsx"
+      },
+      {
+        "path": "src/components/Security/__tests__/SecurityFlowDetail.test.tsx",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/src/components/Security/__tests__/SecurityFlowDetail.test.tsx"
+      },
+      {
+        "path": "e2e/playwright/tests/deep-links-openapi.spec.ts",
+        "url": "https://raw.githubusercontent.com/Redocly/redoc/1bc09cd8c6edf414311da8ae4bb8d8ea29dc05f8/e2e/playwright/tests/deep-links-openapi.spec.ts"
+      }
+    ]
+  },
+  {
+    "repo": "vale-cli/vale",
+    "sha": "8b9bfb97700a707140fff9f444048439df5bc9b1",
+    "default_branch": "v3",
+    "observed_stars": 6290,
+    "commit_date": "2026-10-24T15:57:41Z",
+    "changed_files": 3,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/LICENSE"
+      },
+      {
+        "path": "go.mod",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/go.mod"
+      },
+      {
+        "path": "cmd/vale/apply_test.go",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/cmd/vale/apply_test.go"
+      },
+      {
+        "path": "cmd/vale/error_test.go",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/cmd/vale/error_test.go"
+      },
+      {
+        "path": "internal/lint/mdx.go",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/internal/lint/mdx.go"
+      },
+      {
+        "path": "internal/lint/mdx_test.go",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/internal/lint/mdx_test.go"
+      },
+      {
+        "path": "internal/check/anchor.go",
+        "url": "https://raw.githubusercontent.com/errata-ai/vale/8b9bfb97700a707140fff9f444048439df5bc9b1/internal/check/anchor.go"
+      }
+    ]
+  },
+  {
+    "repo": "lycheeverse/lychee",
+    "sha": "d9d97b51e395bd72c6498e0c6c4943dcae7b410a",
+    "default_branch": "master",
+    "observed_stars": 4051,
+    "commit_date": "2026-10-26T12:49:59Z",
+    "changed_files": 3,
+    "observed_license_metadata": "Apache-2.0",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/README.md"
+      },
+      {
+        "path": "Cargo.toml",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/Cargo.toml"
+      },
+      {
+        "path": "lychee-bin/tests/cli.rs",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/lychee-bin/tests/cli.rs"
+      },
+      {
+        "path": "lychee-bin/tests/data_uris.rs",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/lychee-bin/tests/data_uris.rs"
+      },
+      {
+        "path": "LICENSE-APACHE",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/LICENSE-APACHE"
+      },
+      {
+        "path": "LICENSE-MIT",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/LICENSE-MIT"
+      },
+      {
+        "path": "lychee-lib/src/extract/fragments.rs",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/lychee-lib/src/extract/fragments.rs"
+      },
+      {
+        "path": "lychee-bin/tests/github_fragments.rs",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/lychee-bin/tests/github_fragments.rs"
+      },
+      {
+        "path": "fixtures/mdx/test.mdx",
+        "url": "https://raw.githubusercontent.com/lycheeverse/lychee/d9d97b51e395bd72c6498e0c6c4943dcae7b410a/fixtures/mdx/test.mdx"
+      }
+    ]
+  },
+  {
+    "repo": "mermaid-js/mermaid",
+    "sha": "f61bea59f3e091cd7a7958aa79dfb96a0102e997",
+    "default_branch": "develop",
+    "observed_stars": 90887,
+    "commit_date": "2026-10-26T15:57:27Z",
+    "changed_files": 34,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/LICENSE"
+      },
+      {
+        "path": "package.json",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/package.json"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/CHANGELOG.md"
+      },
+      {
+        "path": ".esbuild/dev-explorer/compare-versions.spec.ts",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/.esbuild/dev-explorer/compare-versions.spec.ts"
+      },
+      {
+        "path": ".esbuild/util.spec.ts",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/.esbuild/util.spec.ts"
+      },
+      {
+        "path": "packages/mermaid/src/accessibility.ts",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/packages/mermaid/src/accessibility.ts"
+      },
+      {
+        "path": "packages/mermaid/src/accessibility.spec.ts",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/packages/mermaid/src/accessibility.spec.ts"
+      },
+      {
+        "path": "docs/config/accessibility.md",
+        "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/f61bea59f3e091cd7a7958aa79dfb96a0102e997/docs/config/accessibility.md"
+      }
+    ]
+  },
+  {
+    "repo": "scalar/scalar",
+    "sha": "862997c4fc8fe96a529c2dd0be15711c40a31ae2",
+    "default_branch": "main",
+    "observed_stars": 16325,
+    "commit_date": "2026-10-27T05:19:14Z",
+    "changed_files": 1,
+    "observed_license_metadata": "MIT",
+    "files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/README.md"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/LICENSE"
+      },
+      {
+        "path": "package.json",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/package.json"
+      },
+      {
+        "path": "CHANGELOG.md",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/CHANGELOG.md"
+      },
+      {
+        "path": ".github/actions/update-contributors/generate-contributors.test.ts",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/.github/actions/update-contributors/generate-contributors.test.ts"
+      },
+      {
+        "path": "examples/nestjs/nestjs-api-reference-express/test/app.e2e-spec.ts",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/examples/nestjs/nestjs-api-reference-express/test/app.e2e-spec.ts"
+      },
+      {
+        "path": "packages/api-reference/package.json",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/packages/api-reference/package.json"
+      },
+      {
+        "path": "packages/api-reference/src/blocks/scalar-info-block/components/InfoDescription.vue",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/packages/api-reference/src/blocks/scalar-info-block/components/InfoDescription.vue"
+      },
+      {
+        "path": "packages/api-reference/src/blocks/scalar-info-block/components/InfoDescription.test.ts",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/packages/api-reference/src/blocks/scalar-info-block/components/InfoDescription.test.ts"
+      },
+      {
+        "path": "packages/api-reference/src/blocks/scalar-sdk-installation-instructions/components/SdkInstallationInstructions.vue",
+        "url": "https://raw.githubusercontent.com/scalar/scalar/862997c4fc8fe96a529c2dd0be15711c40a31ae2/packages/api-reference/src/blocks/scalar-sdk-installation-instructions/components/SdkInstallationInstructions.vue"
+      }
+    ]
+  }
+]

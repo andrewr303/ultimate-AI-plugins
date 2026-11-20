@@ -1,0 +1,122 @@
+{
+  "schema": "seo-geo-god.thresholds/1",
+  "as_of": "2026-11-01",
+  "note": "Numeric limits used by deterministic checks. Each block names its source: a fact ID in references/current-facts.md, or \"heuristic\" when the number is our own opinionated default.",
+  "cwv": {
+    "source": "fact:F-T-13",
+    "note": "[good_max, poor_above] at the 75th percentile per form factor. lcp/inp/cls are Core Web Vitals; fcp_ms and ttfb_ms are web.dev guidance, not Core Web Vitals.",
+    "percentile": 75,
+    "lcp_ms": [2500, 4000],
+    "inp_ms": [200, 500],
+    "cls": [0.1, 0.25],
+    "fcp_ms": [1800, 3000],
+    "ttfb_ms": [800, 1800]
+  },
+  "googlebot_html_bytes": 2097152,
+  "robots_max_bytes": 512000,
+  "heavy_html_bytes": 1048576,
+  "title_hint_chars": 60,
+  "sources": {
+    "googlebot_html_bytes": "fact:F-T-19",
+    "robots_max_bytes": "fact:F-T-18",
+    "heavy_html_bytes": "heuristic (PERF007)",
+    "title_hint_chars": "heuristic (informational only; Google sets no title length limit, see fact:F-T-38)"
+  },
+  "sitemap": {
+    "source": "fact:F-T-27; image_per_url fact:F-T-42",
+    "max_urls": 50000,
+    "max_bytes": 52428800,
+    "image_per_url": 1000,
+    "news_max": 1000
+  },
+  "indexnow": {
+    "source": "fact:F-AI-21",
+    "max_urls": 10000,
+    "key_regex": "^[A-Za-z0-9-]{8,128}$"
+  },
+  "fidelity": {
+    "source": "heuristic",
+    "min_ratio": 0.8,
+    "max_ratio": 1.6,
+    "min_words": 20
+  },
+  "csr": {
+    "source": "heuristic",
+    "note": "REND001/REND002: app-root text characters, page word count and visible text characters below which server HTML counts as a client-rendered shell. REND002 also uses the inline-script ratio and floor; REND003 uses the noscript floor.",
+    "root_text_max": 50,
+    "page_words_max": 200,
+    "visible_text_min": 100,
+    "inline_script_ratio": 5,
+    "inline_script_min_chars": 2000,
+    "noscript_min_chars": 200
+  },
+  "links": {
+    "source": "heuristic (LINK003, LINK005)",
+    "max_click_depth": 3,
+    "generic_anchor_share": 0.25,
+    "generic_anchor_min_links": 10
+  },
+  "images": {
+    "source": "heuristic (PERF002/PERF003 likely-LCP image guess)",
+    "viewport_words": 150,
+    "lcp_candidate_min_px": 200
+  },
+  "metadata": {
+    "source": "heuristic (META012)",
+    "obsolete_year_window": 5
+  },
+  "headings": {
+    "source": "heuristic (HDG003)",
+    "content_min_words": 300
+  },
+  "redirects": {
+    "source": "heuristic (REDIR005)",
+    "home_min_count": 3,
+    "home_share": 0.2
+  },
+  "gsc": {
+    "source": "heuristic",
+    "note": "Analysis defaults for user-provided Search Console exports. They are not Google facts.",
+    "decay_pct": 30,
+    "min_prev_clicks": 10,
+    "ctr_anomaly": {
+      "max_position": 5,
+      "max_ctr": 0.02,
+      "min_impressions": 200
+    },
+    "striking": [5, 20, 100],
+    "movers_min_delta": 2,
+    "aio": {
+      "ctr_change": -0.2,
+      "impressions_change": -0.1
+    },
+    "cannibalization_min_impressions": 100,
+    "default_ctr_curve": {
+      "source": "heuristic default adapted from the notfair-plugin planning methodology (MIT); upstream describes informational-intent medians; pre-AI-Overview-era studies may overstate CTR. Prefer the site-calibrated curve (gsc ctr --calibrate).",
+      "1": 0.275,
+      "2": 0.16,
+      "3": 0.11,
+      "4": 0.08,
+      "5": 0.062,
+      "6": 0.05,
+      "7": 0.04,
+      "8": 0.033,
+      "9": 0.028,
+      "10": 0.024,
+      "11-20": 0.01
+    },
+    "planner": {
+      "source": "heuristic (planner buckets adapted from the notfair-plugin planning methodology, MIT)",
+      "a_striking": {"position": [5, 20], "min_impressions_90d": 100},
+      "b_unanswered": {"min_position": 20, "min_impressions_90d": 50},
+      "c_ctr_underperformer": {"position": [1, 10], "min_impressions_90d": 500, "max_ctr_ratio": 0.5},
+      "e_cannibalization": {"max_position": 20, "min_pages": 2, "min_impressions_each": 20},
+      "target_position": 3
+    }
+  },
+  "pseo": {
+    "source": "heuristic",
+    "near_dup": 0.85,
+    "shingle": 5
+  }
+}

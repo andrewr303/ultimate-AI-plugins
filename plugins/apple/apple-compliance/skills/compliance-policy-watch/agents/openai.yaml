@@ -1,0 +1,6 @@
+interface:
+  display_name: Compliance Policy Watch
+  short_description: Compliance policy watch workflows
+  default_prompt: Use $compliance-policy-watch to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

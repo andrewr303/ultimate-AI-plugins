@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Programmatic"
+  short_description: "Data-generated pages without spam"
+  default_prompt: "Use $seo-programmatic to check whether this generated page set gives real per-page value, fix templates and index rules in code, and verify with the bundled programmatic audit."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,35 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');const path=require('node:path');const {JSDOM}=require('jsdom');
+test('dashboard DOM interactions preserve real data, escape notes, validate accounts, and persist session edits',async()=>{
+  const dom=new JSDOM(fs.readFileSync(path.join(__dirname,'../extension/dashboard.html'),'utf8'),{url:'https://extension.test/dashboard.html'});
+  const w=dom.window,doc=w.document;let saved,writes=0;const routed=[];
+  global.document=doc;global.FormData=w.FormData;
+  Object.defineProperty(global,'navigator',{value:{clipboard:{writeText:async()=>{}}},configurable:true});
+  w.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};
+  w.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');};
+  global.chrome={runtime:{id:'a'.repeat(32),sendMessage:async msg=>{routed.push(msg);return {ok:true,result:{ok:true}};}},storage:{local:{get:async()=>({state:saved}),set:async obj=>{saved=structuredClone(obj.state);writes++;}},session:{get:async()=>({}),remove:async()=>{}},onChanged:{addListener:()=>{}}}};
+  const tick=()=>new Promise(r=>setImmediate(r));
+  async function until(fn){for(let i=0;i<50;i++){if(fn())return;await tick();}throw Error('Expected DOM state was not reached.');}
+  const click=(action,id)=>{const el=doc.querySelector(`[data-action="${action}"]${id?`[data-id="${id}"]`:''}`);assert.ok(el,`Missing action ${action}`);el.click();};
+  const submit=()=>{const form=doc.querySelector('#editor');form.dispatchEvent(new w.SubmitEvent('submit',{bubbles:true,cancelable:true,submitter:form.querySelector('[type=submit]')}));};
+  await import('../extension/app.js');
+  assert.match(doc.querySelector('main').textContent,/One place. Every account./);
+  click('demo');await until(()=>doc.querySelector('.demo-bar'));
+  assert.match(doc.querySelector('.session-detail h2').textContent,/AI assistant/);
+  click('edit-session','s0');await until(()=>doc.querySelector('#session-title'));
+  doc.querySelector('#session-title').value='Updated sample';doc.querySelector('#session-notes').value='<img src=x onerror=alert(1)> & next steps';submit();
+  await until(()=>!doc.querySelector('dialog').open);assert.equal(doc.querySelector('.notes').textContent,'<img src=x onerror=alert(1)> & next steps');assert.equal(doc.querySelector('.notes img'),null);assert.equal(writes,0);
+  let search=doc.querySelector('#search');search.value='unmatchable-query';search.dispatchEvent(new w.Event('input',{bubbles:true}));assert.match(doc.querySelector('main').textContent,/No matches/);assert.equal(doc.activeElement.id,'search');
+  click('exit-demo');await until(()=>!doc.querySelector('.demo-bar'));assert.match(doc.querySelector('main').textContent,/One place. Every account./);assert.equal(writes,0);
+  click('new-account');await until(()=>doc.querySelector('#account-name'));doc.querySelector('#account-name').value='Personal';doc.querySelector('#account-mode').value='current';submit();await until(()=>writes===1);await until(()=>!doc.querySelector('dialog').open);
+  assert.equal(saved.accounts[0].mode,'current');
+  click('new-account');await until(()=>doc.querySelector('#account-name'));doc.querySelector('#account-name').value='Another';doc.querySelector('#account-mode').value='current';submit();await until(()=>doc.querySelector('#form-error').textContent);assert.match(doc.querySelector('#form-error').textContent,/already has an account/);assert.equal(writes,1);click('close-modal');await tick();
+  click('new-account');await until(()=>doc.querySelector('#account-name'));doc.querySelector('#account-name').value='Client';doc.querySelector('#account-mode').value='isolated';submit();await until(()=>writes===2);await until(()=>!doc.querySelector('dialog').open);assert.notEqual(saved.accounts[0].profileId,saved.accounts[1].profileId);
+  click('new-session');await until(()=>doc.querySelector('#session-title'));doc.querySelector('#session-title').value='Real project';doc.querySelector('#session-url').value='https://evil.test/code/s1';submit();await until(()=>doc.querySelector('#form-error').textContent);assert.equal(saved.sessions.length,0);
+  doc.querySelector('#session-url').value='https://claude.ai/code/session_123?tracking=discard';doc.querySelector('#session-notes').value='Review the layout';submit();await until(()=>saved.sessions.length===1);await until(()=>!doc.querySelector('dialog').open);
+  assert.equal(saved.sessions[0].url,'https://claude.ai/code/session_123');assert.equal(doc.querySelector('.notes').textContent,'Review the layout');
+  const id=saved.sessions[0].id;click('open-session',id);await until(()=>routed.some(m=>m.type==='open-session'));assert.deepEqual(routed.find(m=>m.type==='open-session'),{type:'open-session',accountId:saved.accounts[0].id,sessionId:id});await until(()=>writes===4);
+  click('archive-session',id);await until(()=>saved.sessions[0].archived);await until(()=>doc.querySelector('#show-archived'));const archive=doc.querySelector('#show-archived');archive.checked=true;archive.dispatchEvent(new w.Event('change',{bubbles:true}));assert.equal(doc.querySelector('.session-detail h2').textContent,'Real project');
+  w.dispatchEvent(new w.Event('pagehide'));dom.window.close();
+});

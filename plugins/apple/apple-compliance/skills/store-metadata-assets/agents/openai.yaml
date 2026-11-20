@@ -1,0 +1,6 @@
+interface:
+  display_name: Store Metadata Assets
+  short_description: Store metadata assets workflows
+  default_prompt: Use $store-metadata-assets to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

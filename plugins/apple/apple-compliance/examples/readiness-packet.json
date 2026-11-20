@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "bundle_id": "com.example.replace-with-real-app",
+    "platform": "ios",
+    "channel": "app_store",
+    "storefronts": [
+      "US"
+    ],
+    "requested_stage": "prepare"
+  },
+  "checks": [
+    {
+      "id": "policy_scope",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "artifact_identity",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "signing",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "privacy_data_map",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "data_declarations",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "product_flows",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "metadata_assets",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "review_access",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "account_lifecycle",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "commerce",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "content_age_rights",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "export_compliance",
+      "status": "unknown",
+      "evidence": []
+    },
+    {
+      "id": "backend_access",
+      "status": "unknown",
+      "evidence": []
+    }
+  ]
+}

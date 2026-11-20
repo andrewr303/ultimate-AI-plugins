@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:storyboard",
+  "title": "Storyboard",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "productRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "campaignId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 120
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "safeZone": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "startFrame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "durationFrames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "assetIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9._-]*$",
+              "maxLength": 100
+            },
+            "minItems": 1
+          },
+          "mode": {
+            "enum": [
+              "actual",
+              "replay",
+              "illustrative"
+            ]
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9._-]*$",
+              "maxLength": 100
+            },
+            "minItems": 0
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "caption": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narration": {
+            "type": "string",
+            "minLength": 1
+          },
+          "camera": {
+            "type": "object",
+            "properties": {
+              "zoom": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 4
+              },
+              "focusX": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "focusY": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "zoom",
+              "focusX",
+              "focusY"
+            ],
+            "additionalProperties": false
+          },
+          "readingHoldFrames": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "captionBounds": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height"
+            ],
+            "additionalProperties": false
+          },
+          "cursor": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0
+              },
+              "targetX": {
+                "type": "number",
+                "minimum": 0
+              },
+              "targetY": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "targetX",
+              "targetY"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "startFrame",
+          "durationFrames",
+          "purpose",
+          "assetIds",
+          "mode",
+          "claims",
+          "action",
+          "caption",
+          "readingHoldFrames"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "narrationPath": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+    },
+    "captionsPath": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+    },
+    "soundtrackPath": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "productRevision",
+    "campaignId",
+    "fps",
+    "width",
+    "height",
+    "safeZone",
+    "shots"
+  ],
+  "additionalProperties": false
+}

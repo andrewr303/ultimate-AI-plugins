@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "deepsec-agent",
+  "version": "1.0.0",
+  "description": "Local source security review, evidence, baselines, and remediation planning for coding agents.",
+  "keywords": ["security", "code-review", "local", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "DeepSec Agent",
+        "shortDescription": "Local security code review",
+        "capabilities": []
+      }
+    }
+  }
+}

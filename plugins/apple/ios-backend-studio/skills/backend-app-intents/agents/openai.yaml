@@ -1,0 +1,6 @@
+interface:
+  display_name: App Intents and Siri domain adapters
+  short_description: App Intents and Siri domain adapters
+  default_prompt: Use $backend-app-intents for this backend integration task, preserving the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

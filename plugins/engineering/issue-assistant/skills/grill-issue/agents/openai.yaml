@@ -1,0 +1,7 @@
+interface:
+  display_name: Grill an Issue
+  short_description: Resolve one decision at a time
+  default_prompt: Help me resolve the next decision on this issue, one question at
+    a time.
+policy:
+  allow_implicit_invocation: true

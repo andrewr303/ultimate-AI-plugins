@@ -1,0 +1,26 @@
+Session Control for Chrome 0.5.0
+Environment: Linux, Node.js v24.19.0
+
+Command: npm test
+Result: 11 tests passed; 0 failed; 0 skipped.
+
+Passed:
+- Dashboard DOM interactions preserve real data, escape notes, validate accounts, and persist session edits.
+- Only HTTPS Claude Code paths are accepted and tracking data is stripped.
+- A valid workspace roundtrips without turning notes into markup.
+- Backups reject duplicate profiles and dangling account/workspace references.
+- Starter status normalizer preserves unknown and never infers completion from silence.
+- Each profile is confined to a dedicated directory and launch arguments are not shell commands.
+- Invalid URLs fail before creating profiles or starting a process.
+- Valid account opens once through an injected macOS launcher, without launching a real browser.
+- Native framing supports split headers, multiple messages, and rejects malformed frames.
+- Mac installer binds one extension origin and preserves existing profile data.
+- Toolbar opens/reuses the dashboard; session routing stays account-bound.
+
+Command: npm run check
+Result: JavaScript syntax, shell syntax, manifest assets, and local-only styles checked.
+
+This file summarizes actual command results; it is not a browser acceptance report.
+Dashboard tests use jsdom. Worker tests mock Chrome APIs. Native launch tests
+intercept process execution. Real Chrome loading, screenshots, Mac launches, and
+Claude logins were not exercised. See VALIDATION.md for the manual acceptance steps.

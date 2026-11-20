@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-launch",
+  "productRevision": "tandem-fixture-v1",
+  "brandPath": "brand.json",
+  "evidencePath": "product-evidence.json",
+  "audience": "Support leads at small teams",
+  "awareness": "problem-aware",
+  "problem": "A busy inbox hides the next useful action.",
+  "promise": "Turn a sample request into a clear editable next step.",
+  "productAction": "Group a request and prepare a draft",
+  "benefit": "Review the next step in one place",
+  "cta": "Try the sample workflow",
+  "placements": [
+    "vertical-short",
+    "landscape"
+  ],
+  "approach": "workflow-proof",
+  "claims": [
+    "triage-draft"
+  ],
+  "assumptions": [
+    "Demonstration is synthetic; no performance claim."
+  ],
+  "mode": "autonomous"
+}

@@ -1,0 +1,37 @@
+{
+  "organization": {
+    "name": "[REPLACE: public brand name exactly as used on the site]",
+    "legal_name": "[REPLACE: registered legal name, confirmed by the owner, or null]",
+    "url": "[REPLACE: https://example.com/]",
+    "logo": "[REPLACE: absolute URL of a crawlable logo image]",
+    "same_as": [],
+    "founding_date": "[REPLACE: YYYY or YYYY-MM-DD from a verifiable record, or null]",
+    "contact_points": [
+      {
+        "contact_type": "[REPLACE: for example customer support]",
+        "url": "[REPLACE: absolute URL of the published contact page]",
+        "email": "[REPLACE: only an address already published on the site, or null]",
+        "telephone": "[REPLACE: only a number already published on the site, or null]"
+      }
+    ],
+    "address": {
+      "street_address": "[REPLACE: or null when there is no public address]",
+      "locality": "[REPLACE: city]",
+      "region": "[REPLACE: state or region, or null]",
+      "postal_code": "[REPLACE: postal code, or null]",
+      "country": "[REPLACE: ISO 3166-1 alpha-2 code]"
+    }
+  },
+  "people": [
+    {
+      "name": "[REPLACE: full name as published on the author or team page]",
+      "url": "[REPLACE: absolute URL of that person's page on the site]",
+      "job_title": "[REPLACE: title confirmed by the person or the owner]",
+      "same_as": []
+    }
+  ],
+  "definition_sentence": "[REPLACE: one factual sentence such as 'Example Co is an invoicing service for small teams.' reused unchanged on the home page, About page, README and listings]",
+  "wikidata_qid": "[REPLACE: Q-number of an existing item that is verified to describe this organization, or null]",
+  "verified_by": "[REPLACE: role of the person who confirmed every value above]",
+  "verified_on": "[REPLACE: YYYY-MM-DD]"
+}

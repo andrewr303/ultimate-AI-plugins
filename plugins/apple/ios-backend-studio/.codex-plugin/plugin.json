@@ -1,0 +1,37 @@
+{
+  "name": "ios-backend-studio",
+  "version": "1.0.0",
+  "description": "Integrate native iOS and Node.js backends with shared cross-platform contracts, Apple system surfaces, and reproducible Xcode/Mac workflows.",
+  "author": {
+    "email": "andrewrodriguez0@gmail.com",
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "ios",
+    "nodejs",
+    "typescript",
+    "backend",
+    "openapi",
+    "widgets",
+    "siri",
+    "xcode",
+    "cross-platform"
+  ],
+  "license": "MIT",
+  "interface": {
+    "displayName": "iOS Backend Studio",
+    "shortDescription": "Connect iOS and Node.js",
+    "longDescription": "Build and operate provider-neutral Node.js backends that work with native iOS and other clients. Focused workflows and substantial source-backed references cover shared API contracts, auth, data/offline sync, APNs, widgets, Siri/App Intents, Live Activities, background work, reliability, Xcode and Mac tooling. Preserve existing stacks and verify real runtime capabilities. Includes native Codex, Claude Code and current Kimi packaging.",
+    "developerName": "Andrew Rodriguez",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Inspect this iOS and Node.js project, then implement the smallest reliable integration with shared contracts and tests.",
+      "Connect this backend to widgets, Siri/App Intents, APNs, or Live Activities using the actual SDK and account boundaries.",
+      "Improve this cross-platform release workflow with reproducible Xcode, Node.js, and Mac tooling checks."
+    ],
+    "logo": "assets/icon.svg",
+    "composerIcon": "assets/icon.svg"
+  },
+  "skills": "./skills"
+}

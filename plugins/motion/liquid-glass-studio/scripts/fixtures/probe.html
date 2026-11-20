@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Glass Probe Fixture</title>
+<!--
+  Render-level capability probe for scripts/glass_probe.mjs.
+  Serve the plugin root over http and open /scripts/fixtures/probe.html.
+  No network requests: the backdrop is a CSS gradient and the displacement
+  map is a constant feFlood, so every engine sees identical input.
+
+  Panes (each sits over its own copy of the same backdrop):
+    #pane-refract  backdrop-filter: url(#probeFilter). The filter displaces by
+                   a constant (scale 16, red channel 1.0 => 8 CSS px). If it
+                   renders, the pane equals the control shifted by 8 px.
+    #pane-blur     backdrop-filter: blur(12px), with the -webkit- prefix.
+                   If it renders, edges inside the pane go soft.
+    #pane-control  no filter: the reference image.
+    #engine-card   one real createGlass card from the Glass Lab engine; its
+                   data-glass-tier shows the tier the engine picked by sniffing.
+
+  The backdrop is an aperiodic barcode (bar widths 3 to 15 px from a fixed
+  seed), so a horizontal shift has exactly one best match.
+-->
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font: 13px/1.4 system-ui, sans-serif;
+    color: #111;
+    background: #fff;
+    padding: 16px;
+  }
+  .grid { display: grid; grid-template-columns: repeat(2, 288px); gap: 16px 24px; }
+  figure { margin: 0; }
+  figcaption { height: 20px; margin-top: 4px; line-height: 20px; white-space: nowrap; overflow: hidden; }
+  .cell {
+    position: relative;
+    width: 288px;
+    height: 176px;
+    background: linear-gradient(90deg, #000 0px 14px, #fff 14px 28px, #000 28px 42px, #fff 42px 48px, #000 48px 53px, #fff 53px 66px, #000 66px 79px, #fff 79px 91px, #000 91px 103px, #fff 103px 112px, #000 112px 115px, #fff 115px 123px, #000 123px 136px, #fff 136px 144px, #000 144px 149px, #fff 149px 164px, #000 164px 177px, #fff 177px 184px, #000 184px 189px, #fff 189px 192px, #000 192px 195px, #fff 195px 205px, #000 205px 209px, #fff 209px 224px, #000 224px 230px, #fff 230px 238px, #000 238px 242px, #fff 242px 249px, #000 249px 260px, #fff 260px 264px, #000 264px 277px, #fff 277px 283px, #000 283px 288px);
+  }
+  .pane {
+    position: absolute;
+    inset: 24px;
+    background: transparent;
+    border: 0;
+  }
+  #pane-refract {
+    backdrop-filter: url(#probeFilter);
+    -webkit-backdrop-filter: url(#probeFilter);
+  }
+  #pane-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  #engine-card {
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    font-weight: 600;
+    color: #111;
+  }
+  #engine-card[data-glass-tier="refract"],
+  #engine-card[data-glass-tier="frost"] { background: rgb(255 255 255 / 0.18); }
+  #engine-card[data-glass-tier="solid"] { background: #eef0f5; }
+  .probe-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+</style>
+</head>
+<body>
+<svg class="probe-defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <filter id="probeFilter" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feFlood flood-color="rgb(255, 128, 128)" result="map"/>
+    <feDisplacementMap in="SourceGraphic" in2="map" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+<main class="grid">
+  <figure>
+    <div class="cell"><div class="pane" id="pane-refract"></div></div>
+    <figcaption>a. url(#probeFilter), 8 px shift</figcaption>
+  </figure>
+  <figure>
+    <div class="cell"><div class="pane" id="pane-blur"></div></div>
+    <figcaption>b. backdrop-filter: blur(12px)</figcaption>
+  </figure>
+  <figure>
+    <div class="cell"><div class="pane" id="pane-control"></div></div>
+    <figcaption>c. control, no filter</figcaption>
+  </figure>
+  <figure>
+    <div class="cell"><div class="pane" id="engine-card">createGlass</div></div>
+    <figcaption id="engine-caption">d. engine card (loading)</figcaption>
+  </figure>
+</main>
+<script>
+  // Parse-level answers, recorded so the report can set them beside the
+  // render-level result. These are what most glass code relies on.
+  (function () {
+    const sup = (p, v) => {
+      try { return Boolean(window.CSS && CSS.supports(p, v)); } catch (e) { return false; }
+    };
+    window.__probe = {
+      done: false,
+      parse: {
+        backdropBlur: sup('backdrop-filter', 'blur(1px)'),
+        webkitBackdropBlur: sup('-webkit-backdrop-filter', 'blur(1px)'),
+        backdropUrl: sup('backdrop-filter', 'url(#probeFilter)'),
+        webkitBackdropUrl: sup('-webkit-backdrop-filter', 'url(#probeFilter)'),
+      },
+      userAgent: navigator.userAgent,
+      engineCard: null,
+    };
+  })();
+</script>
+<script type="module">
+  const probe = window.__probe;
+  const caption = document.getElementById('engine-caption');
+  const finish = (card) => {
+    if (probe.done) return;
+    probe.engineCard = card;
+    probe.done = true;
+    caption.textContent = card.error
+      ? `d. engine card: ${card.error}`
+      : `d. engine card: tier ${card.tier}`;
+  };
+  setTimeout(() => finish({ error: 'engine card did not render within 5 s' }), 5000);
+  try {
+    const engine = await import('../../examples/glass-lab/liquid-glass.js');
+    const caps = engine.capabilities(window);
+    const el = document.getElementById('engine-card');
+    engine.createGlass(el, {
+      warn: false,
+      onRender(info) {
+        finish({ tier: info.tier, reason: info.reason, engine: caps.engine, supportsBackdrop: caps.supportsBackdrop });
+      },
+    });
+  } catch (error) {
+    finish({ error: `engine import failed: ${error && error.message ? error.message : String(error)}` });
+  }
+</script>
+</body>
+</html>

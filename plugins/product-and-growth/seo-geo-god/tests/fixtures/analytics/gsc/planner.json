@@ -1,0 +1,11 @@
+{
+  "rows": [
+    {"keys": ["how to send an invoice", "https://example.com/guides/send-invoice/"], "clicks": 20, "impressions": 1000, "position": 8.0},
+    {"keys": ["send invoice email", "https://example.com/guides/send-invoice/"], "clicks": 0, "impressions": 30, "position": 25.0},
+    {"keys": ["invoice template", "https://example.com/templates/"], "clicks": 100, "impressions": 5000, "position": 3.0},
+    {"keys": ["invoice for photographers", "https://example.com/blog/photo/"], "clicks": 0, "impressions": 80, "position": 35.0},
+    {"keys": ["invoice generator", "https://example.com/gen/"], "clicks": 10, "impressions": 500, "position": 6.0},
+    {"keys": ["invoice generator", "https://example.com/tools/gen/"], "clicks": 2, "impressions": 300, "position": 12.0},
+    {"keys": ["brand name", "https://example.com/"], "clicks": 40, "impressions": 50, "position": 1.0}
+  ]
+}

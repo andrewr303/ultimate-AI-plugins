@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-recorded-workflow",
+  "renderer": "footage",
+  "productRevision": "tandem-4f236886e8ed1dea",
+  "visualMode": "recorded",
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "duration": 11,
+  "hook": "From request to ready for review.",
+  "promise": "Actual local workflow with synthetic data.",
+  "cta": "Try the sample workflow",
+  "body": "context",
+  "brand": {
+    "name": "Tandem",
+    "background": "#f4f1e9",
+    "ink": "#18251f",
+    "accent": "#d95830"
+  },
+  "claimIds": [
+    "triage-context",
+    "human-review"
+  ],
+  "evidence": "product-evidence.json",
+  "captions": [
+    {
+      "start": 0.5,
+      "end": 2.4,
+      "text": "Start with a real sample request."
+    },
+    {
+      "start": 3.2,
+      "end": 5.5,
+      "text": "Review the category, priority, owner, and draft."
+    },
+    {
+      "start": 6.5,
+      "end": 10.7,
+      "text": "Mark ready for review. Nothing is sent."
+    }
+  ],
+  "audio": [],
+  "placement": "landscape",
+  "source": {
+    "path": "capture/tandem-workflow.webm",
+    "start": 0,
+    "audioPolicy": "mute",
+    "crop": [
+      418,
+      290,
+      852,
+      710
+    ]
+  },
+  "sourceHashes": {
+    "fixture/styles.css": "d1f548cfd4e805e53a7c75b4b2211bb79a972a13f4476bbac8290a3e53242a73",
+    "fixture/app.html": "9fb9422305acedaf97a5bb4379dfd93f49f96e5d41aa0f57603569a79fbdb7cd",
+    "fixture/product.js": "4fad7f0605f0d79becb0994b58c0b3ff1bbe5c7bfd6bad0aa4cd4d1737e0bf90",
+    "capture/tandem-workflow.webm": "4cc83b73770181f49e223d394ba3451c2bd9d9a4705cf2926b90238b215f7b8a",
+    "capture/capture-manifest.json": "2d17b0fa8d5897373a8ce808d976ee19f9e5058166569589fdb5a31c13c97ce4",
+    "asset-manifest.json": "32127b6813b04bc70d4820394486ac8dbcadae25a91dfde733be0105a0311190"
+  }
+}

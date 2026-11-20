@@ -1,0 +1,13 @@
+{
+  "root": "./vulnerable-app",
+  "engines": ["deepsec"],
+  "allowNetwork": false,
+  "maxFiles": 2000,
+  "maxFileBytes": 262144,
+  "maxTotalBytes": 33554432,
+  "maxFindings": 1000,
+  "timeoutMs": 30000,
+  "outputDir": "./reports",
+  "formats": ["json", "markdown", "sarif"],
+  "failOn": "medium"
+}

@@ -1,0 +1,150 @@
+<style>
+.k-app{height:100vh;min-height:0}
+main{display:flex;flex-direction:column;min-width:0;min-height:0;height:100vh}
+.head{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-5) var(--space-6);border-bottom:1px solid var(--border);background:var(--surface);flex-wrap:wrap}
+.head h1{margin:0;font-size:var(--text-xl);letter-spacing:-.01em}
+.strip{display:flex;gap:var(--space-5);flex:1;flex-wrap:wrap;padding-left:var(--space-5);border-left:1px solid var(--border)}
+.strip div{display:flex;flex-direction:column;gap:2px;font-size:var(--text-xs);color:var(--text-2)}
+.strip b{font:600 var(--text-md)/1.2 var(--font-mono);color:var(--text);font-variant-numeric:tabular-nums}
+.strip .o b{color:var(--overdue)}
+.split{flex:1;display:grid;grid-template-columns:420px minmax(0,1fr);min-height:0}
+.listpane{border-right:1px solid var(--border);display:flex;flex-direction:column;min-height:0;background:var(--surface)}
+.tools{padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);border-bottom:1px solid var(--border)}
+.tabs{display:flex;gap:2px;background:var(--surface-2);padding:3px;border-radius:var(--radius-sm);overflow-x:auto}
+.tab{border:0;background:transparent;padding:6px 9px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer;white-space:nowrap;flex:1}
+.tab[aria-pressed=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tab .n{margin-left:4px}
+.row2{display:flex;gap:8px;align-items:center;font-size:var(--text-sm);color:var(--text-2)}
+.row2 select{font:inherit;color:var(--text);padding:6px 8px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface);min-height:32px}
+.row2 select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row2 .sp{flex:1}
+.row2 label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+ul.items{list-style:none;margin:0;padding:0;overflow:auto;flex:1}
+ul.items li{display:grid;grid-template-columns:40px minmax(0,1fr);border-bottom:1px solid var(--border);position:relative}
+ul.items li .ck{display:flex;align-items:center;justify-content:center}
+ul.items li.cur{background:var(--accent-soft)}
+ul.items li.cur::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+ul.items li.ticked{background:#f3f8f6}
+.item{all:unset;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;padding:12px 16px 12px 0}
+.item:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.item .c{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .a{font:600 var(--text-md)/1.4 var(--font-mono);text-align:right;font-variant-numeric:tabular-nums}
+.item .m{font-size:var(--text-sm);color:var(--text-2)} .item .m code{font-family:var(--font-mono)}
+.item .t{font-size:var(--text-sm);text-align:right}
+.t.overdue{color:var(--overdue);font-weight:600}.t.due{color:var(--due);font-weight:500}
+.detail{overflow:auto;min-height:0;padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-6)}
+.dhead{display:flex;flex-direction:column;gap:8px}
+.dhead .meta{display:flex;gap:10px;align-items:center;color:var(--text-2);font-size:var(--text-sm)} .dhead code{font-family:var(--font-mono)}
+.dhead h2{margin:0;font-size:28px;letter-spacing:-.02em}
+.big{font:600 44px/1 var(--font-mono);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tl{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-5) var(--space-6)}
+.tl ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.tl ol::before{content:"";position:absolute;left:8px;right:calc(33.3% - 8px);top:7px;height:2px;background:var(--border-strong)}
+.tl ol.late::after{content:"";position:absolute;left:calc(33.3% + 8px);right:calc(33.3% - 8px);top:7px;height:2px;background:var(--overdue)}
+.tl ol.late::before{right:calc(66.6% - 8px)}
+.tl li{display:flex;flex-direction:column;gap:2px;font-size:var(--text-sm);color:var(--text-2);position:relative;padding-top:22px}
+.tl li::before{content:"";position:absolute;top:0;left:0;width:16px;height:16px;border-radius:50%;background:var(--surface);border:2px solid var(--border-strong);box-sizing:border-box;z-index:1}
+.tl li.hit::before{border-color:var(--accent);background:var(--accent)}
+.tl li.bad::before{border-color:var(--overdue);background:var(--overdue)}
+.tl li b{color:var(--text);font-size:var(--text-md)}
+.tl .say{margin:var(--space-4) 0 0;font-weight:600}
+.tl .say.overdue{color:var(--overdue)} .tl .say.due{color:var(--due)}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4) var(--space-6);margin:0}
+.facts dt{font-size:var(--text-xs);color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.facts dd{margin:4px 0 0;font-weight:500}
+.also h3,.batch h3{margin:0 0 8px;font-size:var(--text-sm);color:var(--text-2);font-weight:600}
+.also ul,.batch ul{list-style:none;margin:0;padding:0;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+.also li,.batch li{display:flex;gap:12px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--border);font-size:var(--text-sm)}
+.also li:last-child,.batch li:last-child{border-bottom:0}
+.also li code,.batch li code{font-family:var(--font-mono)} .also .sp,.batch .sp{flex:1}
+.also .amt,.batch .amt{font-family:var(--font-mono)}
+.linkb{all:unset;cursor:pointer;color:var(--accent);font-weight:600} .linkb:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.back{display:none}
+.nothing{margin:auto;text-align:center;color:var(--text-2);display:flex;flex-direction:column;gap:8px;align-items:center}
+.inform{max-width:520px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg)}
+@media (max-width:1100px){.split{grid-template-columns:340px minmax(0,1fr)}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.k-app{height:auto}main{height:auto;min-height:100vh}.head{padding:var(--space-4)}.strip{border-left:0;padding-left:0;flex-basis:100%;order:3;gap:var(--space-4)}
+ .split{grid-template-columns:minmax(0,1fr)}.listpane{border-right:0}.split.showdetail .listpane{display:none}.split:not(.showdetail) .detail{display:none}.detail{padding:var(--space-4)}.back{display:inline-flex;align-self:flex-start}.big{font-size:34px}.tl{padding:var(--space-4)}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="head"><h1>Invoices</h1><div class="strip" id="strip" aria-label="Summary" role="group"></div><button class="k-btn" id="export" type="button"></button><button class="k-btn primary" id="new" type="button"></button></div>
+    <div class="split" id="split">
+      <section class="listpane" aria-label="Invoice list">
+        <div class="tools">
+          <div class="tabs" role="group" aria-label="Filter by status" id="tabs"></div>
+          <label class="k-search"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #"></label>
+          <div class="row2"><label><input type="checkbox" class="k-check" id="all">All shown</label><span class="sp"></span><label for="sortk">Sort</label><select id="sortk"></select><button type="button" class="k-btn icon sm" id="sortd"></button></div>
+        </div>
+        <ul class="items" id="items"></ul><div id="empty" hidden></div>
+      </section>
+      <section class="detail" id="detail" aria-live="polite" aria-label="Selected invoice"></section>
+    </div>
+  </main>
+</div>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#export').innerHTML=K.icon('download')+'Export CSV';$('#new').innerHTML=K.icon('plus')+'New invoice';$('#sicon').innerHTML=K.icon('search');
+const SORTS=[['urgency','Most urgent']].concat(K.SORTS);
+$('#sortk').innerHTML=SORTS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
+let st={tab:'all',q:'',sort:{k:'urgency',dir:1}},cur=null,mode='detail',narrowDetail=false;
+const view=()=>S.view(st);
+function timeline(r){const late=r.status==='overdue';
+ return `<div class="tl"><ol class="${late?'late':''}" aria-label="Dates"><li class="hit"><span>Issued</span><b>${f.dateY(r.issued)}</b></li><li class="${late?'bad':r.status==='paid'?'hit':''}"><span>Due</span><b>${f.dateY(r.due)}</b></li><li class="${late?'bad':''}"><span>Today</span><b>${f.dateY(K.TODAY)}</b></li></ol>
+ <p class="say ${r.status}">${r.status==='paid'?'Paid':r.status==='draft'?'Draft, not sent to the client yet':f.timing(r)}</p></div>`}
+function renderDetail(){const d=$('#detail');
+ if(mode==='new'){d.innerHTML='<button type="button" class="k-btn quiet back" data-back>'+K.icon('left')+'Back to list</button><div class="inform" id="inform"></div>';
+  const fm=K.invoiceForm(S,{onDone:r=>{mode='detail';cur=r.no;render()},onCancel:()=>{mode='detail';render();$('#new').focus()}});$('#inform').appendChild(fm);return}
+ const sel=[...S.sel].map(S.find).filter(Boolean);
+ if(sel.length){d.innerHTML=`<button type="button" class="k-btn quiet back" data-back>${K.icon('left')}Back to list</button><div class="batch"><div class="dhead"><span class="meta">Batch</span><h2>${sel.length} invoice${sel.length>1?'s':''} selected</h2><div class="big">${f.money(sel.reduce((a,r)=>a+r.amount,0))}</div></div></div>
+  <div class="acts"><button type="button" class="k-btn primary" id="remind">${K.icon('mail')}Send reminders</button><button type="button" class="k-btn" id="markpaid">${K.icon('check')}Mark paid</button><button type="button" class="k-btn quiet" id="clear">Clear selection</button></div>
+  <div class="batch"><h3>In this batch</h3><ul>${sel.map(r=>`<li><code>${r.no}</code><span>${f.esc(r.client)}</span><span class="sp"></span><span class="k-pill ${r.status}">${f.status(r.status)}</span><span class="amt">${f.money(r.amount)}</span><button type="button" class="k-btn icon sm quiet" data-untick="${r.no}" aria-label="Remove ${r.no} from batch">${K.icon('x')}</button></li>`).join('')}</ul></div>`;return}
+ const r=cur&&S.find(cur);
+ if(!r){d.innerHTML=`<div class="nothing">${S.data.length?'<strong>No invoice selected</strong><span>Pick one from the list.</span>':'<strong>No invoices yet</strong><button type="button" class="k-btn primary" data-k-new>'+K.icon('plus')+'New invoice</button>'}</div>`;return}
+ const others=S.data.filter(x=>x.client===r.client&&x.no!==r.no);const unpaid=r.status==='due'||r.status==='overdue';
+ d.innerHTML=`<button type="button" class="k-btn quiet back" data-back>${K.icon('left')}Back to list</button>
+  <div class="dhead"><span class="meta"><span class="k-pill ${r.status}">${f.status(r.status)}</span><code>${r.no}</code></span><h2>${f.esc(r.client)}</h2><div class="big">${f.money(r.amount)}</div></div>
+  ${timeline(r)}
+  <div class="acts">${unpaid?`<button type="button" class="k-btn primary" data-a="remind" data-focus="d-remind">${K.icon('mail')}Send reminder</button>`:''}<button type="button" class="k-btn${unpaid?'':' primary'}" data-a="paid" data-focus="d-paid">${K.icon('check')}Mark paid</button><button type="button" class="k-btn" data-a="view" data-focus="d-view">${K.icon('eye')}View</button><button type="button" class="k-btn" data-a="dup" data-focus="d-dup">${K.icon('copy')}Duplicate</button><button type="button" class="k-btn danger" data-a="del" data-focus="d-del">${K.icon('trash')}Delete</button></div>
+  <dl class="facts"><div><dt>Client</dt><dd>${f.esc(r.client)}</dd></div><div><dt>Invoice</dt><dd>${r.no}</dd></div><div><dt>Amount</dt><dd>${f.money(r.amount)}</dd></div><div><dt>Issued</dt><dd>${f.dateY(r.issued)}</dd></div><div><dt>Due</dt><dd>${f.dateY(r.due)}</dd></div><div><dt>Status</dt><dd>${f.status(r.status)}</dd></div></dl>
+  ${others.length?`<div class="also"><h3>Also from ${f.esc(r.client)}</h3><ul>${others.map(o=>`<li><code>${o.no}</code><span class="k-pill ${o.status}">${f.status(o.status)}</span><span>${o.status==='overdue'||o.status==='due'?f.timing(o):'due '+f.date(o.due)}</span><span class="sp"></span><span class="amt">${f.money(o.amount)}</span><button type="button" class="linkb" data-open="${o.no}">Open</button></li>`).join('')}</ul></div>`:''}`}
+function render(){K.keepFocus(document.body,()=>{
+  const t=S.totals();
+  $('#strip').innerHTML=`<div><span>Outstanding</span><b>${f.money(t.outstanding)}</b></div><div class="o"><span>Overdue</span><b>${f.money(t.overdue)}</b></div><div><span>Paid this month</span><b>${f.money(t.paid)}</b></div><div><span>Drafts</span><b>${t.drafts}</b></div>`;
+  $('#tabs').innerHTML=K.TABS.map(([k,l])=>`<button type="button" class="tab" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}">${l}<span class="n">${S.count(k)}</span></button>`).join('');
+  $('#sortk').value=st.sort.k;$('#sortd').innerHTML=K.icon(st.sort.dir>0?'down':'up');$('#sortd').setAttribute('aria-label',st.sort.dir>0?'Order: first to last, switch':'Order: reversed, switch back');
+  const v=view();if(!cur||!v.find(r=>r.no===cur))cur=v[0]?v[0].no:null;
+  $('#items').innerHTML=v.map(r=>`<li class="${r.no===cur?'cur':''}${S.sel.has(r.no)?' ticked':''}"><span class="ck"><input type="checkbox" class="k-check" data-s="${r.no}" data-focus="s-${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Add ${r.no} to batch"></span>
+   <button type="button" class="item" data-open="${r.no}" data-focus="i-${r.no}" ${r.no===cur?'aria-current="true"':''}><span class="c">${f.esc(r.client)}</span><span class="a">${f.money(r.amount)}</span><span class="m"><code>${r.no}</code> · due ${f.date(r.due)}</span><span class="t ${r.status}">${r.status==='overdue'||r.status==='due'?f.timing(r):f.status(r.status)}</span></button></li>`).join('');
+  const e=$('#empty');e.hidden=v.length>0;e.innerHTML=v.length?'':K.emptyHTML(S);
+  $('#all').checked=v.length>0&&v.every(r=>S.sel.has(r.no));
+  $('#split').classList.toggle('showdetail',narrowDetail);
+  renderDetail();
+})}
+S.on(render);
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.t){st.tab=b.dataset.t;render()}
+ if(b.id==='sortd'){st.sort.dir=-st.sort.dir;render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);mode='detail';render()}
+ if(b.dataset.untick){S.sel.delete(b.dataset.untick);render()}
+ if(b.id==='all'){view().forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));mode='detail';render()}
+ if(b.dataset.open){cur=b.dataset.open;mode='detail';narrowDetail=true;if(S.find(cur)&&!view().find(r=>r.no===cur)){st.tab='all';st.q='';$('#q').value=''}render();if(matchMedia('(max-width:760px)').matches)$('#detail').scrollIntoView()}
+ if(b.hasAttribute('data-back')){narrowDetail=false;if(mode==='new')mode='detail';render()}
+ if(b.dataset.a){const r=S.find(cur);if(r){if(b.dataset.a==='del'||b.dataset.a==='paid'){const v=view(),i=v.findIndex(x=>x.no===r.no);K.act(S,b.dataset.a,r.no);if(b.dataset.a==='del'){const nv=view();cur=nv[Math.min(i,nv.length-1)]?nv[Math.min(i,nv.length-1)].no:null;render()}}else K.act(S,b.dataset.a,r.no)}}
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';$('#q').value='';render()}
+ if(b.id==='export')K.toast('Exported '+view().length+' rows');
+ if(b.id==='new'||b.hasAttribute('data-k-new')){mode='new';narrowDetail=true;S.sel.clear();render();const sel=$('#inform select');if(sel)sel.focus()}
+});
+document.getElementById('items').addEventListener('keydown',e=>{if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;const items=[...document.querySelectorAll('.item')];const i=items.indexOf(document.activeElement);if(i<0)return;e.preventDefault();const n=items[Math.max(0,Math.min(items.length-1,i+(e.key==='ArrowDown'?1:-1)))];cur=n.dataset.open;render();const el=document.querySelector('[data-focus="i-'+cur+'"]');if(el){el.focus();el.scrollIntoView({block:'nearest'})}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mode==='new'){mode='detail';render();$('#new').focus()}});
+$('#sortk').addEventListener('change',e=>{st.sort={k:e.target.value,dir:1};render()});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+render();
+})();
+</script>

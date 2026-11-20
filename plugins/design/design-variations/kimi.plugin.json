@@ -1,0 +1,9 @@
+{
+  "name": "design-variations",
+  "version": "1.0.0",
+  "description": "Ten fully interactive design variations per round, from small refinements to radical redesigns, with inspiration from connected design-reference MCPs and iteration on your picks.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design Variations"
+  }
+}

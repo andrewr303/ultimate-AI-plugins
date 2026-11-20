@@ -1,0 +1,26 @@
+{
+  "name": "seo-geo-god",
+  "version": "1.0.1",
+  "description": "SEO and GEO for coding agents: detect the stack, fix crawlability, rendering, metadata, structured data, sitemaps, hreflang and AI-crawler access in code, and verify with an offline, stdlib-only audit CLI and CI gates.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "seo",
+    "geo",
+    "generative-engine-optimization",
+    "ai-search",
+    "structured-data",
+    "core-web-vitals",
+    "coding-agents"
+  ],
+  "agents": [
+    "./agents/ai-access-analyst.md",
+    "./agents/geo-content-editor.md",
+    "./agents/search-data-analyst.md",
+    "./agents/seo-geo-auditor.md",
+    "./agents/seo-geo-reviewer.md",
+    "./agents/seo-implementer.md"
+  ],
+  "license": "MIT"
+}

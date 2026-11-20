@@ -1,0 +1,28 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "design-variations",
+  "version": "1.0.0",
+  "description": "Ten fully interactive design variations per round, from small refinements to radical redesigns, with inspiration from connected design-reference MCPs and iteration on your picks.",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "prototyping",
+    "ui"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Design Variations",
+        "shortDescription": "Ten live design directions",
+        "longDescription": "Explore a new design or overhaul an existing one with ten fully interactive variations per round, ordered from careful refinements to radical rethinks. Every option keeps the original's functions and fits its theme unless you say otherwise. Inspiration comes from connected design-reference libraries such as Gummble, Mobbin, Refero and UXKin. Each round lands in a new variations file or Claude Design canvas, never the original, and you steer the next round by shortlisting, combining or asking for something bolder.",
+        "category": "Creativity",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Give me ten interactive variations of this screen, from small tweaks to radical redesigns.",
+          "Design ten directions for a new pricing page that fit our product's look.",
+          "I like 1c and 1g. Combine 1c's header with 1g's list and push it bolder."
+        ]
+      }
+    }
+  }
+}

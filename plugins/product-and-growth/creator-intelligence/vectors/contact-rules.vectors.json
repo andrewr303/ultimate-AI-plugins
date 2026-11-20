@@ -1,0 +1,1208 @@
+{
+  "schema": "creator-intelligence/contact-rules-vectors-v1",
+  "reference": "scripts/contact_rules.py",
+  "decode": [
+    {
+      "id": "plain",
+      "input": "plain text",
+      "expected": "plain text"
+    },
+    {
+      "id": "null",
+      "input": null,
+      "expected": ""
+    },
+    {
+      "id": "numeric-entity-at",
+      "input": "jane&#64;janedoe.com",
+      "expected": "jane@janedoe.com"
+    },
+    {
+      "id": "hex-entity-at",
+      "input": "jane&#x40;janedoe.com",
+      "expected": "jane@janedoe.com"
+    },
+    {
+      "id": "named-commat-period",
+      "input": "jane&commat;janedoe&period;com",
+      "expected": "jane@janedoe.com"
+    },
+    {
+      "id": "named-amp-single-pass",
+      "input": "a &amp;#64; b",
+      "expected": "a &#64; b"
+    },
+    {
+      "id": "unknown-named-entity-kept",
+      "input": "a &copy; b",
+      "expected": "a &copy; b"
+    },
+    {
+      "id": "entity-needs-semicolon",
+      "input": "jane&#64janedoe.com",
+      "expected": "jane&#64janedoe.com"
+    },
+    {
+      "id": "entity-nul-kept",
+      "input": "a&#0;b",
+      "expected": "a&#0;b"
+    },
+    {
+      "id": "entity-out-of-range-kept",
+      "input": "a&#x110000;b",
+      "expected": "a&#x110000;b"
+    },
+    {
+      "id": "entity-surrogate-kept",
+      "input": "a&#xD800;b",
+      "expected": "a&#xD800;b"
+    },
+    {
+      "id": "unicode-escape-at",
+      "input": "jane\\u0040janedoe.com",
+      "expected": "jane@janedoe.com"
+    },
+    {
+      "id": "unicode-escape-surrogate-kept",
+      "input": "x\\ud83d\\ude00y",
+      "expected": "x\\ud83d\\ude00y"
+    },
+    {
+      "id": "literal-tab-newline",
+      "input": "Rates:\\tJane\\nDoe\\rX",
+      "expected": "Rates: Jane Doe X"
+    },
+    {
+      "id": "not-a-string",
+      "input": 42,
+      "throws": true
+    }
+  ],
+  "extract": [
+    {
+      "id": "tab-escape-does-not-glue",
+      "input": "Rates and availability:\\tOlu.Adeyemi@adeyemi-studio.net",
+      "expected": [
+        "olu.adeyemi@adeyemi-studio.net"
+      ]
+    },
+    {
+      "id": "newline-escape",
+      "input": "Talk to me\\nJane.Doe@janedoe.com",
+      "expected": [
+        "jane.doe@janedoe.com"
+      ]
+    },
+    {
+      "id": "entity-decoded-first",
+      "input": "hello&#64;janedoe.com",
+      "expected": [
+        "hello@janedoe.com"
+      ]
+    },
+    {
+      "id": "trailing-punctuation",
+      "input": "mail jane@janedoe.com. or (jane@janedoe.com)",
+      "expected": [
+        "jane@janedoe.com"
+      ]
+    },
+    {
+      "id": "dedupe-and-case",
+      "input": "Jane@janedoe.com, jane@JaneDoe.com",
+      "expected": [
+        "jane@janedoe.com"
+      ]
+    },
+    {
+      "id": "two-addresses-comma",
+      "input": "a@janedoe.com,b@janedoe.org",
+      "expected": [
+        "a@janedoe.com",
+        "b@janedoe.org"
+      ]
+    },
+    {
+      "id": "plus-tag-kept",
+      "input": "jane+brands@janedoe.com",
+      "expected": [
+        "jane+brands@janedoe.com"
+      ]
+    },
+    {
+      "id": "preceded-by-letter-unicode",
+      "input": "\u00e9jane@janedoe.com",
+      "expected": []
+    },
+    {
+      "id": "preceded-by-digit-arabic",
+      "input": "\u0663jane@janedoe.com",
+      "expected": []
+    },
+    {
+      "id": "preceded-by-superscript",
+      "input": "\u00b2jane@janedoe.com",
+      "expected": []
+    },
+    {
+      "id": "preceded-by-dot",
+      "input": ".jane@janedoe.com",
+      "expected": []
+    },
+    {
+      "id": "preceded-by-space",
+      "input": " jane@janedoe.com",
+      "expected": [
+        "jane@janedoe.com"
+      ]
+    },
+    {
+      "id": "tld-too-long-not-truncated",
+      "input": "jane@janedoe.abcdefghijklmnopqrstuvwxyzab",
+      "expected": []
+    },
+    {
+      "id": "digit-after-tld-not-truncated",
+      "input": "jane@janedoe.com2",
+      "expected": []
+    },
+    {
+      "id": "hyphen-after-tld-not-truncated",
+      "input": "jane@janedoe.com-shop",
+      "expected": []
+    },
+    {
+      "id": "sentence-end-dot",
+      "input": "Write to jane@janedoe.com.",
+      "expected": [
+        "jane@janedoe.com"
+      ]
+    },
+    {
+      "id": "subdomain-chain-kept-whole",
+      "input": "jane@mail.janedoe.co.uk",
+      "expected": [
+        "jane@mail.janedoe.co.uk"
+      ]
+    },
+    {
+      "id": "non-ascii-prefix-blocks",
+      "input": "\u0c5cjane@janedoe.com",
+      "expected": []
+    },
+    {
+      "id": "non-ascii-astral-prefix-blocks",
+      "input": "\ud83d\ude00jane@janedoe.com",
+      "expected": []
+    },
+    {
+      "id": "percent-prefix-blocks",
+      "input": "x%jane@janedoe.com",
+      "expected": [
+        "x%jane@janedoe.com"
+      ]
+    },
+    {
+      "id": "underscore-in-local-kept",
+      "input": "jane_doe@janedoe.com",
+      "expected": [
+        "jane_doe@janedoe.com"
+      ]
+    },
+    {
+      "id": "underscore-prefix-blocks",
+      "input": "_\u00e9_jane@janedoe.com x_@janedoe.com",
+      "expected": [
+        "x_@janedoe.com"
+      ]
+    },
+    {
+      "id": "non-ascii-after-tld-blocks",
+      "input": "jane@janedoe.com\u00e9",
+      "expected": []
+    },
+    {
+      "id": "underscore-after-tld-blocks",
+      "input": "jane@janedoe.com_x",
+      "expected": []
+    },
+    {
+      "id": "recall-trailing-hyphen",
+      "input": "a@b.com-",
+      "expected": []
+    },
+    {
+      "id": "recall-dot-letter",
+      "input": "a@b.com.x",
+      "expected": []
+    },
+    {
+      "id": "recall-dot-digit",
+      "input": "a@b.com.5",
+      "expected": []
+    },
+    {
+      "id": "recall-trailing-dot-kept",
+      "input": "a@b.com.",
+      "expected": [
+        "a@b.com"
+      ]
+    },
+    {
+      "id": "local-64-kept",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@janedoe.com",
+      "expected": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@janedoe.com"
+      ]
+    },
+    {
+      "id": "local-65-dropped",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@janedoe.com",
+      "expected": []
+    },
+    {
+      "id": "label-63-kept",
+      "input": "jane@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com",
+      "expected": [
+        "jane@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com"
+      ]
+    },
+    {
+      "id": "label-64-dropped",
+      "input": "jane@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com",
+      "expected": []
+    },
+    {
+      "id": "domain-253-kept",
+      "input": "jane@cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.com",
+      "expected": [
+        "jane@cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.com"
+      ]
+    },
+    {
+      "id": "domain-254-dropped",
+      "input": "jane@cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.com",
+      "expected": []
+    },
+    {
+      "id": "asset-shaped",
+      "input": "logo@2x.png sprite@bundle.css",
+      "expected": [
+        "logo@2x.png",
+        "sprite@bundle.css"
+      ]
+    },
+    {
+      "id": "obfuscated-at-not-decoded",
+      "input": "jane (at) janedoe (dot) com",
+      "expected": []
+    },
+    {
+      "id": "no-address",
+      "input": "nothing here",
+      "expected": []
+    },
+    {
+      "id": "null",
+      "input": null,
+      "expected": []
+    }
+  ],
+  "registrable_domain": [
+    {
+      "id": "plain-host",
+      "input": "www.janedoe.com",
+      "expected": "janedoe.com"
+    },
+    {
+      "id": "address",
+      "input": "jane@mail.janedoe.com",
+      "expected": "janedoe.com"
+    },
+    {
+      "id": "co-uk",
+      "input": "jane@mail.janedoe.co.uk",
+      "expected": "janedoe.co.uk"
+    },
+    {
+      "id": "com-au",
+      "input": "blog.janedoe.com.au",
+      "expected": "janedoe.com.au"
+    },
+    {
+      "id": "io-two-labels",
+      "input": "www.janedoe.io",
+      "expected": "janedoe.io"
+    },
+    {
+      "id": "bare-co-uk-is-none",
+      "input": "co.uk",
+      "expected": null
+    },
+    {
+      "id": "bare-com-au-is-none",
+      "input": "jane@com.au",
+      "expected": null
+    },
+    {
+      "id": "single-label",
+      "input": "localhost",
+      "expected": null
+    },
+    {
+      "id": "empty-label",
+      "input": "a..b.com",
+      "expected": null
+    },
+    {
+      "id": "trailing-dot",
+      "input": "janedoe.com.",
+      "expected": "janedoe.com"
+    },
+    {
+      "id": "uppercase",
+      "input": "JaneDoe.COM",
+      "expected": "janedoe.com"
+    },
+    {
+      "id": "url-is-none",
+      "input": "https://janedoe.com/sponsor",
+      "expected": null
+    },
+    {
+      "id": "port-is-none",
+      "input": "janedoe.com:8080",
+      "expected": null
+    },
+    {
+      "id": "space-is-none",
+      "input": "jane doe.com",
+      "expected": null
+    },
+    {
+      "id": "non-ascii-is-none",
+      "input": "j\u00e4ne.com",
+      "expected": null
+    },
+    {
+      "id": "ascii-whitespace-trimmed",
+      "input": "  janedoe.com\t",
+      "expected": "janedoe.com"
+    },
+    {
+      "id": "not-a-string",
+      "input": null,
+      "throws": true
+    }
+  ],
+  "is_roster_page": [
+    {
+      "id": "five-domains",
+      "input": {
+        "addresses": [
+          "x@studio0.net",
+          "x@studio1.net",
+          "x@studio2.net",
+          "x@studio3.net",
+          "x@studio4.net"
+        ]
+      },
+      "expected": true
+    },
+    {
+      "id": "four-domains",
+      "input": {
+        "addresses": [
+          "x@studio0.net",
+          "x@studio1.net",
+          "x@studio2.net",
+          "x@studio3.net"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "one-domain-many",
+      "input": {
+        "addresses": [
+          "writer0@janedoe.com",
+          "writer1@janedoe.com",
+          "writer2@janedoe.com",
+          "writer3@janedoe.com",
+          "writer4@janedoe.com",
+          "writer5@janedoe.com",
+          "writer6@janedoe.com",
+          "writer7@janedoe.com",
+          "writer8@janedoe.com"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "subdomains-collapse",
+      "input": {
+        "addresses": [
+          "x@s0.janedoe.com",
+          "x@s1.janedoe.com",
+          "x@s2.janedoe.com",
+          "x@s3.janedoe.com",
+          "x@s4.janedoe.com",
+          "x@s5.janedoe.com"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "id": "custom-threshold",
+      "input": {
+        "addresses": [
+          "a@one.com",
+          "b@two.com"
+        ],
+        "min_domains": 2
+      },
+      "expected": true
+    },
+    {
+      "id": "invalid-ignored",
+      "input": {
+        "addresses": [
+          "a@one.com",
+          "junk",
+          "b@two.com"
+        ],
+        "min_domains": 3
+      },
+      "expected": false
+    },
+    {
+      "id": "zero-threshold-throws",
+      "input": {
+        "addresses": [],
+        "min_domains": 0
+      },
+      "throws": true
+    },
+    {
+      "id": "string-not-list-throws",
+      "input": {
+        "addresses": "a@one.com"
+      },
+      "throws": true
+    }
+  ],
+  "classify": [
+    {
+      "id": "asset-density",
+      "input": {
+        "address": "banner@3x.png",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "asset filename, not an address"
+      }
+    },
+    {
+      "id": "asset-css",
+      "input": {
+        "address": "sprite@bundle.css",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "asset filename, not an address"
+      }
+    },
+    {
+      "id": "placeholder-local",
+      "input": {
+        "address": "you@example.org"
+      },
+      "expected": {
+        "kind": "reject_placeholder",
+        "keep": false,
+        "reason": "template or reserved example address"
+      }
+    },
+    {
+      "id": "placeholder-domain",
+      "input": {
+        "address": "jane@yourcompany.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_placeholder",
+        "keep": false,
+        "reason": "template or reserved example address"
+      }
+    },
+    {
+      "id": "reserved-tld",
+      "input": {
+        "address": "jane@mail.test",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_placeholder",
+        "keep": false,
+        "reason": "template or reserved example address"
+      }
+    },
+    {
+      "id": "tooling-domain",
+      "input": {
+        "address": "abc123@sentry.io",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_placeholder",
+        "keep": false,
+        "reason": "address stamped in by error-tracking or site-builder tooling"
+      }
+    },
+    {
+      "id": "platform-domain",
+      "input": {
+        "address": "jane@ghost.io",
+        "site_domain": "janedoe.com",
+        "platform_domains": [
+          "ghost.io"
+        ]
+      },
+      "expected": {
+        "kind": "reject_platform",
+        "keep": false,
+        "reason": "address on a platform domain belongs to the platform"
+      }
+    },
+    {
+      "id": "platform-domain-case-sensitive",
+      "input": {
+        "address": "jane@ghost.io",
+        "site_domain": "janedoe.com",
+        "platform_domains": [
+          "GHOST.IO"
+        ]
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "purpose-abuse",
+      "input": {
+        "address": "abuse@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_purpose_bound",
+        "keep": false,
+        "reason": "published for another purpose"
+      }
+    },
+    {
+      "id": "purpose-do-not-reply",
+      "input": {
+        "address": "do-not-reply@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_purpose_bound",
+        "keep": false,
+        "reason": "published for another purpose"
+      }
+    },
+    {
+      "id": "purpose-noreply-digits",
+      "input": {
+        "address": "noreply2@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_purpose_bound",
+        "keep": false,
+        "reason": "published for another purpose"
+      }
+    },
+    {
+      "id": "legal",
+      "input": {
+        "address": "legal@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_legal",
+        "keep": false,
+        "reason": "legal inbox"
+      }
+    },
+    {
+      "id": "legal-dpo-prefix",
+      "input": {
+        "address": "dpo-uk@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_legal",
+        "keep": false,
+        "reason": "legal inbox"
+      }
+    },
+    {
+      "id": "legal-privacy-plus-tag",
+      "input": {
+        "address": "privacy+eu@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_legal",
+        "keep": false,
+        "reason": "legal inbox"
+      }
+    },
+    {
+      "id": "incidental-legal-page",
+      "input": {
+        "address": "jane@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "legal"
+      },
+      "expected": {
+        "kind": "reject_incidental",
+        "keep": false,
+        "reason": "found on a page where addresses are incidental"
+      }
+    },
+    {
+      "id": "incidental-roster-page",
+      "input": {
+        "address": "jane@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "roster"
+      },
+      "expected": {
+        "kind": "reject_incidental",
+        "keep": false,
+        "reason": "found on a page where addresses are incidental"
+      }
+    },
+    {
+      "id": "incidental-footer-page",
+      "input": {
+        "address": "partnerships@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "footer"
+      },
+      "expected": {
+        "kind": "reject_incidental",
+        "keep": false,
+        "reason": "found on a page where addresses are incidental"
+      }
+    },
+    {
+      "id": "sitewide-three-pages",
+      "input": {
+        "address": "jane@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "homepage",
+        "pages_seen_on": 3
+      },
+      "expected": {
+        "kind": "reject_footer",
+        "keep": false,
+        "reason": "repeats across pages: a site-wide entry, not a person"
+      }
+    },
+    {
+      "id": "two-pages-not-sitewide",
+      "input": {
+        "address": "jane@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "homepage",
+        "pages_seen_on": 2
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "deal-inbox-own-domain",
+      "input": {
+        "address": "collabs@janedoe.com",
+        "site_domain": "www.janedoe.com",
+        "page": "sponsor"
+      },
+      "expected": {
+        "kind": "business_inbox",
+        "keep": true,
+        "reason": "creator-published deal inbox on their own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-spelled-out",
+      "input": {
+        "address": "work-with-me@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "business_inbox",
+        "keep": true,
+        "reason": "creator-published deal inbox on their own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-plus-tag",
+      "input": {
+        "address": "partnerships+2026@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "business_inbox",
+        "keep": true,
+        "reason": "creator-published deal inbox on their own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-subdomain-own",
+      "input": {
+        "address": "business@mail.janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "business_inbox",
+        "keep": true,
+        "reason": "creator-published deal inbox on their own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-other-domain",
+      "input": {
+        "address": "collabs@northbridge-agency.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "deal-style inbox not on the creator's own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-no-site",
+      "input": {
+        "address": "business@janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "deal-style inbox not on the creator's own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-free-mail",
+      "input": {
+        "address": "business@gmail.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "deal-style inbox not on the creator's own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-site-is-url",
+      "input": {
+        "address": "business@janedoe.com",
+        "site_domain": "https://janedoe.com/"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "deal-style inbox not on the creator's own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-co-uk",
+      "input": {
+        "address": "brands@janedoe.co.uk",
+        "site_domain": "shop.janedoe.co.uk"
+      },
+      "expected": {
+        "kind": "business_inbox",
+        "keep": true,
+        "reason": "creator-published deal inbox on their own domain"
+      }
+    },
+    {
+      "id": "deal-inbox-different-co-uk",
+      "input": {
+        "address": "brands@other.co.uk",
+        "site_domain": "janedoe.co.uk"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "deal-style inbox not on the creator's own domain"
+      }
+    },
+    {
+      "id": "role-info",
+      "input": {
+        "address": "info@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "role inbox collapses many people into one"
+      }
+    },
+    {
+      "id": "role-support-plus",
+      "input": {
+        "address": "support+vip@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "role inbox collapses many people into one"
+      }
+    },
+    {
+      "id": "role-sales-digit",
+      "input": {
+        "address": "sales7@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "role inbox collapses many people into one"
+      }
+    },
+    {
+      "id": "role-customer-service",
+      "input": {
+        "address": "customer-service@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "role inbox collapses many people into one"
+      }
+    },
+    {
+      "id": "role-hello-sponsor-page",
+      "input": {
+        "address": "hello@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "sponsor"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "role inbox collapses many people into one"
+      }
+    },
+    {
+      "id": "role-press",
+      "input": {
+        "address": "press@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_role",
+        "keep": false,
+        "reason": "role inbox collapses many people into one"
+      }
+    },
+    {
+      "id": "personal-contact-page",
+      "input": {
+        "address": "jane@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "contact"
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "personal-free-mail-bio",
+      "input": {
+        "address": "jane.doe@gmail.com",
+        "site_domain": "janedoe.com",
+        "page": "bio"
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "personal-only-digits-local",
+      "input": {
+        "address": "2026@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "personal-local-64",
+      "input": {
+        "address": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "malformed-local-65",
+      "input": {
+        "address": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "personal-uppercase-trimmed",
+      "input": {
+        "address": "  Jane.Doe@JaneDoe.com\n",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "personal-vendor-zero-pages",
+      "input": {
+        "address": "jane@janedoe.com",
+        "site_domain": "janedoe.com",
+        "page": "bio",
+        "pages_seen_on": 0
+      },
+      "expected": {
+        "kind": "personal",
+        "keep": true,
+        "reason": "personal-looking address on a deliberate contact surface"
+      }
+    },
+    {
+      "id": "malformed-no-local",
+      "input": {
+        "address": "@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-no-at",
+      "input": {
+        "address": "janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-single-label",
+      "input": {
+        "address": "jane@localhost",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-two-ats",
+      "input": {
+        "address": "a@b@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-path-in-domain",
+      "input": {
+        "address": "jane@janedoe.com/x",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-numeric-tld",
+      "input": {
+        "address": "jane@10.0.0.1",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-trailing-dot",
+      "input": {
+        "address": "jane@janedoe.com.",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-bare-suffix",
+      "input": {
+        "address": "jane@co.uk",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-local-leading-dot",
+      "input": {
+        "address": ".jane@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-local-non-ascii",
+      "input": {
+        "address": "j\u00e4ne@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-kelvin-sign",
+      "input": {
+        "address": "\u212aate@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "malformed-quote-local",
+      "input": {
+        "address": "o'brien@janedoe.com",
+        "site_domain": "janedoe.com"
+      },
+      "expected": {
+        "kind": "reject_junk",
+        "keep": false,
+        "reason": "malformed address"
+      }
+    },
+    {
+      "id": "throws-negative-pages",
+      "input": {
+        "address": "jane@janedoe.com",
+        "pages_seen_on": -1
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-fractional-pages",
+      "input": {
+        "address": "jane@janedoe.com",
+        "pages_seen_on": 1.5
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-boolean-pages",
+      "input": {
+        "address": "jane@janedoe.com",
+        "pages_seen_on": true
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-address-not-string",
+      "input": {
+        "address": null
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-page-not-string",
+      "input": {
+        "address": "jane@janedoe.com",
+        "page": 3
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-platform-domains-string",
+      "input": {
+        "address": "jane@janedoe.com",
+        "platform_domains": "ghost.io"
+      },
+      "throws": true
+    }
+  ]
+}

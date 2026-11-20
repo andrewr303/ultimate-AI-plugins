@@ -1,0 +1,19 @@
+{
+  "name": "freelance-legend",
+  "version": "1.0.1",
+  "description": "Upwork and freelance toolkit for Andrew Rodriguez: elite proposals and cover letters, rule-compliant job scanning across platforms, job vetting and scam checks, pricing and milestones, client communications, profile and portfolio writing, a personal portfolio website, contracts, outreach, and a pipeline ledger.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "upwork",
+    "freelance",
+    "proposals",
+    "cover-letter",
+    "job-search",
+    "portfolio",
+    "client-communication",
+    "pricing"
+  ],
+  "license": "MIT"
+}

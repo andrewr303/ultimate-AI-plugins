@@ -1,0 +1,10 @@
+deepsec
+Copyright 2026 Vercel, Inc. and contributors
+
+This product includes software developed at Vercel, Inc.
+(https://vercel.com/).
+
+DeepSec Agent additions: original cross-host runtime, adapters, reports and packaging.
+The bundled runtime/upstream-matchers.mjs derives from the uploaded DeepSec matcher registry.
+It is generated from the included original source without changing its matcher logic.
+This derivative is not an official Vercel product.

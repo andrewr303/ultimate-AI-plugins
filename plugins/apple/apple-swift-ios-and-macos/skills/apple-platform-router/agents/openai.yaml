@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple Platforms (Swift, SwiftUI, iOS & macOS) Router"
+  short_description: "Routes Swift 6.2+ concurrency, SwiftUI patterns/refactoring, iOS 26+ Liquid Glass, iOS simulator debugging, macOS packaging, and profiling."
+  default_prompt: "Use $apple-platform-router to select the right SwiftUI, Swift Concurrency, iOS simulator debugger, macOS packaging, or Instruments profiling skill."

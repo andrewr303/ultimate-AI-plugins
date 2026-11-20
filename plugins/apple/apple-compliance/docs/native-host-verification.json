@@ -1,0 +1,74 @@
+{
+  "checked_on": "2026-10-26",
+  "plugin_version": "1.0.0",
+  "isolated_state": true,
+  "model_conversations_started": false,
+  "provider_credentials_configured": false,
+  "claude_code": {
+    "version": "2.1.310",
+    "native_manifest_validation": "passed",
+    "repository_marketplace_validation": "passed",
+    "local_install": "passed",
+    "discovered_skills": 17,
+    "skills": [
+      "app-store-readiness",
+      "apple-compliance",
+      "compliance-discovery",
+      "compliance-policy-watch",
+      "compliance-security",
+      "mac-distribution",
+      "privacy-labels-att",
+      "privacy-manifests",
+      "review-account-auth",
+      "review-content-safety",
+      "review-digital-goods",
+      "review-platform-extensions",
+      "review-rejections",
+      "review-submission-release",
+      "signing-entitlements",
+      "store-metadata-assets",
+      "testflight-builds"
+    ],
+    "unexpected_runtime_components": false,
+    "method": [
+      "claude plugin validate <plugin-root>",
+      "claude plugin marketplace update environment-dev",
+      "claude plugin install apple-compliance@environment-dev",
+      "claude plugin details apple-compliance@environment-dev"
+    ]
+  },
+  "kimi_code": {
+    "version": "2.3.3",
+    "native_install": "passed",
+    "state": "ok",
+    "discovered_skills": 17,
+    "skills": [
+      "apple-compliance:app-store-readiness",
+      "apple-compliance:apple-compliance",
+      "apple-compliance:compliance-discovery",
+      "apple-compliance:compliance-policy-watch",
+      "apple-compliance:compliance-security",
+      "apple-compliance:mac-distribution",
+      "apple-compliance:privacy-labels-att",
+      "apple-compliance:privacy-manifests",
+      "apple-compliance:review-account-auth",
+      "apple-compliance:review-content-safety",
+      "apple-compliance:review-digital-goods",
+      "apple-compliance:review-platform-extensions",
+      "apple-compliance:review-rejections",
+      "apple-compliance:review-submission-release",
+      "apple-compliance:signing-entitlements",
+      "apple-compliance:store-metadata-assets",
+      "apple-compliance:testflight-builds"
+    ],
+    "diagnostics": [],
+    "method": [
+      "Authenticated loopback POST /api/v1/plugins with local source",
+      "GET workspace skills without creating a session"
+    ]
+  },
+  "limits": [
+    "Installation/discovery does not establish model-driven task behavior",
+    "No Xcode/device/signing/App Store/production provider operation was run"
+  ]
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Review
+  short_description: Polish review behavior
+  default_prompt: Use $motion-review for the requested product interaction work and
+    verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

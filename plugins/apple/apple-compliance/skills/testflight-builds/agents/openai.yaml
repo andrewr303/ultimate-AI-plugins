@@ -1,0 +1,6 @@
+interface:
+  display_name: Testflight Builds
+  short_description: Testflight builds workflows
+  default_prompt: Use $testflight-builds to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

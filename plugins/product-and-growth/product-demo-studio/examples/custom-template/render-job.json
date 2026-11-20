@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "relay-custom-template",
+  "renderer": "html-playwright",
+  "productRevision": "relay-fixture-v1",
+  "visualMode": "illustrative",
+  "width": 640,
+  "height": 360,
+  "fps": 12,
+  "duration": 3,
+  "hook": "A clear next step.",
+  "promise": "Inspect a synthetic review state.",
+  "cta": "Inspect the local fixture",
+  "brand": {
+    "name": "Relay",
+    "background": "#152921",
+    "ink": "#f5f3e9",
+    "accent": "#c8ed9a"
+  },
+  "claimIds": [
+    "synthetic-review-state"
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 1.25,
+      "text": "One item needs a decision."
+    },
+    {
+      "start": 1.25,
+      "end": 3,
+      "text": "The review state is ready to inspect."
+    }
+  ],
+  "audio": [],
+  "template": "composition.html",
+  "evidence": "product-evidence.json",
+  "reviewPoints": [
+    {
+      "time": 1.25,
+      "label": "Review state appears"
+    },
+    {
+      "time": 2.5,
+      "label": "Settled result and CTA"
+    }
+  ],
+  "safeZone": {
+    "x": 16,
+    "y": 16,
+    "width": 608,
+    "height": 328
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "curated_match": false,
+  "note": "Directory records verified through get_repository; relevance graded by identity and defining tag evidence. Activity/license not established by directory metadata. Independent pinned source inspection controls design.",
+  "retrieval_arms": [
+    "filtered issue-tracking category",
+    "unfiltered issue decomposition and requirements interview",
+    "expected known repository lookups"
+  ],
+  "repositories": [
+    {
+      "repo": "github/spec-kit",
+      "grade": "match",
+      "directory_url": "https://awesome-repositories.com/repositories/github-spec-kit",
+      "defining_tags": [
+        {
+          "path": "development-tools-productivity/build-tooling/build-orchestration-logic/build-orchestration-configuration/build-automation-systems/workflow-orchestration/specification-driven-task-orchestrators",
+          "correlationIndex": 95
+        },
+        {
+          "path": "development-tools-productivity/build-tooling/build-orchestration-logic/build-orchestration-configuration/build-automation-systems/workflow-orchestration/workflow-state-managers",
+          "correlationIndex": 90
+        },
+        {
+          "path": "software-engineering-architecture/development-methodologies/specification-driven-development-frameworks",
+          "correlationIndex": 90
+        }
+      ]
+    },
+    {
+      "repo": "bmad-code-org/bmad-method",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/bmad-code-org-bmad-method",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/adversarial-agent-orchestration",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/agent-orchestration-frameworks",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/autonomous-agent-frameworks",
+          "correlationIndex": 95
+        }
+      ]
+    },
+    {
+      "repo": "mattpocock/skills",
+      "grade": "strong",
+      "directory_url": "https://awesome-repositories.com/repositories/mattpocock-skills",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/agentic-systems-frameworks/agent-reasoning-engines/agent-context-management",
+          "correlationIndex": 100
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-agent-orchestration-frameworks",
+          "correlationIndex": 100
+        },
+        {
+          "path": "artificial-intelligence-ml/agent-access-controls/agent-handoffs",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "anthropics/skills",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/anthropics-skills",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/agent-architectures/tooling-integration-interfaces/declarative-skill-orchestrations",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/agentic-systems-frameworks/integration-deployment/agent-frameworks/configuration-and-specifications/agent-configuration-specifications",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/agentic-systems-frameworks/agent-capabilities-skills-tooling/agent-capability-extensions",
+          "correlationIndex": 90
+        }
+      ]
+    },
+    {
+      "repo": "microsoft/vscode-pull-request-github",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/microsoft-vscode-pull-request-github",
+      "defining_tags": [
+        {
+          "path": "development-tools-productivity/pull-request-extensions",
+          "correlationIndex": 100
+        },
+        {
+          "path": "business-productivity-software/issue-tracking",
+          "correlationIndex": 92
+        },
+        {
+          "path": "development-tools-productivity/comment-to-issue-converters",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "ankitpokhrel/jira-cli",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/ankitpokhrel-jira-cli",
+      "defining_tags": [
+        {
+          "path": "business-productivity-software/project-task-management",
+          "correlationIndex": 100
+        },
+        {
+          "path": "data-databases/data-ingestion/jira-connectors",
+          "correlationIndex": 100
+        },
+        {
+          "path": "business-productivity-software/issue-tracking",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "eastlondoner/vibe-tools",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/eastlondoner-vibe-tools",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/agentic-web-interaction/web-enabled-clis",
+          "correlationIndex": 92
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-agent-frameworks",
+          "correlationIndex": 92
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-assistant-configurations/cross-editor-consistency-rules",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "microsoft/vscode-docs",
+      "grade": "weak",
+      "directory_url": "https://awesome-repositories.com/repositories/microsoft-vscode-docs",
+      "defining_tags": [
+        {
+          "path": "development-tools-productivity/ai-coding-assistants",
+          "correlationIndex": 100
+        },
+        {
+          "path": "artificial-intelligence-ml/agent-persona-configurations",
+          "correlationIndex": 92
+        },
+        {
+          "path": "artificial-intelligence-ml/agentic-systems-frameworks/agent-capabilities-skills-tooling/agent-capability-extensions",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "nailperry-zd/the-economist",
+      "grade": "anti",
+      "directory_url": "https://awesome-repositories.com/repositories/nailperry-zd-the-economist",
+      "defining_tags": [
+        {
+          "path": "content-management-publishing/periodical-downloaders",
+          "correlationIndex": 100
+        },
+        {
+          "path": "data-databases/digital-archives",
+          "correlationIndex": 100
+        },
+        {
+          "path": "awesome-lists/media/ebook-library-management",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "phacility/phabricator",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/phacility-phabricator",
+      "defining_tags": [
+        {
+          "path": "development-tools-productivity/bug-tracking-systems",
+          "correlationIndex": 100
+        },
+        {
+          "path": "software-engineering-architecture/software-development-platforms",
+          "correlationIndex": 100
+        },
+        {
+          "path": "awesome-lists/productivity/bug-tracking-systems",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "oldboyxx/jira_clone",
+      "grade": "weak",
+      "directory_url": "https://awesome-repositories.com/repositories/oldboyxx-jira-clone",
+      "defining_tags": [
+        {
+          "path": "business-productivity-software/project-task-management",
+          "correlationIndex": 100
+        },
+        {
+          "path": "web-development/full-stack-web-applications",
+          "correlationIndex": 100
+        },
+        {
+          "path": "business-productivity-software/issue-tracking",
+          "correlationIndex": 92
+        }
+      ]
+    },
+    {
+      "repo": "f/prompts.chat",
+      "grade": "anti",
+      "directory_url": "https://awesome-repositories.com/repositories/f-prompts-chat",
+      "defining_tags": [
+        {
+          "path": "repository-format/awesome-list",
+          "correlationIndex": 98
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-prompt-engineering-templates",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/model-context-protocol-servers",
+          "correlationIndex": 95
+        }
+      ]
+    },
+    {
+      "repo": "addyosmani/agent-skills",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/addyosmani-agent-skills",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/agentic-systems-frameworks/agent-orchestration-multi-agent/coordination-and-routing/ai-agent-orchestrators",
+          "correlationIndex": 100
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-agents/engineering-standardizations",
+          "correlationIndex": 100
+        },
+        {
+          "path": "software-engineering-architecture/engineering-workflow-automation",
+          "correlationIndex": 100
+        }
+      ]
+    },
+    {
+      "repo": "pythagora-io/gpt-pilot",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/pythagora-io-gpt-pilot",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/ai-coding-assistants",
+          "correlationIndex": 100
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-code-generators",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/autonomous-development-agents",
+          "correlationIndex": 95
+        }
+      ]
+    },
+    {
+      "repo": "foundationagents/metagpt",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/foundationagents-metagpt",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/agent-architectures/ai-agents/execution-runtimes/agentic-workflow-engines",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/agent-architectures/ai-agents/software-engineering/automated-software-engineering-agents",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/agent-architectures/memory-management-systems",
+          "correlationIndex": 95
+        }
+      ]
+    },
+    {
+      "repo": "eigent-ai/eigent",
+      "grade": "adjacent",
+      "directory_url": "https://awesome-repositories.com/repositories/eigent-ai-eigent",
+      "defining_tags": [
+        {
+          "path": "artificial-intelligence-ml/agentic-systems-frameworks/integration-deployment/agent-development",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-agent-development",
+          "correlationIndex": 95
+        },
+        {
+          "path": "artificial-intelligence-ml/ai-workflow-automation",
+          "correlationIndex": 95
+        }
+      ]
+    }
+  ]
+}

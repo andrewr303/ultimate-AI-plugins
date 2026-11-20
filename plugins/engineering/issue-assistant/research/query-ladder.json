@@ -1,0 +1,1204 @@
+[
+  {
+    "rung": 1,
+    "query": "linear mcp stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "id": "898106797",
+          "name": "linear-mcp-server",
+          "owner": {
+            "login": "jerhadf",
+            "id": 16784270,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/16784270?v=4",
+            "url": "https://api.github.com/users/jerhadf"
+          },
+          "repository_full_name": "jerhadf/linear-mcp-server",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/jerhadf/linear-mcp-server.git",
+          "size": 38,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/jerhadf/linear-mcp-server/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/jerhadf/linear-mcp-server/git/refs{/sha}",
+          "git_url": "git://github.com/jerhadf/linear-mcp-server.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "jerhadf/linear-mcp-server",
+          "display_url": "https://github.com/jerhadf/linear-mcp-server"
+        },
+        {
+          "id": "921516970",
+          "name": "linear-mcp",
+          "owner": {
+            "login": "cline",
+            "id": 184127137,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/184127137?v=4",
+            "url": "https://api.github.com/users/cline"
+          },
+          "repository_full_name": "cline/linear-mcp",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/cline/linear-mcp.git",
+          "size": 122,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/cline/linear-mcp/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/cline/linear-mcp/git/refs{/sha}",
+          "git_url": "git://github.com/cline/linear-mcp.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "cline/linear-mcp",
+          "display_url": "https://github.com/cline/linear-mcp"
+        },
+        {
+          "id": "953530564",
+          "name": "mcp-linear",
+          "owner": {
+            "login": "tacticlaunch",
+            "id": 162846290,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/162846290?v=4",
+            "url": "https://api.github.com/users/tacticlaunch"
+          },
+          "repository_full_name": "tacticlaunch/mcp-linear",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/tacticlaunch/mcp-linear.git",
+          "size": 1317,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/tacticlaunch/mcp-linear/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/tacticlaunch/mcp-linear/git/refs{/sha}",
+          "git_url": "git://github.com/tacticlaunch/mcp-linear.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "tacticlaunch/mcp-linear",
+          "display_url": "https://github.com/tacticlaunch/mcp-linear"
+        },
+        {
+          "id": "1116480304",
+          "name": "linear-claude-skill",
+          "owner": {
+            "login": "wrsmith108",
+            "id": 62075823,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/62075823?v=4",
+            "url": "https://api.github.com/users/wrsmith108"
+          },
+          "repository_full_name": "wrsmith108/linear-claude-skill",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/wrsmith108/linear-claude-skill.git",
+          "size": 655,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/wrsmith108/linear-claude-skill/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/wrsmith108/linear-claude-skill/git/refs{/sha}",
+          "git_url": "git://github.com/wrsmith108/linear-claude-skill.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "wrsmith108/linear-claude-skill",
+          "display_url": "https://github.com/wrsmith108/linear-claude-skill"
+        },
+        {
+          "id": "1092407718",
+          "name": "macro",
+          "owner": {
+            "login": "macro-inc",
+            "id": 65687018,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/65687018?v=4",
+            "url": "https://api.github.com/users/macro-inc"
+          },
+          "repository_full_name": "macro-inc/macro",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/macro-inc/macro.git",
+          "size": 1933233,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/macro-inc/macro/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/macro-inc/macro/git/refs{/sha}",
+          "git_url": "git://github.com/macro-inc/macro.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "macro-inc/macro",
+          "display_url": "https://github.com/macro-inc/macro"
+        },
+        {
+          "id": "1230233151",
+          "name": "better-design",
+          "owner": {
+            "login": "marvkr",
+            "id": 88862495,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/88862495?v=4",
+            "url": "https://api.github.com/users/marvkr"
+          },
+          "repository_full_name": "marvkr/better-design",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/marvkr/better-design.git",
+          "size": 1316,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/marvkr/better-design/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/marvkr/better-design/git/refs{/sha}",
+          "git_url": "git://github.com/marvkr/better-design.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "marvkr/better-design",
+          "display_url": "https://github.com/marvkr/better-design"
+        },
+        {
+          "id": "1172590199",
+          "name": "plandb",
+          "owner": {
+            "login": "Agent-Field",
+            "id": 204899035,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/204899035?v=4",
+            "url": "https://api.github.com/users/Agent-Field"
+          },
+          "repository_full_name": "Agent-Field/plandb",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/Agent-Field/plandb.git",
+          "size": 11687,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/Agent-Field/plandb/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Agent-Field/plandb/git/refs{/sha}",
+          "git_url": "git://github.com/Agent-Field/plandb.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "Agent-Field/plandb",
+          "display_url": "https://github.com/Agent-Field/plandb"
+        },
+        {
+          "id": "1120871557",
+          "name": "pipali",
+          "owner": {
+            "login": "khoj-ai",
+            "id": 134046886,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/134046886?v=4",
+            "url": "https://api.github.com/users/khoj-ai"
+          },
+          "repository_full_name": "khoj-ai/pipali",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/khoj-ai/pipali.git",
+          "size": 4886,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/khoj-ai/pipali/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/khoj-ai/pipali/git/refs{/sha}",
+          "git_url": "git://github.com/khoj-ai/pipali.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "khoj-ai/pipali",
+          "display_url": "https://github.com/khoj-ai/pipali"
+        }
+      ]
+    }
+  },
+  {
+    "rung": 2,
+    "query": "\"linear\" \"expert\" skill stars:>=50",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": []
+    }
+  },
+  {
+    "rung": 3,
+    "query": "\"grill-me\" in:name,description,readme",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "id": "1148788086",
+          "name": "skills",
+          "owner": {
+            "login": "mattpocock",
+            "id": 28293365,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/28293365?v=4",
+            "url": "https://api.github.com/users/mattpocock"
+          },
+          "repository_full_name": "mattpocock/skills",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/mattpocock/skills.git",
+          "size": 2015,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/mattpocock/skills/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/mattpocock/skills/git/refs{/sha}",
+          "git_url": "git://github.com/mattpocock/skills.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "mattpocock/skills",
+          "display_url": "https://github.com/mattpocock/skills"
+        },
+        {
+          "id": "1208031361",
+          "name": "grill-me-skill",
+          "owner": {
+            "login": "RobMitt",
+            "id": 95778903,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/95778903?v=4",
+            "url": "https://api.github.com/users/RobMitt"
+          },
+          "repository_full_name": "RobMitt/grill-me-skill",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/RobMitt/grill-me-skill.git",
+          "size": 1,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/RobMitt/grill-me-skill/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/RobMitt/grill-me-skill/git/refs{/sha}",
+          "git_url": "git://github.com/RobMitt/grill-me-skill.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "RobMitt/grill-me-skill",
+          "display_url": "https://github.com/RobMitt/grill-me-skill"
+        },
+        {
+          "id": "1226088627",
+          "name": "AIS-OS",
+          "owner": {
+            "login": "nateherkai",
+            "id": 253835467,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/253835467?v=4",
+            "url": "https://api.github.com/users/nateherkai"
+          },
+          "repository_full_name": "nateherkai/AIS-OS",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/nateherkai/AIS-OS.git",
+          "size": 30819,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/nateherkai/AIS-OS/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/nateherkai/AIS-OS/git/refs{/sha}",
+          "git_url": "git://github.com/nateherkai/AIS-OS.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "nateherkai/AIS-OS",
+          "display_url": "https://github.com/nateherkai/AIS-OS"
+        },
+        {
+          "id": "1192255673",
+          "name": "grill-me",
+          "owner": {
+            "login": "zhudan930612",
+            "id": 5730838,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/5730838?v=4",
+            "url": "https://api.github.com/users/zhudan930612"
+          },
+          "repository_full_name": "zhudan930612/grill-me",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/zhudan930612/grill-me.git",
+          "size": 3,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/zhudan930612/grill-me/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/zhudan930612/grill-me/git/refs{/sha}",
+          "git_url": "git://github.com/zhudan930612/grill-me.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "zhudan930612/grill-me",
+          "display_url": "https://github.com/zhudan930612/grill-me"
+        },
+        {
+          "id": "1223387690",
+          "name": "mattpocock-skills-zh-CN",
+          "owner": {
+            "login": "vinvcn",
+            "id": 120928190,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/120928190?v=4",
+            "url": "https://api.github.com/users/vinvcn"
+          },
+          "repository_full_name": "vinvcn/mattpocock-skills-zh-CN",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/vinvcn/mattpocock-skills-zh-CN.git",
+          "size": 993,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/vinvcn/mattpocock-skills-zh-CN/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/vinvcn/mattpocock-skills-zh-CN/git/refs{/sha}",
+          "git_url": "git://github.com/vinvcn/mattpocock-skills-zh-CN.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "vinvcn/mattpocock-skills-zh-CN",
+          "display_url": "https://github.com/vinvcn/mattpocock-skills-zh-CN"
+        },
+        {
+          "id": "1021907170",
+          "name": "claude-code-settings",
+          "owner": {
+            "login": "feiskyer",
+            "id": 676637,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/676637?v=4",
+            "url": "https://api.github.com/users/feiskyer"
+          },
+          "repository_full_name": "feiskyer/claude-code-settings",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/feiskyer/claude-code-settings.git",
+          "size": 470,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/feiskyer/claude-code-settings/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/feiskyer/claude-code-settings/git/refs{/sha}",
+          "git_url": "git://github.com/feiskyer/claude-code-settings.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "feiskyer/claude-code-settings",
+          "display_url": "https://github.com/feiskyer/claude-code-settings"
+        }
+      ]
+    }
+  },
+  {
+    "rung": 4,
+    "query": "\"pull request\" \"issue\" \"reconcile\" stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": []
+    }
+  },
+  {
+    "rung": 5,
+    "query": "topic:github-actions \"agent\" \"issue\" stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "id": "903027325",
+          "name": "mcp-github-project-manager",
+          "owner": {
+            "login": "kunwarVivek",
+            "id": 5243525,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/5243525?v=4",
+            "url": "https://api.github.com/users/kunwarVivek"
+          },
+          "repository_full_name": "kunwarVivek/mcp-github-project-manager",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/kunwarVivek/mcp-github-project-manager.git",
+          "size": 3402,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/kunwarVivek/mcp-github-project-manager/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/kunwarVivek/mcp-github-project-manager/git/refs{/sha}",
+          "git_url": "git://github.com/kunwarVivek/mcp-github-project-manager.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "kunwarVivek/mcp-github-project-manager",
+          "display_url": "https://github.com/kunwarVivek/mcp-github-project-manager"
+        },
+        {
+          "id": "1174449920",
+          "name": "aislop",
+          "owner": {
+            "login": "scanaislop",
+            "id": 277436772,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/277436772?v=4",
+            "url": "https://api.github.com/users/scanaislop"
+          },
+          "repository_full_name": "scanaislop/aislop",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/scanaislop/aislop.git",
+          "size": 5042,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/scanaislop/aislop/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/scanaislop/aislop/git/refs{/sha}",
+          "git_url": "git://github.com/scanaislop/aislop.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "scanaislop/aislop",
+          "display_url": "https://github.com/scanaislop/aislop"
+        },
+        {
+          "id": "1346039860",
+          "name": "harbor",
+          "owner": {
+            "login": "Excelius-Wang",
+            "id": 57819425,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/57819425?v=4",
+            "url": "https://api.github.com/users/Excelius-Wang"
+          },
+          "repository_full_name": "Excelius-Wang/harbor",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/Excelius-Wang/harbor.git",
+          "size": 29643,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/Excelius-Wang/harbor/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/Excelius-Wang/harbor/git/refs{/sha}",
+          "git_url": "git://github.com/Excelius-Wang/harbor.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "Excelius-Wang/harbor",
+          "display_url": "https://github.com/Excelius-Wang/harbor"
+        }
+      ]
+    }
+  },
+  {
+    "rung": 6,
+    "query": "\"linear\" \"sdk\" stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "id": "180890168",
+          "name": "linear",
+          "owner": {
+            "login": "linear",
+            "id": 46686594,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/46686594?v=4",
+            "url": "https://api.github.com/users/linear"
+          },
+          "repository_full_name": "linear/linear",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/linear/linear.git",
+          "size": 46312,
+          "default_branch": "master",
+          "git_commits_url": "https://api.github.com/repos/linear/linear/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/linear/linear/git/refs{/sha}",
+          "git_url": "git://github.com/linear/linear.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "linear/linear",
+          "display_url": "https://github.com/linear/linear"
+        },
+        {
+          "id": "32957779",
+          "name": "react-native-login",
+          "owner": {
+            "login": "brentvatne",
+            "id": 90494,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/90494?v=4",
+            "url": "https://api.github.com/users/brentvatne"
+          },
+          "repository_full_name": "brentvatne/react-native-login",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/brentvatne/react-native-login.git",
+          "size": 32649,
+          "default_branch": "master",
+          "git_commits_url": "https://api.github.com/repos/brentvatne/react-native-login/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/brentvatne/react-native-login/git/refs{/sha}",
+          "git_url": "git://github.com/brentvatne/react-native-login.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": true,
+          "is_code_search_indexed": null,
+          "display_title": "brentvatne/react-native-login",
+          "display_url": "https://github.com/brentvatne/react-native-login"
+        },
+        {
+          "id": "1116480304",
+          "name": "linear-claude-skill",
+          "owner": {
+            "login": "wrsmith108",
+            "id": 62075823,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/62075823?v=4",
+            "url": "https://api.github.com/users/wrsmith108"
+          },
+          "repository_full_name": "wrsmith108/linear-claude-skill",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/wrsmith108/linear-claude-skill.git",
+          "size": 655,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/wrsmith108/linear-claude-skill/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/wrsmith108/linear-claude-skill/git/refs{/sha}",
+          "git_url": "git://github.com/wrsmith108/linear-claude-skill.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "wrsmith108/linear-claude-skill",
+          "display_url": "https://github.com/wrsmith108/linear-claude-skill"
+        },
+        {
+          "id": "345634228",
+          "name": "FTC-Skystone-Dark-Angels-Romania-2020",
+          "owner": {
+            "login": "chrisneagu",
+            "id": 57600322,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/57600322?v=4",
+            "url": "https://api.github.com/users/chrisneagu"
+          },
+          "repository_full_name": "chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020.git",
+          "size": 79960,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020/git/refs{/sha}",
+          "git_url": "git://github.com/chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020",
+          "display_url": "https://github.com/chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020"
+        },
+        {
+          "id": "274472671",
+          "name": ".config",
+          "owner": {
+            "login": "zszszszsz",
+            "id": 56225718,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/56225718?v=4",
+            "url": "https://api.github.com/users/zszszszsz"
+          },
+          "repository_full_name": "zszszszsz/.config",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/zszszszsz/.config.git",
+          "size": 4,
+          "default_branch": "master",
+          "git_commits_url": "https://api.github.com/repos/zszszszsz/.config/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/zszszszsz/.config/git/refs{/sha}",
+          "git_url": "git://github.com/zszszszsz/.config.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "zszszszsz/.config",
+          "display_url": "https://github.com/zszszszsz/.config"
+        }
+      ]
+    }
+  },
+  {
+    "rung": 7,
+    "query": "\"agent skills\" \"linear\" stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "id": "1116480304",
+          "name": "linear-claude-skill",
+          "owner": {
+            "login": "wrsmith108",
+            "id": 62075823,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/62075823?v=4",
+            "url": "https://api.github.com/users/wrsmith108"
+          },
+          "repository_full_name": "wrsmith108/linear-claude-skill",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/wrsmith108/linear-claude-skill.git",
+          "size": 655,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/wrsmith108/linear-claude-skill/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/wrsmith108/linear-claude-skill/git/refs{/sha}",
+          "git_url": "git://github.com/wrsmith108/linear-claude-skill.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "wrsmith108/linear-claude-skill",
+          "display_url": "https://github.com/wrsmith108/linear-claude-skill"
+        }
+      ]
+    }
+  },
+  {
+    "rung": 8,
+    "query": "\"issue\" \"dependency\" \"task\" \"agent\" stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": []
+    }
+  },
+  {
+    "rung": 9,
+    "query": "\"symphony\" \"linear\" stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": []
+    }
+  },
+  {
+    "rung": 10,
+    "query": "github agentic workflows in:name,description stars:>=100",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "id": "1036865607",
+          "name": "gh-aw",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "url": "https://api.github.com/users/github"
+          },
+          "repository_full_name": "github/gh-aw",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/github/gh-aw.git",
+          "size": 3286301,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/github/gh-aw/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/github/gh-aw/git/refs{/sha}",
+          "git_url": "git://github.com/github/gh-aw.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "github/gh-aw",
+          "display_url": "https://github.com/github/gh-aw"
+        },
+        {
+          "id": "1025842850",
+          "name": "agentics",
+          "owner": {
+            "login": "githubnext",
+            "id": 89615882,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/89615882?v=4",
+            "url": "https://api.github.com/users/githubnext"
+          },
+          "repository_full_name": "githubnext/agentics",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/githubnext/agentics.git",
+          "size": 2852,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/githubnext/agentics/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/githubnext/agentics/git/refs{/sha}",
+          "git_url": "git://github.com/githubnext/agentics.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "githubnext/agentics",
+          "display_url": "https://github.com/githubnext/agentics"
+        },
+        {
+          "id": "1077889760",
+          "name": "gh-aw-firewall",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "url": "https://api.github.com/users/github"
+          },
+          "repository_full_name": "github/gh-aw-firewall",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/github/gh-aw-firewall.git",
+          "size": 45894,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/github/gh-aw-firewall/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/github/gh-aw-firewall/git/refs{/sha}",
+          "git_url": "git://github.com/github/gh-aw-firewall.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "github/gh-aw-firewall",
+          "display_url": "https://github.com/github/gh-aw-firewall"
+        },
+        {
+          "id": "1114078059",
+          "name": "gh-aw-mcpg",
+          "owner": {
+            "login": "github",
+            "id": 9919,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+            "url": "https://api.github.com/users/github"
+          },
+          "repository_full_name": "github/gh-aw-mcpg",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/github/gh-aw-mcpg.git",
+          "size": 39860,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/github/gh-aw-mcpg/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/github/gh-aw-mcpg/git/refs{/sha}",
+          "git_url": "git://github.com/github/gh-aw-mcpg.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "github/gh-aw-mcpg",
+          "display_url": "https://github.com/github/gh-aw-mcpg"
+        },
+        {
+          "id": "1129202884",
+          "name": "claude-code-showcase",
+          "owner": {
+            "login": "ChrisWiles",
+            "id": 9455409,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/9455409?v=4",
+            "url": "https://api.github.com/users/ChrisWiles"
+          },
+          "repository_full_name": "ChrisWiles/claude-code-showcase",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/ChrisWiles/claude-code-showcase.git",
+          "size": 70,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/ChrisWiles/claude-code-showcase/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/ChrisWiles/claude-code-showcase/git/refs{/sha}",
+          "git_url": "git://github.com/ChrisWiles/claude-code-showcase.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "ChrisWiles/claude-code-showcase",
+          "display_url": "https://github.com/ChrisWiles/claude-code-showcase"
+        },
+        {
+          "id": "1090680350",
+          "name": "copilot-orchestra",
+          "owner": {
+            "login": "ShepAlderson",
+            "id": 1037047,
+            "type": "User",
+            "avatar_url": "https://avatars.githubusercontent.com/u/1037047?v=4",
+            "url": "https://api.github.com/users/ShepAlderson"
+          },
+          "repository_full_name": "ShepAlderson/copilot-orchestra",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/ShepAlderson/copilot-orchestra.git",
+          "size": 13,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/ShepAlderson/copilot-orchestra/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/ShepAlderson/copilot-orchestra/git/refs{/sha}",
+          "git_url": "git://github.com/ShepAlderson/copilot-orchestra.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "ShepAlderson/copilot-orchestra",
+          "display_url": "https://github.com/ShepAlderson/copilot-orchestra"
+        },
+        {
+          "id": "1103418770",
+          "name": "jules-action",
+          "owner": {
+            "login": "google-labs-code",
+            "id": 161364575,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/161364575?v=4",
+            "url": "https://api.github.com/users/google-labs-code"
+          },
+          "repository_full_name": "google-labs-code/jules-action",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/google-labs-code/jules-action.git",
+          "size": 747,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/google-labs-code/jules-action/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/google-labs-code/jules-action/git/refs{/sha}",
+          "git_url": "git://github.com/google-labs-code/jules-action.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "google-labs-code/jules-action",
+          "display_url": "https://github.com/google-labs-code/jules-action"
+        },
+        {
+          "id": "1148058880",
+          "name": "conductor",
+          "owner": {
+            "login": "microsoft",
+            "id": 6154722,
+            "type": "Organization",
+            "avatar_url": "https://avatars.githubusercontent.com/u/6154722?v=4",
+            "url": "https://api.github.com/users/microsoft"
+          },
+          "repository_full_name": "microsoft/conductor",
+          "permissions": {
+            "admin": false,
+            "maintain": false,
+            "pull": true,
+            "push": false,
+            "triage": false
+          },
+          "allow_auto_merge": null,
+          "allow_merge_commit": null,
+          "allow_rebase_merge": null,
+          "allow_squash_merge": null,
+          "allow_update_branch": null,
+          "clone_url": "https://github.com/microsoft/conductor.git",
+          "size": 13143,
+          "default_branch": "main",
+          "git_commits_url": "https://api.github.com/repos/microsoft/conductor/git/commits{/sha}",
+          "git_refs_url": "https://api.github.com/repos/microsoft/conductor/git/refs{/sha}",
+          "git_url": "git://github.com/microsoft/conductor.git",
+          "master_branch": null,
+          "visibility": "public",
+          "archived": false,
+          "is_code_search_indexed": null,
+          "display_title": "microsoft/conductor",
+          "display_url": "https://github.com/microsoft/conductor"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,25 @@
+creator-intelligence
+
+Portions of this plugin are adapted from social-media-research-skills,
+Copyright (c) 2026 ScrapeCreators, used under the MIT License (see LICENSE):
+
+  skills/ad-library-teardown
+  skills/comment-mining              (adds an authenticity mode)
+  skills/competitor-social-research
+  skills/content-repurposing         (one reference updated)
+  skills/outlier-post-finder
+  skills/product-demand-research
+  skills/scrapecreators-api          (endpoint paths, costs and limits corrected against the live spec on 2026-11-02)
+  skills/social-listening-brief
+  skills/transcript-intelligence
+  skills/trend-discovery             (one scope sentence added)
+  skills/creator-vetting             (merges audience-research, creator-profile-teardown and influencer-prospecting)
+  skills/creator-discovery           (derived from influencer-prospecting)
+
+The ScrapeCreators trademark and service are theirs. The API facts in this
+plugin were checked against docs.scrapecreators.com on 2026-11-02.
+
+The remaining skills, references and scripts are original to this repository.
+Their rules and measured findings were informed by the public repository
+tigerless-labs/influencer-discovery, which carries no license. None of its text
+or code is included. See PROVENANCE.md.

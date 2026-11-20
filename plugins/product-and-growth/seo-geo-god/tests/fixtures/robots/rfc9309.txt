@@ -1,0 +1,20 @@
+# Synthetic robots.txt for RFC 9309 semantics tests (example.com; not a real site).
+User-agent: ExampleBot
+User-agent: OtherBot
+Disallow: /private/
+Allow: /private/public-page.html
+
+User-agent: *
+Disallow: /tmp/
+Disallow: /*.pdf$
+Allow: /tmp/ok$
+Disallow:
+
+user-agent: examplebot
+disallow: /second-group/
+
+User-agent: StrictBot
+Disallow: /
+Allow: /$
+
+Sitemap: https://example.com/sitemap.xml

@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: negative-photo-blur
+expected_outcome: |
+  A Python script that detects faces in photos/team.jpg and blurs only those regions, saving the result as a new
+  file. No liquid glass skill is loaded and the answer does not drift into glass, glassmorphism or CSS effects.

@@ -1,0 +1,36 @@
+{
+ "record": {
+  "collectionPeriods": [
+   {
+    "firstDate": {
+     "day": 1,
+     "month": 9,
+     "year": 2026
+    }
+   }
+  ],
+  "key": {
+   "origin": "https://example.com"
+  },
+  "metrics": {
+   "cumulative_layout_shift": {
+    "percentilesTimeseries": {
+     "p75s": [
+      "0.08",
+      "0.30"
+     ]
+    }
+   },
+   "largest_contentful_paint": {
+    "percentilesTimeseries": {
+     "p75s": [
+      2300,
+      2600,
+      4200,
+      null
+     ]
+    }
+   }
+  }
+ }
+}

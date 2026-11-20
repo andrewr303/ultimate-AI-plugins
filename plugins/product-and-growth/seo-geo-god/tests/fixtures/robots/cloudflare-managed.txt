@@ -1,0 +1,17 @@
+# BEGIN Cloudflare Managed content
+# Synthetic stand-in for an edge-managed block (test fixture written for SEO-GEO-god).
+User-agent: *
+Content-Signal: search=yes, ai-train=no, use=reference
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+# END Cloudflare Managed Content
+
+User-agent: *
+Disallow: /cart/
+
+Sitemap: https://example.com/sitemap.xml

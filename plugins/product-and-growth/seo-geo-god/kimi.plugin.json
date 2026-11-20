@@ -1,0 +1,9 @@
+{
+  "name": "seo-geo-god",
+  "version": "1.0.1",
+  "description": "SEO and GEO for coding agents: detect the stack, fix crawlability, rendering, metadata, structured data, sitemaps, hreflang and AI-crawler access in code, and verify with an offline, stdlib-only audit CLI and CI gates.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SEO-GEO-god"
+  }
+}

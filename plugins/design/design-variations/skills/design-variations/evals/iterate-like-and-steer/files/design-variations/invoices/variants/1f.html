@@ -1,0 +1,135 @@
+<style>
+main{padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.head{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap}
+.head h1{margin:0;font-size:var(--text-2xl);letter-spacing:-.02em;flex:1}
+.panels{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1.1fr) minmax(0,.65fr);gap:var(--space-4)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);min-width:0}
+.panel h2{margin:0;font-size:var(--text-md);font-weight:600;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.panel h2 small{font-weight:500;color:var(--text-2);font-size:var(--text-xs)}
+.bars{display:flex;flex-direction:column;gap:6px}
+.barb{all:unset;cursor:pointer;display:grid;grid-template-columns:128px minmax(0,1fr) 104px;gap:10px;align-items:center;padding:6px 8px;margin:0 -8px;border-radius:var(--radius-sm);font-size:var(--text-sm)}
+.barb:hover{background:var(--surface-2)}
+.barb:focus-visible{outline:2px solid var(--accent);outline-offset:0}
+.barb[aria-pressed=true]{background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.barb[disabled]{cursor:default;opacity:.6}
+.barb .lab{color:var(--text);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.barb .lab small{display:block;color:var(--text-2);font-weight:400;font-size:var(--text-xs)}
+.track{height:18px;background:var(--surface-2);border-radius:4px;overflow:hidden;display:flex}
+.fill{height:100%}
+.fill.cur{background:var(--due)}
+.fill.l1{background:#e27b6f}
+.fill.l2{background:var(--overdue)}
+.fill.l3{background:#7f1d1d}
+.fill.hatch{background-image:repeating-linear-gradient(135deg,rgb(255 255 255 / .35) 0 3px,transparent 3px 7px)}
+.barb .v{font-family:var(--font-mono);text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.legend{display:flex;gap:14px;font-size:var(--text-xs);color:var(--text-2);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.tot{display:flex;flex-direction:column;gap:var(--space-3)}
+.tot div{display:flex;flex-direction:column;gap:2px;padding-bottom:var(--space-3);border-bottom:1px solid var(--border)}
+.tot div:last-child{border-bottom:0;padding-bottom:0}
+.tot span{font-size:var(--text-sm);color:var(--text-2)}
+.tot b{font:600 var(--text-lg)/1.2 var(--font-mono);font-variant-numeric:tabular-nums}
+.tot .o b{color:var(--overdue)}
+.bar{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;background:var(--surface-2);padding:3px;border-radius:var(--radius-sm);overflow-x:auto;max-width:100%}
+.tab{border:0;background:transparent;padding:7px 12px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer;white-space:nowrap}
+.tab[aria-pressed=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tab .n{margin-left:4px}
+.bar .k-search{flex:1;min-width:220px}
+.chips:empty{display:none}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:var(--text-sm);color:var(--text-2)}
+.chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:5px 8px 5px 12px;font-weight:600}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bulk{display:none;gap:var(--space-3);align-items:center;background:var(--text);color:#fff;padding:8px 8px 8px 14px;border-radius:var(--radius);flex-wrap:wrap}
+.bulk.on{display:flex}.bulk .sp{flex:1}
+.bulk .k-btn{background:transparent;color:#fff;border-color:#ffffff59}.bulk .k-btn:hover{background:#ffffff1a}
+.bulk .sum{font-family:var(--font-mono);color:#c9d3ce;font-size:var(--text-sm)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);font-weight:600}
+th button{all:unset;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+th button .k-ico{width:12px;height:12px;opacity:.3}
+th[aria-sort=ascending] button,th[aria-sort=descending] button{color:var(--text)}
+th[aria-sort=ascending] button .k-ico,th[aria-sort=descending] button .k-ico{opacity:1}
+tbody tr:hover{background:var(--surface-2)} tbody tr.sel{background:var(--accent-soft)} tbody tr:last-child td{border-bottom:0}
+td.inv{font-family:var(--font-mono);font-size:var(--text-sm)}
+td.num,th.num{text-align:right} td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.when small{display:block;font-size:var(--text-xs)}
+.acts{display:flex;justify-content:flex-end}
+@media (max-width:1180px){.panels{grid-template-columns:1fr 1fr}.panel.t{grid-column:1/-1}.tot{flex-direction:row;flex-wrap:wrap}.tot div{border-bottom:0;padding-bottom:0;padding-right:var(--space-6)}}
+@media (max-width:760px){main{padding:var(--space-4)}.panels{grid-template-columns:1fr}.barb{grid-template-columns:96px minmax(0,1fr) 88px}.bar .k-search{min-width:100%}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="head"><h1>Invoices</h1><button class="k-btn" id="export" type="button"></button><button class="k-btn primary" id="new" type="button"></button></div>
+    <section class="panels" aria-label="Summary">
+      <div class="panel"><h2>Unpaid by age <small>click a bar to filter</small></h2><div class="bars" id="age" role="group" aria-label="Filter by age"></div>
+        <div class="legend" aria-hidden="true"><span><i style="background:var(--due)"></i>Not yet due</span><span><i style="background:#e27b6f"></i>1-30 late</span><span><i style="background:var(--overdue)"></i>31-60 late</span><span><i style="background:#7f1d1d"></i>Over 60</span></div></div>
+      <div class="panel"><h2>Owed by client <small>overdue part in red</small></h2><div class="bars" id="who" role="group" aria-label="Filter by client"></div></div>
+      <div class="panel t"><h2>Totals</h2><div class="tot" id="tot"></div></div>
+    </section>
+    <div class="bar"><div class="tabs" role="group" aria-label="Filter by status" id="tabs"></div>
+      <label class="k-search"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #"></label></div>
+    <div class="chips" id="chips" aria-live="polite"></div>
+    <div class="bulk" id="bulk" role="region" aria-label="Bulk actions"><strong id="bulk-n"></strong><span class="sum" id="bulk-sum"></span><span class="sp"></span>
+      <button class="k-btn sm" id="remind" type="button">Send reminders</button><button class="k-btn sm" id="markpaid" type="button">Mark paid</button><button class="k-btn sm" id="clear" type="button">Clear</button></div>
+    <div class="card"><table><thead><tr id="th"></tr></thead><tbody id="rows"></tbody></table><div id="empty" hidden></div></div>
+  </main>
+</div>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#export').innerHTML=K.icon('download')+'Export CSV';$('#new').innerHTML=K.icon('plus')+'New invoice';$('#sicon').innerHTML=K.icon('search');
+const AGES=[['cur','Not yet due','cur'],['l1','1-30 days late','l1'],['l2','31-60 days late','l2 hatch'],['l3','Over 60 days late','l3']];
+const age=r=>r.status==='due'?'cur':r.status==='overdue'?(K.daysLate(r)<=30?'l1':K.daysLate(r)<=60?'l2':'l3'):null;
+let st={tab:'all',q:'',sort:{k:'issued',dir:-1},age:null,client:null};
+const COLS=[['no','Invoice'],['client','Client'],['issued','Issued'],['due','Due'],[null,'Status'],['amount','Amount','num']];
+const view=()=>S.view(Object.assign({},st,{where:r=>(!st.age||age(r)===st.age)&&(!st.client||r.client===st.client)}));
+function render(){K.keepFocus(document.body,()=>{
+  const t=S.totals(),unpaid=S.data.filter(r=>r.status==='due'||r.status==='overdue');
+  const ages=AGES.map(([k,l,c])=>{const rs=unpaid.filter(r=>age(r)===k);return{k,l,c,n:rs.length,sum:rs.reduce((a,r)=>a+r.amount,0)}});
+  const maxA=Math.max(1,...ages.map(a=>a.sum));
+  $('#age').innerHTML=ages.map(a=>`<button type="button" class="barb" aria-pressed="${st.age===a.k}" data-age="${a.k}" data-focus="age-${a.k}" ${a.n?'':'disabled'} aria-label="${a.l}: ${a.n} invoices, ${f.money(a.sum)}"><span class="lab">${a.l}<small>${a.n} invoice${a.n===1?'':'s'}</small></span><span class="track"><span class="fill ${a.c}" style="width:${a.sum/maxA*100}%"></span></span><span class="v">${f.money0(a.sum)}</span></button>`).join('');
+  const by={};unpaid.forEach(r=>{by[r.client]=by[r.client]||{c:r.client,o:0,d:0};by[r.client][r.status==='overdue'?'o':'d']+=r.amount});
+  const cl=Object.values(by).sort((a,b)=>(b.o+b.d)-(a.o+a.d)),maxC=Math.max(1,...cl.map(c=>c.o+c.d));
+  $('#who').innerHTML=cl.length?cl.map(c=>`<button type="button" class="barb" aria-pressed="${st.client===c.c}" data-client="${f.esc(c.c)}" data-focus="cl-${f.esc(c.c)}" aria-label="${f.esc(c.c)}: ${f.money(c.o+c.d)} outstanding, ${f.money(c.o)} overdue"><span class="lab" title="${f.esc(c.c)}">${f.esc(c.c)}</span><span class="track"><span class="fill l2" style="width:${c.o/maxC*100}%"></span><span class="fill cur" style="width:${c.d/maxC*100}%"></span></span><span class="v">${f.money0(c.o+c.d)}</span></button>`).join(''):'<p style="margin:0;color:var(--text-2)">Nobody owes anything right now.</p>';
+  $('#tot').innerHTML=`<div><span>Outstanding</span><b>${f.money(t.outstanding)}</b></div><div class="o"><span>Overdue</span><b>${f.money(t.overdue)}</b></div><div><span>Paid this month</span><b>${f.money(t.paid)}</b></div><div><span>Drafts</span><b>${t.drafts}</b></div>`;
+  $('#tabs').innerHTML=K.TABS.map(([k,l])=>`<button type="button" class="tab" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}">${l}<span class="n">${S.count(k)}</span></button>`).join('');
+  const chips=[];if(st.age)chips.push(`<button type="button" class="chip" data-unage data-focus="unage">Age: ${AGES.find(a=>a[0]===st.age)[1]}${K.icon('x')}<span class="k-sr">, remove filter</span></button>`);if(st.client)chips.push(`<button type="button" class="chip" data-uncl data-focus="uncl">Client: ${f.esc(st.client)}${K.icon('x')}<span class="k-sr">, remove filter</span></button>`);
+  $('#chips').innerHTML=chips.length?'<span>Filtered by</span>'+chips.join(''):'';
+  $('#th').innerHTML=`<th style="width:44px"><input type="checkbox" class="k-check" id="all" aria-label="Select all shown invoices"></th>`+COLS.map(([k,l,c])=>k?`<th class="${c||''}" aria-sort="${st.sort.k===k?(st.sort.dir>0?'ascending':'descending'):'none'}"><button type="button" data-k="${k}" data-focus="sort-${k}">${l}${K.icon(st.sort.k===k&&st.sort.dir>0?'up':'down')}</button></th>`:`<th>${l}</th>`).join('')+`<th><span class="k-sr">Actions</span></th>`;
+  const v=view();
+  $('#rows').innerHTML=v.map(r=>`<tr class="${S.sel.has(r.no)?'sel':''}"><td><input type="checkbox" class="k-check" data-s="${r.no}" data-focus="s-${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}"></td>
+   <td class="inv">${r.no}</td><td>${f.esc(r.client)}</td><td>${f.date(r.issued)}</td><td class="when">${f.date(r.due)}${r.status==='overdue'||r.status==='due'?`<small class="${r.status==='overdue'?'k-late':'k-soon'}">${f.timing(r)}</small>`:''}</td>
+   <td><span class="k-pill ${r.status}">${f.status(r.status)}</span></td><td class="num">${f.money(r.amount)}</td>
+   <td><div class="acts"><button type="button" class="k-btn icon sm" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for ${r.no}" data-m="${r.no}" data-focus="m-${r.no}">${K.icon('more')}</button></div></td></tr>`).join('');
+  const e=$('#empty');e.hidden=v.length>0;e.innerHTML=v.length?'':K.emptyHTML(S);
+  $('#all').checked=v.length>0&&v.every(r=>S.sel.has(r.no));
+  const sel=[...S.sel].map(S.find).filter(Boolean);
+  $('#bulk').classList.toggle('on',sel.length>0);$('#bulk-n').textContent=sel.length+' selected';$('#bulk-sum').textContent=f.money(sel.reduce((a,r)=>a+r.amount,0));
+})}
+S.on(render);
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.t){st.tab=b.dataset.t;render()}
+ if(b.dataset.age){st.age=st.age===b.dataset.age?null:b.dataset.age;render()}
+ if(b.dataset.client){st.client=st.client===b.dataset.client?null:b.dataset.client;render()}
+ if(b.hasAttribute('data-unage')){st.age=null;render();$('#age button').focus()}
+ if(b.hasAttribute('data-uncl')){st.client=null;render();$('#who button').focus()}
+ if(b.dataset.k){st.sort={k:b.dataset.k,dir:st.sort.k===b.dataset.k?-st.sort.dir:1};render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);render()}
+ if(b.id==='all'){view().forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));render()}
+ if(b.dataset.m)K.menu(b,K.rowItems(S,S.find(b.dataset.m)));
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';st.age=null;st.client=null;$('#q').value='';render()}
+ if(b.id==='export')K.toast('Exported '+view().length+' rows');
+ if(b.id==='new'||b.hasAttribute('data-k-new'))K.openInvoiceForm(S);
+});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+render();
+})();
+</script>

@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://example.com/#organization",
+      "name": "[REPLACE: organization name exactly as shown on the site]",
+      "legalName": "[REPLACE: registered legal name, or delete this line]",
+      "alternateName": "[REPLACE: other name people use, or delete this line]",
+      "description": "[REPLACE: one-sentence description that matches the About page]",
+      "url": "[REPLACE: absolute https URL of the home page]",
+      "logo": "[REPLACE: absolute https URL of a crawlable logo image]",
+      "sameAs": [
+        "[REPLACE: absolute URL of a verified official profile; delete unverified entries]"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "[REPLACE: customer support, sales or another contact type]",
+        "email": "[REPLACE: public contact email shown on the site, or delete this line]",
+        "telephone": "[REPLACE: public phone number in international format, or delete this line]"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#website",
+      "url": "[REPLACE: absolute https URL of the home page]",
+      "name": "[REPLACE: site name you want shown in search results]",
+      "alternateName": "[REPLACE: shorter or alternative site name, or delete this line]",
+      "inLanguage": "[REPLACE: BCP 47 language code such as en]",
+      "publisher": {
+        "@id": "https://example.com/#organization"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: Design Variations
+  short_description: Ten live design directions
+  default_prompt: Give me ten fully interactive variations of this design, from small refinements to radical redesigns, in a new variations file.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "1.0.0",
+  "resources": [
+    {
+      "kind": "reference",
+      "name": "foundation",
+      "title": "Product truth, evidence and brand",
+      "path": "references/foundation.md",
+      "tags": [
+        "evidence",
+        "claims",
+        "captures",
+        "brand",
+        "rights",
+        "handoff"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "execution",
+      "title": "Installed paths, capabilities and commands",
+      "path": "references/execution.md",
+      "tags": [
+        "doctor",
+        "windows",
+        "portability",
+        "commands",
+        "costs"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "direction",
+      "title": "Marketing direction worksheet",
+      "path": "references/direction.md",
+      "tags": [
+        "audience",
+        "promise",
+        "narrative",
+        "cta",
+        "art",
+        "direction",
+        "redesign"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "composition",
+      "title": "Readable product composition",
+      "path": "references/composition.md",
+      "tags": [
+        "homepage",
+        "screenshots",
+        "responsive",
+        "react",
+        "next",
+        "static",
+        "typography"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "assets",
+      "title": "Screenshot optimization and native density",
+      "path": "references/assets.md",
+      "tags": [
+        "assets",
+        "optimize",
+        "screenshot",
+        "crop",
+        "density",
+        "webp",
+        "png",
+        "jpeg",
+        "metadata",
+        "hash"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "interactions",
+      "title": "Bounded demonstration recipes",
+      "path": "references/interactions.md",
+      "tags": [
+        "tabs",
+        "input",
+        "result",
+        "filter",
+        "reorder",
+        "editable",
+        "output",
+        "details",
+        "replay"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "scroll-story",
+      "title": "Reversible scroll story",
+      "path": "references/scroll-story.md",
+      "tags": [
+        "scroll",
+        "sticky",
+        "progress",
+        "reduced",
+        "motion",
+        "offscreen"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "copy-and-pages",
+      "title": "Conversion copy and page systems",
+      "path": "references/copy-and-pages.md",
+      "tags": [
+        "copy",
+        "feature",
+        "workflow",
+        "comparison",
+        "pricing",
+        "navigation"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "website-qa",
+      "title": "Website validation and critique",
+      "path": "references/website-qa.md",
+      "tags": [
+        "browser",
+        "keyboard",
+        "responsive",
+        "error",
+        "reset",
+        "accessibility",
+        "performance"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "web-patterns",
+      "title": "Working fixture patterns and capture tools",
+      "path": "references/web-patterns.md",
+      "tags": [
+        "implementation",
+        "capture",
+        "state",
+        "machine",
+        "web",
+        "verify"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "delivery",
+      "title": "Website delivery and video import",
+      "path": "references/delivery.md",
+      "tags": [
+        "handoff",
+        "import-video",
+        "delivery",
+        "source",
+        "preview"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "evaluation",
+      "title": "Ready prompts and evaluations",
+      "path": "references/evaluation.md",
+      "tags": [
+        "prompts",
+        "routing",
+        "evaluation",
+        "host",
+        "tests"
+      ]
+    },
+    {
+      "kind": "contracts",
+      "name": "production-contracts",
+      "title": "Versioned shared schemas and examples",
+      "path": "contracts/README.md",
+      "tags": [
+        "schema",
+        "validation",
+        "handoff",
+        "contracts"
+      ]
+    },
+    {
+      "kind": "source-audit",
+      "name": "source-integration",
+      "title": "Source inventory, integration and licensing map",
+      "path": "docs/source-audit/source-integration.md",
+      "tags": [
+        "sources",
+        "license",
+        "attribution",
+        "limitations"
+      ]
+    }
+  ]
+}

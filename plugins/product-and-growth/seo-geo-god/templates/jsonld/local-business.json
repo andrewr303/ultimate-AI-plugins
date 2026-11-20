@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "[REPLACE: absolute https URL of this location page]#localbusiness",
+  "name": "[REPLACE: business name exactly as on the storefront and the Business Profile]",
+  "description": "[REPLACE: one-sentence description that matches the page]",
+  "url": "[REPLACE: absolute https URL of this location page]",
+  "logo": "[REPLACE: absolute https URL of a crawlable logo image]",
+  "image": [
+    "[REPLACE: absolute https URL of a crawlable photo of this location]"
+  ],
+  "telephone": "[REPLACE: public phone number in international format]",
+  "priceRange": "[REPLACE: price range shown on the page, or delete this line]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[REPLACE: street address]",
+    "addressLocality": "[REPLACE: city]",
+    "addressRegion": "[REPLACE: region or state]",
+    "postalCode": "[REPLACE: postal code]",
+    "addressCountry": "[REPLACE: ISO 3166-1 alpha-2 country code]"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "[REPLACE: latitude with at least 5 decimal places]",
+    "longitude": "[REPLACE: longitude with at least 5 decimal places]"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["[REPLACE: https://schema.org/Monday and other days with these hours]"],
+      "opens": "[REPLACE: opening time such as 09:00]",
+      "closes": "[REPLACE: closing time such as 17:00]"
+    }
+  ],
+  "parentOrganization": {
+    "@id": "https://example.com/#organization"
+  }
+}

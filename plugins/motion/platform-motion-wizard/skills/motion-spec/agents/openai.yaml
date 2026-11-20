@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Spec
+  short_description: Polish spec behavior
+  default_prompt: Use $motion-spec for the requested product interaction work and
+    verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+{
+  "name": "platform-motion-wizard",
+  "version": "1.1.1",
+  "description": "Design, implement, and review responsive platform motion and interactions with immediate feedback, spatial continuity, interruption safety, and accessible reduced-motion behavior.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Platform Motion Wizard"
+  }
+}

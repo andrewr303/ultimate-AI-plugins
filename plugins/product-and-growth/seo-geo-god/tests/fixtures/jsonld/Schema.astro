@@ -1,0 +1,5 @@
+---
+const schema = { "@context": "https://schema.org", "@type": "WebPage", name: Astro.props.title };
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Example Widgets", "url": "https://example.com/"}</script>

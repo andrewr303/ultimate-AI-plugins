@@ -1,0 +1,6 @@
+interface:
+  display_name: Core Data
+  short_description: Diagnose Core Data contexts, stores, and migrations
+  default_prompt: Use $ios-core-data to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

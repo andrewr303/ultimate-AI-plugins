@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ult-engineer",
+  "version": "1.0.0",
+  "description": "Ultimate TypeScript, React, and Node.js engineering plugin: write, debug, refactor, review, and health-audit code.",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Ult Engineer",
+        "shortDescription": "Write, debug, refactor, and review TypeScript / React / Node.js with runtime evidence.",
+        "category": "Engineering & developer tools"
+      },
+      "hooks": "./hooks/hooks.json"
+    }
+  }
+}

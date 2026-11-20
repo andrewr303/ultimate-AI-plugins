@@ -1,0 +1,19 @@
+# Example Co
+
+> Example Co publishes invoicing software documentation for small teams. This file lists the pages most useful to AI agents and developer tools.
+
+Each linked page also has a Markdown version at the same URL with .md appended.
+
+## Docs
+
+- [Getting started](https://example.com/docs/getting-started.md): Create an account and send a first invoice
+- [API reference](https://example.com/docs/api.md): Endpoints, authentication and error codes
+
+## Policies
+
+- [Pricing](https://example.com/pricing.md): Plans and usage limits
+- [Privacy policy](https://example.com/legal/privacy.md)
+
+## Optional
+
+- [Changelog](https://example.com/changelog.md): Release notes by version

@@ -1,0 +1,6 @@
+interface:
+  display_name: Backend Node Api
+  short_description: Backend node api workflows
+  default_prompt: Use $backend-node-api to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harbor Notes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="glass" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="3" specularConstant="0.8" specularExponent="18" lighting-color="#ffffff" result="spec">
+        <fePointLight x="-40" y="-60" z="120"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="lit"/>
+      <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.6" k4="0"/>
+    </filter>
+  </svg>
+
+  <header class="site-nav">
+    <a class="brand" href="#top">
+      <svg class="logo" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+        <circle cx="14" cy="14" r="12" fill="#0b6e8a" filter="url(#glass)"/>
+        <path d="M7 17c3-4 11-4 14 0" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>Harbor Notes</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#latest" aria-current="page">Latest</a></li>
+        <li><a href="#tides">Tides</a></li>
+        <li><a href="#boats">Boats</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <button class="subscribe" type="button">Subscribe</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img src="assets/harbor.svg" alt="Boats moored in a bright harbour at noon" width="1200" height="520">
+      <div class="hero-copy">
+        <h1>Notes from the harbour wall</h1>
+        <p>Weekly tide tables, boat repairs and the people who keep the quay running.</p>
+      </div>
+    </section>
+
+    <article id="latest" class="post">
+      <h2>Spring tides and the new pontoon</h2>
+      <p>The harbour board finished the north pontoon on Tuesday, just in time for the highest tides of the year. Owners on the outer moorings can now step ashore without the dinghy shuffle, and the fuel berth has moved to the end of the new arm.</p>
+      <p>Expect a strong ebb through the entrance on Friday and Saturday mornings. The board asks skippers to keep clear of the dredger working the channel between eight and noon.</p>
+      <p>Next week: rebuilding a 1960s clinker tender, plank by plank, with the boatyard apprentices.</p>
+    </article>
+
+    <section class="cards" aria-label="More stories">
+      <article class="card" id="tides">
+        <h3>Reading a tide table</h3>
+        <p>Heights, ranges and why the rule of twelfths is only a rule of thumb.</p>
+      </article>
+      <article class="card" id="boats">
+        <h3>Winter lay-up checklist</h3>
+        <p>Engines, sails and the jobs that are cheaper in October than in March.</p>
+      </article>
+      <article class="card" id="about">
+        <h3>About Harbor Notes</h3>
+        <p>Written by volunteers from the sailing club since 2019.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Harbor Notes is published by the Quay Sailing Club volunteers.</p>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

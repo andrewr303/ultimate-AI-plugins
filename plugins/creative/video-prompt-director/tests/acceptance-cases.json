@@ -1,0 +1,311 @@
+{
+  "suite": "image-video-prompt-plugin-behavior",
+  "version": "1.0.0",
+  "purpose": "Human or model-evaluator behavioral acceptance cases. These fixtures are specifications, not evidence that a model was executed or a generation service was tested.",
+  "evaluation_rules": [
+    "Run each case in a fresh conversation with the relevant plugin enabled, except where a case supplies conversation history.",
+    "Judge generated text against every expected outcome and fail condition; do not award a pass from keyword presence alone.",
+    "Record whether each result comes from source inspection, an actual host invocation, or an actual generation service invocation. Never label source inspection as behavioral execution.",
+    "Five means five creative variations for each requested brief by default. A shot within a video variation is not another variation.",
+    "User instructions for count, length, preservation, output format, or critique-only scope override plugin defaults.",
+    "Current provider documentation, when actually retrieved, can establish a model capability. A user-provided model name alone cannot establish native controls, parameter names, or limits.",
+    "Where attachments are described below, they are synthetic fixture specifications. A test runner must supply the actual assets or mark the asset-dependent behavior untested."
+  ],
+  "cases": [
+    {
+      "id": "VID-01",
+      "plugin": "video",
+      "title": "Text-to-video brief yields five full directed treatments",
+      "input": "Write detailed video prompts for a 20-second cinematic film in which a courier brings a seed to a rooftop garden at dawn. I have not selected a model.",
+      "expected": [
+        "Exactly five substantial creative variations are delivered, each retaining the courier, seed delivery, rooftop garden, and dawn.",
+        "Each variation includes a complete timed scene or shot plan with intervals totaling 20 seconds, visible action, camera direction, lighting, continuity, and a deliberate final state.",
+        "Every variation is independently usable and materially differs in staging, pacing, camera grammar, or narrative emphasis.",
+        "The response distinguishes a full-film director brief from individual clips when the chosen platform may not generate the entire timeline in one request.",
+        "Audio intent is explicit and separated from assumed native audio support."
+      ],
+      "fail_if": [
+        "There are five short single-sentence summaries instead of detailed video directions.",
+        "Shots are counted as the five variations.",
+        "The prompt assumes an unselected model accepts 20-second multi-cut generation."
+      ]
+    },
+    {
+      "id": "VID-02",
+      "plugin": "video",
+      "title": "One short continuous shot stays continuous",
+      "input": "One video prompt only, under 120 words: a 6-second continuous locked-off shot of an ice cube melting in a glass. No cuts, no camera motion, silent.",
+      "expected": [
+        "Exactly one prompt of at most 120 words is returned.",
+        "It describes a single physically coherent continuous action across the requested interval.",
+        "No cuts, zoom, dolly, handheld motion, dialogue, music, or sound effects are introduced."
+      ],
+      "fail_if": [
+        "The default five variations override the user.",
+        "Scene-by-scene defaults force multiple cuts or add incompatible camera motion."
+      ]
+    },
+    {
+      "id": "VID-03",
+      "plugin": "video",
+      "title": "Reference image animation distinguishes motion from reinvention",
+      "input": "Animate the attached still into a 10-second video. Preserve the character, clothing, background geometry, and the existing sign exactly. Give me the usual variations.",
+      "fixture": {
+        "required_assets": [
+          {
+            "id": "still",
+            "description": "A fictional adult cyclist in a yellow raincoat beside a blue bicycle, in front of a brick shop with a sign reading OPEN."
+          }
+        ]
+      },
+      "expected": [
+        "Five image-to-video motion directions preserve the reference-defined invariants.",
+        "Each specifies initial state, constrained subject motion, camera behavior, environmental motion, and final state.",
+        "The sign text and bicycle/character appearance are not creatively rewritten.",
+        "The still is assigned its conditioning role, and any unavailable native control is not invented."
+      ],
+      "fail_if": [
+        "The prompts replace the still's content with a new design.",
+        "Preservation requests are omitted from later standalone variations."
+      ]
+    },
+    {
+      "id": "VID-04",
+      "plugin": "video",
+      "title": "First and last frame bridge locks both endpoints",
+      "input": "Create five first-frame/last-frame video prompts for a 12-second bridge from frame A to frame B. Keep the woman and room consistent. No teleportation or morphing.",
+      "fixture": {
+        "required_assets": [
+          {
+            "id": "A",
+            "description": "A fictional adult woman in a navy jumpsuit stands at the left side of a room holding a closed red umbrella. Window left, door right. Camera at eye level."
+          },
+          {
+            "id": "B",
+            "description": "The same woman stands at the right-side door holding the same closed red umbrella. Same room and camera orientation."
+          }
+        ]
+      },
+      "expected": [
+        "Every variation explicitly assigns A as the initial endpoint and B as the final endpoint.",
+        "The woman traverses the intervening space through visible plausible movement; object ownership, room geography, and orientation remain consistent.",
+        "The final pose and composition settle toward frame B rather than merely mentioning its mood.",
+        "Native first/last support is checked for a named model, or the deliverable is described as a portable endpoint brief requiring compatible tooling."
+      ],
+      "fail_if": [
+        "A and B are used as loose style references.",
+        "The bridge swaps endpoints, teleports, morphs identity, or ignores the final frame."
+      ]
+    },
+    {
+      "id": "VID-05",
+      "plugin": "video",
+      "title": "Impossible endpoint constraints are surfaced",
+      "input": "Bridge these exact first and last frames in one 4-second real-time continuous shot. Keep the person identical. No cuts, morphing, teleportation, fast motion, or scene changes. Start: an adult in a small windowless room. End: a different-looking child on the moon, wide exterior.",
+      "expected": [
+        "The response identifies that the stated endpoints and invariants cannot all be satisfied as written.",
+        "It names the specific conflicting requirements and offers clearly labeled options that relax one or more constraints.",
+        "It does not present five allegedly compliant render-ready prompts before the contradiction is resolved; any conditional drafts explicitly identify their relaxed constraint."
+      ],
+      "fail_if": [
+        "The response claims that detail or camera wording solves the contradictory constraints.",
+        "It silently changes identity, location, duration, or transition rules."
+      ]
+    },
+    {
+      "id": "VID-06",
+      "plugin": "video",
+      "title": "Reference video is analyzed by supported role",
+      "input": "Use the reference video's camera movement and pacing, but replace the scene with a miniature bakery. Keep the original video's people, branding, and audio out. Write five versions.",
+      "fixture": {
+        "required_assets": [
+          {
+            "id": "reference-video",
+            "description": "A synthetic 8-second camera study: slow push-in for 3 seconds, lateral slide for 3 seconds, then 2-second settle. No essential dialogue."
+          }
+        ]
+      },
+      "expected": [
+        "Five prompts map only the requested motion and temporal structure to the new bakery subject.",
+        "Reference-derived observations are grounded in inspected video; if the host cannot inspect it, the response requests a motion description or marks a conditional plan.",
+        "The response does not assume every target model accepts a video-reference input.",
+        "Original people, branding, and audio are excluded from the resulting design."
+      ],
+      "fail_if": [
+        "The source video's subjects or branding leak into the new scene.",
+        "The response invents unseen camera analysis or a universal video-reference API field."
+      ]
+    },
+    {
+      "id": "VID-07",
+      "plugin": "video",
+      "title": "Long multi-scene sequence becomes feasible clip-level handoff",
+      "input": "Make five detailed treatments for a 90-second video, 9 scenes of 10 seconds, showing one inventor building a solar-powered boat. I will generate clips separately and edit them together.",
+      "expected": [
+        "Five treatments each contain nine ordered 10-second scenes totaling 90 seconds.",
+        "Every scene has a paste-ready clip prompt, start/end state, camera and action directions, and an explicit continuity handoff.",
+        "A stable character, wardrobe, boat design, workshop geography, and assembly-state progression is maintained across each treatment.",
+        "Editing and audio assembly instructions are separated from individual model prompts and unsupported service duration claims are absent."
+      ],
+      "fail_if": [
+        "Only one treatment is fully expanded and four are summaries.",
+        "Scene count or duration totals are wrong.",
+        "The boat is completed before its required construction stage without narrative intent."
+      ]
+    },
+    {
+      "id": "VID-08",
+      "plugin": "video",
+      "title": "Native settings stay separate from cinematic language",
+      "input": "Write five video prompts for Grok, Veo, and an unspecified OpenAI video model. Force seed 42, CFG 12, negative_prompt, 4K 120 fps, and native lip sync for all of them.",
+      "expected": [
+        "The assistant distinguishes requested visual or motion intent from verified native controls and output specifications.",
+        "Current exact model versions and surfaces are verified where possible; uncertain or unsupported controls are flagged individually rather than fabricated.",
+        "The response still produces useful portable creative directions and model-specific adapter notes with supported facts only.",
+        "No unsupported guarantee is made about 4K, frame rate, deterministic seeds, lip sync, or negative-prompt fields."
+      ],
+      "fail_if": [
+        "One invented universal parameter block is attached to every provider.",
+        "A frame-rate aesthetic is represented as a verified delivered encoding setting without evidence."
+      ]
+    },
+    {
+      "id": "VID-09",
+      "plugin": "video",
+      "title": "Identity, prop, geography and screen direction persist",
+      "input": "Write five 24-second video treatments in three 8-second shots. A fictional adult detective wearing round black glasses and a rust coat carries one brass key from the left doorway to a locked chest on the right. Never switch hands: key stays in the right hand. Maintain left-to-right travel.",
+      "expected": [
+        "Each treatment contains three shots totaling 24 seconds.",
+        "Glasses, coat, one brass key, right-hand ownership, left/right geography, and left-to-right screen direction remain locked.",
+        "Shot boundaries include handoff states sufficient to preserve these constraints when generated independently.",
+        "The camera plan avoids crossing the action axis without an explicit continuity-preserving justification."
+      ],
+      "fail_if": [
+        "A key duplicates, changes hands, or disappears without requested action.",
+        "A reverse angle unintentionally flips travel direction.",
+        "Identity details are absent from later clip prompts."
+      ]
+    },
+    {
+      "id": "VID-10",
+      "plugin": "video",
+      "title": "Extension continues state and motion",
+      "input": "Write five 6-second continuation prompts for my existing clip. Its final state: camera dollying slowly right; a red paper boat is drifting left across a puddle; rain is steady. Preserve the motion and end with the boat entering a drain, with no cut or reset.",
+      "expected": [
+        "Every continuation begins from the supplied camera, boat, and rain state.",
+        "Velocity and screen direction have a coherent continuation rather than a new opening shot.",
+        "The boat reaches the drain through a plausible visible path and the requested end state is explicit.",
+        "Native extension capability is verified for a selected model or treated as a tooling requirement."
+      ],
+      "fail_if": [
+        "The camera restarts, the boat reverses direction, weather changes, or a cut is introduced."
+      ]
+    },
+    {
+      "id": "VID-11",
+      "plugin": "video",
+      "title": "Loop closes visual and motion state",
+      "input": "Give me five detailed prompts for an 8-second seamless looping animation of a tiny mechanical planetarium. No cut, fade, or dissolve.",
+      "expected": [
+        "Each variation defines an initial state and an ending state that match in composition, subject phase, illumination, and camera pose.",
+        "Cyclic motion is timed to return to the starting phase and does not require a hidden cut or fade.",
+        "The response treats seamlessness as an intended constraint that may need validation, not a guaranteed service output."
+      ],
+      "fail_if": [
+        "The loop is achieved only by a forbidden transition.",
+        "Camera drift or noncyclic action prevents the end from matching the start."
+      ]
+    },
+    {
+      "id": "VID-12",
+      "plugin": "video",
+      "title": "Dialogue and audio directions do not invent native capability",
+      "input": "Create five video prompts for a 10-second close-up of a fictional baker saying exactly, 'Fresh at sunrise.' Keep it as one spoken line, with soft kitchen ambience, no music, and no subtitles. Model undecided.",
+      "expected": [
+        "Each prompt retains the exact dialogue once, a plausible delivery window, speaker identity, ambience, and the no-music/no-subtitles requirements.",
+        "The audio plan is separate enough to use in post-production when native dialogue or audio is not supported.",
+        "No native lip-sync guarantee or unsupported audio-generation flag is introduced."
+      ],
+      "fail_if": [
+        "Dialogue words change or are repeated unnecessarily.",
+        "Music, captions, or additional speech is added."
+      ]
+    },
+    {
+      "id": "VID-13",
+      "plugin": "video",
+      "title": "Video repair preserves requested scope",
+      "input": "Repair only this one prompt so it stops contradicting itself. Return one revised prompt, not five: 'A locked-off static camera rapidly circles the dancer while the dancer remains in exactly the same screen position.' Prioritize the locked-off camera.",
+      "expected": [
+        "Exactly one revised prompt honors the user's priority of a locked-off camera.",
+        "The camera orbit is removed or recast as compatible subject action without changing the user's core scene beyond the needed repair.",
+        "No unnecessary full production treatment or additional creative variants appear."
+      ],
+      "fail_if": [
+        "Both incompatible camera instructions remain.",
+        "Five variations override the requested surgical repair."
+      ]
+    },
+    {
+      "id": "VID-14",
+      "plugin": "video",
+      "title": "Video plugin negative activation",
+      "input": "Summarize this meeting transcript and extract decisions. Do not create a video, storyboard, or generation prompt.",
+      "fixture": {
+        "transcript": "Ari: We will launch the garden page on Friday. Bo: I will prepare the copy. Ari: I will review it Thursday."
+      },
+      "expected": [
+        "The assistant performs the summary and decision extraction without video prompt variations or production intake."
+      ],
+      "fail_if": [
+        "The plugin forces a video-generation workflow because the input contains dialogue."
+      ]
+    },
+    {
+      "id": "BOTH-01",
+      "plugin": "both",
+      "title": "Multi-target adaptations do not multiply creative directions implicitly",
+      "input": "Create the usual five creative variations of one lighthouse-at-dusk concept, and make them usable in three target models. Use one shared creative set with adaptations, not fifteen new concepts.",
+      "expected": [
+        "There are exactly five identifiable creative variations.",
+        "Target-specific adaptations preserve each variation's identity and are clearly associated with it.",
+        "The response does not treat three targets as permission to invent fifteen unrelated directions.",
+        "Each target-specific paste-ready output that is supplied is self-contained or uses a deliberately labeled shared assembly structure; no ambiguous 'same as above' paste dependency is hidden."
+      ],
+      "fail_if": [
+        "Five becomes fifteen independent concepts.",
+        "Target adaptations silently change the subject or essential creative brief."
+      ]
+    },
+    {
+      "id": "BOTH-02",
+      "plugin": "both",
+      "title": "Explicit per-model expansion is honored",
+      "input": "For this one desert observatory concept, give me two variations for each of three target models, so six prompts total. Keep each prompt under 90 words and use portable prose if a target capability is unknown.",
+      "expected": [
+        "Exactly six prompts are grouped as two per target model.",
+        "Each prompt is under 90 words.",
+        "Unknown native controls are omitted rather than invented.",
+        "The plugin does not insist on its ordinary five-variation default or shared-set format."
+      ],
+      "fail_if": [
+        "The output count differs from the user's explicit six-prompt instruction."
+      ]
+    },
+    {
+      "id": "BOTH-03",
+      "plugin": "both",
+      "title": "Prompt generation does not claim rendered-media validation",
+      "input": "Write the usual detailed prompts for a miniature library in a walnut shell. Then tell me whether all results render perfectly in my paid image/video service. Do not call a generation tool.",
+      "expected": [
+        "The requested prompt set is delivered.",
+        "The response clearly distinguishes prompt review from actual service generation and does not claim visual validation that did not occur.",
+        "Any review conclusion is limited to consistency and completeness of the written prompts."
+      ],
+      "fail_if": [
+        "The assistant claims actual renders, tested seeds, perfect fidelity, or provider success without execution.",
+        "The assistant calls a generation service despite the user's prohibition."
+      ]
+    }
+  ]
+}

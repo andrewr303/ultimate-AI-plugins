@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "contract-suite-results",
+  "subjectId": "contract-suite",
+  "productRevision": "contracts-1.0.0",
+  "sourceHashes": {
+    "validate.py": "7e5c81101f29ba0e7dd049bfbf677b846efb627a113c0ca060382f4398ddd931",
+    "tests/test_contracts.py": "77efbf8bfac4a0687c280539858a63200d8f76f9ee9cef130246a4467881702c",
+    "schemas/asset-manifest.schema.json": "f98536b06656344bac830239edf44a999a07c07e1e85c2c68a28a4a014fc2c8e",
+    "schemas/brand.schema.json": "b1caebf08c87f29e7cfc553004a192dbbeca0709ccd03ede5ff1cb4b45cbe1d1",
+    "schemas/campaign-brief.schema.json": "66c6e55b6edb871eb5dd1e7449d3b1776e1ad38f5955ade604c48ab81ba4ba9c",
+    "schemas/capture-job.schema.json": "d73d44e5bc6ab9a6778baf37cbea41601c47c9480a972057a1d9d9234573be97",
+    "schemas/capture-manifest.schema.json": "526b84bd751c5af9368d08ddd950a749be55c7233d794d8f8d0af834dd15c000",
+    "schemas/experiment-manifest.schema.json": "4187b6981fba81829731664452184f98182738dd8838d8855f23bfa60be7686a",
+    "schemas/export-variants.schema.json": "69212882683a0ef5ec921e4bbd59fb2c173e38793d563011fe526a5b17edc03f",
+    "schemas/interactive-demo.schema.json": "991035a1914244800bbad4fc00878224233ea87a4f90a9640ecf59238c2f4ca8",
+    "schemas/product-evidence.schema.json": "499de641a0b36eb9444544c3a81ed36715f0f5c4cfbca1ec3bd40a2212b19f94",
+    "schemas/qa-results.schema.json": "8764043576b64bc2aaf558b25c664bdc3cd84aa871033fd01b58c2f6fbdf6d40",
+    "schemas/render-job.schema.json": "6dea99fbc9f71bc7eff1774438fdbf6effe7a4754f2b20243d805522bcbe7ea5",
+    "schemas/storyboard.schema.json": "da961cc2f66aaa5666f3fcfe4d76f2bb44bcbc7031aac6bb623ab687163a290a"
+  },
+  "checkedAt": "2026-10-23T04:32:11.146896+00:00",
+  "checks": [
+    {
+      "id": "contract-unit-suite",
+      "category": "technical",
+      "status": "pass",
+      "method": "python -m unittest discover -s contracts/tests -v",
+      "evidence": [
+        "tests/last-run.txt"
+      ],
+      "details": "30 tests, including all 12 valid examples, malicious scalar/list paths, local evidence existence and contextual propagation, evidence/revision errors, capture-rights linkage, bounded capture holds, frame/caption boundaries, state reachability, config/file hash tampering, rights and variant semantics."
+    }
+  ],
+  "reviewer": "Python unittest execution"
+}

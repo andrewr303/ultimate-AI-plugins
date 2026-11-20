@@ -1,0 +1,515 @@
+{
+  "format_version": 1,
+  "inputs": [
+    {
+      "name": "core-data",
+      "archive": "Core-Data-Agent-Skill-main.zip",
+      "sha256": "6fc8f21e21e63754a20db95ccb1103382b16bc63c31cc2bd489ef8226a544df2",
+      "files": 27,
+      "uncompressed": 207872,
+      "skills": [
+        "Core-Data-Agent-Skill-main/core-data-expert/SKILL.md"
+      ],
+      "licenses": [
+        "Core-Data-Agent-Skill-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_000000002b2c81fd9e1e0b2ac624a2dc",
+      "use": "ios-core-data; migration/testing/context boundaries",
+      "license_files": [
+        {
+          "source_path": "Core-Data-Agent-Skill-main/LICENSE",
+          "file": "licenses/core-data-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "skills-lower",
+      "archive": "skills-main (1).zip",
+      "sha256": "b7d3bd0697e6c45b3104fd462523e337974c0bd63d1a4a4e12eff7f7ec561a29",
+      "files": 184,
+      "uncompressed": 4450892,
+      "skills": [
+        "skills-main/.claude/skills/expo-skill-eval/SKILL.md",
+        "skills-main/plugins/expo-experiments/skills/expo-migrate-module/SKILL.md",
+        "skills-main/plugins/expo/skills/eas-app-stores/SKILL.md",
+        "skills-main/plugins/expo/skills/eas-hosting/SKILL.md",
+        "skills-main/plugins/expo/skills/eas-observe/SKILL.md",
+        "skills-main/plugins/expo/skills/eas-simulator/SKILL.md",
+        "skills-main/plugins/expo/skills/eas-update-insights/SKILL.md",
+        "skills-main/plugins/expo/skills/eas-update/SKILL.md",
+        "skills-main/plugins/expo/skills/eas-workflows/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-animation/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-app-clip/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-brownfield/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-data-fetching/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-design-system/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-dev-client/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-dom/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-examples/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-module/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-native-ui/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-overview/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-project-structure/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-router/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-ui/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-upgrade/SKILL.md",
+        "skills-main/plugins/expo/skills/expo-web-to-native/SKILL.md"
+      ],
+      "licenses": [
+        "skills-main/LICENSE",
+        "skills-main/plugins/expo/LICENSE",
+        "skills-main/plugins/expo/skills/expo-animation/LICENSE"
+      ],
+      "excluded": [
+        {
+          "path": "skills-main/CLAUDE.md",
+          "reason": "symlink",
+          "target": "AGENTS.md"
+        }
+      ],
+      "upload_id": "file_000000000a3081f6870b514e92507fde",
+      "use": "ios-expo; ios-platform-services; native EAS delivery",
+      "license_files": [
+        {
+          "source_path": "skills-main/LICENSE",
+          "file": "licenses/skills-lower-MIT.txt"
+        },
+        {
+          "source_path": "skills-main/plugins/expo/LICENSE",
+          "file": "licenses/skills-lower-MIT.txt"
+        },
+        {
+          "source_path": "skills-main/plugins/expo/skills/expo-animation/LICENSE",
+          "file": "licenses/skills-lower-3-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "skills-upper",
+      "archive": "Skills-main.zip",
+      "sha256": "1ad894100997ed100feeec633079246f55b373fd03e406b53968edf7daa72ca5",
+      "files": 102,
+      "uncompressed": 273143,
+      "skills": [
+        "Skills-main/app-store-changelog/SKILL.md",
+        "Skills-main/bug-hunt-swarm/SKILL.md",
+        "Skills-main/github/SKILL.md",
+        "Skills-main/ios-debugger-agent/SKILL.md",
+        "Skills-main/macos-menubar-tuist-app/SKILL.md",
+        "Skills-main/macos-spm-app-packaging/SKILL.md",
+        "Skills-main/orchestrate-batch-refactor/SKILL.md",
+        "Skills-main/project-skill-audit/SKILL.md",
+        "Skills-main/react-component-performance/SKILL.md",
+        "Skills-main/review-and-simplify-changes/SKILL.md",
+        "Skills-main/review-swarm/SKILL.md",
+        "Skills-main/swift-concurrency-expert/SKILL.md",
+        "Skills-main/swiftui-liquid-glass/SKILL.md",
+        "Skills-main/swiftui-performance-audit/SKILL.md",
+        "Skills-main/swiftui-ui-patterns/SKILL.md",
+        "Skills-main/swiftui-view-refactor/SKILL.md"
+      ],
+      "licenses": [
+        "Skills-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_0000000019e08230862d3d7aaff91743",
+      "use": "ios-swiftui; ios-navigation; ios-performance; ios-review-migrate",
+      "license_files": [
+        {
+          "source_path": "Skills-main/LICENSE",
+          "file": "licenses/skills-upper-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "chat",
+      "archive": "Chat-main.zip",
+      "sha256": "7e75b1468d2db71e9a7a9849ac529219b863a86e279c649cf7cd74e7e3e66a1c",
+      "files": 361,
+      "uncompressed": 4720375,
+      "skills": [],
+      "licenses": [
+        "Chat-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_000000000e8081f5a445da96cd52651b",
+      "use": "ios-chat; optional UI adapter and domain/backend separation",
+      "license_files": [
+        {
+          "source_path": "Chat-main/LICENSE",
+          "file": "licenses/chat-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "nuke",
+      "archive": "Nuke-main.zip",
+      "sha256": "3b54aee7e0242646d2667b7d0c58f088f4e2fe3266b16a0b01118d3848702c89",
+      "files": 429,
+      "uncompressed": 10914596,
+      "skills": [],
+      "licenses": [
+        "Nuke-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_0000000075d882308fa44f0edd1db9f1",
+      "use": "ios-images; optional pipeline/cache integration",
+      "license_files": [
+        {
+          "source_path": "Nuke-main/LICENSE",
+          "file": "licenses/nuke-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "architecture",
+      "archive": "swift-architecture-skill-main.zip",
+      "sha256": "19b03752e640089f6c606e89f0a3f255cae6c8b74fef44a889c2bbf66493db80",
+      "files": 75,
+      "uncompressed": 317355,
+      "skills": [
+        "swift-architecture-skill-main/swift-architecture-skill/SKILL.md"
+      ],
+      "licenses": [
+        "swift-architecture-skill-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_00000000789c81f4bf863e29da485122",
+      "use": "ios-architecture; ios-review-migrate; state/effect boundaries",
+      "license_files": [
+        {
+          "source_path": "swift-architecture-skill-main/LICENSE",
+          "file": "licenses/architecture-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "design",
+      "archive": "swiftui-design-principles-main.zip",
+      "sha256": "4700d40780d3d39a8cd6957f2283c037e51d08502f009ac4878e35579234ae31",
+      "files": 5,
+      "uncompressed": 25644,
+      "skills": [
+        "swiftui-design-principles-main/SKILL.md"
+      ],
+      "licenses": [
+        "swiftui-design-principles-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_0000000005c081f7935b5e16f4b6606b",
+      "use": "ios-design; ios-accessibility; project-specific visual choices",
+      "license_files": [
+        {
+          "source_path": "swiftui-design-principles-main/LICENSE",
+          "file": "licenses/design-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "swiftui-1",
+      "archive": "SwiftUI-Agent-Skill-main.zip",
+      "sha256": "c37a8933485fa987e78ddc604be02cdb2925d21a3f1ca5593317914114bb99c2",
+      "files": 75,
+      "uncompressed": 965212,
+      "skills": [
+        "SwiftUI-Agent-Skill-main/.agents/skills/update-swiftui-apis/SKILL.md",
+        "SwiftUI-Agent-Skill-main/skills/swiftui-expert-skill/SKILL.md"
+      ],
+      "licenses": [
+        "SwiftUI-Agent-Skill-main/LICENSE"
+      ],
+      "excluded": [
+        {
+          "path": "SwiftUI-Agent-Skill-main/swiftui-expert-skill",
+          "reason": "symlink",
+          "target": "skills/swiftui-expert-skill"
+        }
+      ],
+      "upload_id": "file_00000000a7d481fd9f771f5a207c967f",
+      "use": "ios-swiftui; ios-design; ios-navigation; ios-performance; ios-accessibility",
+      "license_files": [
+        {
+          "source_path": "SwiftUI-Agent-Skill-main/LICENSE",
+          "file": "licenses/core-data-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "swiftui-2",
+      "archive": "SwiftUI-Agent-Skill-main (1).zip",
+      "sha256": "b967442a6f9fc330631024535173e50f27310958132cf356fb4e605c8f22e8d2",
+      "files": 25,
+      "uncompressed": 98837,
+      "skills": [
+        "SwiftUI-Agent-Skill-main/swiftui-pro/SKILL.md",
+        "SwiftUI-Agent-Skill-main/swiftui-pro/skills/swiftui-pro/SKILL.md"
+      ],
+      "licenses": [
+        "SwiftUI-Agent-Skill-main/LICENSE"
+      ],
+      "excluded": [
+        {
+          "path": "SwiftUI-Agent-Skill-main/swiftui-pro/skills/swiftui-pro/references",
+          "reason": "symlink",
+          "target": "../../references"
+        }
+      ],
+      "upload_id": "file_000000000b4c820cbba77b9a5d06eb07",
+      "use": "ios-swiftui; ios-design; ios-navigation; ios-accessibility",
+      "license_files": [
+        {
+          "source_path": "SwiftUI-Agent-Skill-main/LICENSE",
+          "file": "licenses/swiftui-2-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "app-store",
+      "archive": "app-store-connect-cli-skills-main.zip",
+      "sha256": "28da7e24cd7bc721fb37da294ac7718c429855291af27617d443d2e2d41e5f4b",
+      "files": 46,
+      "uncompressed": 297256,
+      "skills": [
+        "app-store-connect-cli-skills-main/skills/asc-ad-hoc-distribution/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-analytics-reports/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-app-create-ui/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-apple-ads/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-aso-audit/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-build-lifecycle/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-cli-usage/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-crash-triage/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-id-resolver/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-in-app-events/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-localize-metadata/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-metadata-sync/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-notarization/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-ppp-pricing/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-release-flow/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-revenuecat-catalog-sync/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-screenshot-resize/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-shots-pipeline/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-signing-setup/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-submission-health/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-subscription-localization/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-testflight-orchestration/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-wall-submit/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-whats-new-writer/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-workflow/SKILL.md",
+        "app-store-connect-cli-skills-main/skills/asc-xcode-build/SKILL.md"
+      ],
+      "licenses": [
+        "app-store-connect-cli-skills-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_000000004e1c81f88601c933274bca87",
+      "use": "ios-signing; ios-release; ios-store-metadata; ios-commerce; ios-store-insights",
+      "license_files": [
+        {
+          "source_path": "app-store-connect-cli-skills-main/LICENSE",
+          "file": "licenses/app-store-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "swiftdata",
+      "archive": "SwiftData-Agent-Skill-main.zip",
+      "sha256": "1dfba5cf716a92bb29daa0472ed262ee71745c86c137ede2e95f7808bd3a2c49",
+      "files": 15,
+      "uncompressed": 40632,
+      "skills": [
+        "SwiftData-Agent-Skill-main/swiftdata-pro/SKILL.md"
+      ],
+      "licenses": [
+        "SwiftData-Agent-Skill-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_0000000052c881f5852c445b05be268b",
+      "use": "ios-swiftdata; schema/query/sync guidance",
+      "license_files": [
+        {
+          "source_path": "SwiftData-Agent-Skill-main/LICENSE",
+          "file": "licenses/swiftui-2-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "observability",
+      "archive": "Observability-Agent-Skill-main.zip",
+      "sha256": "b1c9e1d701d9db31289670b21906f960ee85a8d31de826a082d5142ff121e8d1",
+      "files": 20,
+      "uncompressed": 166290,
+      "skills": [
+        "Observability-Agent-Skill-main/observability/SKILL.md"
+      ],
+      "licenses": [
+        "Observability-Agent-Skill-main/LICENSE"
+      ],
+      "excluded": [],
+      "upload_id": "file_0000000001bc823097f8dee822dc5bf3",
+      "use": "ios-observability; ios-performance; privacy-aware diagnostics",
+      "license_files": [
+        {
+          "source_path": "Observability-Agent-Skill-main/LICENSE",
+          "file": "licenses/observability-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "simulator",
+      "archive": "ios-simulator-skill-main.zip",
+      "sha256": "b699fa124e88d2558b0d0ec2424b526b0aa5a132e63dcb28c0e0a38d103461e8",
+      "files": 97,
+      "uncompressed": 841307,
+      "skills": [
+        "ios-simulator-skill-main/ios-simulator-skill/skills/ios-simulator-skill/SKILL.md"
+      ],
+      "licenses": [
+        "ios-simulator-skill-main/LICENSE.md"
+      ],
+      "excluded": [],
+      "upload_id": "file_00000000cee881fda547791b8accefe2",
+      "use": "ios-simulator; ios-build-debug; ios-accessibility",
+      "license_files": [
+        {
+          "source_path": "ios-simulator-skill-main/LICENSE.md",
+          "file": "licenses/simulator-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "swiftui-3",
+      "archive": "SwiftUI-Agent-Skill-main.zip",
+      "sha256": "b967442a6f9fc330631024535173e50f27310958132cf356fb4e605c8f22e8d2",
+      "files": 25,
+      "uncompressed": 98837,
+      "skills": [
+        "SwiftUI-Agent-Skill-main/swiftui-pro/SKILL.md",
+        "SwiftUI-Agent-Skill-main/swiftui-pro/skills/swiftui-pro/SKILL.md"
+      ],
+      "licenses": [
+        "SwiftUI-Agent-Skill-main/LICENSE"
+      ],
+      "excluded": [
+        {
+          "path": "SwiftUI-Agent-Skill-main/swiftui-pro/skills/swiftui-pro/references",
+          "reason": "symlink",
+          "target": "../../references"
+        }
+      ],
+      "upload_id": "file_00000000719882308f67c76122638981",
+      "use": "Deduplicated with swiftui-2; same source concepts",
+      "duplicate_of": "swiftui-2",
+      "license_files": [
+        {
+          "source_path": "SwiftUI-Agent-Skill-main/LICENSE",
+          "file": "licenses/swiftui-2-MIT.txt"
+        }
+      ]
+    },
+    {
+      "name": "concurrency",
+      "archive": "Swift-Concurrency-Agent-Skill-main.zip",
+      "sha256": "0d9ba5ab22cfde81bbaaad32f65b9a68aa32166a263a54de2da61e4fc685cf72",
+      "files": 25,
+      "uncompressed": 91805,
+      "skills": [
+        "Swift-Concurrency-Agent-Skill-main/swift-concurrency-pro/SKILL.md",
+        "Swift-Concurrency-Agent-Skill-main/swift-concurrency-pro/skills/swift-concurrency-pro/SKILL.md"
+      ],
+      "licenses": [
+        "Swift-Concurrency-Agent-Skill-main/LICENSE"
+      ],
+      "excluded": [
+        {
+          "path": "Swift-Concurrency-Agent-Skill-main/swift-concurrency-pro/skills/swift-concurrency-pro/references",
+          "reason": "symlink",
+          "target": "../../references"
+        }
+      ],
+      "upload_id": "file_00000000526081fda62f50a00b9fe4a0",
+      "use": "ios-concurrency; ios-testing; cancellation/lifetime guidance",
+      "license_files": [
+        {
+          "source_path": "Swift-Concurrency-Agent-Skill-main/LICENSE",
+          "file": "licenses/swiftui-2-MIT.txt"
+        }
+      ]
+    }
+  ],
+  "notice_files": [
+    {
+      "file": "licenses/core-data-MIT.txt",
+      "sha256": "8f5fd8e5cddb015b5627e45e68b256356586144288a4a0a3db87e38bcb0c9155",
+      "source_label": "core-data",
+      "source_path": "Core-Data-Agent-Skill-main/LICENSE"
+    },
+    {
+      "file": "licenses/skills-lower-MIT.txt",
+      "sha256": "49c5f9c7097c9a940ff663a54c27a4c60e379df6cc2b3052df0d37a09a85df93",
+      "source_label": "skills-lower",
+      "source_path": "skills-main/LICENSE"
+    },
+    {
+      "file": "licenses/skills-lower-3-MIT.txt",
+      "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+      "source_label": "skills-lower",
+      "source_path": "skills-main/plugins/expo/skills/expo-animation/LICENSE"
+    },
+    {
+      "file": "licenses/skills-upper-MIT.txt",
+      "sha256": "df17aae89ce4705d0a6e5f7b46eeea3b9023967ecad948f8779b47039eb55a8b",
+      "source_label": "skills-upper",
+      "source_path": "Skills-main/LICENSE"
+    },
+    {
+      "file": "licenses/chat-MIT.txt",
+      "sha256": "a6a30bbd8459f4ca73084fd67b7462f57363bc424bd98d4f30b7848fe58f124c",
+      "source_label": "chat",
+      "source_path": "Chat-main/LICENSE"
+    },
+    {
+      "file": "licenses/nuke-MIT.txt",
+      "sha256": "9832f8b0b64803f7bb5a4f2649b3908edd3ead711b1ddd8c563a7fdb7d81b288",
+      "source_label": "nuke",
+      "source_path": "Nuke-main/LICENSE"
+    },
+    {
+      "file": "licenses/architecture-MIT.txt",
+      "sha256": "90de23e1c8bf11130f6dbd5bb96f7b7b4e05a24ea12653e8ccdeb03ff8870bcb",
+      "source_label": "architecture",
+      "source_path": "swift-architecture-skill-main/LICENSE"
+    },
+    {
+      "file": "licenses/design-MIT.txt",
+      "sha256": "5aa626d82bdc22401f7b28a58c8dd74218e3cac16e1a8982fd507888d3f55123",
+      "source_label": "design",
+      "source_path": "swiftui-design-principles-main/LICENSE"
+    },
+    {
+      "file": "licenses/swiftui-2-MIT.txt",
+      "sha256": "b9b479e6df9f27cbc8e7abe91f771b396f3f0fa114d070c7c0b02c820c6b74dc",
+      "source_label": "swiftui-2",
+      "source_path": "SwiftUI-Agent-Skill-main/LICENSE"
+    },
+    {
+      "file": "licenses/app-store-MIT.txt",
+      "sha256": "56fde5f70d5af10b746863208dee6bf0b99e49066da1f76e1800c760e276139b",
+      "source_label": "app-store",
+      "source_path": "app-store-connect-cli-skills-main/LICENSE"
+    },
+    {
+      "file": "licenses/observability-MIT.txt",
+      "sha256": "d4c7fd09f7c88f632b3b0ade545988311bd19f12ecd4d532e4045250e0b8c596",
+      "source_label": "observability",
+      "source_path": "Observability-Agent-Skill-main/LICENSE"
+    },
+    {
+      "file": "licenses/simulator-MIT.txt",
+      "sha256": "c85c6f44a27a6c05102eacbb1f81fdb4a59a4253e594a93cf7fe1e11960464ea",
+      "source_label": "simulator",
+      "source_path": "ios-simulator-skill-main/LICENSE.md"
+    }
+  ],
+  "policy": "Original synthesized workflows; no full upstream libraries, installers, executable helpers, repository instructions or branded assets are vendored."
+}

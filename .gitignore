@@ -8,5 +8,11 @@ Thumbs.db
 *.bak
 .env
 .env.*
+# Synthetic regression fixtures used by the SEO audit test suite.
+!plugins/product-and-growth/seo-geo-god/tests/fixtures/stack/next/.env
+!plugins/product-and-growth/seo-geo-god/tests/fixtures/stack/next/.env.local
+!plugins/product-and-growth/seo-geo-god/tests/fixtures/analytics/logs/access.log
 .vscode/
+!plugins/quality/ult-accessability/vendor/accessibility-agents-main/.vscode/
+!plugins/quality/ult-accessability/vendor/accessibility-agents-main/vscode-extension/.vscode/
 .idea/

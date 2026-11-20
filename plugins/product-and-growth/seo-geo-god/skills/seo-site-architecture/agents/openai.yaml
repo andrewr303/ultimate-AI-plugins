@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Site Architecture"
+  short_description: "Internal links and URL structure"
+  default_prompt: "Use $seo-site-architecture to find orphaned, deep or badly linked pages in this repository, fix navigation and internal links in code, and verify with the bundled link graph."
+policy:
+  allow_implicit_invocation: true

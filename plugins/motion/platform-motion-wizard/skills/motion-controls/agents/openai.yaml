@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Controls
+  short_description: Polish controls behavior
+  default_prompt: Use $motion-controls for the requested product interaction work
+    and verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

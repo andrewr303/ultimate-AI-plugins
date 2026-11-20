@@ -1,0 +1,3962 @@
+{
+  "schema": "seo-geo-god.rules/1",
+  "rules_version": "2026.11.0",
+  "as_of": "2026-11-01",
+  "note": "Severities, priorities and weights are opinionated defaults. Evidence classes: A official documentation, B deterministic spec/structure check, C heuristic, D experimental (never penalizes a score). Status planned rules are catalogued but not emitted.",
+  "categories": {
+    "crawl_index": {
+      "title": "Crawling and indexing",
+      "families": [
+        "CRAWL",
+        "IDX",
+        "CANON",
+        "HTTP",
+        "REDIR",
+        "SPAM",
+        "LAUNCH"
+      ],
+      "weights": {
+        "seo": 22,
+        "geo": 15
+      },
+      "tag": "seo",
+      "scored": true
+    },
+    "rendering": {
+      "title": "Rendering",
+      "families": [
+        "REND"
+      ],
+      "weights": {
+        "seo": 12,
+        "geo": 15
+      },
+      "tag": "seo",
+      "scored": true
+    },
+    "metadata": {
+      "title": "Metadata and headings",
+      "families": [
+        "META",
+        "HDG"
+      ],
+      "weights": {
+        "seo": 12,
+        "geo": 5
+      },
+      "tag": "seo",
+      "scored": true
+    },
+    "structured_data": {
+      "title": "Structured data",
+      "families": [
+        "SD"
+      ],
+      "weights": {
+        "seo": 8,
+        "geo": 8
+      },
+      "tag": "seo",
+      "scored": true
+    },
+    "discovery": {
+      "title": "Sitemaps and hreflang",
+      "families": [
+        "SMAP",
+        "HREF"
+      ],
+      "weights": {
+        "seo": 10,
+        "geo": 5
+      },
+      "tag": "seo",
+      "scored": true
+    },
+    "architecture": {
+      "title": "Links and site architecture",
+      "families": [
+        "LINK",
+        "PSEO"
+      ],
+      "weights": {
+        "seo": 10,
+        "geo": 7
+      },
+      "tag": "seo",
+      "scored": true
+    },
+    "performance_media": {
+      "title": "Performance and media",
+      "families": [
+        "PERF",
+        "IMG",
+        "VID"
+      ],
+      "weights": {
+        "seo": 10,
+        "geo": 5
+      },
+      "tag": "seo",
+      "scored": true
+    },
+    "content": {
+      "title": "Content and citability",
+      "families": [
+        "CONT",
+        "CITE",
+        "LOCAL"
+      ],
+      "weights": {
+        "seo": 8,
+        "geo": 20
+      },
+      "tag": "geo",
+      "scored": true
+    },
+    "ai_access": {
+      "title": "AI access and agent readiness",
+      "families": [
+        "AI",
+        "AGENT"
+      ],
+      "weights": {
+        "seo": 8,
+        "geo": 20
+      },
+      "tag": "geo",
+      "scored": true
+    },
+    "monitoring": {
+      "title": "Change monitoring (not scored)",
+      "families": [
+        "DRIFT"
+      ],
+      "weights": {
+        "seo": 0,
+        "geo": 0
+      },
+      "tag": "seo",
+      "scored": false
+    },
+    "fidelity": {
+      "title": "Rewrite fidelity (not scored)",
+      "families": [
+        "FID"
+      ],
+      "weights": {
+        "seo": 0,
+        "geo": 0
+      },
+      "tag": "geo",
+      "scored": false
+    }
+  },
+  "checks": {
+    "pages": [
+      "crawl_index",
+      "metadata",
+      "rendering",
+      "performance_media"
+    ],
+    "duplicates": [
+      "metadata"
+    ],
+    "links": [
+      "architecture"
+    ],
+    "robots": [
+      "crawl_index",
+      "ai_access"
+    ],
+    "ai-directives": [
+      "ai_access"
+    ],
+    "sitemaps": [
+      "discovery"
+    ],
+    "hreflang": [
+      "discovery"
+    ],
+    "jsonld": [
+      "structured_data"
+    ],
+    "content": [
+      "content"
+    ],
+    "citability": [
+      "content"
+    ],
+    "pseo": [
+      "architecture"
+    ],
+    "perf": [
+      "performance_media"
+    ],
+    "llms": [
+      "ai_access"
+    ],
+    "launch": [
+      "crawl_index"
+    ],
+    "http": [
+      "crawl_index"
+    ],
+    "access": [
+      "ai_access",
+      "crawl_index"
+    ],
+    "redirects": [
+      "crawl_index"
+    ],
+    "drift": [
+      "monitoring"
+    ],
+    "fidelity": [
+      "fidelity"
+    ]
+  },
+  "penalties": {
+    "error": 12,
+    "warning": 4,
+    "info": 0,
+    "class_factor": {
+      "A": 1,
+      "B": 1,
+      "C": 0.5,
+      "D": 0
+    },
+    "scope": [
+      [
+        1,
+        1.0
+      ],
+      [
+        2,
+        1.5
+      ],
+      [
+        10,
+        2.0
+      ]
+    ]
+  },
+  "blockers": [
+    "CRAWL004",
+    "IDX001",
+    "AI004",
+    "LAUNCH003",
+    "LAUNCH004",
+    "REND001",
+    "SD012",
+    "CONT004",
+    "CONT010",
+    "HTTP001"
+  ],
+  "blocker_conditions": {
+    "IDX001": "with --expect-indexable",
+    "REND001": "on the home page",
+    "HTTP001": "on the home page"
+  },
+  "escalations": {
+    "expect_indexable": {
+      "IDX001": "error"
+    },
+    "profiles": {
+      "launch": {
+        "CRAWL001": "warning",
+        "SMAP001": "warning"
+      }
+    },
+    "caps": {
+      "SD007": "info"
+    }
+  },
+  "rules": [
+    {
+      "id": "CRAWL001",
+      "title": "robots.txt not found (all paths crawlable by default)",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Add a /robots.txt that states the crawl policy and lists the sitemap; a missing file is valid but leaves the policy implicit.",
+      "refs": [
+        "fact:F-T-18",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ],
+      "notes": "Profile launch escalates to warning."
+    },
+    {
+      "id": "CRAWL002",
+      "title": "robots.txt exceeds 500 KiB; content after the limit is ignored",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Shrink robots.txt below 500 KiB by merging patterns with wildcards; Google ignores rules after the limit.",
+      "refs": [
+        "fact:F-T-18",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "CRAWL003",
+      "title": "Unsupported robots.txt field ignored by Google (crawl-delay, noindex, host …)",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Remove fields Google ignores (crawl-delay, noindex, host) or keep them only for other crawlers; control indexing with robots meta or X-Robots-Tag.",
+      "refs": [
+        "fact:F-T-18",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "CRAWL004",
+      "title": "All crawlers disallowed from the whole site",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Remove the site-wide Disallow: / for User-agent: * unless the site must stay out of every crawler; confirm the intent with the owner.",
+      "refs": [
+        "fact:F-T-18",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "CRAWL005",
+      "title": "CSS/JS/image assets needed for rendering are disallowed",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Allow crawling of the CSS, JavaScript and image paths that pages need to render.",
+      "refs": [
+        "fact:F-T-18",
+        "fact:F-T-22",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "CRAWL006",
+      "title": "Sitemap line missing or not an absolute URL",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Add a Sitemap: line with an absolute https:// URL for each sitemap or sitemap index.",
+      "refs": [
+        "fact:F-T-18",
+        "fact:F-T-27",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "CRAWL007",
+      "title": "Rule path contains spaces or non-ASCII (percent-encode)",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Percent-encode spaces and non-ASCII characters in robots.txt rule paths.",
+      "refs": [
+        "fact:F-T-18",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "CRAWL008",
+      "title": "Page is noindex but disallowed in robots.txt (noindex cannot be seen)",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "page",
+      "fix_hint": "Allow crawling of pages that carry noindex so crawlers can see it, or drop noindex if the block is intended.",
+      "refs": [
+        "fact:F-T-18",
+        "fact:F-T-20",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ],
+      "notes": "Emitted by robots.check_blocked_noindex with noindex URLs supplied by cli."
+    },
+    {
+      "id": "CRAWL009",
+      "title": "Rule outside any user-agent group or malformed line",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Place every Allow and Disallow line under a User-agent line and fix malformed lines.",
+      "refs": [
+        "fact:F-T-18",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "IDX001",
+      "title": "Page is noindex",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P0",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Remove noindex from pages meant to appear in search, or confirm with the owner that the page should stay out of the index.",
+      "refs": [
+        "fact:F-T-20",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ],
+      "notes": "Becomes an error with --expect-indexable."
+    },
+    {
+      "id": "IDX002",
+      "title": "Conflicting robots directives (most restrictive applies)",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Emit one consistent robots directive set per page; search engines apply the most restrictive combination.",
+      "refs": [
+        "fact:F-T-20",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ]
+    },
+    {
+      "id": "IDX003",
+      "title": "noarchive/nocache/nositelinkssearchbox are ignored by Google",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Drop directives Google ignores, or keep them only for other engines and document why.",
+      "refs": [
+        "fact:F-T-20",
+        "fact:F-AI-10",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ]
+    },
+    {
+      "id": "IDX004",
+      "title": "X-Robots-Tag noindex from platform headers config",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P0",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Remove the X-Robots-Tag noindex rule from the headers config for paths that should be indexed.",
+      "refs": [
+        "fact:F-T-20",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ]
+    },
+    {
+      "id": "IDX005",
+      "title": "unavailable_after date is in the past",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Update or remove the expired unavailable_after directive if the page should stay indexed.",
+      "refs": [
+        "fact:F-T-20",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ]
+    },
+    {
+      "id": "CANON001",
+      "title": "Missing canonical link",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add one absolute, self-referencing rel=canonical link in the page head.",
+      "refs": [
+        "fact:F-T-21",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ]
+    },
+    {
+      "id": "CANON002",
+      "title": "Multiple canonical links",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Emit a single absolute rel=canonical from one place in the layout.",
+      "refs": [
+        "fact:F-T-21",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ]
+    },
+    {
+      "id": "CANON003",
+      "title": "Canonical relative, malformed, non-http(s) or with credentials",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Use an absolute http(s) canonical URL without credentials, spaces or fragments.",
+      "refs": [
+        "fact:F-T-21",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ]
+    },
+    {
+      "id": "CANON004",
+      "title": "Canonical target missing, noindex, redirecting or non-200 in the site",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Point the canonical at a live, indexable URL that returns 200 without redirecting.",
+      "refs": [
+        "fact:F-T-21",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ]
+    },
+    {
+      "id": "CANON005",
+      "title": "Canonical points to a different URL",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Confirm the page duplicates the canonical target; otherwise make the canonical self-referencing.",
+      "refs": [
+        "fact:F-T-21",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ]
+    },
+    {
+      "id": "CANON006",
+      "title": "Paginated page canonicalizes to page 1",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Give each paginated page its own self-referencing canonical.",
+      "refs": [
+        "fact:F-T-25",
+        "fact:F-T-21",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading"
+      ]
+    },
+    {
+      "id": "CANON007",
+      "title": "Canonical crosses languages inside an hreflang cluster",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Canonicalize each language version to itself or a same-language URL, never to another language.",
+      "refs": [
+        "fact:F-T-31",
+        "fact:F-T-21",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "CANON008",
+      "title": "Canonical differs from mapped URL only by trailing slash (verify host config)",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Check which slash form the host serves and redirects to, then make the canonical match the served URL.",
+      "refs": [
+        "fact:F-T-21",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ]
+    },
+    {
+      "id": "HTTP001",
+      "title": "Page returns 4xx/5xx (live)",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Fix the route or server error, or remove internal links and sitemap entries that point to it.",
+      "refs": [
+        "fact:F-T-24",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "HTTP002",
+      "title": "Redirect chain longer than one hop (live)",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Redirect straight to the final URL and update internal links to point at it.",
+      "refs": [
+        "fact:F-T-24",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "HTTP003",
+      "title": "Temporary redirect (302/303/307) for an apparently permanent move",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Use 301 or 308 for permanent moves.",
+      "refs": [
+        "fact:F-T-24",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "HTTP004",
+      "title": "Unknown URL returns 200 (soft 404) (live)",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots.access_check",
+      "scope": "site",
+      "fix_hint": "Return 404 or 410 for unknown URLs instead of a 200 page.",
+      "refs": [
+        "fact:F-T-24",
+        "fact:F-T-22",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ],
+      "notes": "Emitted by robots.access_check from a random-path probe."
+    },
+    {
+      "id": "HTTP005",
+      "title": "HTML larger than 2 MB uncompressed (Googlebot reads the first 2 MB)",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Cut HTML size (inlined data, repeated markup) so key content and links fall within the first 2 MB.",
+      "refs": [
+        "fact:F-T-19",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/googlebot"
+      ]
+    },
+    {
+      "id": "HTTP006",
+      "title": "Missing security headers (hygiene only)",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "planned",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add standard security headers as hygiene; they are not presented as a ranking factor.",
+      "refs": [
+        "references/robots-and-directives.md"
+      ]
+    },
+    {
+      "id": "HTTP007",
+      "title": "Non-HTTPS page or mixed content",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Serve the page over HTTPS and load every subresource over HTTPS.",
+      "refs": [
+        "references/robots-and-directives.md"
+      ]
+    },
+    {
+      "id": "HTTP008",
+      "title": "401/403/429 served to the audit crawler",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Check WAF and bot rules: crawlers that receive 401, 403 or 429 cannot index the page; do not throttle crawlers with 4xx.",
+      "refs": [
+        "fact:F-T-24",
+        "references/robots-and-directives.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "META001",
+      "title": "Missing or empty title element",
+      "category": "metadata",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add a unique, descriptive title element in the head of every indexable page.",
+      "refs": [
+        "fact:F-T-38",
+        "https://developers.google.com/search/docs/appearance/title-link"
+      ]
+    },
+    {
+      "id": "META002",
+      "title": "Placeholder or framework-default title",
+      "category": "metadata",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Replace default titles such as \"Create Next App\" or \"Untitled\" with a page-specific title.",
+      "refs": [
+        "fact:F-T-38",
+        "https://developers.google.com/search/docs/appearance/title-link"
+      ]
+    },
+    {
+      "id": "META003",
+      "title": "Duplicate title across pages",
+      "category": "metadata",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Make each title unique by naming what distinguishes the page.",
+      "refs": [
+        "fact:F-T-38",
+        "https://developers.google.com/search/docs/appearance/title-link"
+      ]
+    },
+    {
+      "id": "META004",
+      "title": "Missing meta description",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add a page-specific meta description; Google may still write its own snippet.",
+      "refs": [
+        "fact:F-T-39",
+        "https://developers.google.com/search/docs/appearance/snippet"
+      ]
+    },
+    {
+      "id": "META005",
+      "title": "Duplicate meta description across pages",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Write a distinct description per page, or omit it instead of repeating one.",
+      "refs": [
+        "fact:F-T-39",
+        "https://developers.google.com/search/docs/appearance/snippet"
+      ]
+    },
+    {
+      "id": "META006",
+      "title": "Templated metadata pattern (site-level)",
+      "category": "metadata",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "content",
+      "scope": "site",
+      "fix_hint": "Rewrite templated title and description pairs so each page states its own specifics instead of a swapped keyword.",
+      "refs": [
+        "fact:F-T-39",
+        "fact:F-T-32",
+        "references/programmatic-seo.md",
+        "https://developers.google.com/search/docs/appearance/snippet"
+      ],
+      "notes": "Emitted by content.check_site_text with title/description pairs supplied by cli."
+    },
+    {
+      "id": "META007",
+      "title": "Multiple title elements in head",
+      "category": "metadata",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Render exactly one title element; remove duplicates added by layouts or plugins.",
+      "refs": [
+        "fact:F-T-38",
+        "https://developers.google.com/search/docs/appearance/title-link"
+      ]
+    },
+    {
+      "id": "META008",
+      "title": "Missing html lang",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Set the html lang attribute for accessibility and browsers; Google does not use it to detect language.",
+      "refs": [
+        "fact:F-T-40",
+        "references/international.md",
+        "https://developers.google.com/search/docs/crawling-indexing/special-tags"
+      ]
+    },
+    {
+      "id": "META009",
+      "title": "Missing or invalid viewport meta",
+      "category": "metadata",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add a viewport meta tag with width=device-width, initial-scale=1.",
+      "refs": [
+        "fact:F-T-28"
+      ]
+    },
+    {
+      "id": "META010",
+      "title": "Incomplete Open Graph basics (og:title, og:image, og:url)",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add og:title, og:image and og:url for link previews; treat them as display inputs, not ranking factors.",
+      "refs": [
+        "fact:F-T-41",
+        "https://developers.google.com/search/docs/appearance/google-images"
+      ]
+    },
+    {
+      "id": "META011",
+      "title": "Title may be truncated on typical displays (hint; no limit exists)",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Put the distinguishing words first; Google sets no title length limit but truncates to the device width.",
+      "refs": [
+        "fact:F-T-38",
+        "https://developers.google.com/search/docs/appearance/title-link"
+      ]
+    },
+    {
+      "id": "META012",
+      "title": "Obsolete year in title or H1",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Update or remove the stale year unless the content was reviewed for it.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "META013",
+      "title": "meta keywords present (ignored by Google)",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Remove the meta keywords tag; Google does not use it.",
+      "refs": [
+        "fact:F-T-40",
+        "https://developers.google.com/search/docs/crawling-indexing/special-tags"
+      ]
+    },
+    {
+      "id": "META014",
+      "title": "og:url differs from canonical",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Set og:url to the canonical URL.",
+      "refs": [
+        "fact:F-T-21",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ]
+    },
+    {
+      "id": "HDG001",
+      "title": "No H1",
+      "category": "metadata",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add one visible H1 that states the page topic.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "HDG002",
+      "title": "Skipped heading levels",
+      "category": "metadata",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Use heading levels in order (H2 under H1, H3 under H2) for a clear outline.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "HDG003",
+      "title": "Content page without headings",
+      "category": "metadata",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Split long content into sections with descriptive headings.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "SD001",
+      "title": "Malformed JSON in JSON-LD block",
+      "category": "structured_data",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Fix the JSON syntax; serialize JSON-LD with a JSON encoder instead of string templates.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD002",
+      "title": "JSON-LD root or node is not an object (incl. nested arrays)",
+      "category": "structured_data",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Make each JSON-LD root an object, an array of objects or an @graph of objects.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD003",
+      "title": "Entity missing @context (none inherited)",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Add \"@context\": \"https://schema.org\" at the root or on each top-level entity.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD004",
+      "title": "Entity missing @type",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Give every entity a schema.org @type.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD005",
+      "title": "@context or @type has the wrong kind",
+      "category": "structured_data",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Use a string or array of strings for @type and a valid @context value.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD006",
+      "title": "Unreplaced placeholder value in structured data",
+      "category": "structured_data",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Replace template placeholders with real values shown on the page, or remove the property.",
+      "refs": [
+        "fact:F-T-11",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD007",
+      "title": "Type or feature has no Google rich result (retired or never)",
+      "category": "structured_data",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Keep the markup only if it describes the page truthfully; do not expect a Google rich result for this type.",
+      "refs": [
+        "fact:F-T-02",
+        "fact:F-T-03",
+        "fact:F-T-04",
+        "fact:F-T-06",
+        "fact:F-T-08",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/updates"
+      ],
+      "notes": "Severity never exceeds info."
+    },
+    {
+      "id": "SD008",
+      "title": "Missing Google-required property for a rich-result feature",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Add the required property with a value visible on the page, or drop that feature's markup.",
+      "refs": [
+        "fact:F-T-01",
+        "fact:F-T-11",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/search-gallery"
+      ]
+    },
+    {
+      "id": "SD009",
+      "title": "Missing Google-recommended property",
+      "category": "structured_data",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Add recommended properties only when the page really provides that information.",
+      "refs": [
+        "fact:F-T-01",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/search-gallery"
+      ]
+    },
+    {
+      "id": "SD010",
+      "title": "Self-serving review or rating on LocalBusiness/Organization",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Remove review or rating markup that the business publishes about itself.",
+      "refs": [
+        "fact:F-T-11",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD011",
+      "title": "AggregateRating with zero/non-numeric counts or out-of-range rating",
+      "category": "structured_data",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Use a numeric ratingValue within the rating range and a ratingCount or reviewCount above zero, or remove the rating.",
+      "refs": [
+        "fact:F-T-11",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD012",
+      "title": "\"</script\" or unescaped \"<\" breakout risk inside JSON-LD",
+      "category": "structured_data",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Escape every < as \\u003c when serializing JSON-LD into HTML.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD013",
+      "title": "Relative or non-http URL in a URL-valued property",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Use absolute https:// URLs in url, @id, image, logo and sameAs.",
+      "refs": [
+        "fact:F-T-11",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD014",
+      "title": "Date not ISO 8601",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Write dates in ISO 8601 (2026-11-01 or 2026-11-01T09:00:00+00:00).",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD015",
+      "title": "Conflicting entities share the same @id",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Use one @id per real-world entity and keep its properties consistent across pages.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD016",
+      "title": "Marked-up value not found in visible text",
+      "category": "structured_data",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "medium",
+      "status": "planned",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Mark up only information that is visible on the page.",
+      "refs": [
+        "fact:F-T-11",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "id": "SD017",
+      "title": "Merchant-listing offer lacks price > 0 or priceCurrency",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Give each offer a price above zero and an ISO 4217 priceCurrency.",
+      "refs": [
+        "fact:F-T-01",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/search-gallery"
+      ],
+      "notes": "Profile ecommerce applies stricter merchant checks."
+    },
+    {
+      "id": "SD018",
+      "title": "Template serializes JSON-LD without escaping \"<\"",
+      "category": "structured_data",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Replace < with \\u003c after JSON.stringify before injecting JSON-LD into the page.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ]
+    },
+    {
+      "id": "SD019",
+      "title": "JSON-LD block skipped: template expression (validate built output)",
+      "category": "structured_data",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Validate the rendered HTML with audit-build or jsonld on build output; template expressions cannot be checked in source.",
+      "refs": [
+        "references/structured-data-matrix.md"
+      ]
+    },
+    {
+      "id": "SD020",
+      "title": "Microdata/RDFa only (JSON-LD recommended)",
+      "category": "structured_data",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "jsonld",
+      "scope": "page",
+      "fix_hint": "Consider JSON-LD for new markup; valid Microdata or RDFa keeps working.",
+      "refs": [
+        "fact:F-T-10",
+        "references/structured-data-matrix.md",
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+      ],
+      "notes": "Emitted with page flags supplied by cli."
+    },
+    {
+      "id": "SMAP001",
+      "title": "No sitemap found",
+      "category": "discovery",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "site",
+      "fix_hint": "Generate an XML sitemap of canonical, indexable URLs and reference it from robots.txt.",
+      "refs": [
+        "fact:F-T-27",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ],
+      "notes": "Profile launch escalates to warning."
+    },
+    {
+      "id": "SMAP002",
+      "title": "Sitemap exceeds 50,000 URLs or 50 MB uncompressed",
+      "category": "discovery",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "site",
+      "fix_hint": "Split the sitemap into files under 50,000 URLs and 50 MB and list them in a sitemap index.",
+      "refs": [
+        "fact:F-T-27",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP003",
+      "title": "Sitemap is not valid XML, or DTD/entity refused",
+      "category": "discovery",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "site",
+      "fix_hint": "Emit well-formed UTF-8 XML with the sitemap namespace and no DOCTYPE or entity declarations.",
+      "refs": [
+        "fact:F-T-27",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP004",
+      "title": "Non-absolute, wrong-host or non-http(s) loc",
+      "category": "discovery",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "page",
+      "fix_hint": "List absolute http(s) URLs on the sitemap's own host.",
+      "refs": [
+        "fact:F-T-27",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP005",
+      "title": "Invalid lastmod format",
+      "category": "discovery",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "page",
+      "fix_hint": "Write lastmod in W3C Datetime format (YYYY-MM-DD or a full timestamp with time zone).",
+      "refs": [
+        "fact:F-T-27",
+        "fact:F-T-52",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP006",
+      "title": "lastmod likely inaccurate (identical, future, or build time)",
+      "category": "discovery",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "site",
+      "fix_hint": "Set lastmod from each page's real content change date, not the build time.",
+      "refs": [
+        "fact:F-T-27",
+        "fact:F-T-52",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP007",
+      "title": "priority/changefreq present (ignored by Google and Bing)",
+      "category": "discovery",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "site",
+      "fix_hint": "Remove priority and changefreq, or keep them knowing Google and Bing ignore them.",
+      "refs": [
+        "fact:F-T-27",
+        "fact:F-T-52",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP008",
+      "title": "Sitemap lists missing, noindex, non-canonical or redirecting URL",
+      "category": "discovery",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "page",
+      "fix_hint": "List only canonical, indexable URLs that return 200.",
+      "refs": [
+        "fact:F-T-27",
+        "fact:F-T-21",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP009",
+      "title": "Indexable built page missing from sitemap",
+      "category": "discovery",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "page",
+      "fix_hint": "Add indexable canonical pages to the sitemap, or confirm they are excluded on purpose.",
+      "refs": [
+        "fact:F-T-27",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "SMAP010",
+      "title": "Image sitemap uses removed tags or >1,000 images per URL",
+      "category": "discovery",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "page",
+      "fix_hint": "Keep only image:image and image:loc, with at most 1,000 images per URL.",
+      "refs": [
+        "fact:F-T-42",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps"
+      ]
+    },
+    {
+      "id": "SMAP011",
+      "title": "Sitemap index references a missing sitemap",
+      "category": "discovery",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitemaps",
+      "scope": "site",
+      "fix_hint": "Fix or remove sitemap index entries that point to missing files.",
+      "refs": [
+        "fact:F-T-27",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
+    },
+    {
+      "id": "HREF001",
+      "title": "Invalid hreflang code",
+      "category": "discovery",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Use an ISO 639-1 language code with an optional ISO 3166-1 alpha-2 region (en-GB, not en-UK), or x-default.",
+      "refs": [
+        "fact:F-T-31",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "HREF002",
+      "title": "Missing self-referencing hreflang",
+      "category": "discovery",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Include the page itself in its own hreflang set.",
+      "refs": [
+        "fact:F-T-31",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "HREF003",
+      "title": "Missing return link (non-reciprocal pair is ignored)",
+      "category": "discovery",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "high",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Add the reverse hreflang link on the target page so every pair is reciprocal.",
+      "refs": [
+        "fact:F-T-31",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "HREF004",
+      "title": "No x-default in cluster",
+      "category": "discovery",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Add an x-default alternate for users who match none of the listed languages.",
+      "refs": [
+        "fact:F-T-31",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "HREF005",
+      "title": "Relative hreflang URL",
+      "category": "discovery",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Use absolute URLs in hreflang annotations.",
+      "refs": [
+        "fact:F-T-31",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "HREF006",
+      "title": "hreflang target missing, noindex or non-canonical",
+      "category": "discovery",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Point hreflang only at canonical, indexable URLs that return 200.",
+      "refs": [
+        "fact:F-T-31",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "HREF007",
+      "title": "Duplicate language code in one page's set",
+      "category": "discovery",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "List each language-region code once per page.",
+      "refs": [
+        "fact:F-T-31",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "HREF008",
+      "title": "html lang differs from the page's own hreflang",
+      "category": "discovery",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "hreflang",
+      "scope": "page",
+      "fix_hint": "Align the html lang attribute with the page's own hreflang code.",
+      "refs": [
+        "fact:F-T-31",
+        "fact:F-T-40",
+        "references/international.md",
+        "https://developers.google.com/search/docs/specialty/international/localized-versions"
+      ]
+    },
+    {
+      "id": "LINK001",
+      "title": "Broken internal link",
+      "category": "architecture",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Fix or remove internal links to URLs that do not exist in the build.",
+      "refs": [
+        "fact:F-T-22",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "LINK002",
+      "title": "Orphan candidate (in sitemap, no internal inlinks)",
+      "category": "architecture",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Link to the page from relevant pages or navigation, or remove it from the sitemap.",
+      "refs": [
+        "fact:F-T-22",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "LINK003",
+      "title": "Page deeper than 3 clicks from home",
+      "category": "architecture",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Link important pages from hub pages so they sit within a few clicks of the home page.",
+      "refs": [
+        "fact:F-T-29",
+        "https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget"
+      ]
+    },
+    {
+      "id": "LINK004",
+      "title": "Non-crawlable link (javascript:, missing href, #/ route)",
+      "category": "architecture",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Use a elements with a real href for navigation instead of javascript: links or click handlers.",
+      "refs": [
+        "fact:F-T-22",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "LINK005",
+      "title": "High share of generic anchor text",
+      "category": "architecture",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "site",
+      "fix_hint": "Describe the target in the anchor text instead of \"click here\" or \"read more\".",
+      "refs": [
+        "fact:F-T-22",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "LINK006",
+      "title": "Internal link to a redirecting URL",
+      "category": "architecture",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Link directly to the final URL.",
+      "refs": [
+        "fact:F-T-24",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "LINK007",
+      "title": "Internal links marked nofollow",
+      "category": "architecture",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Remove rel=nofollow from internal links unless they lead to pages that should not be crawled.",
+      "refs": [
+        "fact:F-T-22",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "REND001",
+      "title": "Client-rendered shell: almost no server HTML text in app root",
+      "category": "rendering",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "L",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Render primary content and links in server HTML (SSR, SSG or prerendering); dynamic rendering is only a workaround.",
+      "refs": [
+        "fact:F-T-22",
+        "fact:F-T-23",
+        "references/framework-recipes.md",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ],
+      "notes": "Escalation to P0 site-wide applies on the home page."
+    },
+    {
+      "id": "REND002",
+      "title": "Thin server HTML relative to scripts (likely client-rendered content)",
+      "category": "rendering",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "C",
+      "effort": "L",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Move primary content into the server-rendered HTML and check the raw response, not the browser DOM.",
+      "refs": [
+        "fact:F-T-22",
+        "references/framework-recipes.md",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "REND003",
+      "title": "Content only inside noscript",
+      "category": "rendering",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Render the content in normal HTML instead of only inside noscript.",
+      "refs": [
+        "fact:F-T-22",
+        "references/framework-recipes.md",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "REND004",
+      "title": "Hash-fragment routes used as links",
+      "category": "rendering",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Use History API routes with real paths instead of #/ fragment URLs.",
+      "refs": [
+        "fact:F-T-22",
+        "references/framework-recipes.md",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "REND005",
+      "title": "SPA fallback page serves unknown routes",
+      "category": "rendering",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "site",
+      "fix_hint": "Return 404 (or add noindex) for unknown routes instead of serving the app shell with status 200.",
+      "refs": [
+        "fact:F-T-22",
+        "fact:F-T-24",
+        "references/framework-recipes.md",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "id": "PERF001",
+      "title": "Image without width/height or aspect-ratio (CLS risk)",
+      "category": "performance_media",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Set width and height attributes (or CSS aspect-ratio) on images to reserve their space.",
+      "refs": [
+        "fact:F-T-13",
+        "references/cwv-and-performance.md",
+        "https://web.dev/articles/vitals"
+      ]
+    },
+    {
+      "id": "PERF002",
+      "title": "Likely LCP image is lazy-loaded",
+      "category": "performance_media",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Remove loading=lazy from the main above-the-fold image.",
+      "refs": [
+        "fact:F-T-13",
+        "references/cwv-and-performance.md",
+        "https://web.dev/articles/vitals"
+      ]
+    },
+    {
+      "id": "PERF003",
+      "title": "Likely LCP image lacks fetchpriority or preload",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Consider fetchpriority=high on the main hero image and confirm the effect with field or lab data.",
+      "refs": [
+        "fact:F-T-13",
+        "references/cwv-and-performance.md",
+        "https://web.dev/articles/vitals"
+      ]
+    },
+    {
+      "id": "PERF004",
+      "title": "Render-blocking script in head",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Add defer or async to head scripts that are not needed before first render.",
+      "refs": [
+        "fact:F-T-13",
+        "references/cwv-and-performance.md",
+        "https://web.dev/articles/vitals"
+      ]
+    },
+    {
+      "id": "PERF005",
+      "title": "unload/beforeunload listener (bfcache blocker)",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Replace unload handlers with pagehide or visibilitychange so the page can use the back/forward cache.",
+      "refs": [
+        "references/cwv-and-performance.md"
+      ]
+    },
+    {
+      "id": "PERF006",
+      "title": "Deprecated rel=prerender",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Replace rel=prerender with Speculation Rules or remove it.",
+      "refs": [
+        "references/cwv-and-performance.md"
+      ]
+    },
+    {
+      "id": "PERF007",
+      "title": "Heavy HTML document (>1 MB)",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Reduce HTML weight by removing inlined data and repeated markup.",
+      "refs": [
+        "fact:F-T-19",
+        "references/cwv-and-performance.md",
+        "https://developers.google.com/search/docs/crawling-indexing/googlebot"
+      ]
+    },
+    {
+      "id": "PERF008",
+      "title": "Field Core Web Vitals metric needs improvement or poor",
+      "category": "performance_media",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "L",
+      "impact": "high",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Investigate the failing metric with CrUX field data, fix its main cause and recheck after the 28-day window.",
+      "refs": [
+        "fact:F-T-13",
+        "fact:F-T-16",
+        "references/cwv-and-performance.md",
+        "https://web.dev/articles/vitals"
+      ]
+    },
+    {
+      "id": "PERF009",
+      "title": "Only lab data available (no field data)",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "perf",
+      "scope": "page",
+      "fix_hint": "Add CrUX field data (API or History) before judging Core Web Vitals; lab scores are diagnostics.",
+      "refs": [
+        "fact:F-T-16",
+        "fact:F-T-17",
+        "references/cwv-and-performance.md",
+        "https://developer.chrome.com/docs/crux/api"
+      ]
+    },
+    {
+      "id": "IMG001",
+      "title": "Image missing alt attribute",
+      "category": "performance_media",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add alt text that describes the image, or an empty alt for purely decorative images.",
+      "refs": [
+        "fact:F-T-41",
+        "https://developers.google.com/search/docs/appearance/google-images"
+      ]
+    },
+    {
+      "id": "IMG002",
+      "title": "Alt text looks like a filename or keyword list",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Write alt text that describes the image in plain words.",
+      "refs": [
+        "fact:F-T-41",
+        "https://developers.google.com/search/docs/appearance/google-images"
+      ]
+    },
+    {
+      "id": "IMG003",
+      "title": "Content image as data: URI",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "planned",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Serve content images as crawlable files with their own URLs instead of data: URIs.",
+      "refs": [
+        "fact:F-T-41",
+        "https://developers.google.com/search/docs/appearance/google-images"
+      ]
+    },
+    {
+      "id": "IMG004",
+      "title": "Large photo without modern format alternative",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "planned",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Offer WebP or AVIF versions of large photos through picture or srcset.",
+      "refs": [
+        "fact:F-T-41",
+        "references/cwv-and-performance.md",
+        "https://developers.google.com/search/docs/appearance/google-images"
+      ]
+    },
+    {
+      "id": "VID001",
+      "title": "Apparent watch page without VideoObject",
+      "category": "performance_media",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "planned",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add VideoObject markup with name, thumbnailUrl and uploadDate on video watch pages.",
+      "refs": [
+        "fact:F-T-43",
+        "https://developers.google.com/search/docs/appearance/video"
+      ]
+    },
+    {
+      "id": "CONT001",
+      "title": "Quantitative or authority claim without nearby citation",
+      "category": "content",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Cite a source next to the claim, or remove the claim if it cannot be supported.",
+      "refs": [
+        "fact:F-T-37",
+        "references/citability-and-rewrite.md",
+        "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+      ]
+    },
+    {
+      "id": "CONT002",
+      "title": "High filler-phrase density (style signal)",
+      "category": "content",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Cut filler phrases so each sentence carries information; this is a style signal, not AI detection.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "CONT003",
+      "title": "Invisible, bidi-control or tag characters in content",
+      "category": "content",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Remove zero-width, bidi-control and Unicode tag characters from published text.",
+      "refs": [
+        "fact:F-T-32",
+        "references/content-quality-rubrics.md",
+        "https://developers.google.com/search/docs/essentials/spam-policies"
+      ]
+    },
+    {
+      "id": "CONT004",
+      "title": "Leftover AI, editor or template artifacts in published text",
+      "category": "content",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Remove assistant self-references, unfilled placeholders, TODO markers and stray formatting before publishing.",
+      "refs": [
+        "fact:F-T-37",
+        "references/content-quality-rubrics.md",
+        "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+      ]
+    },
+    {
+      "id": "CONT005",
+      "title": "Stale year or undated \"updated\" claim",
+      "category": "content",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Show a real last-reviewed date, or remove the stale year and the unsupported \"updated\" claim.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "CONT006",
+      "title": "Thin content for page type (heuristic)",
+      "category": "content",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "planned",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Expand the page with information users need, or consolidate it into a stronger page.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "CONT007",
+      "title": "Paragraphs open with dangling references (it/this/these)",
+      "category": "content",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Name the subject at the start of paragraphs so each passage stands on its own.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "CONT008",
+      "title": "Unsupported superlatives or hype density",
+      "category": "content",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Replace unsupported superlatives with specific, verifiable statements.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ]
+    },
+    {
+      "id": "CONT009",
+      "title": "Orphan citation markers with no target",
+      "category": "content",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Link each citation marker to its source or remove the marker.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "CONT010",
+      "title": "Text addressed to AI systems with instructions (prompt-injection pattern), hidden or visible",
+      "category": "content",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Remove instructions aimed at AI systems; manipulating generative AI responses violates Google's spam policies.",
+      "refs": [
+        "fact:F-T-32",
+        "references/search-policies.md",
+        "https://developers.google.com/search/docs/essentials/spam-policies"
+      ]
+    },
+    {
+      "id": "CITE001",
+      "title": "Low passage citability (heuristic)",
+      "category": "content",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Make key passages self-contained: state the subject, the answer and its supporting fact together.",
+      "refs": [
+        "fact:F-AI-31",
+        "fact:F-AI-32",
+        "references/citability-and-rewrite.md",
+        "references/geo-research-evidence.md",
+        "https://arxiv.org/abs/2311.09735"
+      ]
+    },
+    {
+      "id": "CITE002",
+      "title": "Question heading not answered in the first sentences",
+      "category": "content",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Answer the heading's question in the first one or two sentences under it.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "CITE003",
+      "title": "No self-contained passages between 40 and 300 words",
+      "category": "content",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "v1",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Add at least one focused passage that answers a core question in one place.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "PSEO001",
+      "title": "Near-duplicate pages (shingle similarity ≥ 0.85)",
+      "category": "architecture",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "C",
+      "effort": "L",
+      "impact": "high",
+      "status": "v1",
+      "owner": "content",
+      "scope": "site",
+      "fix_hint": "Merge near-duplicate pages or add unique, useful information to each; scaled near-duplicates risk scaled content abuse.",
+      "refs": [
+        "fact:F-T-32",
+        "fact:F-AI-12",
+        "references/programmatic-seo.md",
+        "https://developers.google.com/search/docs/essentials/spam-policies"
+      ],
+      "notes": "Emitted by content.check_site_text with page texts supplied by cli."
+    },
+    {
+      "id": "PSEO002",
+      "title": "Phrase shared by >30% of pages in a section",
+      "category": "architecture",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "medium",
+      "status": "planned",
+      "owner": "content",
+      "scope": "site",
+      "fix_hint": "Replace boilerplate phrasing repeated across a section with page-specific content.",
+      "refs": [
+        "fact:F-T-32",
+        "references/programmatic-seo.md",
+        "https://developers.google.com/search/docs/essentials/spam-policies"
+      ]
+    },
+    {
+      "id": "PSEO003",
+      "title": "Many thin templated pages in one section",
+      "category": "architecture",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "C",
+      "effort": "L",
+      "impact": "high",
+      "status": "planned",
+      "owner": "content",
+      "scope": "site",
+      "fix_hint": "Consolidate thin templated pages, or keep them out of the index until each offers unique value.",
+      "refs": [
+        "fact:F-T-32",
+        "references/programmatic-seo.md",
+        "https://developers.google.com/search/docs/essentials/spam-policies"
+      ]
+    },
+    {
+      "id": "AI001",
+      "title": "AI search/answer indexer blocked by a named group (visibility impact)",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Confirm with the owner that leaving that AI search product is intended; allow the indexer token to stay eligible.",
+      "refs": [
+        "fact:F-AI-01",
+        "fact:F-AI-02",
+        "fact:F-AI-04",
+        "fact:F-AI-05",
+        "references/ai-crawlers.md",
+        "https://developers.openai.com/api/docs/bots"
+      ]
+    },
+    {
+      "id": "AI002",
+      "title": "Training-only crawler blocked (no search impact)",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "No change needed if the training opt-out is intended; this block does not remove the site from search.",
+      "refs": [
+        "fact:F-AI-01",
+        "fact:F-AI-06",
+        "references/ai-crawlers.md",
+        "https://developers.openai.com/api/docs/bots"
+      ]
+    },
+    {
+      "id": "AI003",
+      "title": "Rule targets a user-triggered fetcher that may ignore robots.txt",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Do not rely on robots.txt for user-triggered fetchers; use authentication or WAF rules if access must be blocked.",
+      "refs": [
+        "fact:F-AI-01",
+        "fact:F-AI-05",
+        "fact:F-AI-08",
+        "references/ai-crawlers.md",
+        "https://developers.openai.com/api/docs/bots"
+      ]
+    },
+    {
+      "id": "AI004",
+      "title": "Googlebot or Bingbot blocked (removes Search and AI features)",
+      "category": "ai_access",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Unblock Googlebot and Bingbot; express AI-training choices with Google-Extended or Bingbot directives instead.",
+      "refs": [
+        "fact:F-T-18",
+        "fact:F-AI-06",
+        "fact:F-AI-19",
+        "references/ai-crawlers.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "AI005",
+      "title": "Malformed Content-Signal or unknown key",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Write Content-Signal as comma-separated key=yes or key=no pairs using search, ai-input and ai-train.",
+      "refs": [
+        "fact:F-AI-22",
+        "references/ai-crawlers.md",
+        "https://blog.cloudflare.com/content-signals-policy/"
+      ]
+    },
+    {
+      "id": "AI006",
+      "title": "Named group lacks a Content-Signal present in the * group",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Repeat the Content-Signal line in named groups; a named group does not inherit lines from the * group.",
+      "refs": [
+        "fact:F-AI-22",
+        "references/ai-crawlers.md",
+        "https://blog.cloudflare.com/content-signals-policy/"
+      ]
+    },
+    {
+      "id": "AI007",
+      "title": "Shared AI-training preference token present (scope and dates explained)",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Keep the __usage_ai-training group if intended; adoption dates differ by vendor and it states a preference, not access control.",
+      "refs": [
+        "fact:F-AI-07",
+        "fact:F-AI-17",
+        "fact:F-AI-18",
+        "references/ai-crawlers.md",
+        "https://developers.google.com/search/blog/2026/10/ai-training-control"
+      ]
+    },
+    {
+      "id": "AI008",
+      "title": "`User-agent: *` rule assumed to express an AI-training preference",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "State AI-training preferences with __usage_ai-training or vendor tokens; User-agent: * does not match the policy token.",
+      "refs": [
+        "fact:F-AI-17",
+        "references/ai-crawlers.md",
+        "https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/"
+      ]
+    },
+    {
+      "id": "AI009",
+      "title": "Cloudflare-managed robots block detected (edge-injected rules)",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Review the Cloudflare managed robots.txt and AI crawler settings; edge rules can differ from the file in the repository.",
+      "refs": [
+        "fact:F-AI-22",
+        "fact:F-AI-23",
+        "references/ai-crawlers.md",
+        "https://blog.cloudflare.com/content-signals-policy/"
+      ]
+    },
+    {
+      "id": "AI010",
+      "title": "Snippet controls limit Google AI Overviews/AI Mode input",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "page",
+      "fix_hint": "Keep nosnippet or max-snippet only if limiting use in AI Overviews and AI Mode is intended.",
+      "refs": [
+        "fact:F-AI-10",
+        "references/ai-crawlers.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ],
+      "notes": "Emitted by robots.check_page_ai_directives with page directives supplied by cli."
+    },
+    {
+      "id": "AI011",
+      "title": "noarchive/nocache used as AI control (Google ignores; Bing until 2027-03-01)",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "page",
+      "fix_hint": "Use Google-Extended and Bingbot ai-training or ai-grounding directives instead; Bing stops reading these as AI signals on 2027-03-01.",
+      "refs": [
+        "fact:F-AI-10",
+        "fact:F-AI-19",
+        "references/ai-crawlers.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ],
+      "notes": "Emitted by robots.check_page_ai_directives with page directives supplied by cli."
+    },
+    {
+      "id": "AI012",
+      "title": "Bingbot ai-training/ai-grounding directive (honored from 2027-02-01)",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "page",
+      "fix_hint": "Keep the directive if intended; Bing honors it from 2027-02-01.",
+      "refs": [
+        "fact:F-AI-19",
+        "references/ai-crawlers.md",
+        "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/"
+      ],
+      "notes": "Emitted by robots.check_page_ai_directives with page directives supplied by cli."
+    },
+    {
+      "id": "AI013",
+      "title": "Edge Content-Signal header contradicts robots.txt (live)",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots.access_check",
+      "scope": "site",
+      "fix_hint": "Align the CDN Content-Signal header (for example Markdown for Agents defaults) with robots.txt.",
+      "refs": [
+        "fact:F-AI-22",
+        "fact:F-AI-25",
+        "references/ai-crawlers.md",
+        "https://blog.cloudflare.com/content-signals-policy/"
+      ]
+    },
+    {
+      "id": "AI014",
+      "title": "AI search indexer blocked only via the * group (no explicit decision)",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "robots",
+      "scope": "site",
+      "fix_hint": "Add explicit groups for AI search indexers such as OAI-SearchBot, Claude-SearchBot and PerplexityBot to record the decision.",
+      "refs": [
+        "fact:F-AI-01",
+        "fact:F-AI-04",
+        "references/ai-crawlers.md",
+        "https://developers.openai.com/api/docs/bots"
+      ]
+    },
+    {
+      "id": "AI015",
+      "title": "robots.txt returns 5xx or is unreachable (treated as full disallow) (live)",
+      "category": "ai_access",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "robots.access_check",
+      "scope": "site",
+      "fix_hint": "Make /robots.txt return 200, or 404 when there is none; server errors make crawlers stop crawling.",
+      "refs": [
+        "fact:F-T-18",
+        "references/ai-crawlers.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt"
+      ]
+    },
+    {
+      "id": "AGENT001",
+      "title": "No llms.txt (optional; informational only)",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "D",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "llmstxt",
+      "scope": "site",
+      "fix_hint": "Optional: add llms.txt for agents and tools that read it; Google Search ignores it.",
+      "refs": [
+        "fact:F-AI-11",
+        "fact:F-AI-26",
+        "references/agent-readiness.md",
+        "https://developers.google.com/search/docs/appearance/ai-features"
+      ]
+    },
+    {
+      "id": "AGENT002",
+      "title": "llms.txt structure invalid (e.g., no H1)",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "llmstxt",
+      "scope": "site",
+      "fix_hint": "Start llms.txt with an H1 title and use H2 sections with Markdown link lists.",
+      "refs": [
+        "fact:F-AI-26",
+        "references/agent-readiness.md",
+        "https://llmstxt.org/"
+      ]
+    },
+    {
+      "id": "AGENT003",
+      "title": "llms.txt link relative, malformed or missing from site",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "llmstxt",
+      "scope": "site",
+      "fix_hint": "Use absolute URLs in llms.txt that exist on the site.",
+      "refs": [
+        "fact:F-AI-26",
+        "references/agent-readiness.md",
+        "https://llmstxt.org/"
+      ]
+    },
+    {
+      "id": "AGENT004",
+      "title": "llms.txt served as HTML (soft 404) (live)",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "robots.access_check",
+      "scope": "site",
+      "fix_hint": "Serve llms.txt as text/plain or text/markdown, or return 404 when it does not exist.",
+      "refs": [
+        "fact:F-AI-26",
+        "references/agent-readiness.md",
+        "https://llmstxt.org/"
+      ]
+    },
+    {
+      "id": "AGENT005",
+      "title": "Markdown alternate declared but target missing",
+      "category": "ai_access",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Publish the declared Markdown alternate or remove the rel=alternate link.",
+      "refs": [
+        "fact:F-AI-26",
+        "references/agent-readiness.md",
+        "https://llmstxt.org/"
+      ]
+    },
+    {
+      "id": "AGENT006",
+      "title": "Interactive elements without accessible names / div onclick",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "low",
+      "status": "planned",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Use native buttons and links with accessible names instead of clickable div elements.",
+      "refs": [
+        "fact:F-AI-27",
+        "references/agent-readiness.md",
+        "https://developer.chrome.com/docs/lighthouse/agentic-browsing"
+      ]
+    },
+    {
+      "id": "AGENT008",
+      "title": "Invalid JSON or HTML soft 404 at a /.well-known/ document (live)",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "robots.access_check",
+      "scope": "site",
+      "fix_hint": "Serve valid JSON at the /.well-known/ paths you publish, or return 404.",
+      "refs": [
+        "references/agent-readiness.md"
+      ]
+    },
+    {
+      "id": "AGENT009",
+      "title": "llms-full.txt present (community convention, not spec)",
+      "category": "ai_access",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "D",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "llmstxt",
+      "scope": "site",
+      "fix_hint": "Keep llms-full.txt only if it is maintained; it is a community convention outside the llms.txt spec.",
+      "refs": [
+        "fact:F-AI-26",
+        "references/agent-readiness.md",
+        "https://llmstxt.org/"
+      ]
+    },
+    {
+      "id": "SPAM001",
+      "title": "History manipulation on page load (back-button hijacking risk)",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Remove history.pushState or replaceState calls that add entries on load; back-button hijacking is a spam policy violation.",
+      "refs": [
+        "fact:F-T-32",
+        "fact:F-T-33",
+        "references/search-policies.md",
+        "https://developers.google.com/search/docs/essentials/spam-policies"
+      ]
+    },
+    {
+      "id": "SPAM002",
+      "title": "Meta refresh redirect",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Replace the meta refresh with a server-side 301 or 308 redirect.",
+      "refs": [
+        "fact:F-T-24",
+        "references/search-policies.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "SPAM003",
+      "title": "Crawler user-agent sniffing in inline scripts (cloaking risk)",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "C",
+      "effort": "M",
+      "impact": "medium",
+      "status": "planned",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Serve crawlers and users the same content; remove user-agent sniffing that changes it.",
+      "refs": [
+        "fact:F-T-32",
+        "references/search-policies.md",
+        "https://developers.google.com/search/docs/essentials/spam-policies"
+      ]
+    },
+    {
+      "id": "LOCAL001",
+      "title": "Inconsistent name/address/phone across pages or LocalBusiness markup",
+      "category": "content",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "M",
+      "impact": "medium",
+      "status": "planned",
+      "owner": "content",
+      "scope": "page",
+      "fix_hint": "Use one consistent business name, address and phone format across pages and markup.",
+      "refs": [
+        "fact:F-T-44",
+        "references/local-seo.md",
+        "https://support.google.com/business/answer/7091?hl=en"
+      ]
+    },
+    {
+      "id": "LOCAL002",
+      "title": "Link to retired Google Business Profile feature (chat, business.site)",
+      "category": "content",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Remove links to retired Business Profile chat or business.site websites.",
+      "refs": [
+        "fact:F-T-45",
+        "fact:F-T-46",
+        "references/local-seo.md",
+        "https://support.google.com/business/answer/14919056?hl=en"
+      ]
+    },
+    {
+      "id": "LAUNCH001",
+      "title": "Home page lacks title, description, self-canonical or Organization/WebSite JSON-LD",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Give the home page a title, description, self-canonical and Organization or WebSite JSON-LD before launch.",
+      "refs": [
+        "fact:F-T-08",
+        "fact:F-T-21",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ],
+      "notes": "Profile launch."
+    },
+    {
+      "id": "LAUNCH002",
+      "title": "No reachable About or Contact page",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": "S",
+      "impact": "low",
+      "status": "planned",
+      "owner": "sitescan",
+      "scope": "site",
+      "fix_hint": "Link an About or Contact page from the home page so visitors can see who runs the site.",
+      "refs": [
+        "references/content-quality-rubrics.md"
+      ],
+      "notes": "Profile launch."
+    },
+    {
+      "id": "LAUNCH003",
+      "title": "localhost, staging or preview URLs in canonical, og:url, hreflang, sitemap or JSON-LD",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Replace localhost, staging and preview hosts with the production origin in every emitted URL.",
+      "refs": [
+        "fact:F-T-21",
+        "references/migrations.md",
+        "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+      ],
+      "notes": "Also emitted for sitemap locs."
+    },
+    {
+      "id": "LAUNCH004",
+      "title": "Site-wide noindex or staging robots shipped",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "site",
+      "fix_hint": "Remove staging noindex and Disallow rules from the production build after confirming with the owner.",
+      "refs": [
+        "fact:F-T-20",
+        "fact:F-T-18",
+        "references/migrations.md",
+        "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+      ]
+    },
+    {
+      "id": "LAUNCH005",
+      "title": "No custom 404 page, or 404 page indexable/listed in sitemap",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "site",
+      "fix_hint": "Add a helpful 404 page served with status 404 and keep it out of the sitemap.",
+      "refs": [
+        "fact:F-T-24",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ],
+      "notes": "Profile launch."
+    },
+    {
+      "id": "DRIFT001",
+      "title": "Page removed or status changed from 2xx to 4xx/5xx",
+      "category": "monitoring",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "high",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Restore the page, or redirect it to its closest replacement, before release.",
+      "refs": [
+        "references/ci-recipes.md",
+        "references/migrations.md"
+      ]
+    },
+    {
+      "id": "DRIFT002",
+      "title": "noindex added",
+      "category": "monitoring",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "high",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the new noindex is intended; otherwise remove it before release.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT003",
+      "title": "Canonical changed",
+      "category": "monitoring",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "high",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the new canonical is intended and points to a live, indexable URL.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT004",
+      "title": "Canonical removed",
+      "category": "monitoring",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "high",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Restore the canonical link unless its removal is intended.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT005",
+      "title": "Title removed",
+      "category": "monitoring",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "high",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Restore the title element.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT006",
+      "title": "H1 removed",
+      "category": "monitoring",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Restore the H1 or confirm the template change.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT007",
+      "title": "H1 changed substantially (similarity < 0.5)",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the new H1 still matches the page's purpose.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT008",
+      "title": "Title changed",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the title change is intended and watch query and click data after release.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT009",
+      "title": "Meta description changed",
+      "category": "monitoring",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "low",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the description change is intended.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT010",
+      "title": "JSON-LD types removed (retired types downgrade to I)",
+      "category": "monitoring",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "high",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Restore removed structured data unless the type is retired or was dropped on purpose.",
+      "refs": [
+        "references/ci-recipes.md"
+      ],
+      "notes": "Removal of types without a Google rich result is reported as info."
+    },
+    {
+      "id": "DRIFT011",
+      "title": "JSON-LD types added",
+      "category": "monitoring",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "low",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Validate the new structured data before release.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT012",
+      "title": "hreflang set changed",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the hreflang change is intended and still reciprocal.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT013",
+      "title": "Robots meta or X-Robots-Tag changed (other than noindex)",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the directive change is intended.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT014",
+      "title": "All Open Graph tags removed",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "low",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Restore the Open Graph tags used for link previews.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT015",
+      "title": "Word count dropped by more than 50%",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "C",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Check that content was not lost in a template or rendering change.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT016",
+      "title": "Internal outlinks dropped by more than 50%",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "C",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Check navigation and body links for accidental removal.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT017",
+      "title": "Content hash changed",
+      "category": "monitoring",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "low",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "No change needed unless the content change is unexpected.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT018",
+      "title": "New page added",
+      "category": "monitoring",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "low",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "page",
+      "fix_hint": "Confirm the new page should be indexable and listed in the sitemap.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT019",
+      "title": "robots.txt changed",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "high",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "site",
+      "fix_hint": "Review the robots.txt diff with the owner before release.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "DRIFT020",
+      "title": "Snapshots not comparable (deltas withheld)",
+      "category": "monitoring",
+      "severity": "warning",
+      "priority": "P2",
+      "evidence_class": "B",
+      "effort": null,
+      "impact": "medium",
+      "status": "v1",
+      "owner": "drift",
+      "scope": "site",
+      "fix_hint": "Capture a new baseline with the same source type, base URL and major version, then compare again.",
+      "refs": [
+        "references/ci-recipes.md"
+      ]
+    },
+    {
+      "id": "REDIR001",
+      "title": "Redirect chain (>1 hop) in map",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Point each old URL straight at its final destination.",
+      "refs": [
+        "fact:F-T-24",
+        "references/migrations.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "REDIR002",
+      "title": "Redirect loop",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Break the loop so every old URL ends at a live page.",
+      "refs": [
+        "fact:F-T-24",
+        "references/migrations.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "REDIR003",
+      "title": "Redirect destination missing in new build",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Fix destinations so each one exists in the new build.",
+      "refs": [
+        "references/migrations.md"
+      ]
+    },
+    {
+      "id": "REDIR004",
+      "title": "Temporary status for a permanent move",
+      "category": "crawl_index",
+      "severity": "info",
+      "priority": "P3",
+      "evidence_class": "A",
+      "effort": "S",
+      "impact": "low",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Use 301 or 308 for permanent moves.",
+      "refs": [
+        "fact:F-T-24",
+        "references/migrations.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "REDIR005",
+      "title": "Many URLs redirected to the home page (soft-404 risk)",
+      "category": "crawl_index",
+      "severity": "warning",
+      "priority": "P1",
+      "evidence_class": "A",
+      "effort": "M",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "site",
+      "fix_hint": "Redirect old URLs to their closest equivalent page, and return 404 or 410 when none exists.",
+      "refs": [
+        "fact:F-T-24",
+        "references/migrations.md",
+        "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+      ]
+    },
+    {
+      "id": "REDIR006",
+      "title": "Old URL neither present in new build nor redirected",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P0",
+      "evidence_class": "B",
+      "effort": "M",
+      "impact": "high",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Add a redirect for the old URL or keep the page in the new build.",
+      "refs": [
+        "references/migrations.md"
+      ]
+    },
+    {
+      "id": "REDIR007",
+      "title": "Malformed map row or duplicate source URL",
+      "category": "crawl_index",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "medium",
+      "status": "v1",
+      "owner": "sitescan",
+      "scope": "page",
+      "fix_hint": "Give each row one absolute old_url and new_url and remove duplicate source URLs.",
+      "refs": [
+        "references/migrations.md"
+      ]
+    },
+    {
+      "id": "FID001",
+      "title": "Rewrite changed a heading (heading_changed)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Keep headings exactly as in the original; rewrite only the body text.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID002",
+      "title": "Rewrite removed a link (link_removed)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Restore every link from the original section.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID003",
+      "title": "Rewrite added a link (link_added)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Remove links the original did not contain unless the owner supplied them.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID004",
+      "title": "Rewrite removed a number (number_removed)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Restore the numbers, dates and figures from the original.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID005",
+      "title": "Rewrite added a number (number_added)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Remove numbers that are not in the original; never invent statistics.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID006",
+      "title": "Rewrite dropped table rows (table_rows_decreased)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Restore every table row from the original.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID007",
+      "title": "Rewrite changed a code block (code_block_changed)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Keep code blocks byte-identical to the original.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID008",
+      "title": "Rewrite length outside the allowed range (too_short/too_long)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Keep the rewrite within the allowed length ratio of the original.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID009",
+      "title": "Rewrite added a superlative (superlative_added)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Remove superlatives that the original did not make.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    },
+    {
+      "id": "FID010",
+      "title": "Rewrite removed a caveat (caveat_removed)",
+      "category": "fidelity",
+      "severity": "error",
+      "priority": "P1",
+      "evidence_class": "B",
+      "effort": "S",
+      "impact": "high",
+      "status": "v1",
+      "owner": "fidelity",
+      "scope": "page",
+      "fix_hint": "Restore the caveats and qualifiers from the original.",
+      "refs": [
+        "references/citability-and-rewrite.md"
+      ]
+    }
+  ]
+}

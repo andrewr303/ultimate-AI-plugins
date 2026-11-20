@@ -1,0 +1,6 @@
+interface:
+  display_name: Backend Mac Tooling
+  short_description: Backend mac tooling workflows
+  default_prompt: Use $backend-mac-tooling to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

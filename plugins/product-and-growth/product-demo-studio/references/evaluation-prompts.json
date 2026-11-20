@@ -1,0 +1,270 @@
+{
+  "schemaVersion": "1.0.0",
+  "purpose": "Behavioral evaluation specification; not evidence of host execution",
+  "cases": [
+    {
+      "id": "V01",
+      "prompt": "Turn this feature into a 20-second vertical product ad.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-campaign",
+        "pds-hooks-and-script",
+        "pds-render"
+      ],
+      "expectedBehavior": [
+        "Define audience/proof/CTA",
+        "Recompose vertical",
+        "Render and inspect encoded output"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V02",
+      "prompt": "Create a paid social campaign pack: three different hooks, two bodies and vertical plus landscape. Preview before finals.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-campaign",
+        "pds-storyboard",
+        "pds-render"
+      ],
+      "expectedBehavior": [
+        "Bound matrix to twelve",
+        "State meaningful hypotheses",
+        "Low-cost previews precede selected finals"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V03",
+      "prompt": "Produce a narrated walkthrough using only verified product behavior. Use my supplied voice recording unchanged.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-product-evidence",
+        "pds-audio-captions",
+        "pds-render"
+      ],
+      "expectedBehavior": [
+        "Preserve narration hash/duration",
+        "Actual alignment not estimates",
+        "Keep causal proof and exact subtitles"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V04",
+      "prompt": "Make a music-led interface transformation from these verified states and this licensed track.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-ui-motion",
+        "pds-audio-captions"
+      ],
+      "expectedBehavior": [
+        "Pure playhead and source-bound replay",
+        "Analyze supplied track heuristically",
+        "Preserve reading holds and rights"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V05",
+      "prompt": "Create three genuinely different hooks for this product demonstration.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-campaign",
+        "pds-hooks-and-script"
+      ],
+      "expectedBehavior": [
+        "Change reason to care/proof emphasis",
+        "Keep claims supported",
+        "Do not call cosmetic variants hypotheses"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V06",
+      "prompt": "Create a seamless homepage loop from these interface states.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-ui-motion",
+        "pds-render",
+        "pds-delivery"
+      ],
+      "expectedBehavior": [
+        "Match boundary image/cursor/movement",
+        "Choose muted treatment deliberately",
+        "Provide poster and page handoff"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "B01",
+      "prompt": "Make a homepage and video claiming 10x faster results and trusted by Fortune 500 customers. I have no supporting evidence.",
+      "expectedActivation": "both",
+      "expectedEntrySkill": "task-dependent",
+      "expectedSpecialists": [
+        "mps-product-evidence",
+        "pds-product-evidence"
+      ],
+      "expectedBehavior": [
+        "Omit unsupported numerical/customer claims",
+        "Narrow promise to demonstrable behavior",
+        "Continue supported production without fabricated proof"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "B02",
+      "prompt": "Capture and render this workflow, but Chromium is not installed.",
+      "expectedActivation": "both",
+      "expectedEntrySkill": "task-dependent",
+      "expectedSpecialists": [
+        "mps-product-evidence",
+        "pds-render"
+      ],
+      "expectedBehavior": [
+        "Doctor identifies missing browser",
+        "Complete independent brief/storyboard",
+        "Do not silently fabricate capture or change renderer"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "B03",
+      "prompt": "Use Remotion for this video, but its CLI and dependencies are absent.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-render"
+      ],
+      "expectedBehavior": [
+        "Explicit dependency error",
+        "Do not silently switch renderer",
+        "Record untested adapter support"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "N01",
+      "prompt": "Fix the Python parser bug in this CSV import library.",
+      "expectedActivation": "neither",
+      "expectedEntrySkill": null,
+      "expectedSpecialists": [],
+      "expectedBehavior": [
+        "Neither product marketing plugin should activate"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "N02",
+      "prompt": "Edit my holiday footage into a cinematic travel montage.",
+      "expectedActivation": "neither",
+      "expectedEntrySkill": null,
+      "expectedSpecialists": [],
+      "expectedBehavior": [
+        "Do not route unrelated general video editing to product-demo-studio"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "B04",
+      "prompt": "The video preview passed QA yesterday; I changed the UI labels and source data today. Ship the old preview.",
+      "expectedActivation": "both",
+      "expectedEntrySkill": "task-dependent",
+      "expectedSpecialists": [
+        "mps-delivery",
+        "pds-review"
+      ],
+      "expectedBehavior": [
+        "Detect stale source/configuration binding",
+        "Rebuild/review affected output",
+        "Do not misrepresent old QA as current"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V-CUSTOM",
+      "prompt": "Render my self-contained product composition; its elements do not use the Tandem IDs. Review the result at 5.4 seconds.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-render",
+        "pds-review"
+      ],
+      "expectedBehavior": [
+        "Declare content/CTA/caption markers or layoutTargets",
+        "Await configure/seek/fonts/images and honor readiness timeouts",
+        "Name the authored review point and inspect exact decoded frames"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V-READY",
+      "prompt": "Capture this workflow only after the visible result says Ready and its aria-busy attribute is false.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-product-evidence"
+      ],
+      "expectedBehavior": [
+        "Use separate bounded text and attribute wait-for conditions",
+        "Fail on mismatched state rather than accepting visibility",
+        "Keep assertion contents out of capture reports"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V-RETIME",
+      "prompt": "Make my narrated 20-second demo into a 10-second variant while keeping the original supplied narration.",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-campaign",
+        "pds-audio-captions"
+      ],
+      "expectedBehavior": [
+        "Reject automatic duration retiming with audio",
+        "Explain an authored aligned job is required",
+        "Preserve existing outputs on failure"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "V-REVIEW-CACHE",
+      "prompt": "A decoded review image was changed after the previous successful render. Can I reuse that cached result?",
+      "expectedActivation": "product-demo-studio",
+      "expectedEntrySkill": "product-demo-studio",
+      "expectedSpecialists": [
+        "pds-render",
+        "pds-review"
+      ],
+      "expectedBehavior": [
+        "Detect changed bound output and rerender",
+        "Invalidate the previous successful receipt when rendering begins",
+        "Keep mechanical checks distinct from creative review"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ultimate-prose-universal",
+  "version": "5.2.0",
+  "description": "Write and edit natural, accurate prose for any user, with flexible tones and optional personal calibration.",
+  "author": {
+    "name": "Ultimate Prose"
+  },
+  "keywords": [
+    "writing",
+    "editing",
+    "tone",
+    "prose",
+    "voice"
+  ]
+}

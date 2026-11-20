@@ -1,0 +1,6 @@
+interface:
+  display_name: "Doc Atlas"
+  short_description: "Create polished repository docs"
+  default_prompt: "Use repo-docs to inspect this repository and create accurate, visually appealing documentation in its existing stack."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,33 @@
+{
+  "name": "web-design-and-ui-systems",
+  "version": "2.16.0",
+  "description": "Web design guidance and tools: a searchable UI/UX database (79 styles, 192 palettes, 74 font pairings, 22 stacks), 21 aesthetic design systems, landing and pricing page skills, brand, token and slide tools, 10 UI detail skills, and a router skill ($web-design-router).",
+  "license": "MIT",
+  "keywords": [
+    "web-design-and-ui-systems",
+    "web-design-router",
+    "design-intelligence-and-tokens",
+    "aesthetic-design-systems",
+    "landing-pages-and-conversion",
+    "ui-chrome-surfaces-and-details"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Web Design & UI Systems",
+    "shortDescription": "Web Design & UI Systems (43 skills, routed by $web-design-router)",
+    "longDescription": "Web design guidance and tools: a searchable UI/UX database (79 styles, 192 palettes, 74 font pairings, 22 stacks), 21 aesthetic design systems, landing and pricing page skills, brand, token and slide tools, 10 UI detail skills, and a router skill ($web-design-router).",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use $web-design-router to route this task to the best skill in Web Design & UI Systems",
+      "List the available skills in Web Design & UI Systems for my current task"
+    ]
+  },
+  "author": {
+    "name": "Andrew Rodriguez"
+  }
+}

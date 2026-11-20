@@ -1,0 +1,18 @@
+{
+  "name": "security-audit",
+  "version": "1.0.1",
+  "description": "Source-first security audits with scan planning, scanner-result triage, baseline comparison, and report exports.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "security",
+    "audit",
+    "sarif",
+    "sast",
+    "supply-chain",
+    "triage"
+  ],
+  "skills": "./skills/",
+  "license": "MIT"
+}

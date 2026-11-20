@@ -1,0 +1,6 @@
+interface:
+  display_name: Review Account Auth
+  short_description: Review account auth workflows
+  default_prompt: Use $review-account-auth to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: count-override-four
+expected_outcome: |
+  Exactly four interactive sign-in options, 1a to 1d, spanning a conventional layout to a bold one, each with
+  email and password, Continue with Google, forgot password and create account working in the prototype.

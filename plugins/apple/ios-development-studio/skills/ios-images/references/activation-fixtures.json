@@ -1,0 +1,22 @@
+[
+  {
+    "prompt": "Nuke avatars show the previous row when I scroll",
+    "classification": "positive",
+    "expected_behavior": "Inspect request identity, lifecycle and cache isolation"
+  },
+  {
+    "prompt": "Reduce memory use for full-resolution feed images",
+    "classification": "positive",
+    "expected_behavior": "Inspect decode size and measure device memory"
+  },
+  {
+    "prompt": "Generate a landscape illustration",
+    "classification": "negative",
+    "expected_behavior": "Image generation is outside image-loading scope"
+  },
+  {
+    "prompt": "Fix an OAuth refresh race in the API client",
+    "classification": "negative",
+    "expected_behavior": "Route networking/security; do not add Nuke"
+  }
+]

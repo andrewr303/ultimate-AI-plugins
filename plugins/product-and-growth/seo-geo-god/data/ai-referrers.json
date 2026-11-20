@@ -1,0 +1,48 @@
+{
+  "schema": "seo-geo-god.ai-referrers/1",
+  "as_of": "2026-11-01",
+  "note": "Hosts that send AI-assistant referral traffic, for classifying user-supplied GA4 exports and access logs offline. Product domains are known; which referrer header each app actually sends (especially mobile apps and AI browsers) is reported by third parties only, so verify against your own data. Labels follow references/current-facts.md: V vendor primary, SR snippet only, 3P third-party only.",
+  "sources": {
+    "research": "AI search and GEO currency check, section 2.6 (as of 2026-11-01)",
+    "ga4_channel": "https://support.google.com/analytics/answer/9756891?hl=en",
+    "utm_source": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+  },
+  "hosts": [
+    {"host": "chatgpt.com", "product": "ChatGPT", "label": "3P", "mixed_search": false, "notes": "Also the value ChatGPT is reported to append as utm_source (fact:F-AI-03, SR)."},
+    {"host": "chat.openai.com", "product": "ChatGPT (legacy domain)", "label": "3P", "mixed_search": false, "notes": "Legacy ChatGPT domain; may still appear as a referrer."},
+    {"host": "openai.com", "product": "OpenAI", "label": "3P", "mixed_search": false, "notes": "Included in the channel regex to catch other OpenAI subdomains."},
+    {"host": "perplexity.ai", "product": "Perplexity", "label": "3P", "mixed_search": false, "notes": "Includes www.perplexity.ai."},
+    {"host": "gemini.google.com", "product": "Gemini app", "label": "3P", "mixed_search": false, "notes": "Gemini app, not Google Search; AI Overviews and AI Mode stay in Organic Search (fact:F-AI-30)."},
+    {"host": "bard.google.com", "product": "Gemini app (legacy Bard domain)", "label": "3P", "mixed_search": false, "notes": "Legacy domain."},
+    {"host": "copilot.microsoft.com", "product": "Microsoft Copilot", "label": "3P", "mixed_search": false, "notes": null},
+    {"host": "edgeservices.bing.com", "product": "Microsoft Copilot in Edge (possible)", "label": "3P", "mixed_search": false, "notes": "Reported as a possible Copilot-in-Edge referrer; needs verification."},
+    {"host": "claude.ai", "product": "Claude", "label": "3P", "mixed_search": false, "notes": null},
+    {"host": "chat.deepseek.com", "product": "DeepSeek", "label": "3P", "mixed_search": false, "notes": null},
+    {"host": "deepseek.com", "product": "DeepSeek", "label": "3P", "mixed_search": false, "notes": "Included in the channel regex to catch other DeepSeek subdomains."},
+    {"host": "meta.ai", "product": "Meta AI", "label": "3P", "mixed_search": false, "notes": null},
+    {"host": "grok.com", "product": "Grok", "label": "3P", "mixed_search": false, "notes": null},
+    {"host": "x.ai", "product": "Grok (xAI)", "label": "3P", "mixed_search": false, "notes": null},
+    {"host": "chat.mistral.ai", "product": "Mistral Le Chat", "label": "3P", "mixed_search": false, "notes": null},
+    {"host": "you.com", "product": "You.com", "label": "3P", "mixed_search": true, "notes": "Also runs classic search, so its traffic is not purely AI-answer traffic."},
+    {"host": "phind.com", "product": "Phind", "label": "3P", "mixed_search": true, "notes": "Also runs classic search, so its traffic is not purely AI-answer traffic."},
+    {"host": "kagi.com", "product": "Kagi", "label": "3P", "mixed_search": true, "notes": "Also runs classic search, so its traffic is not purely AI-answer traffic."}
+  ],
+  "utm_sources": ["chatgpt.com"],
+  "utm_note": "ChatGPT is reported to append utm_source=chatgpt.com to referral URLs (fact:F-AI-03; OpenAI help page seen in search snippets only, label SR). In-app and copy-paste clicks can arrive untagged (3P).",
+  "ga4_regex": "^(.*\\.)?(chatgpt\\.com|chat\\.openai\\.com|openai\\.com|perplexity\\.ai|gemini\\.google\\.com|bard\\.google\\.com|copilot\\.microsoft\\.com|edgeservices\\.bing\\.com|claude\\.ai|chat\\.deepseek\\.com|deepseek\\.com|meta\\.ai|grok\\.com|x\\.ai|chat\\.mistral\\.ai|you\\.com|phind\\.com|kagi\\.com)$",
+  "ga4_regex_note": "RE2-compatible custom channel group condition for Session source (our construction from the research, section 2.6). It is anchored and allows subdomains, so it works whether GA4 applies a full or partial match. Place the channel above Referral and do not also require medium = referral, or UTM-tagged ChatGPT clicks are missed.",
+  "ga4_channel": {
+    "name": "AI Assistant",
+    "medium": "ai-assistant",
+    "fact": "F-AI-30",
+    "label": "V",
+    "source_url": "https://support.google.com/analytics/answer/9756891?hl=en",
+    "notes": "GA4's default channel group includes AI Assistant (medium exactly ai-assistant, or a referrer on Google's internal list; examples named: ChatGPT, Gemini, DeepSeek, Copilot, Grok). The launch date (about 2026-05-13) and whether Perplexity or Claude are on the list are known from third parties only."
+  },
+  "notes": [
+    "Google AI Overviews and AI Mode traffic stays in GA4 Organic Search, not in the AI Assistant channel (fact:F-AI-30). In Search Console it is counted inside the Web search type (fact:F-T-50).",
+    "Many AI-app sessions arrive without a referrer and land in Direct, so every AI referral count is a floor, not a total.",
+    "kagi.com, you.com and phind.com also run classic search; their traffic is not purely AI-answer traffic.",
+    "Which referrer each AI app or AI browser actually sends is reported by third parties only; verify against your own data before reporting a trend."
+  ]
+}

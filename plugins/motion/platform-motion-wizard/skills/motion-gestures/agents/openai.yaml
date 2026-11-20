@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Gestures
+  short_description: Polish gestures behavior
+  default_prompt: Use $motion-gestures for the requested product interaction work
+    and verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

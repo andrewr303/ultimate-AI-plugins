@@ -1,0 +1,49 @@
+{
+  "_note": "Calibration anchors for scripts/vet_score.py. Fictional jobs except the first, which uses the signals visible on Andrew's 2026-11-04 apply page plus assumed client data marked below. Re-run the tests whenever the rubric changes so verdicts cannot drift silently.",
+  "anchors": [
+    {
+      "name": "AI FP&A tool, strong fit, credible client (client fields assumed for the anchor)",
+      "expected": "Apply",
+      "job": {"fit": "strong", "budget_type": "hourly", "budget_low": 25, "budget_high": 50,
+              "payment_verified": true, "client_spend": 15000, "hires": 6, "hire_rate": 0.6, "rating": 4.9,
+              "proposals_low": 5, "posted_hours_ago": 1}
+    },
+    {
+      "name": "Same job text, client panel not pasted",
+      "expected": "Hold",
+      "job": {"fit": "strong", "budget_type": "hourly", "budget_low": 25, "budget_high": 50, "posted_hours_ago": 1}
+    },
+    {
+      "name": "Fictional: 'data entry and dashboard', wants to continue on Telegram and pay by check",
+      "expected": "Report",
+      "job": {"fit": "conditional", "budget_type": "fixed", "budget_fixed": 900, "estimated_hours": 10,
+              "payment_verified": false, "red_flags": ["off_platform_contact", "overpayment_check"]}
+    },
+    {
+      "name": "Fictional: full SaaS platform for $500 fixed",
+      "expected": "Skip",
+      "job": {"fit": "strong", "budget_type": "fixed", "budget_fixed": 500, "estimated_hours": 120,
+              "payment_verified": true, "client_spend": 300, "hires": 1, "hire_rate": 0.2, "rating": 4.0,
+              "proposals_low": 20, "posted_hours_ago": 3}
+    },
+    {
+      "name": "Fictional: React bug fix, new client with no history, tight-ish budget",
+      "expected": "Apply with caution",
+      "job": {"fit": "strong", "budget_type": "fixed", "budget_fixed": 400, "estimated_hours": 10,
+              "payment_verified": true, "client_spend": 0, "hires": 0, "proposals_low": 10, "posted_hours_ago": 8}
+    },
+    {
+      "name": "Fictional: Telegram handoff plus a laptop to buy and be reimbursed, flags written in natural words",
+      "expected": "Report",
+      "job": {"fit": "conditional", "budget_type": "fixed", "budget_fixed": 800, "estimated_hours": 12,
+              "payment_verified": false, "red_flags": ["Telegram", "buy laptop"]}
+    },
+    {
+      "name": "Fictional: strong job with a red flag the script does not recognize (judge by hand)",
+      "expected": "Hold",
+      "job": {"fit": "strong", "budget_type": "hourly", "budget_low": 25, "budget_high": 50,
+              "payment_verified": true, "client_spend": 15000, "hires": 6, "hire_rate": 60, "rating": 4.9,
+              "proposals_low": 5, "posted_hours_ago": 1, "red_flags": ["asks for a video selfie with ID"]}
+    }
+  ]
+}

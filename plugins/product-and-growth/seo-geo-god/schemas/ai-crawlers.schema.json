@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEO-GEO-god AI crawler registry",
+  "description": "Shape of data/ai-crawlers.json: robots.txt tokens for AI crawlers, user-triggered fetchers, agents and control tokens, plus the shared AI-training policy token, Content Signals, Bing AI directives, Google AI controls and claim-to-token checks. Every crawler entry carries a source label and verified_on date; third-party-only entries set needs_verification.",
+  "as_of": "2026-11-01",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "as_of", "note", "recheck_by", "labels", "classes", "crawlers", "signed_agents", "policy_tokens",
+               "content_signals", "cloudflare_managed", "bing_directives", "google_ai_controls", "claims"],
+  "properties": {
+    "schema": {"const": "seo-geo-god.ai-crawlers/1"},
+    "as_of": {"$ref": "#/$defs/date"},
+    "note": {"type": "string", "minLength": 1},
+    "recheck_by": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/date"}},
+    "labels": {"type": "object", "additionalProperties": {"type": "string"}},
+    "classes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["TRAIN", "INDEX", "USER", "AGENT", "ADS", "PREVIEW", "MIXED", "CONTROL", "CORPUS"],
+      "properties": {
+        "TRAIN": {"type": "string"}, "INDEX": {"type": "string"}, "USER": {"type": "string"},
+        "AGENT": {"type": "string"}, "ADS": {"type": "string"}, "PREVIEW": {"type": "string"},
+        "MIXED": {"type": "string"}, "CONTROL": {"type": "string"}, "CORPUS": {"type": "string"}
+      }
+    },
+    "crawlers": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/crawler"}},
+    "signed_agents": {"type": "array", "items": {"$ref": "#/$defs/signed_agent"}},
+    "policy_tokens": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/policy_token"}},
+    "content_signals": {
+      "type": "object",
+      "required": ["field", "keys", "values", "testing_keys", "status", "source_url", "source_label", "verified_on"],
+      "properties": {
+        "field": {"const": "Content-Signal"},
+        "keys": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^[a-z-]+$"}},
+        "values": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "testing_keys": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+        "definitions": {"type": "object", "additionalProperties": {"type": "string"}},
+        "status": {"type": "string"},
+        "managed_default": {"type": "string"},
+        "markdown_for_agents_default": {"type": "string"},
+        "source_url": {"$ref": "#/$defs/https"},
+        "source_label": {"$ref": "#/$defs/label"},
+        "verified_on": {"$ref": "#/$defs/date"},
+        "facts": {"$ref": "#/$defs/facts"}
+      }
+    },
+    "cloudflare_managed": {
+      "type": "object",
+      "required": ["markers", "source_url", "source_label", "verified_on"],
+      "properties": {
+        "markers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 4}},
+        "marker_source": {"type": "string"},
+        "example_disallowed": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"},
+        "source_url": {"$ref": "#/$defs/https"},
+        "source_label": {"$ref": "#/$defs/label"},
+        "verified_on": {"$ref": "#/$defs/date"},
+        "facts": {"$ref": "#/$defs/facts"}
+      }
+    },
+    "bing_directives": {
+      "type": "object",
+      "required": ["meta_name", "values", "effective", "noarchive_nocache_ai_signals_until", "source_url", "source_label",
+                   "verified_on"],
+      "properties": {
+        "meta_name": {"const": "Bingbot"},
+        "values": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^ai-(training|grounding):[a-z]+$"}},
+        "header_example": {"type": "string"},
+        "effective": {"$ref": "#/$defs/date"},
+        "noarchive_nocache_ai_signals_until": {"$ref": "#/$defs/date"},
+        "temporary_webmaster_tools_preferences": {"type": "array", "items": {"$ref": "#/$defs/date"}},
+        "notes": {"type": "string"},
+        "source_url": {"$ref": "#/$defs/https"},
+        "source_label": {"$ref": "#/$defs/label"},
+        "verified_on": {"$ref": "#/$defs/date"},
+        "facts": {"$ref": "#/$defs/facts"}
+      }
+    },
+    "google_ai_controls": {
+      "type": "object",
+      "required": ["page_controls", "ignored_by_google", "site_control", "source_url", "source_label", "verified_on"],
+      "properties": {
+        "page_controls": {"type": "array", "items": {"type": "string"}},
+        "ignored_by_google": {"type": "array", "items": {"type": "string"}},
+        "site_control": {"type": "string"},
+        "site_control_worldwide_since": {"$ref": "#/$defs/date"},
+        "notes": {"type": "string"},
+        "source_url": {"$ref": "#/$defs/https"},
+        "source_label": {"$ref": "#/$defs/label"},
+        "verified_on": {"$ref": "#/$defs/date"},
+        "facts": {"$ref": "#/$defs/facts"}
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "check_token", "not_token", "fact"],
+        "properties": {
+          "claim": {"type": "string", "minLength": 1},
+          "check_token": {"$ref": "#/$defs/token"},
+          "not_token": {"$ref": "#/$defs/token"},
+          "also_check": {"type": "array", "items": {"type": "string"}},
+          "fact": {"$ref": "#/$defs/fact"},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "https": {"type": "string", "pattern": "^https://[^\\s]+$"},
+    "label": {"enum": ["V", "S", "R", "P", "PP", "IR", "3P", "SR"]},
+    "fact": {"type": "string", "pattern": "^F-(AI|T)-\\d{2}$"},
+    "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
+    "token": {"type": "string", "pattern": "^[A-Za-z_-]+$"},
+    "class": {"enum": ["TRAIN", "INDEX", "USER", "AGENT", "ADS", "PREVIEW", "MIXED", "CONTROL", "CORPUS"]},
+    "crawler": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token", "vendor", "class", "ua_substring", "honors_robots", "visibility_surfaces", "training",
+                   "ip_list_url", "rdns", "crawl_delay", "fallback", "block_rule", "source_url", "source_url_note",
+                   "source_label", "page_date", "verified_on", "needs_verification", "facts", "notes"],
+      "properties": {
+        "token": {"$ref": "#/$defs/token"},
+        "vendor": {"type": "string", "minLength": 1},
+        "class": {"$ref": "#/$defs/class"},
+        "ua_substring": {"anyOf": [{"type": "string", "minLength": 2}, {"type": "null"}]},
+        "honors_robots": {"enum": ["yes", "partial", "no", "unknown", "token-only"]},
+        "visibility_surfaces": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "training": {"enum": [true, false, "unknown"]},
+        "ip_list_url": {"anyOf": [{"$ref": "#/$defs/https"}, {"type": "null"}]},
+        "rdns": {"anyOf": [{"type": "string", "pattern": "^\\*\\.[a-z0-9.-]+$"}, {"type": "null"}]},
+        "crawl_delay": {"enum": ["honored", "ignored", "unknown"]},
+        "fallback": {"anyOf": [{"$ref": "#/$defs/token"}, {"type": "null"}]},
+        "block_rule": {"enum": ["AI001", "AI002", "AI003", "AI004", null]},
+        "source_url": {"anyOf": [{"$ref": "#/$defs/https"}, {"type": "null"}]},
+        "source_url_note": {"anyOf": [{"type": "string", "minLength": 1}, {"type": "null"}]},
+        "source_label": {"$ref": "#/$defs/label"},
+        "page_date": {"anyOf": [{"$ref": "#/$defs/date"}, {"type": "null"}]},
+        "verified_on": {"$ref": "#/$defs/date"},
+        "needs_verification": {"type": "boolean"},
+        "facts": {"$ref": "#/$defs/facts"},
+        "notes": {"type": "string"}
+      }
+    },
+    "signed_agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "vendor", "class", "robots_token", "verification", "source_url", "source_label", "verified_on",
+                   "needs_verification", "notes"],
+      "properties": {
+        "name": {"type": "string"},
+        "vendor": {"type": "string"},
+        "class": {"$ref": "#/$defs/class"},
+        "robots_token": {"anyOf": [{"$ref": "#/$defs/token"}, {"type": "null"}]},
+        "verification": {"type": "string"},
+        "source_url": {"anyOf": [{"$ref": "#/$defs/https"}, {"type": "null"}]},
+        "source_label": {"$ref": "#/$defs/label"},
+        "verified_on": {"$ref": "#/$defs/date"},
+        "needs_verification": {"type": "boolean"},
+        "notes": {"type": "string"}
+      }
+    },
+    "policy_token": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token", "status", "star_matches", "meaning", "notes", "honored_by", "source_url", "source_label",
+                   "verified_on", "facts"],
+      "properties": {
+        "token": {"type": "string", "pattern": "^__[a-z_-]+$"},
+        "status": {"type": "string"},
+        "star_matches": {"const": false},
+        "meaning": {
+          "type": "object",
+          "required": ["disallow", "allow", "absent"],
+          "properties": {"disallow": {"type": "string"}, "allow": {"type": "string"}, "absent": {"type": "string"}}
+        },
+        "notes": {"type": "string"},
+        "honored_by": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["vendor", "from", "label", "source_url"],
+            "properties": {
+              "vendor": {"type": "string"},
+              "from": {"type": "string"},
+              "label": {"$ref": "#/$defs/label"},
+              "source_url": {"$ref": "#/$defs/https"},
+              "notes": {"type": "string"}
+            }
+          }
+        },
+        "source_url": {"$ref": "#/$defs/https"},
+        "source_label": {"$ref": "#/$defs/label"},
+        "verified_on": {"$ref": "#/$defs/date"},
+        "facts": {"$ref": "#/$defs/facts"}
+      }
+    }
+  }
+}

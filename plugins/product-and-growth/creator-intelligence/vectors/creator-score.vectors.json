@@ -1,0 +1,2844 @@
+{
+  "schema": "creator-intelligence/creator-score-vectors-v1",
+  "reference": "scripts/creator_score.py",
+  "tolerance": 1e-09,
+  "baseline_confidence": [
+    {
+      "id": "zero",
+      "input": 0,
+      "expected": "low"
+    },
+    {
+      "id": "eleven",
+      "input": 11,
+      "expected": "low"
+    },
+    {
+      "id": "twelve",
+      "input": 12,
+      "expected": "medium"
+    },
+    {
+      "id": "nineteen",
+      "input": 19,
+      "expected": "medium"
+    },
+    {
+      "id": "twenty",
+      "input": 20,
+      "expected": "high"
+    },
+    {
+      "id": "integral-float",
+      "input": 12.0,
+      "expected": "medium"
+    },
+    {
+      "id": "negative-throws",
+      "input": -1,
+      "throws": true
+    },
+    {
+      "id": "fraction-throws",
+      "input": 2.5,
+      "throws": true
+    },
+    {
+      "id": "boolean-throws",
+      "input": true,
+      "throws": true
+    },
+    {
+      "id": "null-throws",
+      "input": null,
+      "throws": true
+    }
+  ],
+  "outlier_report": [
+    {
+      "id": "median-not-mean",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p4",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p5",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p6",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p7",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p8",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p9",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p10",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p11",
+            "views": 10000,
+            "age_hours": 200
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 100.0,
+        "n": 12,
+        "confidence": "medium",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p11",
+            "views": 10000,
+            "lift": 100.0,
+            "label": "huge"
+          },
+          {
+            "id": "p0",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p4",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p5",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p6",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p7",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p8",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p9",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p10",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "labels",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p4",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p5",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p6",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p7",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p8",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p9",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p10",
+            "views": 160,
+            "age_hours": 200
+          },
+          {
+            "id": "p11",
+            "views": 250,
+            "age_hours": 200
+          },
+          {
+            "id": "p12",
+            "views": 600,
+            "age_hours": 200
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 100,
+        "n": 13,
+        "confidence": "medium",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p12",
+            "views": 600,
+            "lift": 6.0,
+            "label": "huge"
+          },
+          {
+            "id": "p11",
+            "views": 250,
+            "lift": 2.5,
+            "label": "strong"
+          },
+          {
+            "id": "p10",
+            "views": 160,
+            "lift": 1.6,
+            "label": "mild"
+          },
+          {
+            "id": "p0",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p4",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p5",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p6",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p7",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p8",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p9",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "even-median",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 200,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 300,
+            "age_hours": 200
+          },
+          {
+            "id": "p3",
+            "views": 400,
+            "age_hours": 200
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 250.0,
+        "n": 4,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p3",
+            "views": 400,
+            "lift": 1.6,
+            "label": "mild"
+          },
+          {
+            "id": "p2",
+            "views": 300,
+            "lift": 1.2,
+            "label": null
+          },
+          {
+            "id": "p1",
+            "views": 200,
+            "lift": 0.8,
+            "label": null
+          },
+          {
+            "id": "p0",
+            "views": 100,
+            "lift": 0.4,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "young-excluded",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p4",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p5",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p6",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p7",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p8",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p9",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p10",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p11",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "new",
+            "views": 5,
+            "age_hours": 5
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 100.0,
+        "n": 12,
+        "confidence": "medium",
+        "excluded_too_young": 1,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p4",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p5",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p6",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p7",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p8",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p9",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p10",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p11",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "unknown-age-excluded",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "noage",
+            "views": 900
+          },
+          {
+            "id": "nullage",
+            "views": 900,
+            "age_hours": null
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 100,
+        "n": 3,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 2,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "missing-metric-counted-separately",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "m",
+            "views": null,
+            "age_hours": 500
+          },
+          {
+            "id": "k",
+            "age_hours": 500
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 100,
+        "n": 3,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 2,
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "no-settled",
+      "input": {
+        "posts": [
+          {
+            "id": "x",
+            "views": 1,
+            "age_hours": 1
+          }
+        ]
+      },
+      "expected": {
+        "baseline": null,
+        "n": 0,
+        "confidence": "low",
+        "excluded_too_young": 1,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": []
+      }
+    },
+    {
+      "id": "empty",
+      "input": {
+        "posts": []
+      },
+      "expected": {
+        "baseline": null,
+        "n": 0,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": []
+      }
+    },
+    {
+      "id": "baseline-zero",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 0,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 0,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 0,
+            "age_hours": 200
+          },
+          {
+            "id": "p3",
+            "views": 5,
+            "age_hours": 200
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 0.0,
+        "n": 4,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p0",
+            "views": 0,
+            "lift": null,
+            "label": null
+          },
+          {
+            "id": "p1",
+            "views": 0,
+            "lift": null,
+            "label": null
+          },
+          {
+            "id": "p2",
+            "views": 0,
+            "lift": null,
+            "label": null
+          },
+          {
+            "id": "p3",
+            "views": 5,
+            "lift": null,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "youtube-cutoff",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p0",
+            "views": 50,
+            "age_hours": 400
+          }
+        ],
+        "min_age_hours": 336
+      },
+      "expected": {
+        "baseline": 50,
+        "n": 1,
+        "confidence": "low",
+        "excluded_too_young": 3,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p0",
+            "views": 50,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "exact-cutoff-is-settled",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 10,
+            "age_hours": 72
+          },
+          {
+            "id": "p1",
+            "views": 20,
+            "age_hours": 72
+          },
+          {
+            "id": "p2",
+            "views": 30,
+            "age_hours": 72
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 20,
+        "n": 3,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p2",
+            "views": 30,
+            "lift": 1.5,
+            "label": "mild"
+          },
+          {
+            "id": "p1",
+            "views": 20,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p0",
+            "views": 10,
+            "lift": 0.5,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "other-metric",
+      "input": {
+        "posts": [
+          {
+            "id": "a",
+            "likes": 10,
+            "age_hours": 100
+          },
+          {
+            "id": "b",
+            "likes": 40,
+            "age_hours": 100
+          },
+          {
+            "id": "c",
+            "views": 99,
+            "age_hours": 100
+          }
+        ],
+        "metric": "likes"
+      },
+      "expected": {
+        "baseline": 25.0,
+        "n": 2,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 1,
+        "posts": [
+          {
+            "id": "b",
+            "likes": 40,
+            "lift": 1.6,
+            "label": "mild"
+          },
+          {
+            "id": "a",
+            "likes": 10,
+            "lift": 0.4,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "numeric-and-null-ids",
+      "input": {
+        "posts": [
+          {
+            "id": 7,
+            "views": 10,
+            "age_hours": 100
+          },
+          {
+            "views": 30,
+            "age_hours": 100
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 20.0,
+        "n": 2,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": null,
+            "views": 30,
+            "lift": 1.5,
+            "label": "mild"
+          },
+          {
+            "id": 7,
+            "views": 10,
+            "lift": 0.5,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "stable-tie-order",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 300,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 300,
+            "age_hours": 200
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p4",
+            "views": 200,
+            "age_hours": 200
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 200,
+        "n": 5,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p1",
+            "views": 300,
+            "lift": 1.5,
+            "label": "mild"
+          },
+          {
+            "id": "p2",
+            "views": 300,
+            "lift": 1.5,
+            "label": "mild"
+          },
+          {
+            "id": "p4",
+            "views": 200,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p0",
+            "views": 100,
+            "lift": 0.5,
+            "label": null
+          },
+          {
+            "id": "p3",
+            "views": 100,
+            "lift": 0.5,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "float-lift",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 3,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": 7,
+            "age_hours": 200
+          },
+          {
+            "id": "p2",
+            "views": 11,
+            "age_hours": 200
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 7,
+        "n": 3,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "p2",
+            "views": 11,
+            "lift": 1.5714285714285714,
+            "label": "mild"
+          },
+          {
+            "id": "p1",
+            "views": 7,
+            "lift": 1.0,
+            "label": null
+          },
+          {
+            "id": "p0",
+            "views": 3,
+            "lift": 0.42857142857142855,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "throws-negative-views",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 100,
+            "age_hours": 200
+          },
+          {
+            "id": "p1",
+            "views": -1,
+            "age_hours": 200
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-string-views",
+      "input": {
+        "posts": [
+          {
+            "id": "a",
+            "views": "100",
+            "age_hours": 100
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-boolean-views",
+      "input": {
+        "posts": [
+          {
+            "id": "a",
+            "views": true,
+            "age_hours": 100
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-negative-age",
+      "input": {
+        "posts": [
+          {
+            "id": "a",
+            "views": 1,
+            "age_hours": -5
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-reserved-metric",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 1,
+            "age_hours": 200
+          }
+        ],
+        "metric": "lift"
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-posts-not-list",
+      "input": {
+        "posts": {
+          "id": "a"
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-post-not-object",
+      "input": {
+        "posts": [
+          5
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-negative-min-age",
+      "input": {
+        "posts": [
+          {
+            "id": "p0",
+            "views": 1,
+            "age_hours": 200
+          }
+        ],
+        "min_age_hours": -1
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-boolean-id",
+      "input": {
+        "posts": [
+          {
+            "id": true,
+            "views": 1,
+            "age_hours": 100
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "safe-integer-id-max",
+      "input": {
+        "posts": [
+          {
+            "id": 9007199254740991,
+            "views": 1,
+            "age_hours": 100
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 1,
+        "n": 1,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": 9007199254740991,
+            "views": 1,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "large-id-as-string",
+      "input": {
+        "posts": [
+          {
+            "id": "3456789012345678901",
+            "views": 1,
+            "age_hours": 100
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 1,
+        "n": 1,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": "3456789012345678901",
+            "views": 1,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "integral-float-id",
+      "input": {
+        "posts": [
+          {
+            "id": 7.0,
+            "views": 1,
+            "age_hours": 100
+          }
+        ]
+      },
+      "expected": {
+        "baseline": 1,
+        "n": 1,
+        "confidence": "low",
+        "excluded_too_young": 0,
+        "excluded_unknown_age": 0,
+        "excluded_missing_metric": 0,
+        "posts": [
+          {
+            "id": 7.0,
+            "views": 1,
+            "lift": 1.0,
+            "label": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "throws-unsafe-integer-id",
+      "input": {
+        "posts": [
+          {
+            "id": 9007199254740992,
+            "views": 1,
+            "age_hours": 100
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-instagram-size-id",
+      "input": {
+        "posts": [
+          {
+            "id": 3456789012345678901,
+            "views": 1,
+            "age_hours": 100
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-fractional-id",
+      "input": {
+        "posts": [
+          {
+            "id": 1.5,
+            "views": 1,
+            "age_hours": 100
+          }
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-metric-proto",
+      "input": {
+        "posts": [
+          {
+            "id": "a",
+            "views": 1,
+            "age_hours": 100
+          }
+        ],
+        "metric": "__proto__"
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-metric-constructor",
+      "input": {
+        "posts": [
+          {
+            "id": "a",
+            "views": 1,
+            "age_hours": 100
+          }
+        ],
+        "metric": "constructor"
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-metric-prototype",
+      "input": {
+        "posts": [
+          {
+            "id": "a",
+            "views": 1,
+            "age_hours": 100
+          }
+        ],
+        "metric": "prototype"
+      },
+      "throws": true
+    }
+  ],
+  "score_creator": [
+    {
+      "id": "uniform-80-high",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 80,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 80.0,
+        "band": [
+          75.0,
+          85.0
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "uniform-100-band-capped",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 100,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 100,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 100,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 100,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 100,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 100,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 100,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 100,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 100.0,
+        "band": [
+          95.0,
+          100
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "uniform-0-band-floored",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 0,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 0,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 0,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 0,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 0,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 0,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 0,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 0,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 0.0,
+        "band": [
+          0,
+          5.0
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [
+          "authenticity",
+          "brand_safety"
+        ],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "gate-rejects",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 95,
+            "confidence": "high"
+          }
+        },
+        "gates": [
+          "G2"
+        ]
+      },
+      "expected": {
+        "verdict": "reject",
+        "gates": {
+          "G2": "strong evidence of inauthentic audience or engagement"
+        },
+        "score": null
+      }
+    },
+    {
+      "id": "gates-sorted-deduped",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 95,
+            "confidence": "high"
+          }
+        },
+        "gates": [
+          "G4",
+          "G1",
+          "G4"
+        ]
+      },
+      "expected": {
+        "verdict": "reject",
+        "gates": {
+          "G1": "brand-safety floor hit",
+          "G4": "identity unverifiable (profile, site and handle do not agree)"
+        },
+        "score": null
+      }
+    },
+    {
+      "id": "each-gate-G1",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 50,
+            "confidence": "high"
+          }
+        },
+        "gates": [
+          "G1"
+        ]
+      },
+      "expected": {
+        "verdict": "reject",
+        "gates": {
+          "G1": "brand-safety floor hit"
+        },
+        "score": null
+      }
+    },
+    {
+      "id": "each-gate-G3",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 50,
+            "confidence": "high"
+          }
+        },
+        "gates": [
+          "G3"
+        ]
+      },
+      "expected": {
+        "verdict": "reject",
+        "gates": {
+          "G3": "insufficient public data to score"
+        },
+        "score": null
+      }
+    },
+    {
+      "id": "each-gate-G5",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 50,
+            "confidence": "high"
+          }
+        },
+        "gates": [
+          "G5"
+        ]
+      },
+      "expected": {
+        "verdict": "reject",
+        "gates": {
+          "G5": "persistent undisclosed sponsored content"
+        },
+        "score": null
+      }
+    },
+    {
+      "id": "missing-renormalised",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": null
+          },
+          "engagement_quality": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 80,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 80,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 80.0,
+        "band": [
+          60.0,
+          100
+        ],
+        "confidence": "low",
+        "missing": [
+          "audience_fit"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 23.5,
+          "engagement_quality": 17.6,
+          "authenticity": 17.6,
+          "reach": 11.8,
+          "brand_safety": 11.8,
+          "sponsor_readiness": 11.8,
+          "contactability": 5.9
+        }
+      }
+    },
+    {
+      "id": "omitted-renormalised",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 70,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 70.0,
+        "band": [
+          50.0,
+          90.0
+        ],
+        "confidence": "low",
+        "missing": [
+          "contactability",
+          "reach"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 23.5,
+          "audience_fit": 17.6,
+          "engagement_quality": 17.6,
+          "authenticity": 17.6,
+          "brand_safety": 11.8,
+          "sponsor_readiness": 11.8
+        }
+      }
+    },
+    {
+      "id": "mixed-weights",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 90,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 40,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 100,
+            "confidence": "medium"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 77.1,
+        "band": [
+          57.1,
+          97.1
+        ],
+        "confidence": "low",
+        "missing": [
+          "audience_fit",
+          "authenticity",
+          "brand_safety",
+          "engagement_quality",
+          "sponsor_readiness"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 57.1,
+          "reach": 28.6,
+          "contactability": 14.3
+        }
+      }
+    },
+    {
+      "id": "authenticity-floor",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 30,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 95,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 60,
+        "band": [
+          55,
+          65
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [
+          "authenticity"
+        ],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "brand-safety-floor",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 49.9,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 95,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 60,
+        "band": [
+          55,
+          65
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [
+          "brand_safety"
+        ],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "both-floors",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 10,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 10,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 95,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 60,
+        "band": [
+          55,
+          65
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [
+          "authenticity",
+          "brand_safety"
+        ],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "floor-hit-but-total-below-cap",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 39,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 50,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 48.4,
+        "band": [
+          43.4,
+          53.4
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [
+          "authenticity"
+        ],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "floor-exact-not-capped",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 40,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 95,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 95,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 86.8,
+        "band": [
+          81.8,
+          91.8
+        ],
+        "confidence": "high",
+        "missing": [],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "weakest-confidence",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 70,
+            "confidence": "medium"
+          },
+          "brand_safety": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 70,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 70,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 70.0,
+        "band": [
+          60.0,
+          80.0
+        ],
+        "confidence": "medium",
+        "missing": [],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "default-confidence-low",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 70
+          },
+          "audience_fit": {
+            "score": 70
+          },
+          "engagement_quality": {
+            "score": 70
+          },
+          "authenticity": {
+            "score": 70
+          },
+          "reach": {
+            "score": 70
+          },
+          "brand_safety": {
+            "score": 70
+          },
+          "sponsor_readiness": {
+            "score": 70
+          },
+          "contactability": {
+            "score": 70
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 70.0,
+        "band": [
+          50.0,
+          90.0
+        ],
+        "confidence": "low",
+        "missing": [],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 20.0,
+          "audience_fit": 15.0,
+          "engagement_quality": 15.0,
+          "authenticity": 15.0,
+          "reach": 10.0,
+          "brand_safety": 10.0,
+          "sponsor_readiness": 10.0,
+          "contactability": 5.0
+        }
+      }
+    },
+    {
+      "id": "nothing-scorable-g3",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": null
+          },
+          "audience_fit": {
+            "score": null
+          },
+          "engagement_quality": {
+            "score": null
+          },
+          "authenticity": {
+            "score": null
+          },
+          "reach": {
+            "score": null
+          },
+          "brand_safety": {
+            "score": null
+          },
+          "sponsor_readiness": {
+            "score": null
+          },
+          "contactability": {
+            "score": null
+          }
+        }
+      },
+      "expected": {
+        "verdict": "reject",
+        "gates": {
+          "G3": "insufficient public data to score"
+        },
+        "score": null
+      }
+    },
+    {
+      "id": "empty-dimensions-g3",
+      "input": {
+        "dimensions": {}
+      },
+      "expected": {
+        "verdict": "reject",
+        "gates": {
+          "G3": "insufficient public data to score"
+        },
+        "score": null
+      }
+    },
+    {
+      "id": "half-even-tie-down",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 62.25,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 62.2,
+        "band": [
+          42.2,
+          82.2
+        ],
+        "confidence": "low",
+        "missing": [
+          "audience_fit",
+          "authenticity",
+          "brand_safety",
+          "contactability",
+          "engagement_quality",
+          "reach",
+          "sponsor_readiness"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 100.0
+        }
+      }
+    },
+    {
+      "id": "half-even-tie-up",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 62.75,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 62.8,
+        "band": [
+          42.8,
+          82.8
+        ],
+        "confidence": "low",
+        "missing": [
+          "audience_fit",
+          "authenticity",
+          "brand_safety",
+          "contactability",
+          "engagement_quality",
+          "reach",
+          "sponsor_readiness"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 100.0
+        }
+      }
+    },
+    {
+      "id": "half-even-quarter",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 0.25,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 0.2,
+        "band": [
+          0,
+          20.2
+        ],
+        "confidence": "low",
+        "missing": [
+          "audience_fit",
+          "authenticity",
+          "brand_safety",
+          "contactability",
+          "engagement_quality",
+          "reach",
+          "sponsor_readiness"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 100.0
+        }
+      }
+    },
+    {
+      "id": "non-tie-rounding",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 33.35,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 71.15,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 46.0,
+        "band": [
+          26.0,
+          66.0
+        ],
+        "confidence": "low",
+        "missing": [
+          "audience_fit",
+          "authenticity",
+          "brand_safety",
+          "contactability",
+          "engagement_quality",
+          "sponsor_readiness"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 66.7,
+          "reach": 33.3
+        }
+      }
+    },
+    {
+      "id": "thirds",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 10,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 20,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 33.3333,
+            "confidence": "high"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 18.5,
+        "band": [
+          0,
+          38.5
+        ],
+        "confidence": "low",
+        "missing": [
+          "authenticity",
+          "brand_safety",
+          "contactability",
+          "engagement_quality",
+          "sponsor_readiness"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "niche_fit": 44.4,
+          "audience_fit": 33.3,
+          "reach": 22.2
+        }
+      }
+    },
+    {
+      "id": "evidence-kept-out-of-output",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": 60,
+            "confidence": "high",
+            "evidence": "median 41k views, n=22"
+          }
+        }
+      },
+      "expected": {
+        "verdict": "score",
+        "score": 60.0,
+        "band": [
+          40.0,
+          80.0
+        ],
+        "confidence": "low",
+        "missing": [
+          "audience_fit",
+          "authenticity",
+          "brand_safety",
+          "contactability",
+          "engagement_quality",
+          "niche_fit",
+          "sponsor_readiness"
+        ],
+        "floor_capped_by": [],
+        "weights_used": {
+          "reach": 100.0
+        }
+      }
+    },
+    {
+      "id": "throws-unknown-dimension",
+      "input": {
+        "dimensions": {
+          "charisma": {
+            "score": 50
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-score-above-100",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": 120
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-score-negative",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": -0.1
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-score-boolean",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": true
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-score-string",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": "50"
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-missing-score-key",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "confidence": "high"
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-extra-key",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": 50,
+            "weight": 99
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-bad-confidence",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": 50,
+            "confidence": "none"
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-evidence-not-string",
+      "input": {
+        "dimensions": {
+          "reach": {
+            "score": 50,
+            "evidence": 5
+          }
+        }
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-unknown-gate",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 50,
+            "confidence": "high"
+          }
+        },
+        "gates": [
+          "G9"
+        ]
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-gates-not-list",
+      "input": {
+        "dimensions": {
+          "niche_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "audience_fit": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "engagement_quality": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "authenticity": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "reach": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "brand_safety": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "sponsor_readiness": {
+            "score": 50,
+            "confidence": "high"
+          },
+          "contactability": {
+            "score": 50,
+            "confidence": "high"
+          }
+        },
+        "gates": "G1"
+      },
+      "throws": true
+    },
+    {
+      "id": "throws-dimensions-not-object",
+      "input": {
+        "dimensions": [
+          1,
+          2
+        ]
+      },
+      "throws": true
+    }
+  ]
+}

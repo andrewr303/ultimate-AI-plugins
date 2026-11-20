@@ -1,0 +1,6 @@
+interface:
+  display_name: SwiftData
+  short_description: Develop and verify SwiftData persistence
+  default_prompt: Use $ios-swiftdata to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

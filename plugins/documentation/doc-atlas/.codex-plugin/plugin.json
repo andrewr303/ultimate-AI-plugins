@@ -1,0 +1,31 @@
+{
+  "name": "doc-atlas",
+  "version": "1.0.1",
+  "description": "Evidence-led repository documentation for coding agents: polished READMEs, structured guides, docs sites, API references, diagrams, audits, and maintenance.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "documentation",
+    "readme",
+    "docs-as-code",
+    "technical-writing",
+    "developer-experience",
+    "accessibility"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Doc Atlas",
+    "shortDescription": "Beautiful docs from real code",
+    "longDescription": "Help coding agents create and maintain clear, visually appealing repository documentation. Doc Atlas inspects real source evidence, designs reader journeys, improves GitHub READMEs, works with existing documentation frameworks, creates accessible diagrams and schema-based API references, and reviews facts, links, builds and rendered behavior. Includes eight focused skills, reusable templates, and read-only Python helpers. No bundled MCP server, credentials, telemetry or hosted service.",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Turn this repository's README and docs into polished, accurate documentation using its existing stack.",
+      "Audit this repository's documentation for accuracy, navigation, accessibility, and visual quality.",
+      "Update the documentation for these code changes and verify the examples and links."
+    ],
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg"
+  }
+}

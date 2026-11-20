@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="title desc">
+ <title id="title">Doc Atlas</title><desc id="desc">Beautiful documentation, grounded in code. Repository documentation tools for coding agents.</desc>
+ <rect width="1200" height="320" rx="24" fill="#182525"/>
+ <g stroke="#36504B" fill="none" opacity=".6"><path d="M810 0v320M930 0v320M1050 0v320M1170 0v320M750 60h450M750 160h450M750 260h450"/><circle cx="985" cy="160" r="118"/><circle cx="985" cy="160" r="80"/></g>
+ <text x="66" y="68" fill="#A8C2B6" font-family="system-ui,sans-serif" font-size="14" letter-spacing="4">REPOSITORY DOCUMENTATION / AGENT PLUGIN</text>
+ <text x="62" y="154" fill="#F1EFE6" font-family="Georgia,serif" font-size="76">Doc Atlas</text>
+ <text x="66" y="207" fill="#D1DAD3" font-family="system-ui,sans-serif" font-size="25">Beautiful documentation, grounded in code.</text>
+ <text x="66" y="268" fill="#A8C2B6" font-family="system-ui,sans-serif" font-size="16">READMEs · Guides · Sites · References · Diagrams · Reviews</text>
+ <path d="m985 77 22 61 61 22-61 22-22 61-22-61-61-22 61-22z" fill="#D5AD72"/>
+</svg>

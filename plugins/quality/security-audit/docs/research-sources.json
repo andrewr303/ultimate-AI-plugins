@@ -1,0 +1,224 @@
+{
+  "research_date": "2026-10-30",
+  "research_timezone": "America/Denver",
+  "scope": "Primary-source shortlist for extending Cloudflare security-audit-skill, not a universal ranking or benchmark.",
+  "method": "GitHub search and web discovery followed by GitHub repository metadata, README, license, and selected command/output source inspection.",
+  "limitations": [
+    "External scanners were not installed or executed during this research.",
+    "Maintenance metadata is a point-in-time signal and does not establish trust or absence of vulnerabilities.",
+    "Default-branch documentation and command flags can change; pin selected scanner versions in actual deployments."
+  ],
+  "repositories": [
+    {
+      "repository": "semgrep/semgrep",
+      "url": "https://github.com/semgrep/semgrep",
+      "default_branch": "develop",
+      "archived": false,
+      "pushed_at": "2026-10-30T00:01:59Z",
+      "license": "LGPL-2.1",
+      "detected_license": "LGPL-2.1",
+      "readme": "https://github.com/semgrep/semgrep/blob/develop/README.md",
+      "license_url": "https://github.com/semgrep/semgrep/blob/develop/LICENSE",
+      "capabilities": "Local configurable SAST; native JSON intake",
+      "relationship": "Primary scanner candidate; require trusted local rules"
+    },
+    {
+      "repository": "gitleaks/gitleaks",
+      "url": "https://github.com/gitleaks/gitleaks",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-10-28T04:14:29Z",
+      "license": "MIT",
+      "detected_license": "MIT",
+      "readme": "https://github.com/gitleaks/gitleaks/blob/master/README.md",
+      "license_url": "https://github.com/gitleaks/gitleaks/blob/master/LICENSE",
+      "capabilities": "Working tree and Git-history secret detection; JSON/SARIF",
+      "relationship": "Primary scanner candidate; redact at scanner and import boundary"
+    },
+    {
+      "repository": "google/osv-scanner",
+      "url": "https://github.com/google/osv-scanner",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-30T20:57:20Z",
+      "license": "Apache-2.0",
+      "detected_license": "Apache-2.0",
+      "readme": "https://github.com/google/osv-scanner/blob/main/README.md",
+      "license_url": "https://github.com/google/osv-scanner/blob/main/LICENSE",
+      "capabilities": "Dependency vulnerability matching; JSON/SARIF; lockfile and SBOM input",
+      "relationship": "Primary scanner candidate; offline cache requirements explicit"
+    },
+    {
+      "repository": "aquasecurity/trivy",
+      "url": "https://github.com/aquasecurity/trivy",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-30T13:51:36Z",
+      "license": "Apache-2.0",
+      "detected_license": "Apache-2.0",
+      "readme": "https://github.com/aquasecurity/trivy/blob/main/README.md",
+      "license_url": "https://github.com/aquasecurity/trivy/blob/main/LICENSE",
+      "capabilities": "Filesystem vulnerability, misconfiguration, and secret scans; JSON/SARIF",
+      "relationship": "Primary scanner candidate; scanner/database configuration explicit"
+    },
+    {
+      "repository": "zizmorcore/zizmor",
+      "url": "https://github.com/zizmorcore/zizmor",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-30T07:36:24Z",
+      "license": "MIT",
+      "detected_license": "MIT",
+      "readme": "https://github.com/zizmorcore/zizmor/blob/main/README.md",
+      "license_url": "https://github.com/zizmorcore/zizmor/blob/main/LICENSE",
+      "capabilities": "CI/CD security checks; SARIF and versioned JSON",
+      "relationship": "Complementary planner candidate; generic SARIF intake"
+    },
+    {
+      "repository": "anchore/syft",
+      "url": "https://github.com/anchore/syft",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-30T13:45:18Z",
+      "license": "Apache-2.0",
+      "detected_license": "Apache-2.0",
+      "readme": "https://github.com/anchore/syft/blob/main/README.md",
+      "license_url": "https://github.com/anchore/syft/blob/main/LICENSE",
+      "capabilities": "Filesystem/container package inventory; CycloneDX/SPDX/Syft JSON",
+      "relationship": "SBOM planning and evidence artifact; not a vulnerability finding importer"
+    },
+    {
+      "repository": "anchore/grype",
+      "url": "https://github.com/anchore/grype",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-30T21:03:51Z",
+      "license": "Apache-2.0",
+      "detected_license": "Apache-2.0",
+      "readme": "https://github.com/anchore/grype/blob/main/README.md",
+      "license_url": "https://github.com/anchore/grype/blob/main/LICENSE",
+      "capabilities": "Known vulnerabilities in images, filesystems, SBOMs",
+      "relationship": "Reference extension; no native Grype JSON adapter claimed"
+    },
+    {
+      "repository": "bridgecrewio/checkov",
+      "url": "https://github.com/bridgecrewio/checkov",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-29T12:38:10Z",
+      "license": "Apache-2.0",
+      "detected_license": "Apache-2.0",
+      "readme": "https://github.com/bridgecrewio/checkov/blob/main/README.md",
+      "license_url": "https://github.com/bridgecrewio/checkov/blob/main/LICENSE",
+      "capabilities": "IaC graph/policy analysis; JSON/SARIF/CycloneDX",
+      "relationship": "Reference extension; no native Checkov JSON adapter claimed"
+    },
+    {
+      "repository": "rhysd/actionlint",
+      "url": "https://github.com/rhysd/actionlint",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-07-16T06:05:57Z",
+      "license": "MIT",
+      "detected_license": "MIT",
+      "readme": "https://github.com/rhysd/actionlint/blob/main/README.md",
+      "license_url": "https://github.com/rhysd/actionlint/blob/main/LICENSE.txt",
+      "capabilities": "GitHub Actions syntax, expressions, reusable workflow validation",
+      "relationship": "Reference extension; complements security-focused zizmor"
+    },
+    {
+      "repository": "ossf/scorecard",
+      "url": "https://github.com/ossf/scorecard",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-30T08:29:25Z",
+      "license": "Apache-2.0",
+      "detected_license": "Apache-2.0",
+      "readme": "https://github.com/ossf/scorecard/blob/main/README.md",
+      "license_url": "https://github.com/ossf/scorecard/blob/main/LICENSE",
+      "capabilities": "Repository supply-chain posture checks and JSON",
+      "relationship": "Reference extension; posture evidence not proof of code security"
+    },
+    {
+      "repository": "OWASP/ASVS",
+      "url": "https://github.com/OWASP/ASVS",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-10-29T01:24:35Z",
+      "license": "CC-BY-SA-4.0",
+      "detected_license": "CC-BY-SA-4.0",
+      "readme": "https://github.com/OWASP/ASVS/blob/master/README.md",
+      "license_url": "https://github.com/OWASP/ASVS/blob/master/LICENSE.md",
+      "capabilities": "Versioned application verification requirements",
+      "relationship": "Reference mapping; do not claim automated certification"
+    },
+    {
+      "repository": "OWASP/pytm",
+      "url": "https://github.com/OWASP/pytm",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2026-10-30T17:59:43Z",
+      "license": "MIT; bundled CAPEC material has separate notice",
+      "detected_license": "NOASSERTION",
+      "readme": "https://github.com/OWASP/pytm/blob/master/README.md",
+      "license_url": "https://github.com/OWASP/pytm/blob/master/LICENSE",
+      "capabilities": "Threat model assets/dataflows/diagrams/reports",
+      "relationship": "Reference methodology; no executing downloaded model scripts"
+    },
+    {
+      "repository": "trailofbits/skills",
+      "url": "https://github.com/trailofbits/skills",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-28T19:41:17Z",
+      "license": "CC-BY-SA-4.0",
+      "detected_license": "CC-BY-SA-4.0",
+      "readme": "https://github.com/trailofbits/skills/blob/main/README.md",
+      "license_url": "https://github.com/trailofbits/skills/blob/main/LICENSE",
+      "capabilities": "Security audit, variant analysis, static analysis and triage workflows",
+      "relationship": "Reference methodology; no skill text vendored"
+    },
+    {
+      "repository": "OWASP/secure-agent-playbook",
+      "url": "https://github.com/OWASP/secure-agent-playbook",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-15T14:58:28Z",
+      "license": "CC-BY-4.0",
+      "detected_license": "NOASSERTION",
+      "readme": "https://github.com/OWASP/secure-agent-playbook/blob/main/README.md",
+      "license_url": "https://github.com/OWASP/secure-agent-playbook/blob/main/LICENSE.md",
+      "capabilities": "AI-agent audit, tool trust boundaries and prompt-injection review methodology",
+      "relationship": "Reference methodology; no skill text vendored"
+    }
+  ],
+  "command_contract_sources": [
+    "https://docs.semgrep.dev/cli-reference",
+    "https://github.com/gitleaks/gitleaks/blob/master/README.md",
+    "https://github.com/google/osv-scanner/blob/main/docs/scan-source.md",
+    "https://github.com/google/osv-scanner/blob/main/docs/usage.md",
+    "https://github.com/google/osv-scanner/blob/main/cmd/osv-scanner/internal/helper/flags.go",
+    "https://github.com/google/osv-scanner/blob/main/pkg/models/results.go",
+    "https://github.com/aquasecurity/trivy/blob/main/docs/guide/references/configuration/cli/trivy_filesystem.md",
+    "https://github.com/aquasecurity/trivy/blob/main/docs/guide/configuration/reporting.md",
+    "https://github.com/zizmorcore/zizmor/blob/main/docs/usage.md",
+    "https://oss.anchore.com/docs/guides/sbom/scan-targets/",
+    "https://oss.anchore.com/docs/reference/syft/configuration/"
+  ],
+  "licensing_caveats": [
+    {
+      "repository": "semgrep/semgrep-rules",
+      "license": "Semgrep Rules License v1.0",
+      "url": "https://github.com/semgrep/semgrep-rules/blob/develop/LICENSE",
+      "note": "Separate from the LGPL-2.1 Semgrep CE engine; do not treat the rules repository as permissively licensed."
+    },
+    {
+      "repository": "OWASP/pytm",
+      "note": "GitHub detected NOASSERTION, but inspected LICENSE contains MIT terms plus separate CAPEC attribution/license text."
+    },
+    {
+      "repository": "OWASP/secure-agent-playbook",
+      "note": "GitHub detected NOASSERTION, but inspected LICENSE.md explicitly identifies CC-BY-4.0."
+    }
+  ]
+}

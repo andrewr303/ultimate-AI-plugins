@@ -1,0 +1,6 @@
+interface:
+  display_name: "GEO Citability"
+  short_description: "Fact-safe passage rewrites"
+  default_prompt: "Use $geo-citability to analyze which passages of this page are hard for AI answers to quote, rewrite one section at a time without changing any facts, gate each rewrite with the bundled fidelity check, and report the change record and re-measure plan."
+policy:
+  allow_implicit_invocation: true

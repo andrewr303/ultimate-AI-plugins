@@ -1,0 +1,9 @@
+{
+  "interface": {
+    "display_name": "DeepSec Review",
+    "short_description": "Review local code and plan verified security fixes.",
+    "default_prompt": "Review this authorized repository with DeepSec, validate material findings against source, and propose tested fixes.",
+    "brand_color": "#16A3A8"
+  },
+  "policy": {"allow_implicit_invocation": true}
+}

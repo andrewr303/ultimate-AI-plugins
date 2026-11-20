@@ -1,0 +1,22 @@
+[
+  {
+    "prompt": "Add cancellation and safe retries to this URLSession client",
+    "classification": "positive",
+    "expected_behavior": "Bound retry by semantics, clock and cancellation"
+  },
+  {
+    "prompt": "A stale search response overwrites a newer one",
+    "classification": "positive",
+    "expected_behavior": "Check generation identity and actor state"
+  },
+  {
+    "prompt": "Upload a build to TestFlight",
+    "classification": "negative",
+    "expected_behavior": "Route delivery; no transport rewrite"
+  },
+  {
+    "prompt": "Migrate the existing client to a new cloud backend",
+    "classification": "conditional",
+    "expected_behavior": "Do not invent a provider; inspect explicit migration requirements"
+  }
+]

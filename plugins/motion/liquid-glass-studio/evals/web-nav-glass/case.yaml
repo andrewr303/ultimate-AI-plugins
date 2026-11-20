@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: web-nav-glass
+expected_outcome: |
+  The top navigation bar of the static Harbor Notes page gets a liquid glass style surface built in tiers:
+  a designed solid surface that is used under reduced transparency, more contrast and forced colors, a frosted
+  tier, and refraction only as a Chromium enhancement. Focus outlines on the nav links stay visible, body content
+  (hero, article, cards) gets no glass, every SVG filter id in the page is unique (the existing logo filter id
+  "glass" is not reused), and if the plugin's engine file is copied its header and an MIT notice travel with it.
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,18 @@
+{
+  "name": "creator-intelligence",
+  "version": "0.2.1",
+  "description": "Find creators, capture their public business contact, vet them with a transparent score, and research their audience and content, from public data only.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "creators",
+    "influencers",
+    "discovery",
+    "vetting",
+    "social-research",
+    "brand-deals"
+  ],
+  "skills": "./skills/",
+  "license": "MIT"
+}

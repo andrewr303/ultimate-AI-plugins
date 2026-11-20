@@ -1,0 +1,775 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design-variations/1",
+  "title": "design-variations round ledger",
+  "description": "The memory of a design-variations exploration: subject, preservation contract, every round, option and reference. Lives beside the gallery as design-variations.json (or as a support file in a Claude Design canvas).",
+  "type": "object",
+  "required": [
+    "schema",
+    "title",
+    "mode",
+    "contract",
+    "rounds"
+  ],
+  "properties": {
+    "schema": {
+      "const": "design-variations/1"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Subject name shown in the gallery, e.g. 'Shipments board'."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "lang": {
+      "type": "string",
+      "description": "Language of the copy, e.g. 'en'."
+    },
+    "mode": {
+      "enum": [
+        "redesign",
+        "new"
+      ]
+    },
+    "host": {
+      "enum": [
+        "html",
+        "canvas",
+        "codebase-harness"
+      ]
+    },
+    "created": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "screen",
+            "component",
+            "flow",
+            "page",
+            "section",
+            "system"
+          ]
+        },
+        "archetype": {
+          "type": "string",
+          "description": "Pattern family, e.g. data-table, pricing, onboarding (pattern-alternatives.md)."
+        },
+        "platform": {
+          "enum": [
+            "web",
+            "ios",
+            "android",
+            "desktop",
+            "watch",
+            "tv",
+            "multi"
+          ]
+        },
+        "source": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Where the original was read from: file paths, canvas files, URLs, screenshot names."
+        },
+        "summary": {
+          "type": "string",
+          "description": "The one-sentence subject: what it is, where it renders, what job it does."
+        }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Fonts, colour roles, radii, density and voice in one or two sentences."
+        },
+        "direction": {
+          "type": "string",
+          "description": "For new designs: the committed aesthetic direction or 'per option'."
+        }
+      }
+    },
+    "chrome": {
+      "type": "object",
+      "properties": {
+        "theme": {
+          "enum": [
+            "dark",
+            "light"
+          ]
+        },
+        "tokens": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^--dv-[a-z0-9-]+$"
+          },
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "contract": {
+      "type": "object",
+      "required": [
+        "must_keep"
+      ],
+      "properties": {
+        "must_keep": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "may_change": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lifted": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contractChange"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/contractChange"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "properties": {
+        "w": {
+          "type": "integer",
+          "minimum": 200
+        },
+        "h": {
+          "type": "integer",
+          "minimum": 200
+        }
+      }
+    },
+    "rounds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/round"
+      }
+    },
+    "promoted": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "date": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "description": "The current design shown unchanged at the top of the newest round (variants/today.html). Redesigns only.",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "w": {
+          "type": "integer"
+        },
+        "h": {
+          "type": "integer"
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "preferences": {
+      "type": "array",
+      "description": "Taste memory distilled from feedback. Record a like or dislike only when at least two decisions support it, or the user stated it outright.",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "trait"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "like",
+              "dislike",
+              "constraint"
+            ]
+          },
+          "trait": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          },
+          "round": {
+            "type": "integer"
+          },
+          "from": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "round_label": {
+      "type": "string",
+      "description": "Word shown in round eyebrows. Default 'Turn' (as in the creator's options canvases); use the user's own word if their files have one."
+    }
+  },
+  "$defs": {
+    "contractChange": {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer"
+        }
+      }
+    },
+    "round": {
+      "type": "object",
+      "required": [
+        "n",
+        "kind",
+        "title",
+        "summary",
+        "options"
+      ],
+      "properties": {
+        "n": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kind": {
+          "enum": [
+            "explore",
+            "more",
+            "like",
+            "combine",
+            "refine",
+            "feedback",
+            "scope",
+            "chosen",
+            "edit"
+          ],
+          "description": "explore: first round; more: ten new directions; like: evolve picks; combine: blends of picks; refine: variations of one option; feedback: driven by notes or a steer; scope: one sub-part varies; chosen: a decision or specified merge (records the result); edit: one concrete change to one option (never a decision)."
+        },
+        "topic": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "feedback": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The user's words that drove this round, verbatim."
+        },
+        "basis": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]{1,3}[a-z]$"
+          },
+          "description": "Starting point of this round's ladder; empty means the original."
+        },
+        "scope": {
+          "type": "string"
+        },
+        "chosen": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]{1,3}[a-z]$"
+          },
+          "description": "In a source round: the IDs the user picked or used as donors. In a chosen round: the ID of its result."
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 26
+        },
+        "w": {
+          "type": "integer"
+        },
+        "h": {
+          "type": "integer"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference"
+          }
+        },
+        "options": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 26,
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "question": {
+          "type": "string",
+          "description": "The one design question this round answers, e.g. 'How should dispatchers see what is running late?'"
+        },
+        "passed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]{1,3}[a-z]$"
+          },
+          "description": "Options the user marked 'not this'; dead directions are not re-offered unless the user asks."
+        },
+        "degraded": {
+          "type": "string",
+          "description": "One plain line when something fell short: an inspiration source failed, or a band could not yield a genuinely distinct option."
+        },
+        "distribution": {
+          "enum": [
+            "default",
+            "closer",
+            "bolder",
+            "only-radical",
+            "only-small"
+          ],
+          "description": "Which rung distribution the round used (spectrum-ladder.md, distribution shifts). dv.py check adapts its spread rules to it."
+        },
+        "inspiration": {
+          "type": "object",
+          "description": "Inventory taken at step 2: which design-reference providers were usable, which needed sign-in, which were absent, and how many provider calls the round made.",
+          "properties": {
+            "connected": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "needs_signin": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "absent": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "failed": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "queries": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "fallback": {
+              "type": "string",
+              "description": "user references, capture, knowledge"
+            },
+            "connections": {
+              "type": "array",
+              "description": "One entry per way a provider was reached, so two copies of one provider (a claude.ai connector and a plugin server) can each record their own status. A provider counts as connected when any of its connections is used or connected-unused; a copy that needs sign-in beside a working copy is not a degradation.",
+              "items": {
+                "type": "object",
+                "required": [
+                  "provider",
+                  "via",
+                  "status"
+                ],
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "description": "gummble, mobbin, refero, uxkin, figma, dembrandt …"
+                  },
+                  "via": {
+                    "type": "string",
+                    "description": "How it was reached, e.g. 'claude.ai connector' or 'plugin server'."
+                  },
+                  "status": {
+                    "enum": [
+                      "used",
+                      "connected-unused",
+                      "needs-signin",
+                      "failed",
+                      "absent"
+                    ],
+                    "description": "used: references came from it; connected-unused: it answered but gave nothing this round used; needs-signin, failed, absent: it could not be used."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "option": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "description"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9]{1,3}[a-z]$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Two to four words that say the idea."
+        },
+        "rung": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "band": {
+          "enum": [
+            "refine",
+            "evolve",
+            "rethink",
+            "reinvent",
+            "proven",
+            "fresh",
+            "novel",
+            "experimental",
+            "chosen",
+            "today"
+          ]
+        },
+        "axis": {
+          "type": "string",
+          "description": "Primary axis slug: layout-paradigm, information-architecture, density, visual-hierarchy, typography, colour-stance, shape-and-depth, imagery-and-icons, motion, interaction-model, navigation-model, content-and-voice, progressive-disclosure, data-representation, input-and-controls, feedback-and-state, automation-and-guidance."
+        },
+        "secondary_axes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "paradigm": {
+          "type": "string",
+          "description": "Structural pattern, e.g. 'split view', 'kanban board', 'command palette'."
+        },
+        "direction": {
+          "type": "string",
+          "description": "Aesthetic direction for new designs."
+        },
+        "idea": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "description": "The row copy: one plain sentence about what the option is. The cost lives only in 'cost'; build appends it unless the description already says it."
+        },
+        "cost": {
+          "type": "string",
+          "description": "What the option gives up or what users must relearn, in a short clause."
+        },
+        "keeps": {
+          "type": "string"
+        },
+        "changes": {
+          "type": "string"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]{1,3}[a-z]$"
+          }
+        },
+        "refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "file": {
+          "type": "string",
+          "description": "Where the prototype lives when not variants/<id>.html (canvas file, harness component)."
+        },
+        "w": {
+          "type": "integer"
+        },
+        "h": {
+          "type": "integer"
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Preview states the prototype supports, first is the default, e.g. ['default','empty','loading','error']."
+        },
+        "baseline": {
+          "type": "boolean"
+        },
+        "contract": {
+          "type": "array",
+          "description": "Where each must-keep item lives in this option: item is the must_keep index (as a string) or its text; how says where or how it is reached. Required for redesign options at rung 4 and above.",
+          "items": {
+            "type": "object",
+            "required": [
+              "item",
+              "how"
+            ],
+            "properties": {
+              "item": {
+                "type": "string"
+              },
+              "how": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "solves": {
+          "type": "string",
+          "description": "Rungs 7–10: the user problem this bold option is for."
+        },
+        "plane": {
+          "enum": [
+            "surface",
+            "skeleton",
+            "structure",
+            "scope"
+          ],
+          "description": "Redesign rounds: the deepest plane the option touches, found by the plane test after building. Its rung must sit in the plane's range: surface 1–3, skeleton 3–5, structure 6–8, scope 9–10."
+        },
+        "switch_back": {
+          "type": "string",
+          "description": "How the user returns to the familiar view inside the prototype, e.g. 'A List toggle at the top switches back to today's table.' Required for redesign options at rung 9–10; expected for new designs at rung 9–10."
+        },
+        "traits": {
+          "type": "object",
+          "description": "Rungs 7–10: short phrases for the option's page skeleton, main visual device, core interaction and memorable moment. Two Rethink or Reinvent options in a round share at most one.",
+          "properties": {
+            "skeleton": {
+              "type": "string"
+            },
+            "device": {
+              "type": "string"
+            },
+            "interaction": {
+              "type": "string"
+            },
+            "moment": {
+              "type": "string"
+            }
+          }
+        },
+        "role": {
+          "enum": [
+            "refine",
+            "push",
+            "crossover",
+            "secondary",
+            "wildcard"
+          ],
+          "description": "Like, combine and refine rounds: the option's job in the allocation (iteration.md). Shown on the option card. A like round of five or more holds at least one wildcard."
+        },
+        "signature": {
+          "type": "string",
+          "description": "One line naming the option's signature device, e.g. 'a chase band leading the page with the three most-overdue invoices and a primary Send reminders button'. Record it for every option the user passed on; dv.py novelty matches it against later options."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "plane"
+            ],
+            "properties": {
+              "plane": {
+                "const": "surface"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "rung": {
+                "minimum": 1,
+                "maximum": 3
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "plane"
+            ],
+            "properties": {
+              "plane": {
+                "const": "skeleton"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "rung": {
+                "minimum": 3,
+                "maximum": 5
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "plane"
+            ],
+            "properties": {
+              "plane": {
+                "const": "structure"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "rung": {
+                "minimum": 6,
+                "maximum": 8
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "plane"
+            ],
+            "properties": {
+              "plane": {
+                "const": "scope"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "rung": {
+                "minimum": 9,
+                "maximum": 10
+              }
+            }
+          }
+        }
+      ]
+    },
+    "reference": {
+      "type": "object",
+      "required": [
+        "id",
+        "provider"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string",
+          "description": "gummble, mobbin, refero, uxkin, figma, dembrandt, user, capture, knowledge …"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "borrowed": {
+          "type": "string",
+          "description": "The abstract idea taken from it."
+        },
+        "strength": {
+          "enum": [
+            "precedent",
+            "example",
+            "craft judgement",
+            "exploratory"
+          ],
+          "description": "precedent: two or more products seen doing it; example: one product seen; craft judgement: a move from the product itself and craft rules; exploratory: no precedent found."
+        },
+        "use": {
+          "enum": [
+            "seed",
+            "corroborating"
+          ],
+          "description": "seed (the default): the reference shaped the option. corroborating: found after the option was planned; never presented as the idea's source, and the gallery lists it under 'Also seen in'."
+        }
+      }
+    }
+  }
+}

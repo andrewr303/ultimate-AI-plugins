@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "resources": [
+    {
+      "name": "asset-manifest",
+      "schema": "schemas/asset-manifest.schema.json",
+      "example": "examples/asset-manifest.json",
+      "purpose": "Asset Manifest"
+    },
+    {
+      "name": "brand",
+      "schema": "schemas/brand.schema.json",
+      "example": "examples/brand.json",
+      "purpose": "Brand"
+    },
+    {
+      "name": "campaign-brief",
+      "schema": "schemas/campaign-brief.schema.json",
+      "example": "examples/campaign-brief.json",
+      "purpose": "Campaign Brief"
+    },
+    {
+      "name": "capture-job",
+      "schema": "schemas/capture-job.schema.json",
+      "example": "examples/capture-job.json",
+      "purpose": "Capture Job"
+    },
+    {
+      "name": "capture-manifest",
+      "schema": "schemas/capture-manifest.schema.json",
+      "example": "examples/capture-manifest.json",
+      "purpose": "Capture Manifest"
+    },
+    {
+      "name": "experiment-manifest",
+      "schema": "schemas/experiment-manifest.schema.json",
+      "example": "examples/experiment-manifest.json",
+      "purpose": "Experiment Manifest"
+    },
+    {
+      "name": "export-variants",
+      "schema": "schemas/export-variants.schema.json",
+      "example": "examples/export-variants.json",
+      "purpose": "Export Variants"
+    },
+    {
+      "name": "interactive-demo",
+      "schema": "schemas/interactive-demo.schema.json",
+      "example": "examples/interactive-demo.json",
+      "purpose": "Interactive Demo"
+    },
+    {
+      "name": "product-evidence",
+      "schema": "schemas/product-evidence.schema.json",
+      "example": "examples/product-evidence.json",
+      "purpose": "Product Evidence"
+    },
+    {
+      "name": "qa-results",
+      "schema": "schemas/qa-results.schema.json",
+      "example": "examples/qa-results.json",
+      "purpose": "Qa Results"
+    },
+    {
+      "name": "render-job",
+      "schema": "schemas/render-job.schema.json",
+      "example": "examples/render-job.json",
+      "purpose": "Render Job"
+    },
+    {
+      "name": "storyboard",
+      "schema": "schemas/storyboard.schema.json",
+      "example": "examples/storyboard.json",
+      "purpose": "Storyboard"
+    }
+  ]
+}

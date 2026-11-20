@@ -1,0 +1,9 @@
+{
+  "name": "ios-development-studio",
+  "version": "1.1.0",
+  "description": "A curated iOS development toolkit with focused skills for Swift, SwiftUI, persistence, diagnostics, simulator testing, App Store delivery, and optional Expo, Chat, and Nuke integrations.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "iOS Development Studio"
+  }
+}

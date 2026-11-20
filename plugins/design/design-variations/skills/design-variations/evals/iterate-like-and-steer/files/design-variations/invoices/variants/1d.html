@@ -1,0 +1,120 @@
+<style>
+body{background:var(--surface)}
+.k-side{background:var(--bg)}
+main{padding:44px 56px 64px;min-width:0;max-width:1240px;width:100%}
+.head{display:flex;align-items:flex-end;gap:var(--space-3);flex-wrap:wrap;padding-bottom:var(--space-6);border-bottom:2px solid var(--text)}
+.head h1{margin:0;font-size:48px;line-height:1;letter-spacing:-.035em;font-weight:700;flex:1}
+.figs{display:grid;grid-template-columns:1.25fr 1.25fr 1fr .7fr;border-bottom:1px solid var(--border)}
+.fig{padding:var(--space-6) var(--space-6) var(--space-6) 0;display:flex;flex-direction:column;gap:6px}
+.fig+.fig{padding-left:var(--space-6);border-left:1px solid var(--border)}
+.fig .l{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:var(--text-2)}
+.fig .v{font:600 44px/1 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.fig.sm .v{font-size:28px;letter-spacing:-.03em}
+.fig.over .l,.fig.over .v{color:var(--overdue)}
+.fig .s{font-size:var(--text-sm);color:var(--text-2)}
+.filters{display:flex;gap:var(--space-6);align-items:center;flex-wrap:wrap;padding:var(--space-5) 0 var(--space-3)}
+.ftabs{display:flex;gap:var(--space-5);flex-wrap:wrap}
+.ftabs button{all:unset;cursor:pointer;font-size:var(--text-lg);font-weight:500;color:var(--text-2);padding:4px 0;border-bottom:2px solid transparent}
+.ftabs button sup{font:600 11px/1 var(--font-mono);margin-left:3px;color:var(--text-2)}
+.ftabs button[aria-pressed=true]{color:var(--text);border-bottom-color:var(--accent);font-weight:600}
+.ftabs button:hover{color:var(--text)}
+.ftabs button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.uline{margin-left:auto;display:flex;gap:8px;align-items:center;border-bottom:1px solid var(--text-2);min-width:280px;color:var(--text-2)}
+.uline:focus-within{border-bottom-color:var(--accent);box-shadow:0 1px 0 var(--accent)}
+.uline input{border:0;outline:0;background:transparent;font:inherit;font-size:var(--text-lg);padding:8px 0;flex:1;min-width:0;color:var(--text)}
+.sortrow{display:flex;gap:var(--space-4);align-items:center;flex-wrap:wrap;padding:var(--space-3) 0;border-bottom:1px solid var(--text);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);font-weight:600}
+.sortrow .lab{margin-right:4px}
+.sortrow button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:3px;color:var(--text-2)}
+.sortrow button[aria-pressed=true]{color:var(--text)}
+.sortrow button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sortrow button .k-ico{width:12px;height:12px}
+.sortrow button[aria-pressed=false] .k-ico{display:none}
+.sortrow .sp{flex:1}
+.sortrow label{display:inline-flex;gap:8px;align-items:center;cursor:pointer;text-transform:none;letter-spacing:0;font-size:var(--text-sm);font-weight:500}
+.bulk{display:none;gap:var(--space-4);align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:var(--text-md);position:sticky;top:0;background:var(--surface);z-index:4}
+.bulk.on{display:flex}
+.bulk b{font-family:var(--font-mono)}
+.tbtn{all:unset;cursor:pointer;color:var(--accent);font-weight:600;font-size:var(--text-sm);display:inline-flex;gap:5px;align-items:center;padding:4px 2px;border-radius:3px}
+.tbtn:hover{text-decoration:underline;text-underline-offset:3px}
+.tbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tbtn.muted{color:var(--text-2)}
+ol.rows{list-style:none;margin:0;padding:0}
+ol.rows li{display:grid;grid-template-columns:28px minmax(0,1.6fr) minmax(0,1fr) 110px 1fr minmax(150px,auto);gap:var(--space-4);align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+ol.rows li.sel{background:linear-gradient(90deg,var(--accent-soft),transparent 70%)}
+.who b{display:block;font-size:17px;font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}
+.who span{font-size:var(--text-sm);color:var(--text-2)}
+.who code{font-family:var(--font-mono);font-size:var(--text-sm)}
+.dates{font-size:var(--text-sm);color:var(--text-2)}
+.dates b{display:block;font-weight:600;color:var(--text);font-size:var(--text-md)}
+.dates b.k-late{color:var(--overdue)} .dates b.k-soon{color:var(--due)}
+.stat{font-size:var(--text-sm);font-weight:600;display:inline-flex;gap:6px;align-items:center}
+.stat::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.stat.paid{color:var(--paid)}.stat.due{color:var(--due)}.stat.overdue{color:var(--overdue)}.stat.draft{color:var(--draft)}
+.amt{font:600 22px/1 var(--font-mono);font-variant-numeric:tabular-nums;text-align:right;letter-spacing:-.02em}
+.acts{display:flex;gap:14px;justify-content:flex-end;align-items:center;opacity:0;transition:opacity var(--dur) var(--ease)}
+li:hover .acts,li:focus-within .acts,li.sel .acts{opacity:1}
+.more{all:unset;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;color:var(--text-2)}
+.more:hover{background:var(--surface-2)} .more:focus-visible{outline:2px solid var(--accent)}
+@media (hover:none){.acts{opacity:1}}
+@media (max-width:1100px){main{padding:32px}.figs{grid-template-columns:1fr 1fr}.fig:nth-child(3){padding-left:0;border-left:0}.fig:nth-child(n+3){border-top:1px solid var(--border)}ol.rows li{grid-template-columns:28px minmax(0,1fr) 120px auto;row-gap:8px}.dates,.stat{grid-column:2}.amt{grid-column:3/5;grid-row:1}.acts{grid-column:2/5;grid-row:4;justify-content:flex-start;opacity:1}}
+@media (max-width:760px){main{padding:20px 16px 48px}.head h1{font-size:36px}.fig .v{font-size:30px}.fig.sm .v{font-size:22px}.fig{padding:16px 12px 16px 0}.fig+.fig{padding-left:12px}.uline{min-width:100%;margin-left:0}.ftabs{gap:14px}.ftabs button{font-size:var(--text-md)}ol.rows li{grid-template-columns:24px minmax(0,1fr) auto}.amt{grid-column:3;font-size:18px}.dates,.stat,.acts{grid-column:2/4}.dates{grid-row:2}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="head"><h1>Invoices</h1><button class="k-btn quiet" id="export" type="button"></button><button class="k-btn primary" id="new" type="button"></button></div>
+    <section class="figs" aria-label="Summary" id="figs"></section>
+    <div class="filters"><div class="ftabs" role="group" aria-label="Filter by status" id="tabs"></div>
+      <label class="uline"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #"></label></div>
+    <div class="sortrow" id="sortrow"></div>
+    <div class="bulk" id="bulk" role="region" aria-label="Bulk actions"><span><b id="bulk-n"></b> selected · <b id="bulk-sum"></b></span>
+      <button class="tbtn" id="remind" type="button">Send reminders</button><button class="tbtn" id="markpaid" type="button">Mark paid</button><button class="tbtn muted" id="clear" type="button">Clear</button></div>
+    <ol class="rows" id="rows" aria-label="Invoices"></ol><div id="empty" hidden></div>
+  </main>
+</div>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#export').innerHTML=K.icon('download')+'Export CSV';$('#new').innerHTML=K.icon('plus')+'New invoice';$('#sicon').innerHTML=K.icon('search');
+let st={tab:'all',q:'',sort:{k:'issued',dir:-1}};
+const view=()=>S.view(st);
+function render(){K.keepFocus(document.body,()=>{
+  const t=S.totals(),nOver=S.count('overdue');
+  $('#figs').innerHTML=`<div class="fig"><span class="l">Outstanding</span><span class="v">${f.money(t.outstanding)}</span><span class="s">${S.count('due')+nOver} unpaid</span></div>
+   <div class="fig over"><span class="l">Overdue</span><span class="v">${f.money(t.overdue)}</span><span class="s">${nOver} invoice${nOver===1?'':'s'} past due</span></div>
+   <div class="fig sm"><span class="l">Paid this month</span><span class="v">${f.money(t.paid)}</span></div>
+   <div class="fig sm"><span class="l">Drafts</span><span class="v">${t.drafts}</span></div>`;
+  $('#tabs').innerHTML=K.TABS.map(([k,l])=>`<button type="button" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}">${l}<sup>${S.count(k)}</sup></button>`).join('');
+  const v=view();
+  $('#sortrow').innerHTML=`<label><input type="checkbox" class="k-check" id="all" ${v.length&&v.every(r=>S.sel.has(r.no))?'checked':''}>Select all shown</label><span class="sp"></span><span class="lab">Sort by</span>`+
+    K.SORTS.map(([k,l])=>{const on=st.sort.k===k;return `<button type="button" data-k="${k}" data-focus="sort-${k}" aria-pressed="${on}" aria-label="Sort by ${l}${on?(st.sort.dir>0?', ascending':', descending'):''}">${l}${K.icon(on&&st.sort.dir>0?'up':'down')}</button>`}).join('');
+  $('#rows').innerHTML=v.map(r=>{const unpaid=r.status==='due'||r.status==='overdue',cls=r.status==='overdue'?'k-late':r.status==='due'?'k-soon':'';
+   return `<li class="${S.sel.has(r.no)?'sel':''}"><input type="checkbox" class="k-check" data-s="${r.no}" data-focus="s-${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}">
+    <div class="who"><b>${f.esc(r.client)}</b><span><code>${r.no}</code> · issued ${f.date(r.issued)}</span></div>
+    <div class="dates"><b class="${cls}">${unpaid?f.timing(r):r.status==='paid'?'Settled':'Not sent yet'}</b>due ${f.date(r.due)}</div>
+    <span class="stat ${r.status}">${f.status(r.status)}</span>
+    <div class="acts">${unpaid?`<button type="button" class="tbtn" data-a="remind" data-n="${r.no}" data-focus="r-${r.no}" aria-label="Send reminder for ${r.no}">Remind</button>`:''}${r.status!=='paid'?`<button type="button" class="tbtn" data-a="paid" data-n="${r.no}" data-focus="p-${r.no}" aria-label="Mark ${r.no} paid">Mark paid</button>`:''}
+    <button type="button" class="more" aria-haspopup="menu" aria-expanded="false" aria-label="More actions for ${r.no}" data-m="${r.no}" data-focus="m-${r.no}">${K.icon('more')}</button></div>
+    <span class="amt">${f.money(r.amount)}</span></li>`}).join('');
+  const e=$('#empty');e.hidden=v.length>0;e.innerHTML=v.length?'':K.emptyHTML(S);
+  const sel=[...S.sel].map(S.find).filter(Boolean);
+  $('#bulk').classList.toggle('on',sel.length>0);$('#bulk-n').textContent=sel.length;$('#bulk-sum').textContent=f.money(sel.reduce((a,r)=>a+r.amount,0));
+})}
+S.on(render);
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.t){st.tab=b.dataset.t;render()}
+ if(b.dataset.k){st.sort={k:b.dataset.k,dir:st.sort.k===b.dataset.k?-st.sort.dir:1};render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);render()}
+ if(b.id==='all'){view().forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));render()}
+ if(b.dataset.a)K.act(S,b.dataset.a,b.dataset.n);
+ if(b.dataset.m)K.menu(b,K.rowItems(S,S.find(b.dataset.m)));
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';$('#q').value='';render()}
+ if(b.id==='export')K.toast('Exported '+view().length+' rows');
+ if(b.id==='new'||b.hasAttribute('data-k-new'))K.openInvoiceForm(S);
+});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+render();
+})();
+</script>

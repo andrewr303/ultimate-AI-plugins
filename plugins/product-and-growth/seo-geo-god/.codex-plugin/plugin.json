@@ -1,0 +1,33 @@
+{
+  "name": "seo-geo-god",
+  "version": "1.0.1",
+  "description": "SEO and GEO for coding agents: detect the stack, fix crawlability, rendering, metadata, structured data, sitemaps, hreflang and AI-crawler access in code, and verify with an offline, stdlib-only audit CLI and CI gates.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "geo",
+    "generative-engine-optimization",
+    "ai-search",
+    "structured-data",
+    "core-web-vitals",
+    "coding-agents"
+  ],
+  "interface": {
+    "displayName": "SEO-GEO-god",
+    "shortDescription": "Fix SEO and AI search in code",
+    "longDescription": "Skills and agent briefs for search engine optimization (SEO) and generative engine optimization (GEO) work inside a codebase: stack detection, crawl and index controls, rendering, metadata, structured data, sitemaps, hreflang, internal links, media, performance signals, AI-crawler access, agent readiness, fact-preserving citability edits, entity identity, content quality, measurement and CI regression gates. A bundled Python standard-library CLI audits build output, local servers and user-supplied exports offline; live fetching is opt-in. Platform facts are dated 2026-11-01. It does not promise rankings, rich results or AI citations.",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "defaultPrompt": [
+      "Audit this repository's SEO and GEO readiness, fix the highest-priority issues in code, and verify the fixes with the bundled checks.",
+      "Make this site's key pages easier to cite in AI answers without inventing facts, sources or statistics.",
+      "Add SEO and GEO regression gates to this project's CI."
+    ]
+  },
+  "skills": "./skills"
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO International"
+  short_description: "hreflang and locale routing"
+  default_prompt: "Use $seo-international to fix hreflang, locale canonicals and i18n routing in this repository and verify the clusters with the bundled hreflang checks."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: SwiftUI
+  short_description: iOS swiftui workflows and verification
+  default_prompt: Use $ios-swiftui to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

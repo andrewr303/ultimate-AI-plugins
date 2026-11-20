@@ -1,0 +1,68 @@
+{
+ "record": {
+  "collectionPeriod": {
+   "firstDate": {
+    "day": 2,
+    "month": 10,
+    "year": 2026
+   },
+   "lastDate": {
+    "day": 29,
+    "month": 10,
+    "year": 2026
+   }
+  },
+  "key": {
+   "formFactor": "PHONE",
+   "origin": "https://example.com"
+  },
+  "metrics": {
+   "cumulative_layout_shift": {
+    "percentiles": {
+     "p75": "0.05"
+    }
+   },
+   "experimental_time_to_first_byte": {
+    "percentiles": {
+     "p75": 900
+    }
+   },
+   "interaction_to_next_paint": {
+    "percentiles": {
+     "p75": 180
+    }
+   },
+   "largest_contentful_paint": {
+    "histogram": [
+     {
+      "density": 0.71,
+      "end": 2500,
+      "start": 0
+     },
+     {
+      "density": 0.2,
+      "end": 4000,
+      "start": 2500
+     },
+     {
+      "density": 0.09,
+      "start": 4000
+     }
+    ],
+    "percentiles": {
+     "p75": 2600
+    }
+   },
+   "largest_contentful_paint_soft_navigation": {
+    "percentiles": {
+     "p75": 2100
+    }
+   },
+   "round_trip_time": {
+    "percentiles": {
+     "p75": 120
+    }
+   }
+  }
+ }
+}

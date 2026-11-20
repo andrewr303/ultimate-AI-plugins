@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "1.0.0",
+  "resources": [
+    {
+      "kind": "reference",
+      "name": "foundation",
+      "title": "Product truth, evidence and brand",
+      "path": "references/foundation.md",
+      "tags": [
+        "evidence",
+        "claims",
+        "captures",
+        "brand",
+        "rights",
+        "handoff"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "execution",
+      "title": "Installed paths, capabilities and commands",
+      "path": "references/execution.md",
+      "tags": [
+        "doctor",
+        "windows",
+        "portability",
+        "commands",
+        "costs"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "campaign",
+      "title": "Campaign strategy and variants",
+      "path": "references/campaign.md",
+      "tags": [
+        "audience",
+        "awareness",
+        "paid",
+        "social",
+        "experiment",
+        "hooks",
+        "ratios"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "capture",
+      "title": "Product capture and faithful replay",
+      "path": "references/capture.md",
+      "tags": [
+        "capture",
+        "actual",
+        "footage",
+        "replay",
+        "resolution",
+        "source"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "script",
+      "title": "Hooks and causal scripts",
+      "path": "references/script.md",
+      "tags": [
+        "hook",
+        "script",
+        "narration",
+        "benefit",
+        "cta",
+        "story"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "storyboard",
+      "title": "Storyboard and composition contract",
+      "path": "references/storyboard.md",
+      "tags": [
+        "shots",
+        "styleframes",
+        "timing",
+        "ratios",
+        "source",
+        "claims"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "shot-recipes",
+      "title": "Product shot recipe library",
+      "path": "references/shot-recipes.md",
+      "tags": [
+        "recipes",
+        "cursor",
+        "transformation",
+        "detail",
+        "before",
+        "after",
+        "loop"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "motion",
+      "title": "Deterministic UI motion and camera",
+      "path": "references/motion.md",
+      "tags": [
+        "frame",
+        "playhead",
+        "springs",
+        "cursor",
+        "camera",
+        "pure",
+        "seek"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "audio",
+      "title": "Narration, captions, music and sound",
+      "path": "references/audio.md",
+      "tags": [
+        "narration",
+        "captions",
+        "music",
+        "rights",
+        "lufs",
+        "sound"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "timing",
+      "title": "Local audio and caption timing tools",
+      "path": "references/timing.md",
+      "tags": [
+        "srt",
+        "word",
+        "timestamps",
+        "onsets",
+        "bpm",
+        "lufs",
+        "alignment"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "renderer",
+      "title": "Working renderers and adapters",
+      "path": "references/renderer.md",
+      "tags": [
+        "render",
+        "html-playwright",
+        "footage",
+        "remotion",
+        "hyperframes",
+        "ffmpeg",
+        "preview"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "video-qa",
+      "title": "Encoded-media QA and editorial repair",
+      "path": "references/video-qa.md",
+      "tags": [
+        "qa",
+        "decode",
+        "dimensions",
+        "black",
+        "frames",
+        "audio",
+        "review"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "delivery",
+      "title": "Video delivery and website handoff",
+      "path": "references/delivery.md",
+      "tags": [
+        "export",
+        "posters",
+        "captions",
+        "provenance",
+        "variants",
+        "source"
+      ]
+    },
+    {
+      "kind": "reference",
+      "name": "evaluation",
+      "title": "Ready prompts and evaluations",
+      "path": "references/evaluation.md",
+      "tags": [
+        "prompts",
+        "routing",
+        "evaluation",
+        "host",
+        "tests"
+      ]
+    },
+    {
+      "kind": "contracts",
+      "name": "production-contracts",
+      "title": "Versioned shared schemas and examples",
+      "path": "contracts/README.md",
+      "tags": [
+        "schema",
+        "validation",
+        "handoff",
+        "contracts"
+      ]
+    },
+    {
+      "kind": "source-audit",
+      "name": "source-integration",
+      "title": "Source inventory, integration and licensing map",
+      "path": "docs/source-audit/source-integration.md",
+      "tags": [
+        "sources",
+        "license",
+        "attribution",
+        "limitations"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "[REPLACE: absolute https URL of this app page]#software",
+  "name": "[REPLACE: app name shown on the page]",
+  "description": "[REPLACE: app description shown on the page]",
+  "url": "[REPLACE: absolute https URL of this app page]",
+  "applicationCategory": "[REPLACE: a category from Google's list, such as BusinessApplication]",
+  "operatingSystem": "[REPLACE: supported operating systems, such as Windows, macOS]",
+  "offers": {
+    "@type": "Offer",
+    "price": "[REPLACE: 0 for a free app, otherwise the price shown on the page]",
+    "priceCurrency": "[REPLACE: ISO 4217 currency code such as USD]"
+  },
+  "review": "[REPLACE: delete this property unless real user reviews are visible on the page; never invent reviews or ratings]"
+}

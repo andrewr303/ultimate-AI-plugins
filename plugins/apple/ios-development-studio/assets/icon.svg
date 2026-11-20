@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="iOS Development Studio">
+  <rect width="256" height="256" rx="56" fill="#0B1734"/>
+  <rect x="79" y="32" width="98" height="192" rx="23" fill="#18395E" stroke="#63D8F2" stroke-width="9"/>
+  <path d="M111 49h34M115 207h26" stroke="#63D8F2" stroke-width="7" stroke-linecap="round"/>
+  <path d="m101 94-30 34 30 34m54-68 30 34-30 34" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m139 106-22 44" stroke="#63D8F2" stroke-width="9" stroke-linecap="round"/>
+</svg>

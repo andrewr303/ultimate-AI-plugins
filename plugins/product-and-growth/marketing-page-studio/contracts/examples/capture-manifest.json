@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-captures",
+  "productRevision": "tandem-fixture-v1",
+  "captureJobId": "tandem-capture",
+  "assets": [
+    {
+      "id": "inbox-state",
+      "path": "captures/inbox.png",
+      "kind": "image",
+      "mode": "actual",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "width": 2880,
+      "height": 2000,
+      "source": {
+        "type": "repository",
+        "path": "product/index.html",
+        "revision": "tandem-fixture-v1",
+        "note": "Synthetic support triage fixture. No customer or commercial claims."
+      },
+      "rightsId": "tandem-assets",
+      "claims": [
+        "triage-draft"
+      ],
+      "capturedAt": "2026-10-23T04:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Navigation
+  short_description: Polish navigation behavior
+  default_prompt: Use $motion-navigation for the requested product interaction work
+    and verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

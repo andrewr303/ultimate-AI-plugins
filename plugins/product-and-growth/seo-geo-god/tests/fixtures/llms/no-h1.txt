@@ -1,0 +1,3 @@
+## Docs
+
+- [Getting started](https://example.com/docs/getting-started)

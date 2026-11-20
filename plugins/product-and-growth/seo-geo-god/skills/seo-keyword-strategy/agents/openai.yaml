@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Keyword Strategy"
+  short_description: "Demand-based content plans"
+  default_prompt: "Use $seo-keyword-strategy to turn this site's Search Console exports and keyword data into intent-matched clusters, a cannibalization-aware content calendar and briefs, without inventing volumes."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-assets",
+  "productRevision": "tandem-fixture-v1",
+  "assets": [
+    {
+      "id": "inbox-state",
+      "path": "captures/inbox.png",
+      "kind": "image",
+      "creator": "Current project author",
+      "license": "Project-owned synthetic fixture",
+      "source": {
+        "type": "repository",
+        "path": "product/index.html",
+        "revision": "tandem-fixture-v1",
+        "note": "Synthetic support triage fixture. No customer or commercial claims."
+      },
+      "permission": "original",
+      "attribution": "Tandem synthetic demonstration",
+      "restrictions": [
+        "No real customer data"
+      ],
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "redistributable": true
+    }
+  ]
+}

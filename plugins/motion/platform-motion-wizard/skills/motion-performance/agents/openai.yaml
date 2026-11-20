@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Performance
+  short_description: Polish performance behavior
+  default_prompt: Use $motion-performance for the requested product interaction work
+    and verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

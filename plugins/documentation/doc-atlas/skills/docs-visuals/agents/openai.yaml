@@ -1,0 +1,6 @@
+interface:
+  display_name: "Documentation Visuals"
+  short_description: "Design clear and appealing technical docs"
+  default_prompt: "Improve these docs with original visual hierarchy, useful diagrams and accessible renderer-compatible design."
+policy:
+  allow_implicit_invocation: true

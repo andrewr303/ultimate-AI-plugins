@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "image-prompt-director",
+  "version": "1.0.1",
+  "description": "Create five detailed, distinct, copy-ready image prompts by default, with reference-aware art direction and model-specific adaptation.",
+  "keywords": [
+    "creative-direction",
+    "prompt-writing",
+    "image"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Image Prompt Director",
+        "shortDescription": "Five detailed image prompts",
+        "longDescription": "Turn a brief into five fully developed image prompt variations by default. Direct composition, subjects, materials, lighting, color, exact text, and reference fidelity. Supports new images, edits, inpainting, outpainting, transparent assets, product and character consistency, and coordinated series. Includes dated guidance for GPT Image 2.5 and 2.6, Grok Imagine, Nano Banana 2.1, and a portable workflow for other models. Respects requested counts and brevity. Authors prompts; rendering uses your chosen model separately.",
+        "category": "Creativity",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Create five detailed image prompt variations from my brief, ready to paste into my chosen model.",
+          "Turn my reference images into five precise image prompts with clear preservation and change instructions.",
+          "Adapt this image prompt for GPT Image, Grok Imagine, or Nano Banana while preserving my visual intent."
+        ]
+      }
+    }
+  },
+  "author": {
+    "name": "Andrew Rodriguez"
+  }
+}

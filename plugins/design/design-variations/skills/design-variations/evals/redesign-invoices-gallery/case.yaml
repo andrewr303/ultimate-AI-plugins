@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: redesign-invoices-gallery
+expected_outcome: |
+  A new variations gallery (or canvas) holds ten fully interactive options, 1a to 1j, ordered from a careful
+  refinement of today's invoices page to a radical rethink, each keeping every function of the original page,
+  in Ledgerly's theme, with a ledger, a "Now" baseline frame, and a short reply listing the options with costs,
+  a recommendation, the inspiration source used (or that none was connected) and how to give feedback.
+  src/invoices.html is unchanged.
+context:
+  scaffold_script: place-files.sh

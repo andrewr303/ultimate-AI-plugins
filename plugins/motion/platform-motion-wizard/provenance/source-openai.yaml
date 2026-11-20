@@ -1,0 +1,14 @@
+interface:
+  display_name: Polish Platform Motion
+  short_description: Apple-like motion and responsive UI interactions
+  default_prompt: Use $polish-platform-motion to refine this platform’s motion and
+    interactions with responsive, restrained, Apple-like behavior, excluding sound.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

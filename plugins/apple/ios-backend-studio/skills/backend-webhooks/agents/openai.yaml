@@ -1,0 +1,6 @@
+interface:
+  display_name: Backend Webhooks
+  short_description: Backend webhooks workflows
+  default_prompt: Use $backend-webhooks to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

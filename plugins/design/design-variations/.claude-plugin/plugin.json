@@ -1,0 +1,17 @@
+{
+  "name": "design-variations",
+  "version": "1.0.0",
+  "description": "Ten fully interactive design variations per round, from small refinements to radical redesigns, with inspiration from connected design-reference MCPs and iteration on your picks.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "design",
+    "ui",
+    "variations",
+    "prototype",
+    "redesign",
+    "claude-design"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,12 @@
+# Synthetic clean policy for example.com: explicit AI search groups, absolute sitemap.
+User-agent: *
+Allow: /
+Disallow: /account/
+
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+Allow: /
+Disallow: /account/
+
+Sitemap: https://example.com/sitemap.xml

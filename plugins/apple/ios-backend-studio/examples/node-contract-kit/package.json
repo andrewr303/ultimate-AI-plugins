@@ -1,0 +1,12 @@
+{
+  "name": "ios-backend-contract-kit-example",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A bounded local HTTP contract example for Node and native client wire fixtures.",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test test/server.test.mjs",
+    "start": "node server.mjs"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "[REPLACE: absolute https URL of this page]#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "[REPLACE: visible label of the first crumb]",
+      "item": "[REPLACE: absolute https URL of the first crumb]"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "[REPLACE: visible label of the second crumb]",
+      "item": "[REPLACE: absolute https URL of the second crumb]"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "[REPLACE: visible label of the current page; the last crumb needs no item]"
+    }
+  ]
+}

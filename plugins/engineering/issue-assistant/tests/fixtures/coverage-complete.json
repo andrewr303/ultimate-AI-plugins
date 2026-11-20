@@ -1,0 +1,63 @@
+{
+  "window": {
+    "start": "2026-10-01T00:00:00Z",
+    "end": "2026-10-22T00:00:00Z"
+  },
+  "required_sources": [
+    "github:prs",
+    "linear:issues"
+  ],
+  "sources": [
+    {
+      "id": "github:prs",
+      "accessible": true,
+      "partitions": [
+        {
+          "start": "2026-10-01T00:00:00Z",
+          "end": "2026-10-16T00:00:00Z",
+          "accessible": true,
+          "capped": false,
+          "truncated": false,
+          "pages": [
+            {
+              "item_count": 25,
+              "has_next_page": false
+            }
+          ]
+        },
+        {
+          "start": "2026-10-16T00:00:00Z",
+          "end": "2026-10-22T00:00:00Z",
+          "accessible": true,
+          "capped": false,
+          "truncated": false,
+          "pages": [
+            {
+              "item_count": 0,
+              "has_next_page": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linear:issues",
+      "accessible": true,
+      "partitions": [
+        {
+          "start": "2026-10-01T00:00:00Z",
+          "end": "2026-10-22T00:00:00Z",
+          "accessible": true,
+          "capped": false,
+          "truncated": false,
+          "pages": [
+            {
+              "item_count": 7,
+              "has_next_page": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

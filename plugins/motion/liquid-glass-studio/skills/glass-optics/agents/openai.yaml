@@ -1,0 +1,6 @@
+interface:
+  display_name: Glass Optics
+  short_description: Tune and debug refraction
+  default_prompt: Use $glass-optics to tune the glass refraction parameters and fix the reported optical artifact.
+policy:
+  allow_implicit_invocation: true

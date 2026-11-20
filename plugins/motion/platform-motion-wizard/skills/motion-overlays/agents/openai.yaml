@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Overlays
+  short_description: Polish overlays behavior
+  default_prompt: Use $motion-overlays for the requested product interaction work
+    and verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

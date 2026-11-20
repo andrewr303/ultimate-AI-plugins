@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-original",
+  "productRevision": "tandem-4f236886e8ed1dea",
+  "assets": [
+    {
+      "id": "tandem-workflow-initial",
+      "path": "capture/initial.png",
+      "kind": "image",
+      "creator": "Tandem synthetic fixture project",
+      "license": "MIT; original synthetic fixture code/data and captures",
+      "source": {
+        "type": "repository",
+        "path": "fixture/product.js",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Original synthetic application source recorded locally."
+      },
+      "permission": "original",
+      "attribution": "Tandem synthetic demonstration",
+      "restrictions": [
+        "All names and requests are synthetic; preserve truthful demonstration labels."
+      ],
+      "sha256": "d62955569498a8fa210df1d45a79bd91c0617edb419c34b43c04504f834deecf",
+      "redistributable": true
+    },
+    {
+      "id": "tandem-workflow-result",
+      "path": "capture/result.png",
+      "kind": "image",
+      "creator": "Tandem synthetic fixture project",
+      "license": "MIT; original synthetic fixture code/data and captures",
+      "source": {
+        "type": "repository",
+        "path": "fixture/product.js",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Original synthetic application source recorded locally."
+      },
+      "permission": "original",
+      "attribution": "Tandem synthetic demonstration",
+      "restrictions": [
+        "All names and requests are synthetic; preserve truthful demonstration labels."
+      ],
+      "sha256": "bf53c8dba3e81b6fd0b01e2225857b64be36e32cc489583f069ebd4bd0d22c9f",
+      "redistributable": true
+    },
+    {
+      "id": "tandem-workflow-ready-review",
+      "path": "capture/ready-review.png",
+      "kind": "image",
+      "creator": "Tandem synthetic fixture project",
+      "license": "MIT; original synthetic fixture code/data and captures",
+      "source": {
+        "type": "repository",
+        "path": "fixture/product.js",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Original synthetic application source recorded locally."
+      },
+      "permission": "original",
+      "attribution": "Tandem synthetic demonstration",
+      "restrictions": [
+        "All names and requests are synthetic; preserve truthful demonstration labels."
+      ],
+      "sha256": "b51996fff11b31cf38709133e24b40cd2bf8daad5e6043a33ede14d9c9f07696",
+      "redistributable": true
+    },
+    {
+      "id": "tandem-workflow-recording",
+      "path": "capture/tandem-workflow.webm",
+      "kind": "video",
+      "creator": "Tandem synthetic fixture project",
+      "license": "MIT; original synthetic fixture code/data and captures",
+      "source": {
+        "type": "repository",
+        "path": "fixture/product.js",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Original synthetic application source recorded locally."
+      },
+      "permission": "original",
+      "attribution": "Tandem synthetic demonstration",
+      "restrictions": [
+        "All names and requests are synthetic; preserve truthful demonstration labels."
+      ],
+      "sha256": "4cc83b73770181f49e223d394ba3451c2bd9d9a4705cf2926b90238b215f7b8a",
+      "redistributable": true
+    },
+    {
+      "id": "original-demo-score",
+      "path": "score.wav",
+      "kind": "audio",
+      "creator": "Tandem synthetic fixture project",
+      "license": "MIT; original programmatic demonstration composition, no samples",
+      "source": {
+        "type": "repository",
+        "path": "score.json",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Original generated motif with measured cue sheet; no third-party recording or melody is reused."
+      },
+      "permission": "original",
+      "attribution": "Original Tandem demo underscore",
+      "restrictions": [],
+      "sha256": "9eed86eec844c1bf96c96c3f52a0712ca40468154c27f589ab27eac3792bcfbf",
+      "redistributable": true
+    }
+  ]
+}

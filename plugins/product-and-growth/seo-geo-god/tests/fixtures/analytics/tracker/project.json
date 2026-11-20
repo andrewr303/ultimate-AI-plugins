@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "project": {
+    "id": "example-invoicing",
+    "name": "Example Co",
+    "repository": "https://git.example.net/example/site",
+    "canonical_domain": "example.com",
+    "canonical_url": "https://example.com/",
+    "language": "en"
+  },
+  "guardrails": {
+    "no_duplicate_query_owners": true,
+    "no_auto_publish_visible_copy": true,
+    "no_fabricated_proof": true,
+    "require_fresh_crawl_before_verdict": true
+  },
+  "pages": [
+    {"id": "guide", "url": "https://example.com/guides/send-invoice/", "source_path": "content/guides/send-invoice.md", "status": "active"},
+    {"id": "templates", "url": "https://example.com/templates/", "source_path": "content/templates.md", "status": "active"},
+    {"id": "calculator", "url": "https://example.com/tools/late-fee/", "source_path": null, "status": "active"},
+    {"id": "reminders", "url": "https://example.com/guides/reminders/", "source_path": "content/guides/reminders.md", "status": "active"},
+    {"id": "security", "url": "https://example.com/security/", "source_path": "content/security.md", "status": "active"}
+  ],
+  "queries": [
+    {"id": "q-send", "text": "How to send an invoice", "class": "informational", "intent": "send-invoice", "target_page": "guide", "holdout": false, "experiment": null},
+    {"id": "q-email", "text": "send invoice by email", "class": "informational", "intent": "send-invoice-email", "target_page": "guide", "holdout": false, "experiment": null},
+    {"id": "q-template", "text": "invoice template", "class": "commercial", "intent": "get-template", "target_page": "templates", "holdout": false, "experiment": null},
+    {"id": "q-pricing", "text": "Example Co pricing", "class": "branded", "intent": "pricing", "target_page": "templates", "holdout": false, "experiment": null},
+    {"id": "q-photo", "text": "invoice for photographers", "class": "informational", "intent": "photographer-invoices", "target_page": null, "holdout": false, "experiment": null},
+    {"id": "q-late-fee", "text": "late fee calculator", "class": "commercial", "intent": "late-fee", "target_page": "calculator", "holdout": false, "experiment": null},
+    {"id": "q-reminder", "text": "payment reminder template", "class": "commercial", "intent": "reminder-template", "target_page": "reminders", "holdout": false, "experiment": null},
+    {"id": "q-safe", "text": "is example co safe", "class": "branded", "intent": "trust", "target_page": "security", "holdout": true, "experiment": null}
+  ],
+  "measurement": {"engines": ["google-search-console", "perplexity"], "cadence": "weekly"}
+}

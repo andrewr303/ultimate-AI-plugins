@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "relay-evidence",
+  "product": {
+    "name": "Relay synthetic fixture",
+    "revision": "relay-fixture-v1",
+    "synthetic": true
+  },
+  "claims": [
+    {
+      "id": "synthetic-review-state",
+      "text": "This local illustrative composition shows a queued item becoming ready for review.",
+      "status": "illustrative",
+      "sources": [
+        {
+          "type": "repository",
+          "path": "composition.html",
+          "revision": "relay-fixture-v1",
+          "note": "Authored deterministic sample, not a live product or customer claim."
+        }
+      ],
+      "allowedUses": [
+        "internal",
+        "video"
+      ],
+      "limitations": "Illustrative local state only; no AI or external service is called."
+    }
+  ],
+  "brief": {
+    "audience": "Plugin authors",
+    "buyer": "Plugin author",
+    "problem": "Need a custom product surface without sample-specific IDs.",
+    "outcome": "Render and inspect a deterministic illustrative state.",
+    "workflow": [
+      "Read the queued item",
+      "Inspect the ready state"
+    ],
+    "primaryCapability": "Self-contained seekable composition",
+    "shipped": [
+      "Synthetic local composition"
+    ],
+    "planned": [],
+    "conversionAction": "Inspect the local fixture",
+    "constraints": [
+      "Illustrative sample",
+      "No external network",
+      "Sound-off"
+    ]
+  }
+}

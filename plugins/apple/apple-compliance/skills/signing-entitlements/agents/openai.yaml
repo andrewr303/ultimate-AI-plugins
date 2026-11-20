@@ -1,0 +1,6 @@
+interface:
+  display_name: Signing Entitlements
+  short_description: Signing entitlements workflows
+  default_prompt: Use $signing-entitlements to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

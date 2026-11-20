@@ -1,0 +1,6 @@
+interface:
+  display_name: Backend Media
+  short_description: Backend media workflows
+  default_prompt: Use $backend-media to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

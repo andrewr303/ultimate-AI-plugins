@@ -1,0 +1,6 @@
+interface:
+  display_name: Security
+  short_description: iOS security workflows and verification
+  default_prompt: Use $ios-security to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: Review Submission Release
+  short_description: Review submission release workflows
+  default_prompt: Use $review-submission-release to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+{
+  "name": "anti-slop-and-design-quality",
+  "version": "3.4.0",
+  "description": "Guardrail and audit layer against generic AI output in UI design, copywriting, responsive layouts, accessibility and contrast, and code comments. Eight skills routed by the antislop core skill; includes an optional WCAG 2.x contrast checker script.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Anti-Slop & Design Quality Guardrails"
+  }
+}

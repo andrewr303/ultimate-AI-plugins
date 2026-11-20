@@ -1,0 +1,128 @@
+<style>
+.k-app{min-height:100vh}
+main{padding:var(--space-6) var(--space-6) var(--space-4);display:flex;flex-direction:column;gap:var(--space-4);min-width:0;height:100vh}
+.head{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap}
+.head h1{margin:0;font-size:var(--text-2xl);letter-spacing:-.02em}
+.head .out{flex:1;color:var(--text-2);font-size:var(--text-sm);padding-left:var(--space-4);margin-left:var(--space-2);border-left:1px solid var(--border)}
+.head .out b{font:600 var(--text-lg)/1 var(--font-mono);color:var(--text);margin-left:6px}
+.bar{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;background:var(--surface-2);padding:3px;border-radius:var(--radius-sm);overflow-x:auto;max-width:100%}
+.tab{border:0;background:transparent;padding:7px 12px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer;white-space:nowrap}
+.tab[aria-pressed=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tab .n{margin-left:4px}
+.bar .k-search{flex:1;min-width:200px}
+.sortc{display:flex;gap:6px;align-items:center;font-size:var(--text-sm);color:var(--text-2)}
+.sortc select{font:inherit;color:var(--text);padding:8px 10px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface);min-height:38px}
+.sortc select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sortc label.all{display:inline-flex;gap:6px;align-items:center;margin-left:8px;cursor:pointer}
+.bulk{display:none;gap:var(--space-3);align-items:center;background:var(--text);color:#fff;padding:8px 8px 8px 14px;border-radius:var(--radius);flex-wrap:wrap}
+.bulk.on{display:flex}.bulk .sp{flex:1}
+.bulk .k-btn{background:transparent;color:#fff;border-color:#ffffff59}.bulk .k-btn:hover{background:#ffffff1a}
+.bulk .sum{font-family:var(--font-mono);color:#c9d3ce;font-size:var(--text-sm)}
+.board{flex:1;min-height:0;display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:var(--space-3)}
+.col{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;min-height:0;transition:box-shadow var(--dur) var(--ease),background var(--dur)}
+.col header{padding:12px 14px 10px;display:flex;flex-direction:column;gap:4px;border-bottom:1px solid var(--border)}
+.col header .t{display:flex;align-items:center;gap:8px;font-weight:600}
+.col header .t i{width:8px;height:8px;border-radius:50%;background:currentColor}
+.col header .cnt{font-size:var(--text-xs);font-weight:600;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:1px 8px;color:var(--text-2)}
+.col header .s{font-size:var(--text-xs);color:var(--text-2)} .col header .s b{font:600 var(--text-md)/1 var(--font-mono);color:var(--text);margin-left:4px}
+.col.overdue header{background:var(--overdue-soft);border-radius:var(--radius) var(--radius) 0 0}
+.col.overdue header .t{color:var(--overdue)} .col.due header .t{color:var(--due)} .col.paid header .t{color:var(--paid)} .col.draft header .t{color:var(--draft)}
+.col.overdue header .s b{color:var(--overdue)}
+.col .cards{list-style:none;margin:0;padding:10px;display:flex;flex-direction:column;gap:8px;overflow:auto;flex:1}
+.col.droppable{box-shadow:0 0 0 2px var(--paid);background:var(--paid-soft)}
+.col.nodrop{opacity:.55}
+.col .hint{font-size:var(--text-xs);color:var(--paid);font-weight:600;display:none}
+.col.droppable .hint{display:block}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 10px 10px 8px;display:grid;grid-template-columns:20px 22px minmax(0,1fr) auto;gap:4px 6px;align-items:center;box-shadow:var(--shadow-1);touch-action:none}
+.card.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.card.ghost{opacity:.35}
+.grip{cursor:grab;color:var(--text-3);display:flex;align-items:center;justify-content:center;height:24px;border-radius:4px}
+.card .c{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card .meta,.card .foot{grid-column:3/5;display:flex;justify-content:space-between;gap:8px;font-size:var(--text-sm);color:var(--text-2);align-items:center}
+.card .meta code{font-family:var(--font-mono)} .card .meta b{font:600 var(--text-md)/1.2 var(--font-mono);color:var(--text)}
+.card .foot .lt{font-weight:600;white-space:nowrap}
+.card .foot>span:last-child{white-space:nowrap} .card .foot .lt.overdue{color:var(--overdue)} .card .foot .lt.due{color:var(--due)}
+.drag{position:fixed;z-index:80;pointer-events:none;width:260px;transform:rotate(-2deg);box-shadow:var(--shadow-2)}
+.colempty{font-size:var(--text-sm);color:var(--text-2);text-align:center;padding:16px 8px}
+.board.one .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));align-content:start}
+@media (max-width:760px){main{padding:var(--space-4);height:auto}.head .out{border-left:0;padding-left:0;margin-left:0;flex-basis:100%;order:3}.bar .k-search{min-width:100%}
+ .board{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.col{flex:0 0 86%;scroll-snap-align:start;max-height:70vh}.board.one .col{flex-basis:100%}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="head"><h1>Invoices</h1><div class="out" id="out"></div><button class="k-btn" id="export" type="button"></button><button class="k-btn primary" id="new" type="button"></button></div>
+    <div class="bar">
+      <div class="tabs" role="group" aria-label="Filter by status" id="tabs"></div>
+      <label class="k-search"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #"></label>
+      <div class="sortc"><label for="sortk">Sort cards</label><select id="sortk"></select><button type="button" class="k-btn icon" id="sortd"></button><label class="all"><input type="checkbox" class="k-check" id="all">All shown</label></div>
+    </div>
+    <div class="bulk" id="bulk" role="region" aria-label="Bulk actions"><strong id="bulk-n"></strong><span class="sum" id="bulk-sum"></span><span class="sp"></span>
+      <button class="k-btn sm" id="remind" type="button">Send reminders</button><button class="k-btn sm" id="markpaid" type="button">Mark paid</button><button class="k-btn sm" id="clear" type="button">Clear</button></div>
+    <div class="board" id="board"></div><div id="empty" hidden></div>
+  </main>
+</div>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#export').innerHTML=K.icon('download')+'Export CSV';$('#new').innerHTML=K.icon('plus')+'New invoice';$('#sicon').innerHTML=K.icon('search');
+const SORTS=[['urgency','Most urgent']].concat(K.SORTS);$('#sortk').innerHTML=SORTS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
+const COLS=[['draft','Drafts'],['due','Due'],['overdue','Overdue'],['paid','Paid']];
+let st={tab:'all',q:'',sort:{k:'urgency',dir:1}};
+const view=()=>S.view(st);
+function colHead(k,l,rows){const t=S.totals();
+ const s=k==='overdue'?`Overdue<b>${f.money(t.overdue)}</b>`:k==='paid'?`Paid this month<b>${f.money(t.paid)}</b>`:k==='draft'?`Drafts<b>${t.drafts}</b>`:`Due<b>${f.money(rows.reduce((a,r)=>a+r.amount,0))}</b>`;
+ return `<header><span class="t"><i aria-hidden="true"></i>${l}<span class="cnt">${rows.length}</span></span><span class="s">${s}</span><span class="hint">Drop to mark paid</span></header>`}
+function card(r){const unpaid=r.status==='due'||r.status==='overdue';
+ return `<li class="card${S.sel.has(r.no)?' sel':''}" data-card="${r.no}"><span class="grip" aria-hidden="true" title="Drag onto Paid">${K.icon('grip')}</span>
+  <input type="checkbox" class="k-check" data-s="${r.no}" data-focus="s-${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}"><span class="c" title="${f.esc(r.client)}">${f.esc(r.client)}</span>
+  <button type="button" class="k-btn icon sm quiet" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for ${r.no}" data-m="${r.no}" data-focus="m-${r.no}">${K.icon('more')}</button>
+  <span class="meta"><code>${r.no}</code><b>${f.money(r.amount)}</b></span>
+  <span class="foot"><span class="lt ${r.status}">${unpaid?f.timing(r):'Due '+f.date(r.due)}</span>${unpaid?`<button type="button" class="k-btn sm" data-remind="${r.no}" data-focus="r-${r.no}" aria-label="Send reminder for ${r.no}">${K.icon('mail')}Remind</button>`:`<span>Issued ${f.date(r.issued)}</span>`}</span></li>`}
+function render(){K.keepFocus(document.body,()=>{
+  const t=S.totals();$('#out').innerHTML=`Outstanding<b>${f.money(t.outstanding)}</b>`;
+  $('#tabs').innerHTML=K.TABS.map(([k,l])=>`<button type="button" class="tab" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}">${l}<span class="n">${S.count(k)}</span></button>`).join('');
+  $('#sortk').value=st.sort.k;$('#sortd').innerHTML=K.icon(st.sort.dir>0?'down':'up');$('#sortd').setAttribute('aria-label',st.sort.dir>0?'Order: first to last, switch':'Order: reversed, switch back');
+  const v=view(),cols=st.tab==='all'?COLS:COLS.filter(c=>c[0]===st.tab);
+  const b=$('#board');b.classList.toggle('one',cols.length===1);b.style.setProperty('--cols',cols.length);
+  b.innerHTML=S.data.length?cols.map(([k,l])=>{const rows=v.filter(r=>r.status===k);return `<section class="col ${k}" data-col="${k}" aria-label="${l}">${colHead(k,l,rows)}<ul class="cards">${rows.length?rows.map(card).join(''):`<li class="colempty">${st.q?'No matches':'Nothing here'}</li>`}</ul></section>`}).join(''):'';
+  const e=$('#empty');const none=!S.data.length||(!v.length&&st.q);e.hidden=!none;e.innerHTML=none?K.emptyHTML(S):'';
+  $('#all').checked=v.length>0&&v.every(r=>S.sel.has(r.no));
+  const sel=[...S.sel].map(S.find).filter(Boolean);
+  $('#bulk').classList.toggle('on',sel.length>0);$('#bulk-n').textContent=sel.length+' selected';$('#bulk-sum').textContent=f.money(sel.reduce((a,r)=>a+r.amount,0));
+})}
+S.on(render);
+function items(r){const it=K.rowItems(S,r);if(r.status!=='paid')it.splice(3,0,{label:'Move to Paid',icon:'right',fn:()=>K.act(S,'paid',r.no)});return it}
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.t){st.tab=b.dataset.t;render()}
+ if(b.id==='sortd'){st.sort.dir=-st.sort.dir;render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);render()}
+ if(b.id==='all'){view().forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));render()}
+ if(b.dataset.m)K.menu(b,items(S.find(b.dataset.m)));
+ if(b.dataset.remind)K.act(S,'remind',b.dataset.remind);
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';$('#q').value='';render()}
+ if(b.id==='export')K.toast('Exported '+view().length+' rows');
+ if(b.id==='new'||b.hasAttribute('data-k-new'))K.openInvoiceForm(S);
+});
+/* Drag a card by its handle (or its body) onto Paid */
+let drag=null;
+document.addEventListener('pointerdown',e=>{const c=e.target.closest('.card');if(!c||e.button!==0||e.target.closest('input,button'))return;
+ const r=S.find(c.dataset.card);drag={r,c,x:e.clientX,y:e.clientY,moved:false,el:null}});
+document.addEventListener('pointermove',e=>{if(!drag)return;
+ if(!drag.moved){if(Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<6)return;drag.moved=true;drag.el=drag.c.cloneNode(true);drag.el.classList.add('drag');document.body.appendChild(drag.el);drag.c.classList.add('ghost');
+  document.querySelectorAll('.col').forEach(col=>col.classList.add(col.dataset.col==='paid'&&drag.r.status!=='paid'?'droppable':'nodrop'))}
+ drag.el.style.left=(e.clientX-120)+'px';drag.el.style.top=(e.clientY-30)+'px'});
+document.addEventListener('pointerup',e=>{if(!drag)return;const d=drag;drag=null;if(!d.moved)return;
+ d.el.remove();d.c.classList.remove('ghost');document.querySelectorAll('.col').forEach(col=>col.classList.remove('droppable','nodrop'));
+ const under=document.elementFromPoint(e.clientX,e.clientY),col=under&&under.closest('.col');
+ if(col&&col.dataset.col==='paid'&&d.r.status!=='paid')K.act(S,'paid',d.r.no);
+ else if(col&&col.dataset.col!==d.r.status)K.toast('Only Paid takes a drop; Due and Overdue follow the due date');});
+$('#sortk').addEventListener('change',e=>{st.sort={k:e.target.value,dir:1};render()});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+render();
+})();
+</script>

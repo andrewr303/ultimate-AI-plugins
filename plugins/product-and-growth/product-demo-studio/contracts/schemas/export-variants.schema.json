@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:export-variants",
+  "title": "Export Variants",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "productRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "campaignId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "jobPath": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+          },
+          "placement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aspectRatio": {
+            "enum": [
+              "9:16",
+              "1:1",
+              "4:5",
+              "16:9"
+            ]
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "duration": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "hookId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "bodyId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "cta": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hypothesis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "posterPath": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+          },
+          "captionsPath": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+          },
+          "outputPath": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+          }
+        },
+        "required": [
+          "id",
+          "jobPath",
+          "placement",
+          "aspectRatio",
+          "width",
+          "height",
+          "duration",
+          "hookId",
+          "bodyId",
+          "cta",
+          "hypothesis",
+          "posterPath",
+          "captionsPath",
+          "outputPath"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 36
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "productRevision",
+    "campaignId",
+    "variants"
+  ],
+  "additionalProperties": false
+}

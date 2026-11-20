@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-experiments",
+  "productRevision": "tandem-fixture-v1",
+  "campaignId": "tandem-launch",
+  "hooks": [
+    {
+      "id": "overload",
+      "text": "Too many requests. What comes next?",
+      "angle": "Problem recognition",
+      "hypothesis": "Support leads recognize queue overload."
+    },
+    {
+      "id": "proof",
+      "text": "Watch one request become a reply.",
+      "angle": "Immediate product proof",
+      "hypothesis": "Early visible action earns attention."
+    },
+    {
+      "id": "ownership",
+      "text": "A first draft you can make yours.",
+      "angle": "Control and editability",
+      "hypothesis": "Editable output reduces resistance to automation."
+    }
+  ],
+  "bodies": [
+    {
+      "id": "workflow",
+      "approach": "Direct workflow proof",
+      "proof": "Select, prepare, edit",
+      "claims": [
+        "triage-draft"
+      ]
+    },
+    {
+      "id": "before-after",
+      "approach": "Queue to clear next step",
+      "proof": "Show before and settled result",
+      "claims": [
+        "triage-draft"
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "id": "overload-workflow-vertical-short",
+      "hookId": "overload",
+      "bodyId": "workflow",
+      "aspectRatio": "9:16",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "vertical-short",
+      "variableTested": "hook",
+      "hypothesis": "Support leads recognize queue overload. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "overload-workflow-landscape",
+      "hookId": "overload",
+      "bodyId": "workflow",
+      "aspectRatio": "16:9",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "landscape",
+      "variableTested": "hook",
+      "hypothesis": "Support leads recognize queue overload. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "overload-before-after-vertical-short",
+      "hookId": "overload",
+      "bodyId": "before-after",
+      "aspectRatio": "9:16",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "vertical-short",
+      "variableTested": "body",
+      "hypothesis": "Support leads recognize queue overload. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "overload-before-after-landscape",
+      "hookId": "overload",
+      "bodyId": "before-after",
+      "aspectRatio": "16:9",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "landscape",
+      "variableTested": "body",
+      "hypothesis": "Support leads recognize queue overload. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "proof-workflow-vertical-short",
+      "hookId": "proof",
+      "bodyId": "workflow",
+      "aspectRatio": "9:16",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "vertical-short",
+      "variableTested": "hook",
+      "hypothesis": "Early visible action earns attention. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "proof-workflow-landscape",
+      "hookId": "proof",
+      "bodyId": "workflow",
+      "aspectRatio": "16:9",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "landscape",
+      "variableTested": "hook",
+      "hypothesis": "Early visible action earns attention. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "proof-before-after-vertical-short",
+      "hookId": "proof",
+      "bodyId": "before-after",
+      "aspectRatio": "9:16",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "vertical-short",
+      "variableTested": "body",
+      "hypothesis": "Early visible action earns attention. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "proof-before-after-landscape",
+      "hookId": "proof",
+      "bodyId": "before-after",
+      "aspectRatio": "16:9",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "landscape",
+      "variableTested": "body",
+      "hypothesis": "Early visible action earns attention. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "ownership-workflow-vertical-short",
+      "hookId": "ownership",
+      "bodyId": "workflow",
+      "aspectRatio": "9:16",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "vertical-short",
+      "variableTested": "hook",
+      "hypothesis": "Editable output reduces resistance to automation. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "ownership-workflow-landscape",
+      "hookId": "ownership",
+      "bodyId": "workflow",
+      "aspectRatio": "16:9",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "landscape",
+      "variableTested": "hook",
+      "hypothesis": "Editable output reduces resistance to automation. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "ownership-before-after-vertical-short",
+      "hookId": "ownership",
+      "bodyId": "before-after",
+      "aspectRatio": "9:16",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "vertical-short",
+      "variableTested": "body",
+      "hypothesis": "Editable output reduces resistance to automation. Compare within the same placement and body.",
+      "status": "planned"
+    },
+    {
+      "id": "ownership-before-after-landscape",
+      "hookId": "ownership",
+      "bodyId": "before-after",
+      "aspectRatio": "16:9",
+      "audience": "Small-team support leads",
+      "awareness": "problem-aware",
+      "painOrOutcome": "A clear next step from a busy queue",
+      "cta": "Try the sample workflow",
+      "duration": 8,
+      "placement": "landscape",
+      "variableTested": "body",
+      "hypothesis": "Editable output reduces resistance to automation. Compare within the same placement and body.",
+      "status": "planned"
+    }
+  ],
+  "previewFirst": true
+}

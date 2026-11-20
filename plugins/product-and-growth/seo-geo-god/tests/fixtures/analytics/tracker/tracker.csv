@@ -1,0 +1,12 @@
+query,cited,sources,error
+How to send an invoice?,false,https://example.org/a https://example.net/b,
+invoice template,no,https://example.org/t,
+send invoice by email,false,,
+Example Co pricing,true,https://example.com/pricing/,
+what is net 30,false,,
+invoice for photographers,0,,
+late fee calculator,false,,
+payment reminder template,false,,
+is example co safe,false,,
+broken query,,,timeout
+how to send an invoice,false,https://example.org/c,

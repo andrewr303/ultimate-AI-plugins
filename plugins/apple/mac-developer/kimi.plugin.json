@@ -1,0 +1,9 @@
+{
+  "name": "mac-developer",
+  "version": "1.0.1",
+  "description": "Research-backed coding workflows for native macOS apps, Node.js adaptation, background services, browser companions, debugging, and distribution while preserving existing products.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "mac-developer"
+  }
+}

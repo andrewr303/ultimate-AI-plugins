@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Sitemaps"
+  short_description: "Sitemaps and URL discovery"
+  default_prompt: "Use $seo-sitemaps to fix this repository's sitemap generator so it lists only canonical, indexable pages with accurate lastmod, and validate the built sitemaps with the bundled checks."
+policy:
+  allow_implicit_invocation: true

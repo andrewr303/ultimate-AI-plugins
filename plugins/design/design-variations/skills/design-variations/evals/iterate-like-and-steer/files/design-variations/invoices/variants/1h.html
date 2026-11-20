@@ -1,0 +1,183 @@
+<style>
+.k-app{height:100vh}
+.k-side{padding:var(--space-4) var(--space-3)}
+.k-side .k-nav a{padding:6px 10px;font-size:var(--text-sm)}
+main{display:flex;flex-direction:column;min-width:0;min-height:0;height:100vh;background:var(--surface)}
+.cmdbar{display:flex;align-items:center;gap:var(--space-2);padding:10px var(--space-4);border-bottom:1px solid var(--border);flex-wrap:wrap;background:var(--bg)}
+.cmdbar h1{margin:0 8px 0 0;font-size:var(--text-lg);letter-spacing:-.01em}
+.q{display:flex;align-items:center;gap:6px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);padding:0 8px;background:var(--surface);min-height:32px;flex:1;min-width:190px;max-width:320px;color:var(--text-2)}
+.q:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+.q input{border:0;outline:0;font:inherit;font-size:var(--text-sm);flex:1;min-width:0;background:transparent;color:var(--text)}
+.ftabs{display:flex;gap:2px}
+.ftabs button{border:1px solid transparent;background:transparent;padding:5px 8px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.ftabs button[aria-pressed=true]{background:var(--surface);border-color:var(--border-strong);color:var(--text)}
+.ftabs button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.ftabs .n{font-family:var(--font-mono);font-size:var(--text-xs)}
+.ftabs kbd{font-size:10px;padding:1px 4px}
+.cmdbar .sp{flex:1}
+.cmdbar .k-btn{min-height:32px;padding:6px 10px;font-size:var(--text-xs)}
+.gridwrap{flex:1;overflow:auto;min-height:0}
+table{width:100%;border-collapse:collapse;min-width:900px;font-size:var(--text-sm)}
+thead th{position:sticky;top:0;z-index:2;background:var(--surface);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-2);font-weight:600;padding:7px 10px;box-shadow:inset 0 -1px 0 var(--border-strong);white-space:nowrap}
+thead th button{all:unset;cursor:pointer;display:inline-flex;gap:3px;align-items:center}
+thead th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+thead th button .k-ico{width:11px;height:11px;opacity:.3}
+thead th[aria-sort=ascending] button,thead th[aria-sort=descending] button{color:var(--text)}
+thead th[aria-sort=ascending] .k-ico,thead th[aria-sort=descending] .k-ico{opacity:1}
+tbody td{padding:5px 10px;border-bottom:1px solid var(--border);white-space:nowrap;height:34px}
+tbody tr{outline:0}
+tbody tr:hover{background:var(--surface-2)}
+tbody tr.sel{background:var(--accent-soft)}
+tbody tr:focus{box-shadow:inset 3px 0 0 var(--accent),inset 0 0 0 1px var(--accent);background:#f5faf9}
+td.inv,td.num,td.dl,td.dt{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+td.num,th.num,td.dl,th.dl{text-align:right}
+td.dl.late{color:var(--overdue);font-weight:600} td.dl.soon{color:var(--due)} td.dl.none{color:var(--text-3)}
+td.cl{max-width:260px;overflow:hidden;text-overflow:ellipsis}
+.k-pill{padding:1px 7px;font-size:11px}
+.rowm{display:inline-flex}
+.status{display:flex;align-items:center;gap:var(--space-5);padding:8px var(--space-4);border-top:1px solid var(--border-strong);background:var(--bg);font-size:var(--text-xs);color:var(--text-2);flex-wrap:wrap}
+.status b{font:600 var(--text-sm)/1 var(--font-mono);color:var(--text);margin-left:5px}
+.status .o b{color:var(--overdue)}
+.status .sel{margin-left:auto;display:flex;gap:6px;align-items:center}
+.status .sel .k-btn{min-height:26px;padding:4px 8px;font-size:var(--text-xs)}
+.status .keys{display:flex;gap:10px;align-items:center}
+dialog.pal{width:560px;max-width:calc(100% - 32px);padding:0;border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-2);margin-top:12vh;color:var(--text)}
+dialog.pal::backdrop,dialog.keys::backdrop{background:rgb(20 32 27 / .3)}
+.pal .pin{display:flex;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text-2)}
+.pal .pin input{border:0;outline:0;font:inherit;font-size:var(--text-lg);flex:1;color:var(--text);background:transparent}
+.pal ul{list-style:none;margin:0;padding:6px;max-height:340px;overflow:auto}
+.pal li{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:var(--text-md)}
+.pal li[aria-selected=true]{background:var(--accent-soft);color:var(--accent)}
+.pal li .g{font-size:var(--text-xs);color:var(--text-2);margin-left:auto}
+.pal .none{color:var(--text-2);padding:14px}
+dialog.keys{width:520px;max-width:calc(100% - 32px);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-6);color:var(--text)}
+.keys h2{margin:0 0 12px;font-size:var(--text-xl)}
+.keys dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0 0 16px;font-size:var(--text-sm)}
+.keys dt{text-align:right}
+.keys .tog{display:flex;gap:8px;align-items:center;font-size:var(--text-sm);margin-bottom:16px}
+@media (max-width:760px){.k-app{height:auto}main{height:auto;min-height:100vh}.q{max-width:none;flex-basis:100%;order:2}.ftabs{order:3;overflow-x:auto;max-width:100%}.cmdbar .sp{display:none}.status .keys{display:none}.gridwrap{max-height:60vh}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="cmdbar">
+      <h1>Invoices</h1>
+      <label class="q"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #" aria-keyshortcuts="/"><kbd aria-hidden="true">/</kbd></label>
+      <div class="ftabs" role="group" aria-label="Filter by status" id="tabs"></div>
+      <span class="sp"></span>
+      <button type="button" class="k-btn" id="pal-btn" aria-label="Commands" aria-keyshortcuts="Control+K Meta+K"><span id="cmdi"></span><kbd>Ctrl K</kbd></button>
+      <button type="button" class="k-btn" id="keys-btn" aria-label="Keyboard shortcuts" aria-keyshortcuts="?"><kbd>?</kbd></button>
+      <button type="button" class="k-btn" id="export" aria-keyshortcuts="e">Export CSV <kbd>E</kbd></button>
+      <button type="button" class="k-btn primary" id="new" aria-keyshortcuts="n">New invoice <kbd>N</kbd></button>
+    </div>
+    <div class="gridwrap" id="gw"><table aria-label="Invoices" aria-describedby="grid-help"><thead><tr id="th"></tr></thead><tbody id="rows"></tbody></table><div id="empty" hidden></div></div>
+    <p id="grid-help" class="k-sr">In the list: J or K or arrow keys move, X selects, R sends a reminder, P marks paid, D duplicates, Delete removes, Enter views.</p>
+    <div class="status" id="status" role="group" aria-label="Totals and selection"></div>
+  </main>
+</div>
+<dialog class="pal" id="pal" aria-label="Command palette"><div class="pin"><span id="pali"></span><input id="palq" placeholder="Type a command, client or invoice #" role="combobox" aria-expanded="true" aria-controls="pall" aria-autocomplete="list"></div><ul id="pall" role="listbox" aria-label="Commands"></ul></dialog>
+<dialog class="keys" id="keys" aria-labelledby="keys-t"><h2 id="keys-t">Keyboard shortcuts</h2>
+  <dl><dt><kbd>J</kbd> <kbd>K</kbd></dt><dd>Move down and up the list (arrow keys too)</dd><dt><kbd>X</kbd></dt><dd>Select or unselect the row</dd><dt><kbd>R</kbd></dt><dd>Send reminder (to the selection, or this row)</dd><dt><kbd>P</kbd></dt><dd>Mark paid (the selection, or this row)</dd><dt><kbd>D</kbd></dt><dd>Duplicate as draft</dd><dt><kbd>Delete</kbd></dt><dd>Delete the row</dd><dt><kbd>Enter</kbd></dt><dd>View the invoice</dd><dt><kbd>.</kbd></dt><dd>Open the row's actions menu</dd><dt><kbd>/</kbd></dt><dd>Search</dd><dt><kbd>1</kbd>-<kbd>5</kbd></dt><dd>All, Due, Overdue, Paid, Drafts</dd><dt><kbd>N</kbd> <kbd>E</kbd></dt><dd>New invoice, Export CSV</dd><dt><kbd>Ctrl K</kbd></dt><dd>Command palette</dd><dt><kbd>Esc</kbd></dt><dd>Close, or clear the selection</dd></dl>
+  <label class="tog"><input type="checkbox" class="k-check" id="single" checked>Single-key shortcuts on</label>
+  <form method="dialog"><button class="k-btn" type="submit">Close</button></form></dialog>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#sicon').innerHTML=K.icon('search');$('#cmdi').innerHTML=K.icon('cmd');$('#pali').innerHTML=K.icon('search');
+let st={tab:'all',q:'',sort:{k:'urgency',dir:1}},cur=null,single=true;
+const COLS=[['no','Invoice'],['client','Client'],['issued','Issued'],['due','Due'],['urgency','Days late','dl'],[null,'Status'],['amount','Amount','num']];
+const view=()=>S.view(st);
+function render(){
+  const ae=document.activeElement,wasRow=ae&&ae.dataset&&ae.dataset.row,focusKey=ae&&ae.dataset&&ae.dataset.focus;
+  const t=S.totals();
+  $('#tabs').innerHTML=K.TABS.map(([k,l],i)=>`<button type="button" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}" aria-keyshortcuts="${i+1}">${l}<span class="n">${S.count(k)}</span><kbd aria-hidden="true">${i+1}</kbd></button>`).join('');
+  $('#th').innerHTML=`<th style="width:36px"><input type="checkbox" class="k-check" id="all" data-focus="all" aria-label="Select all shown invoices"></th>`+COLS.map(([k,l,c])=>k?`<th class="${c||''}" aria-sort="${st.sort.k===k?(st.sort.dir>0?'ascending':'descending'):'none'}"><button type="button" data-k="${k}" data-focus="sort-${k}">${l}${K.icon(st.sort.k===k&&st.sort.dir<0?'up':'down')}</button></th>`:`<th>${l}</th>`).join('')+`<th><span class="k-sr">Actions</span></th>`;
+  const v=view();if(!cur||!v.find(r=>r.no===cur))cur=v[0]?v[0].no:null;
+  $('#rows').innerHTML=v.map(r=>{const dl=r.status==='overdue'?K.daysLate(r):null;
+   return `<tr data-row="${r.no}" tabindex="${r.no===cur?0:-1}" class="${S.sel.has(r.no)?'sel':''}" aria-selected="${S.sel.has(r.no)}"><td><input type="checkbox" class="k-check" tabindex="-1" data-s="${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}"></td>
+   <td class="inv">${r.no}</td><td class="cl">${f.esc(r.client)}</td><td class="dt">${r.issued}</td><td class="dt">${r.due}</td>
+   <td class="dl ${dl!==null?'late':r.status==='due'?'soon':'none'}">${dl!==null?dl:r.status==='due'?'due in '+K.daysFromToday(r.due):'-'}</td>
+   <td><span class="k-pill ${r.status}">${f.status(r.status)}</span></td><td class="num">${f.money(r.amount)}</td>
+   <td><span class="rowm"><button type="button" class="k-btn icon sm quiet" tabindex="-1" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for ${r.no}" data-m="${r.no}">${K.icon('more')}</button></span></td></tr>`}).join('');
+  const e=$('#empty');e.hidden=v.length>0;e.innerHTML=v.length?'':K.emptyHTML(S);
+  $('#all').checked=v.length>0&&v.every(r=>S.sel.has(r.no));
+  const sel=[...S.sel].map(S.find).filter(Boolean);
+  $('#status').innerHTML=`<span>Outstanding<b>${f.money(t.outstanding)}</b></span><span class="o">Overdue<b>${f.money(t.overdue)}</b></span><span>Paid this month<b>${f.money(t.paid)}</b></span><span>Drafts<b>${t.drafts}</b></span>`+
+   (sel.length?`<span class="sel" role="region" aria-label="Bulk actions"><span>${sel.length} selected<b>${f.money(sel.reduce((a,r)=>a+r.amount,0))}</b></span><button type="button" class="k-btn" id="remind" data-focus="b-remind">Send reminders <kbd>R</kbd></button><button type="button" class="k-btn" id="markpaid" data-focus="b-paid">Mark paid <kbd>P</kbd></button><button type="button" class="k-btn" id="clear" data-focus="b-clear">Clear <kbd>Esc</kbd></button></span>`
+   :`<span class="sel keys"><kbd>J</kbd><kbd>K</kbd> move <kbd>X</kbd> select <kbd>R</kbd> remind <kbd>P</kbd> paid <kbd>?</kbd> all keys</span>`);
+  if(wasRow){const row=document.querySelector(`tr[data-row="${cur}"]`);if(row)row.focus({preventScroll:true})}
+  else if(focusKey){const el=document.querySelector(`[data-focus="${focusKey}"]`);if(el)el.focus({preventScroll:true})}
+}
+S.on(render);
+function focusRow(no){cur=no;document.querySelectorAll('tr[data-row]').forEach(tr=>tr.tabIndex=tr.dataset.row===no?0:-1);const tr=document.querySelector(`tr[data-row="${no}"]`);if(tr){tr.focus();tr.scrollIntoView({block:'nearest'})}}
+function targets(){return S.sel.size?[...S.sel]:cur?[cur]:[]}
+function setTab(k){st.tab=k;render()}
+function openNew(){K.openInvoiceForm(S)}
+function doExport(){K.toast('Exported '+view().length+' rows')}
+document.addEventListener('click',e=>{const b=e.target.closest('button,input,tr[data-row]');if(!b)return;
+ if(b.matches('tr[data-row]')){cur=b.dataset.row;if(!e.target.closest('button,input'))focusRow(cur);return}
+ if(b.dataset.t)setTab(b.dataset.t);
+ if(b.dataset.k){st.sort={k:b.dataset.k,dir:st.sort.k===b.dataset.k?-st.sort.dir:1};render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);render()}
+ if(b.id==='all'){view().forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));render()}
+ if(b.dataset.m)K.menu(b,K.rowItems(S,S.find(b.dataset.m)).map((it,i)=>Object.assign(it,{key:['Enter','R','P','D','Del'][i]})));
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';$('#q').value='';render()}
+ if(b.id==='export')doExport(); if(b.id==='new'||b.hasAttribute('data-k-new'))openNew();
+ if(b.id==='pal-btn')openPal(); if(b.id==='keys-btn')$('#keys').showModal();
+});
+$('#single').addEventListener('change',e=>{single=e.target.checked;K.toast(single?'Single-key shortcuts on':'Single-key shortcuts off')});
+/* Keys inside the list */
+$('#rows').addEventListener('keydown',e=>{const tr=e.target.closest('tr[data-row]');if(!tr||e.target!==tr||e.ctrlKey||e.metaKey||e.altKey)return;
+ const v=view(),i=v.findIndex(r=>r.no===tr.dataset.row),k=e.key;let used=true;
+ if(k==='ArrowDown'||(single&&k==='j')){if(v[i+1])focusRow(v[i+1].no)}
+ else if(k==='ArrowUp'||(single&&k==='k')){if(v[i-1])focusRow(v[i-1].no)}
+ else if(k==='Home'){if(v[0])focusRow(v[0].no)} else if(k==='End'){if(v.length)focusRow(v[v.length-1].no)}
+ else if(k===' '||(single&&k==='x')){S.sel.has(cur)?S.sel.delete(cur):S.sel.add(cur);render()}
+ else if(single&&k==='r'){K.act(S,'remind',targets())}
+ else if(single&&k==='p'){K.act(S,'paid',targets())}
+ else if(single&&k==='d'){K.act(S,'dup',cur)}
+ else if(k==='Delete'||k==='Backspace'){const nx=v[i+1]||v[i-1];K.act(S,'del',cur);if(nx)focusRow(nx.no)}
+ else if(k==='Enter'){K.act(S,'view',cur)}
+ else if(single&&k==='.'){const b=tr.querySelector('[data-m]');K.menu(b,K.rowItems(S,S.find(cur)))}
+ else used=false;
+ if(used){e.preventDefault();e.stopPropagation()}});
+/* Page-wide keys */
+document.addEventListener('keydown',e=>{
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openPal();return}
+ if(document.querySelector('dialog[open]'))return;
+ if(e.key==='Escape'){if(S.sel.size){S.sel.clear();render()}return}
+ const typing=e.target.closest&&e.target.closest('input,select,textarea');if(typing||e.ctrlKey||e.metaKey||e.altKey||!single)return;
+ if(e.key==='/'){e.preventDefault();$('#q').focus()}
+ else if(e.key==='?'){e.preventDefault();$('#keys').showModal()}
+ else if(e.key==='n'){e.preventDefault();openNew()} else if(e.key==='e'){e.preventDefault();doExport()}
+ else if('12345'.includes(e.key)&&e.key.length===1){e.preventDefault();setTab(K.TABS[+e.key-1][0])}
+ else if((e.key==='j'||e.key==='ArrowDown')&&!e.target.closest('tr,button')&&cur){e.preventDefault();focusRow(cur)}
+});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+$('#q').addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='Enter'){if(cur){e.preventDefault();focusRow(cur)}}if(e.key==='Escape'&&e.target.value){e.stopPropagation()}});
+/* Command palette */
+let palItems=[],palI=0,palBack=null;
+function commands(){const c=[{l:'New invoice',g:'N',fn:openNew},{l:'Export CSV',g:'E',fn:doExport}];
+ K.TABS.forEach(([k,l],i)=>c.push({l:'Show '+(k==='all'?'all invoices':l.toLowerCase()),g:String(i+1),fn:()=>setTab(k)}));
+ [['urgency','days late']].concat(K.SORTS.map(([k,l])=>[k,l.toLowerCase()])).forEach(([k,l])=>c.push({l:'Sort by '+l,g:'Sort',fn:()=>{st.sort={k,dir:st.sort.k===k?-st.sort.dir:1};render()}}));
+ if(S.sel.size)c.push({l:'Send reminders to '+S.sel.size+' selected',g:'R',fn:()=>K.act(S,'remind',[...S.sel])},{l:'Mark '+S.sel.size+' selected paid',g:'P',fn:()=>K.act(S,'paid',[...S.sel])},{l:'Clear selection',g:'Esc',fn:()=>{S.sel.clear();render()}});
+ c.push({l:'Select all shown',g:'',fn:()=>{view().forEach(r=>S.sel.add(r.no));render()}},{l:'Search invoices',g:'/',fn:()=>$('#q').focus()},{l:'Keyboard shortcuts',g:'?',fn:()=>$('#keys').showModal()});
+ return c}
+function palRender(){const q=$('#palq').value.toLowerCase().trim();
+ let items=commands().filter(c=>!q||c.l.toLowerCase().includes(q));
+ if(q)S.data.filter(r=>(r.no+' '+r.client).toLowerCase().includes(q)).slice(0,6).forEach(r=>items.push({l:'Go to '+r.no+' · '+r.client,g:f.status(r.status),fn:()=>{st.tab='all';st.q='';$('#q').value='';render();focusRow(r.no)}}));
+ palItems=items;palI=Math.min(palI,Math.max(0,items.length-1));
+ $('#pall').innerHTML=items.length?items.map((c,i)=>`<li role="option" id="po${i}" aria-selected="${i===palI}" data-pi="${i}">${f.esc(c.l)}<span class="g">${f.esc(c.g)}</span></li>`).join(''):'<li class="none" role="option" aria-disabled="true">No command or invoice matches</li>';
+ $('#palq').setAttribute('aria-activedescendant',items.length?'po'+palI:'')}
+function openPal(){const p=$('#pal');if(p.open)return;palBack=document.activeElement;$('#palq').value='';palI=0;palRender();p.showModal();$('#palq').focus()}
+function runPal(i){const c=palItems[i];if(!c)return;$('#pal').close();c.fn()}
+$('#palq').addEventListener('input',()=>{palI=0;palRender()});
+$('#palq').addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();palI=Math.min(palItems.length-1,palI+1);palRender();$('#po'+palI)&&$('#po'+palI).scrollIntoView({block:'nearest'})}else if(e.key==='ArrowUp'){e.preventDefault();palI=Math.max(0,palI-1);palRender()}else if(e.key==='Enter'){e.preventDefault();runPal(palI)}});
+$('#pall').addEventListener('click',e=>{const li=e.target.closest('[data-pi]');if(li)runPal(+li.dataset.pi)});
+$('#pal').addEventListener('close',()=>{if(palBack&&document.contains(palBack)&&!document.querySelector('dialog[open]'))palBack.focus()});
+$('#pal').addEventListener('click',e=>{if(e.target.id==='pal')$('#pal').close()});
+render();
+})();
+</script>

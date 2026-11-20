@@ -1,0 +1,7 @@
+# Synthetic file that blocks rendering assets (example.com).
+User-agent: *
+Disallow: /assets/
+Disallow: /*.js$
+Allow: /assets/public/
+
+Sitemap: https://example.com/sitemap.xml

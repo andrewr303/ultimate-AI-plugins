@@ -1,0 +1,51 @@
+# SEO-GEO-god opt-in example: pre-commit hooks. INERT FILE.
+#
+# Nothing here runs until you deliberately copy it into your repository as
+# .pre-commit-config.yaml (or merge the hooks below into your existing one) and
+# install pre-commit's git hook yourself. Agents never copy or install it unless
+# the user explicitly asks for local commit hooks.
+#
+# What it does: on each commit, runs the bundled offline CLI on the staged files
+# only. `jsonld` checks JSON-LD in HTML and component templates; `content-lint`
+# checks Markdown, MDX and HTML content. A commit is blocked only by error-level
+# findings (for example malformed JSON-LD, an unescaped "</script" or leftover
+# placeholder values); everything else is printed and the commit proceeds.
+#
+# Requirements: the pre-commit tool (a third-party Python package you install
+# and trust yourself), python3 3.9 or newer, and a copy of the seo-geo-god plugin
+# at tools/seo-geo-god (adjust the paths in `entry` if it lives elsewhere).
+# Only `repo: local` hooks are used, so pre-commit downloads no hook code.
+#
+# Risks and costs:
+#   - Every commit runs Python on the staged files; large commits take longer.
+#   - Error findings block the commit; `git commit --no-verify` bypasses all hooks.
+#   - Template blocks containing template expressions are skipped in source
+#     (rule SD019); validate the built output in CI as well.
+#   - The hook reads only the files git passes to it and writes nothing.
+#
+# Copy and enable (run from the repository root, only if you want this):
+#   cp tools/seo-geo-god/templates/opt-in/pre-commit-config.example.yaml .pre-commit-config.yaml
+#   pre-commit install
+# Verify: stage a page whose JSON-LD has a trailing comma and run `pre-commit run`;
+# the jsonld hook should fail. Remove the defect and it should pass.
+# Disable: `pre-commit uninstall`, then delete .pre-commit-config.yaml.
+#
+# As of 2026-11-01.
+
+repos:
+  - repo: local
+    hooks:
+      - id: seo-geo-god-jsonld
+        name: "SEO-GEO-god: JSON-LD in staged HTML and templates"
+        entry: python3 -I tools/seo-geo-god/scripts/seo_geo.py jsonld --format text --fail-on error
+        language: system
+        files: '\.(html?|jsx|tsx|vue|svelte|astro|php|liquid|njk|erb|ejs|hbs)$'
+        pass_filenames: true
+        require_serial: true
+      - id: seo-geo-god-content-lint
+        name: "SEO-GEO-god: content lint for staged Markdown, MDX and HTML"
+        entry: python3 -I tools/seo-geo-god/scripts/seo_geo.py content-lint --format text --fail-on error
+        language: system
+        files: '\.(md|mdx|html?)$'
+        pass_filenames: true
+        require_serial: true

@@ -1,0 +1,115 @@
+{
+ "audits": {
+  "agent-accessibility-tree": {
+   "score": 0.95,
+   "scoreDisplayMode": "numeric"
+  },
+  "broken-check": {
+   "score": null,
+   "scoreDisplayMode": "error"
+  },
+  "cumulative-layout-shift": {
+   "numericValue": 0.12,
+   "score": 0.7
+  },
+  "first-contentful-paint": {
+   "numericValue": 1500,
+   "score": 0.9
+  },
+  "hidden-one": {
+   "score": 0,
+   "scoreDisplayMode": "binary"
+  },
+  "info-check": {
+   "score": null,
+   "scoreDisplayMode": "informative"
+  },
+  "largest-contentful-paint": {
+   "numericValue": 3120.4,
+   "score": 0.6
+  },
+  "llms-txt": {
+   "score": 1,
+   "scoreDisplayMode": "binary"
+  },
+  "manual-check": {
+   "score": null,
+   "scoreDisplayMode": "manual"
+  },
+  "na-check": {
+   "score": null,
+   "scoreDisplayMode": "notApplicable"
+  },
+  "server-response-time": {
+   "numericValue": 640,
+   "score": 1
+  },
+  "speed-index": {
+   "numericValue": 2800,
+   "score": 0.8
+  },
+  "total-blocking-time": {
+   "numericValue": 410.2,
+   "score": 0.5
+  },
+  "webmcp-registered-tools": {
+   "score": 0,
+   "scoreDisplayMode": "binary"
+  }
+ },
+ "categories": {
+  "accessibility": {
+   "id": "accessibility",
+   "score": 0.9
+  },
+  "agentic-browsing": {
+   "auditRefs": [
+    {
+     "id": "llms-txt"
+    },
+    {
+     "id": "webmcp-registered-tools"
+    },
+    {
+     "id": "agent-accessibility-tree"
+    },
+    {
+     "id": "cumulative-layout-shift"
+    },
+    {
+     "id": "manual-check"
+    },
+    {
+     "group": "hidden",
+     "id": "hidden-one"
+    },
+    {
+     "id": "na-check"
+    },
+    {
+     "id": "info-check"
+    },
+    {
+     "id": "broken-check"
+    }
+   ],
+   "id": "agentic-browsing",
+   "score": null
+  },
+  "performance": {
+   "id": "performance",
+   "score": 0.62
+  },
+  "seo": {
+   "id": "seo",
+   "score": null
+  }
+ },
+ "configSettings": {
+  "formFactor": "mobile"
+ },
+ "fetchTime": "2026-10-30T12:00:00.000Z",
+ "finalDisplayedUrl": "https://example.com/",
+ "lighthouseVersion": "13.0.0",
+ "requestedUrl": "https://example.com/"
+}

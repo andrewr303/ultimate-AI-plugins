@@ -1,0 +1,19 @@
+{
+  "name": "mac-developer",
+  "version": "1.0.1",
+  "description": "Research-backed coding workflows for native macOS apps, Node.js adaptation, background services, browser companions, debugging, and distribution while preserving existing products.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "macos",
+    "swiftui",
+    "appkit",
+    "nodejs",
+    "electron",
+    "tauri",
+    "background-services",
+    "chrome-extension",
+    "native-messaging"
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Migrations"
+  short_description: "Safe URL and platform moves"
+  default_prompt: "Use $seo-migrations to plan and verify this migration: baseline the current site, validate the redirect map, audit the new build against the STOP list and compare drift."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-storyboard",
+  "productRevision": "tandem-fixture-v1",
+  "campaignId": "tandem-launch",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "safeZone": {
+    "x": 96,
+    "y": 54,
+    "width": 1728,
+    "height": 972
+  },
+  "shots": [
+    {
+      "id": "opening",
+      "startFrame": 0,
+      "durationFrames": 60,
+      "purpose": "Show a specific queue problem",
+      "assetIds": [
+        "inbox-state"
+      ],
+      "mode": "actual",
+      "claims": [
+        "triage-draft"
+      ],
+      "action": "Select a request",
+      "caption": "A busy inbox. One clear next step.",
+      "readingHoldFrames": 24
+    },
+    {
+      "id": "action",
+      "startFrame": 60,
+      "durationFrames": 120,
+      "purpose": "Demonstrate editable reply",
+      "assetIds": [
+        "inbox-state"
+      ],
+      "mode": "replay",
+      "claims": [
+        "triage-draft"
+      ],
+      "action": "Prepare then edit the draft",
+      "caption": "Group. Draft. Make it yours.",
+      "readingHoldFrames": 48
+    },
+    {
+      "id": "result",
+      "startFrame": 180,
+      "durationFrames": 60,
+      "purpose": "Hold result and conversion action",
+      "assetIds": [
+        "inbox-state"
+      ],
+      "mode": "replay",
+      "claims": [
+        "triage-draft"
+      ],
+      "action": "Hold a settled result",
+      "caption": "Try the sample workflow",
+      "readingHoldFrames": 50
+    }
+  ]
+}

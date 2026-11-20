@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:asset-manifest",
+  "title": "Asset Manifest",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "productRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+          },
+          "kind": {
+            "enum": [
+              "image",
+              "video",
+              "audio",
+              "font",
+              "source"
+            ]
+          },
+          "creator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "repository",
+                  "capture",
+                  "documentation",
+                  "website",
+                  "user-supplied"
+                ]
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "revision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "permission": {
+            "enum": [
+              "original",
+              "licensed",
+              "permission-supplied",
+              "public-domain",
+              "unknown"
+            ]
+          },
+          "attribution": {
+            "type": "string",
+            "minLength": 1
+          },
+          "restrictions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "redistributable": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "kind",
+          "creator",
+          "license",
+          "source",
+          "permission",
+          "attribution",
+          "restrictions",
+          "sha256",
+          "redistributable"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "productRevision",
+    "assets"
+  ],
+  "additionalProperties": false
+}

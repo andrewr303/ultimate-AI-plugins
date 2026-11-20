@@ -1,0 +1,22 @@
+# Example Docs
+
+> Example Docs describes a synthetic invoicing API for tests. Nothing here refers to a real product.
+
+The pages below have Markdown versions at the same URL with .md appended.
+
+```text
+# this line sits inside a code fence and is not a heading
+```
+
+## Guides
+
+- [Getting started](https://example.com/docs/getting-started.md): Create a sandbox account
+- [Webhooks \[beta\]](https://example.com/docs/webhooks.md)
+
+## Reference
+
+- [API reference](https://example.com/docs/api/index.html.md): Endpoints and error codes
+
+## Optional
+
+- [Changelog](https://example.com/changelog.md)

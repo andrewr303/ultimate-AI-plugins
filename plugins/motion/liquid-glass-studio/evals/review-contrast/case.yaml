@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: review-contrast
+expected_outcome: |
+  A review of the Solstice landing page's glass caption that flags the white text on near-clear glass over a bright
+  photo as a contrast risk to be measured over the worst-case (brightest) part of the backdrop, rejects the code
+  comment's claim that the tint guarantees 4.5:1, flags the removed focus outline on the caption link, gives each check an evidence state (checked, not checked or not
+  applicable) with unrun measurements reported as not checked, and leaves index.html and styles.css unchanged.
+context:
+  scaffold_script: place-files.sh

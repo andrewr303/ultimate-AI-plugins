@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion System
+  short_description: Polish system behavior
+  default_prompt: Use $motion-system for the requested product interaction work and
+    verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

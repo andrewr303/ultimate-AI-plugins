@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-capture",
+  "productRevision": "tandem-fixture-v1",
+  "baseUrl": "http://127.0.0.1:8080",
+  "viewport": {
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 2
+  },
+  "outputDir": "captures",
+  "mode": "actual",
+  "syntheticData": true,
+  "steps": [
+    {
+      "id": "open",
+      "action": "goto",
+      "value": "/"
+    },
+    {
+      "id": "ready",
+      "action": "wait-for",
+      "selector": "[data-state=\"initial\"]",
+      "holdMs": 1000
+    },
+    {
+      "id": "hero",
+      "action": "screenshot",
+      "path": "captures/inbox.png"
+    }
+  ],
+  "claims": [
+    "triage-draft"
+  ]
+}

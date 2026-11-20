@@ -1,0 +1,11 @@
+/*
+Theme Name: Example Starter
+Theme URI: https://example.com/themes/example-starter
+Author: Example Theme Contributors
+Description: Synthetic fixture theme for stack detection tests.
+Version: 1.2.0
+License: MIT
+Text Domain: example-starter
+*/
+
+body { margin: 0; }

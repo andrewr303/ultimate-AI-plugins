@@ -1,0 +1,6 @@
+interface:
+  display_name: "GEO Agent Readiness"
+  short_description: "llms.txt, Markdown and agent UX"
+  default_prompt: "Use $geo-agent-readiness to check whether this site is usable by AI agents and developer tools, fix the highest-priority gaps such as soft 404s and inaccessible controls, add an optional llms.txt or Markdown pages if the owner wants them, and verify with the bundled checks."
+policy:
+  allow_implicit_invocation: true

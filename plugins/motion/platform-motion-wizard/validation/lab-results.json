@@ -1,0 +1,37 @@
+{
+  "status": "passed_with_limitations",
+  "browser": "Chromium via installed Playwright; headless Linux",
+  "browser_version": "154.0.8037.57",
+  "checks": [
+    "pointer, Space and Enter change selection immediately",
+    "native dialog replay, queued close, Escape and focus return",
+    "active open/close/reopen retargets from visible progress; semantics and focus settle immediately",
+    "live reduced motion settles owned effect only; system reduction overrides manual setting",
+    "delivered A after B success and delivered canceled response are ignored; failure/retry remain usable",
+    "response queue and delivery log stay bounded and recover after delivery",
+    "narrow dark and RTL layouts have no horizontal overflow; stable screenshots captured",
+    "synthetic pagehide/pageshow releases fixture work and restores live preference subscription",
+    "missing WAAPI uses stable endpoints with working details, dialog and focus",
+    "no script errors, console errors or external requests"
+  ],
+  "skipped_checks": [
+    {
+      "check": "direct file:// loading",
+      "reason": "Managed Chromium policy blocked local-file navigation (ERR_BLOCKED_BY_ADMINISTRATOR)."
+    }
+  ],
+  "observations": {
+    "retarget_progress": {
+      "before_close": 0.391471,
+      "after_close": 0.481836,
+      "after_reopen": 0.422865
+    }
+  },
+  "errors": [],
+  "limitations": [
+    "No real mobile hardware, assistive-technology, native-platform or frame-rate validation.",
+    "Screenshots establish stable appearance only; retarget checks assess sampled temporal continuity.",
+    "Synthetic lifecycle events do not establish actual back-forward cache behavior.",
+    "The Windows browser.md reference is unavailable in this Linux workspace; installed Playwright was used."
+  ]
+}

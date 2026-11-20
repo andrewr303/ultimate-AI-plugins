@@ -1,0 +1,6 @@
+interface:
+  display_name: Review Digital Goods
+  short_description: Review digital goods workflows
+  default_prompt: Use $review-digital-goods to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

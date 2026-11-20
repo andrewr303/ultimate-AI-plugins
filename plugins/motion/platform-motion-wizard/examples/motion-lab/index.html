@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-reduce="false">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23164e63'/%3E%3Cpath d='M16 36h12l8-16 12 24' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <title>Interaction lab · Platform Motion Wizard</title>
+  <style>
+    :root { --bg:#f5f5f3; --surface:#fff; --text:#202325; --muted:#535d64; --line:#cbd0d3; --accent:#164e63; --wash:#e9f1f4; --small:120ms; --settle:cubic-bezier(.22,1,.36,1); font:16px/1.55 system-ui,sans-serif; color:var(--text); background:var(--bg); }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    main { max-width:1040px; padding:52px 24px 64px; margin:auto; }
+    h1 { font-size:clamp(2rem,5vw,3.25rem); letter-spacing:-.045em; line-height:1.1; margin:12px 0 20px; }
+    h2 { font-size:1.15rem; line-height:1.3; margin:0 0 12px; }
+    p { margin:0 0 18px; }
+    .eyebrow { font-size:.78rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+    .intro { max-width:720px; color:var(--muted); }
+    .settings,.card { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px; min-width:0; }
+    .settings { margin:32px 0 22px; display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:24px; align-items:start; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .card { display:flex; flex-direction:column; gap:12px; }
+    .card p { color:var(--muted); font-size:.93rem; margin:0; }
+    label { display:block; font-size:.9rem; font-weight:600; }
+    .check { display:flex; gap:10px; align-items:flex-start; }
+    .check input { margin-top:6px; accent-color:var(--accent); }
+    input[type="range"] { display:block; width:100%; margin:12px 0; accent-color:var(--accent); }
+    select { width:100%; padding:9px; border:1px solid var(--line); border-radius:8px; font:inherit; color:var(--text); background:var(--surface); }
+    button { border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:10px; padding:10px 16px; min-height:44px; font:600 .9rem/1.3 system-ui,sans-serif; cursor:pointer; touch-action:manipulation; transition:background-color var(--small) ease-out,border-color var(--small) ease-out; }
+    button span { display:inline-block; transition:transform var(--small) var(--settle); }
+    button:hover { background:#103b4c; }
+    button:active span { transform:scale(.98); }
+    button[aria-pressed="true"] { background:#35604b; border-color:#35604b; }
+    button.secondary { color:var(--accent); background:var(--surface); }
+    button.secondary:hover { background:var(--wash); }
+    button:disabled { opacity:.55; cursor:default; }
+    :focus-visible { outline:3px solid #087eac; outline-offset:4px; }
+    .actions { display:flex; flex-wrap:wrap; gap:8px; padding-top:6px; }
+    .note,output { font-size:.82rem; color:var(--muted); }
+    .status { min-height:3.2em; margin-top:6px; font-size:.86rem; }
+    .system { display:block; margin-top:8px; }
+    .track { height:20px; border-radius:6px; overflow:hidden; background:var(--wash); }
+    .fill { height:100%; background:var(--accent); transform:scaleX(0); transform-origin:left center; }
+    [dir="rtl"] .fill { transform-origin:right center; }
+    .details { border-inline-start:3px solid var(--line); padding-inline-start:16px; }
+    .details p { margin-bottom:12px; }
+    [hidden] { display:none!important; }
+    .counters { display:flex; flex-wrap:wrap; gap:12px; font-size:.84rem; }
+    .response-log { margin:0; padding-inline-start:24px; font-size:.8rem; color:var(--muted); overflow-wrap:anywhere; }
+    footer { margin-top:28px; font-size:.84rem; color:var(--muted); }
+    dialog { color:var(--text); background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:28px; max-width:min(470px,calc(100vw - 32px)); box-shadow:0 20px 65px #0003; }
+    dialog::backdrop { background:#18252b66; }
+    dialog p { color:var(--muted); }
+    html[data-reduce="true"] *,html[data-reduce="true"] *::before,html[data-reduce="true"] *::after { transition:none!important; scroll-behavior:auto!important; }
+    html[data-reduce="true"] button:active span { transform:none; }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; scroll-behavior:auto!important; } button:active span { transform:none; } }
+    @media(max-width:780px) { .settings,.grid { grid-template-columns:1fr; } main { padding-top:32px; } .card { gap:10px; } }
+    @media(prefers-color-scheme:dark) { :root { --bg:#15191c; --surface:#20272b; --text:#f0f2f3; --muted:#bdc7cd; --line:#536169; --accent:#8bd2ee; --wash:#293b44; } button { color:#102832; } button:hover { background:#b4e4f6; } button[aria-pressed="true"] { color:#fff; } dialog::backdrop { background:#0009; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Platform Motion Wizard · local example</p>
+    <h1>Feel the state change.</h1>
+    <p class="intro">Exercise immediate feedback, native focus, interrupted motion, and responses that arrive out of order. Every control changes local example state only. The timing values are tuning examples, not platform specifications.</p>
+  </header>
+  <section class="settings" aria-label="Comparison settings">
+    <div>
+      <label class="check"><input id="reduce" type="checkbox"><span>Use no motion</span></label>
+      <output id="motionStatus" class="system" aria-live="polite">Reading system preference…</output>
+      <p class="note">Your system’s reduced-motion preference always wins.</p>
+    </div>
+    <div>
+      <label for="smallDuration">Small feedback <output id="smallValue" for="smallDuration">120 ms</output></label>
+      <input id="smallDuration" type="range" min="80" max="180" step="10" value="120">
+      <p class="note">Color and press feedback; actions start immediately.</p>
+    </div>
+    <div>
+      <label for="detailDuration">Detail illustration <output id="detailValue" for="detailDuration">600 ms</output></label>
+      <input id="detailDuration" type="range" min="200" max="1200" step="100" value="600">
+      <p class="note">Long enough to interrupt. Content never waits for it.</p>
+    </div>
+  </section>
+  <div class="grid">
+    <section class="card" aria-labelledby="pressTitle">
+      <h2 id="pressTitle">01 · Immediate feedback</h2>
+      <p>Selection changes on activation. Visual feedback accompanies the state and never gates it.</p>
+      <div class="actions"><button id="favorite" type="button" aria-pressed="false"><span>Save example</span></button></div>
+      <div id="pressStatus" class="status" aria-live="polite">This example is not saved.</div>
+    </section>
+    <section class="card" aria-labelledby="dialogTitle">
+      <h2 id="dialogTitle">02 · Native focus</h2>
+      <p>Open, replay, close, and reopen. The browser owns modal semantics; dismissal has no exit delay.</p>
+      <div class="actions"><button id="openDialog" type="button"><span>Open dialog</span></button></div>
+      <div id="dialogStatus" class="status" role="status">Native modal semantics. No exit delay.</div>
+    </section>
+    <section class="card" aria-labelledby="detailsTitle">
+      <h2 id="detailsTitle">03 · Change direction</h2>
+      <p>Toggle rapidly. Only the decorative bar moves; the actual details, focus, and expanded state change immediately.</p>
+      <div class="actions"><button id="toggleDetails" type="button" aria-expanded="false" aria-controls="detailsPanel"><span>Show details</span></button></div>
+      <div class="track" aria-hidden="true" inert><div id="detailFill" class="fill"></div></div>
+      <div id="detailsPanel" class="details" hidden inert>
+        <p>These details are usable as soon as you open them. Closing from here returns focus before hiding the content.</p>
+        <button id="closeDetails" type="button" class="secondary"><span>Close details</span></button>
+      </div>
+      <div id="detailState" class="status" role="status">Details collapsed.</div>
+    </section>
+    <section class="card" aria-labelledby="asyncTitle">
+      <h2 id="asyncTitle">04 · Old work still arrives</h2>
+      <p>Queue local responses, then deliver them in either order. Starting again replaces your current intent. Cancellation leaves queued responses available to deliver.</p>
+      <label for="outcome">Next simulated result</label>
+      <select id="outcome"><option value="success">Success</option><option value="error">Failure</option></select>
+      <div id="asyncRegion" class="actions" aria-busy="false">
+        <button id="run" type="button" aria-disabled="false"><span>Run simulation</span></button>
+        <button id="cancel" type="button" class="secondary" disabled><span>Cancel current</span></button>
+      </div>
+      <div class="actions" aria-label="Response delivery">
+        <button id="deliverOldest" type="button" class="secondary" disabled><span>Deliver oldest</span></button>
+        <button id="deliverLatest" type="button" class="secondary" disabled><span>Deliver latest</span></button>
+      </div>
+      <p class="counters"><span>Queued: <output id="queueCount">0</output></span><span>Received: <output id="receivedCount">0</output></span><span>Ignored: <output id="ignoredCount">0</output></span></p>
+      <div id="asyncStatus" class="status" role="status" aria-atomic="true">Ready to simulate. No network request is sent.</div>
+      <ol id="responseLog" class="response-log" aria-label="Recent deliveries"></ol>
+      <p class="note">At most eight queued responses and six delivery entries. This is a delivery fixture, not a server or save operation.</p>
+    </section>
+  </div>
+  <footer>Test the real product after using this lab. This page does not establish performance, assistive-technology support, or native-platform behavior.</footer>
+  <noscript><p>This example needs JavaScript for its controls. No content or actual product operation depends on this demo.</p></noscript>
+</main>
+<dialog id="detail" aria-labelledby="detailTitle" aria-describedby="detailDescription">
+  <h2 id="detailTitle">A clear beginning and end.</h2>
+  <p id="detailDescription">The dialog enters with one restrained movement. Closing restores focus immediately; decorative completion never closes it.</p>
+  <p class="note">Replay entry closes and reopens the same native dialog. Escape closes it.</p>
+  <div class="actions"><button id="closeDialog" type="button" autofocus><span>Close dialog</span></button><button id="replayDialog" type="button" class="secondary"><span>Replay entry</span></button></div>
+</dialog>
+<script src="motion-lifecycle.js"></script>
+<script src="lab.js"></script>
+</body>
+</html>

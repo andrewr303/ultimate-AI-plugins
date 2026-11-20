@@ -1,0 +1,6 @@
+old_url,new_url,status
+/a/,/new-a/,301
+/b/,/final/,308
+/c/,https://example.com/final/,301
+/temp/,/temp-new/,301
+/d/,/kept/,

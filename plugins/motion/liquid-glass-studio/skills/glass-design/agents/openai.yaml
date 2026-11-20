@@ -1,0 +1,6 @@
+interface:
+  display_name: Glass Design
+  short_description: Decide where glass belongs
+  default_prompt: Use $glass-design to decide which surfaces get glass, their variant, tint and shape, and record the decisions.
+policy:
+  allow_implicit_invocation: true
