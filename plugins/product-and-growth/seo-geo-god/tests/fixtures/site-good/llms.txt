@@ -1,0 +1,12 @@
+# Example Widgets
+
+> Example Widgets is a synthetic test site with care guides for widgets.
+
+## Guides
+
+- [How to clean a widget](https://example.com/blog/first-post/): A step-by-step cleaning routine.
+- [Care articles](https://example.com/blog/): All care articles.
+
+## About
+
+- [About Example Widgets](https://example.com/about/): Who maintains the guides.

@@ -1,0 +1,69 @@
+{
+  "checked_on": "2026-10-26",
+  "plugin_version": "1.1.0",
+  "isolated_state": true,
+  "provider_credentials_configured": false,
+  "model_conversations_started": false,
+  "claude_code": {
+    "version": "2.1.310",
+    "manifest_validation": "passed",
+    "repository_marketplace_validation": "passed",
+    "local_marketplace_install": "passed",
+    "discovered_skills": 26,
+    "unexpected_agents_hooks_mcp_lsp": false,
+    "method": [
+      "claude plugin validate <plugin-root>",
+      "claude plugin marketplace add <repository-root>",
+      "claude plugin install ios-development-studio@environment-dev",
+      "claude plugin details ios-development-studio@environment-dev"
+    ]
+  },
+  "kimi_code": {
+    "version": "2.3.3",
+    "native_install": "passed",
+    "state": "ok",
+    "discovered_skills": 26,
+    "has_errors": false,
+    "skills": [
+      "ios-development-studio:ios-accessibility",
+      "ios-development-studio:ios-architecture",
+      "ios-development-studio:ios-build-debug",
+      "ios-development-studio:ios-chat",
+      "ios-development-studio:ios-commerce",
+      "ios-development-studio:ios-concurrency",
+      "ios-development-studio:ios-core-data",
+      "ios-development-studio:ios-design",
+      "ios-development-studio:ios-development",
+      "ios-development-studio:ios-expo",
+      "ios-development-studio:ios-images",
+      "ios-development-studio:ios-navigation",
+      "ios-development-studio:ios-networking",
+      "ios-development-studio:ios-observability",
+      "ios-development-studio:ios-performance",
+      "ios-development-studio:ios-platform-services",
+      "ios-development-studio:ios-release",
+      "ios-development-studio:ios-review-migrate",
+      "ios-development-studio:ios-security",
+      "ios-development-studio:ios-signing",
+      "ios-development-studio:ios-simulator",
+      "ios-development-studio:ios-store-insights",
+      "ios-development-studio:ios-store-metadata",
+      "ios-development-studio:ios-swiftdata",
+      "ios-development-studio:ios-swiftui",
+      "ios-development-studio:ios-testing"
+    ],
+    "method": [
+      "Authenticated loopback POST /api/v1/plugins with local source path",
+      "Registered an empty local workspace without a session",
+      "GET /api/v1/workspaces/{id}/skills; inspected namespaced results"
+    ],
+    "declared_mcp_servers": 0,
+    "declared_hooks": 0,
+    "deprecated_python_cli": "Not targeted; old root plugin.json contract is not current Kimi Code"
+  },
+  "limitations": [
+    "No model-driven skill conversation was run",
+    "No Xcode, simulator, signing or App Store operation was run",
+    "Client directory/policy checks are not comprehensive security review"
+  ]
+}

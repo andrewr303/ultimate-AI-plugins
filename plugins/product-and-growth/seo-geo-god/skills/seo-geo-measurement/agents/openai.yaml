@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO GEO Measurement"
+  short_description: "AI visibility panels and tests"
+  default_prompt: "Use $seo-geo-measurement to plan how to measure this change, set up a frozen prompt panel and the local ledger, record observations from the data I have, and read back against controls on fixed dates without claiming causes from one snapshot."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Glass Lab</title>
+<meta name="description" content="Interactive tuning lab for the Liquid Glass Studio refraction engine. Works offline; serve the folder over http to load the module.">
+<style>
+  :root {
+    --ink: #10131a;
+    --ink-soft: #2b3140;
+    --panel-bg: #f6f7fb;
+    --panel-line: #c9cedb;
+    --accent: #0b57d0;
+    --tint: 0.6;
+    --glass-line: rgb(255 255 255 / 0.55);
+    --solid-bg: #eef0f5;
+    --solid-line: #8a92a3;
+    --shadow: 0 10px 28px rgb(8 12 30 / 0.22), 0 2px 6px rgb(8 12 30 / 0.12);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #0d1020;
+  }
+  .skip {
+    position: absolute; left: 12px; top: -48px; z-index: 10;
+    background: #fff; color: var(--ink); padding: 8px 12px; border-radius: 8px;
+  }
+  .skip:focus { top: 12px; }
+  :focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px #fff;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    min-height: 100vh;
+  }
+  @media (max-width: 960px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  /* ---------- Stage and busy backdrop ---------- */
+  .stage {
+    position: relative;
+    overflow: hidden;
+    min-height: 640px;
+    isolation: isolate;
+  }
+  .backdrop {
+    position: absolute;
+    inset: -40px -420px -40px -40px;
+    background:
+      radial-gradient(circle at 18% 22%, #ffd84d 0 9%, transparent 26%),
+      radial-gradient(circle at 72% 30%, #ff4fa3 0 8%, transparent 30%),
+      radial-gradient(circle at 40% 78%, #22d3ee 0 10%, transparent 32%),
+      linear-gradient(125deg, #ff6a3d 0%, #ffb340 22%, #3fd17f 44%, #2b8cff 64%, #7b4dff 82%, #2a1a6e 100%);
+    transform: translateX(calc(var(--offset, 0) * -1px));
+  }
+  .stripes {
+    position: absolute; left: 0; right: 0; top: 150px; height: 70px;
+    background: repeating-linear-gradient(90deg, #111 0 7px, #fff 7px 14px);
+    opacity: 0.9;
+  }
+  .stripes.v {
+    left: 432px; right: auto; top: 60px; width: 84px; height: 380px;
+    background: repeating-linear-gradient(0deg, #111 0 7px, #fff 7px 14px);
+  }
+  .checker {
+    position: absolute; left: 70px; top: 420px; width: 470px; height: 150px;
+    background:
+      conic-gradient(#111 25%, #fff 0 50%, #111 0 75%, #fff 0) 0 0 / 28px 28px;
+    border-radius: 6px;
+  }
+  .headline {
+    position: absolute; left: 24px; top: 6px; margin: 0;
+    font-size: 132px; line-height: 1; font-weight: 900; letter-spacing: -0.04em;
+    color: #14103a; white-space: nowrap;
+  }
+  .headline span { color: #fff; }
+  .prose {
+    position: absolute; left: 30px; top: 250px; width: 470px; margin: 0;
+    font-size: 17px; line-height: 1.5; color: #0e0b2a; font-weight: 600;
+  }
+  .prose.two { left: 860px; top: 120px; color: #fff; width: 420px; }
+  .shape { position: absolute; }
+
+  .glass-layer {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 28px;
+    align-content: start;
+    justify-items: start;
+    padding: 36px clamp(16px, 4vw, 48px) 48px;
+  }
+
+  /* ---------- Glass components ---------- */
+  .glass {
+    background: rgb(255 255 255 / var(--tint));
+    border: 1px solid var(--glass-line);
+    box-shadow: var(--shadow);
+    color: var(--ink);
+  }
+  .glass[data-glass-tier="frost"] { background: rgb(255 255 255 / calc(var(--tint) + 0.08)); }
+  .glass[data-glass-tier="solid"] {
+    background: var(--solid-bg);
+    border-color: var(--solid-line);
+  }
+  .glass:focus-visible { box-shadow: 0 0 0 3px #fff, var(--shadow); }
+
+  .toolbar {
+    display: flex; gap: 4px; padding: 6px; border-radius: 999px;
+  }
+  .toolbar button {
+    font: inherit; font-weight: 650; color: var(--ink);
+    min-width: 44px; min-height: 44px; padding: 0 14px;
+    border: 0; border-radius: 999px; background: transparent; cursor: pointer;
+  }
+  .toolbar button[aria-pressed="true"] { background: rgb(16 19 26 / 0.12); }
+  .toolbar button:hover { background: rgb(16 19 26 / 0.08); }
+
+  .card {
+    width: min(360px, 100%);
+    padding: 22px 24px 20px;
+    border-radius: 28px;
+  }
+  .card h2 { margin: 0 0 6px; font-size: 22px; line-height: 1.2; }
+  .card p { margin: 0 0 16px; color: var(--ink-soft); font-weight: 500; }
+  .card .meta { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); margin: 0 0 4px; }
+  .btn {
+    font: inherit; font-weight: 650; min-height: 44px; padding: 0 18px;
+    border-radius: 999px; border: 0; background: var(--ink); color: #fff; cursor: pointer;
+  }
+
+  .row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+  .pill {
+    font: inherit; font-size: 17px; font-weight: 700;
+    min-height: 56px; padding: 0 34px; border-radius: 999px; cursor: pointer;
+  }
+  .switch-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 10px 12px 10px 20px; border-radius: 999px;
+    font-weight: 650;
+  }
+  .switch {
+    position: relative; width: 72px; height: 40px; padding: 0;
+    border-radius: 999px; border: 1px solid rgb(16 19 26 / 0.35);
+    background: rgb(16 19 26 / 0.28); cursor: pointer;
+  }
+  .switch[aria-checked="true"] { background: rgb(22 163 74 / 0.85); }
+  .knob {
+    position: absolute; top: 3px; left: 3px; width: 44px; height: 32px;
+    border-radius: 999px; pointer-events: none;
+    transition: transform 220ms cubic-bezier(.2, .8, .2, 1.1);
+  }
+  .switch[aria-checked="true"] .knob { transform: translateX(22px); }
+
+  /* ---------- Control panel ---------- */
+  .panel {
+    background: var(--panel-bg);
+    border-left: 1px solid var(--panel-line);
+    padding: 20px 20px 32px;
+    max-height: 100vh;
+    overflow: auto;
+    position: sticky; top: 0;
+  }
+  @media (max-width: 960px) {
+    .panel { position: static; max-height: none; border-left: 0; border-top: 1px solid var(--panel-line); }
+  }
+  .panel h1 { font-size: 20px; margin: 0 0 4px; }
+  .panel h2 { font-size: 15px; margin: 22px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .panel p { margin: 0 0 10px; color: var(--ink-soft); }
+  .ctl { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; margin: 0 0 12px; }
+  .ctl label { font-weight: 600; }
+  .ctl output { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+  .ctl input[type="range"], .ctl select { grid-column: 1 / -1; width: 100%; min-height: 32px; accent-color: var(--accent); }
+  .ctl select { font: inherit; padding: 4px 8px; border-radius: 8px; border: 1px solid var(--panel-line); background: #fff; color: var(--ink); }
+  .ctl .hint { grid-column: 1 / -1; font-size: 13px; color: var(--ink-soft); }
+  .check { display: flex; gap: 10px; align-items: center; margin: 0 0 10px; font-weight: 600; }
+  .check input { width: 20px; height: 20px; accent-color: var(--accent); }
+  .readout { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 14px; }
+  .readout dt { color: var(--ink-soft); }
+  .readout dd { margin: 0; font-variant-numeric: tabular-nums; }
+  .status { font-weight: 700; color: var(--ink); background: #fff; border: 1px solid var(--panel-line); border-radius: 10px; padding: 8px 10px; }
+  .note { font-size: 13px; background: #fff7d6; border: 1px solid #e3c96b; border-radius: 10px; padding: 10px 12px; color: #3b3210; }
+  .maps { display: flex; gap: 10px; margin: 8px 0 0; }
+  .maps figure { margin: 0; flex: 1; }
+  .maps img { width: 100%; height: auto; border: 1px solid var(--panel-line); border-radius: 8px; background: #888; display: block; }
+  .maps figcaption { font-size: 12px; color: var(--ink-soft); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+  @media (forced-colors: active) {
+    .glass, .glass[data-glass-tier] { background: Canvas; color: CanvasText; border: 1px solid CanvasText; box-shadow: none; }
+    .switch { border: 1px solid ButtonText; }
+    .switch[aria-checked="true"] { background: Highlight; }
+    :focus-visible { outline-color: Highlight; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#controls">Skip to controls</a>
+<main class="layout">
+  <section class="stage" aria-label="Preview of glass components over a busy backdrop">
+    <div class="backdrop" id="backdrop" aria-hidden="true">
+      <p class="headline">Refract <span>light</span> bend</p>
+      <div class="stripes"></div>
+      <div class="stripes v"></div>
+      <div class="checker"></div>
+      <p class="prose">Glass that bends light should still let people read. These lines sit behind the components on purpose: if they distract from the text on the glass, raise the tint or the blur until the card reads cleanly.</p>
+      <p class="prose two">Slide the backdrop offset to move content under the rim and watch how the bezel compresses and stretches what passes beneath it.</p>
+    </div>
+
+    <div class="glass-layer">
+      <div class="glass toolbar" role="group" aria-label="Text formatting" data-glass='{"bezelWidth":20,"thickness":30}'>
+        <button type="button" aria-pressed="true">Bold</button>
+        <button type="button" aria-pressed="false">Italic</button>
+        <button type="button" aria-pressed="false">Underline</button>
+        <button type="button" aria-pressed="false">Link</button>
+      </div>
+
+      <article class="glass card" id="card" aria-labelledby="card-title">
+        <p class="meta">Saturday, 10:30</p>
+        <h2 id="card-title">Harbor walk and lunch</h2>
+        <p>Meet at the ferry steps. Bring a light jacket; the wind picks up after noon.</p>
+        <button type="button" class="btn">View route</button>
+      </article>
+
+      <div class="row">
+        <button type="button" class="glass pill" id="pill">Continue</button>
+        <div class="glass switch-row" data-glass='{"bezelWidth":18,"thickness":26}'>
+          <span id="focus-label">Focus mode</span>
+          <button type="button" class="switch" role="switch" aria-checked="false" aria-labelledby="focus-label" id="switch">
+            <span class="glass knob" data-glass='{"bezelWidth":12,"thickness":18,"specularIntensity":0.9,"blur":0,"frostBlur":0,"warn":false}'></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="panel" id="controls" aria-labelledby="panel-title" tabindex="-1">
+    <h1 id="panel-title">Glass Lab</h1>
+    <p>Tune the refraction engine in <code>liquid-glass.js</code>. Every control applies to all components; the readout follows the card.</p>
+
+    <h2>Tier</h2>
+    <p class="status" role="status" id="tier-status">Tier: measuring</p>
+    <div class="ctl">
+      <label for="tier">Tier override</label>
+      <select id="tier">
+        <option value="auto">Automatic</option>
+        <option value="refract">Refract</option>
+        <option value="frost">Frost</option>
+        <option value="solid">Solid</option>
+      </select>
+      <span class="hint">An override can lower the tier but never raise it. Reduced transparency, more contrast and forced colors always win.</span>
+    </div>
+
+    <h2>Surface</h2>
+    <div class="ctl">
+      <label for="profile">Bezel profile</label>
+      <select id="profile">
+        <option value="convexCircle">Convex circle</option>
+        <option value="convexSquircle">Convex squircle</option>
+        <option value="concave">Concave</option>
+        <option value="lip">Lip</option>
+      </select>
+    </div>
+    <div class="ctl">
+      <label for="shape">Corner shape (map only)</label>
+      <select id="shape">
+        <option value="rounded">Rounded (matches border-radius)</option>
+        <option value="squircle">Squircle</option>
+      </select>
+    </div>
+    <div id="ranges"></div>
+
+    <h2>Options</h2>
+    <label class="check"><input type="checkbox" id="solidSurfaces"> Solid surfaces (sets data-glass-surfaces="solid" on the page)</label>
+    <label class="check"><input type="checkbox" id="foldGuard" checked> Fold guard (keep the rim unfolded)</label>
+    <label class="check"><input type="checkbox" id="elastic"> Pointer elasticity (off when reduced motion is on)</label>
+
+    <h2>Readout (card)</h2>
+    <dl class="readout" id="readout"></dl>
+    <div class="maps" id="maps" hidden>
+      <figure><img id="map-img" alt="Displacement map of the card: red encodes horizontal offset, green vertical, gray is neutral"><figcaption>Displacement map</figcaption></figure>
+      <figure><img id="spec-img" alt="Specular rim map of the card"><figcaption>Specular rim</figcaption></figure>
+    </div>
+
+    <h2>Worst-case contrast</h2>
+    <p class="note" id="contrast-note">Calculating.</p>
+  </aside>
+</main>
+
+<script type="module">
+import { createGlass, capabilities } from './liquid-glass.js';
+
+const RANGES = [
+  { id: 'bezelWidth', label: 'Bezel width', min: 4, max: 60, step: 1, value: 28, unit: 'px' },
+  { id: 'thickness', label: 'Glass thickness', min: 0, max: 100, step: 1, value: 40, unit: 'px' },
+  { id: 'ior', label: 'Index of refraction', min: 1, max: 2.4, step: 0.01, value: 1.5, unit: '' },
+  { id: 'strength', label: 'Strength', min: 0, max: 2, step: 0.05, value: 1, unit: 'x' },
+  { id: 'chromaticAberration', label: 'Chromatic aberration', min: 0, max: 0.5, step: 0.01, value: 0, unit: '' },
+  { id: 'blur', label: 'Blur (refract tier)', min: 0, max: 12, step: 0.5, value: 3, unit: 'px' },
+  { id: 'frostBlur', label: 'Blur (frost tier)', min: 0, max: 30, step: 1, value: 14, unit: 'px' },
+  { id: 'saturation', label: 'Saturation', min: 0.5, max: 2.5, step: 0.05, value: 1.5, unit: 'x' },
+  { id: 'specularIntensity', label: 'Rim light', min: 0, max: 1, step: 0.05, value: 0.7, unit: '' },
+  { id: 'lightAngle', label: 'Light angle', min: 0, max: 360, step: 5, value: 135, unit: 'deg' },
+  { id: 'rimWidth', label: 'Rim width', min: 1, max: 10, step: 0.5, value: 3, unit: 'px' },
+  { id: 'tint', label: 'Tint opacity', min: 0, max: 0.95, step: 0.01, value: 0.6, unit: '', css: true },
+  { id: 'offset', label: 'Backdrop offset', min: 0, max: 400, step: 2, value: 0, unit: 'px', css: true },
+];
+
+const params = new URLSearchParams(location.search);
+const shared = {};
+const host = document.getElementById('ranges');
+for (const r of RANGES) {
+  const fromUrl = params.has(r.id) ? Number(params.get(r.id)) : NaN;
+  const value = Number.isFinite(fromUrl) ? Math.min(r.max, Math.max(r.min, fromUrl)) : r.value;
+  const wrap = document.createElement('div');
+  wrap.className = 'ctl';
+  wrap.innerHTML =
+    `<label for="${r.id}">${r.label}</label>` +
+    `<output id="${r.id}-out" for="${r.id}"></output>` +
+    `<input type="range" id="${r.id}" min="${r.min}" max="${r.max}" step="${r.step}" value="${value}">`;
+  host.appendChild(wrap);
+  if (!r.css) shared[r.id] = value;
+}
+for (const id of ['tier', 'profile', 'shape']) {
+  const el = document.getElementById(id);
+  if (params.has(id) && [...el.options].some((o) => o.value === params.get(id))) el.value = params.get(id);
+  shared[id] = el.value;
+}
+shared.foldGuard = params.get('foldGuard') !== '0';
+document.getElementById('foldGuard').checked = shared.foldGuard;
+
+const fmtValue = (r, v) => {
+  const n = Number(v);
+  const s = r.step < 0.1 ? n.toFixed(2) : r.step < 1 ? n.toFixed(1) : String(n);
+  return r.unit ? `${s} ${r.unit}` : s;
+};
+
+// ---------- Backdrop shapes (seeded, so screenshots are stable) ----------
+function rng(seed) {
+  return () => {
+    seed |= 0; seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const PALETTE = ['#14103a', '#ffffff', '#ff4fa3', '#ffd84d', '#22d3ee', '#3fd17f', '#2b8cff', '#7b4dff', '#ff6a3d', '#111111'];
+const backdrop = document.getElementById('backdrop');
+const rand = rng(7);
+for (let i = 0; i < 46; i++) {
+  const s = document.createElement('div');
+  s.className = 'shape';
+  const size = 18 + Math.round(rand() * 70);
+  const kind = Math.floor(rand() * 4);
+  const color = PALETTE[Math.floor(rand() * PALETTE.length)];
+  Object.assign(s.style, {
+    left: `${Math.round(rand() * 1500)}px`,
+    top: `${Math.round(rand() * 640)}px`,
+    width: `${size}px`,
+    height: `${size}px`,
+    background: kind === 2 ? 'transparent' : color,
+    border: kind === 2 ? `${Math.max(4, size / 7)}px solid ${color}` : '0',
+    borderRadius: kind === 0 || kind === 2 ? '50%' : kind === 1 ? '22%' : '0',
+    clipPath: kind === 3 ? 'polygon(50% 0, 100% 100%, 0 100%)' : 'none',
+    transform: `rotate(${Math.round(rand() * 90)}deg)`,
+  });
+  backdrop.appendChild(s);
+}
+
+// ---------- Glass instances ----------
+const readout = document.getElementById('readout');
+const tierStatus = document.getElementById('tier-status');
+const maps = document.getElementById('maps');
+let lastTierText = '';
+
+function showInfo(info) {
+  const text = `Tier: ${info.tier} (${info.reason})`;
+  if (text !== lastTierText) { tierStatus.textContent = text; lastTierText = text; }
+  const rows = [
+    ['Engine', info.engine],
+    ['Size', `${info.width} x ${info.height} CSS px`],
+    ['Map', info.tier === 'refract' ? `${info.mapWidth} x ${info.mapHeight} map px at ${info.pixelRatio}x` : 'not used'],
+  ];
+  if (info.tier === 'refract') {
+    rows.push(
+      ['Max offset', `${info.maxDisplacement.toFixed(2)} px`],
+      ['Filter scale', info.filterScale.toFixed(2)],
+      ['Neutral', `${info.neutral} (bias ${info.neutralBias.toFixed(5)})`],
+      ['Fold guard', info.attenuation < 1 ? `amplitude x${info.attenuation.toFixed(2)}` : 'no reduction'],
+      ['Min Jacobian', Number.isFinite(info.minJacobian) ? info.minJacobian.toFixed(3) : 'n/a'],
+      ['Build', info.cacheHit ? 'cache hit' : `${info.buildMs} ms`],
+    );
+    document.getElementById('map-img').src = info.mapUrl;
+    document.getElementById('spec-img').src = info.specularUrl;
+  }
+  maps.hidden = info.tier !== 'refract';
+  readout.replaceChildren(...rows.flatMap(([k, v]) => {
+    const dt = document.createElement('dt'); dt.textContent = k;
+    const dd = document.createElement('dd'); dd.textContent = v;
+    return [dt, dd];
+  }));
+}
+
+// The knob is glass inside glass (the switch row). It follows the nesting
+// exception in references/design-principles.md: smaller bezel and thickness
+// and no blur of its own, so its data-glass turns the nesting warning off.
+const instances = [];
+for (const el of document.querySelectorAll('.glass')) {
+  let own = {};
+  try { own = JSON.parse(el.dataset.glass || '{}'); } catch { own = {}; }
+  const g = createGlass(el, { ...shared, ...own, onRender: el.id === 'card' ? showInfo : null });
+  instances.push({ g, own });
+}
+const applyShared = () => {
+  for (const { g, own } of instances) g.update({ ...shared, ...scaleOwn(own) });
+};
+// Small components keep their bezel proportional to the shared bezel slider.
+function scaleOwn(own) {
+  const k = shared.bezelWidth / 28;
+  const t = shared.thickness / 40;
+  const out = { ...own };
+  if (own.bezelWidth) out.bezelWidth = own.bezelWidth * k;
+  if (own.thickness) out.thickness = own.thickness * t;
+  return out;
+}
+applyShared();
+
+// ---------- Controls ----------
+const root = document.documentElement;
+function onRange(r, input) {
+  document.getElementById(`${r.id}-out`).textContent = fmtValue(r, input.value);
+  if (r.id === 'tint') { root.style.setProperty('--tint', input.value); updateContrast(); return; }
+  if (r.id === 'offset') { root.style.setProperty('--offset', input.value); return; }
+  shared[r.id] = Number(input.value);
+  applyShared();
+}
+for (const r of RANGES) {
+  const input = document.getElementById(r.id);
+  input.addEventListener('input', () => onRange(r, input));
+  onRange(r, input);
+}
+for (const id of ['tier', 'profile', 'shape']) {
+  document.getElementById(id).addEventListener('change', (e) => {
+    shared[id] = e.target.value;
+    applyShared();
+    updateContrast();
+  });
+}
+document.getElementById('foldGuard').addEventListener('change', (e) => { shared.foldGuard = e.target.checked; applyShared(); });
+document.getElementById('elastic').addEventListener('change', (e) => { shared.elasticity = e.target.checked ? 1 : 0; applyShared(); });
+
+// Page-level solid surfaces setting. The engine watches the attribute on
+// <html> and switches every surface to the solid tier while it is set.
+const solidBox = document.getElementById('solidSurfaces');
+const setSolid = (on) => {
+  if (on) root.setAttribute('data-glass-surfaces', 'solid');
+  else root.removeAttribute('data-glass-surfaces');
+};
+solidBox.checked = params.get('surfaces') === 'solid' || root.getAttribute('data-glass-surfaces') === 'solid';
+setSolid(solidBox.checked);
+solidBox.addEventListener('change', () => setSolid(solidBox.checked));
+new MutationObserver(() => { solidBox.checked = root.getAttribute('data-glass-surfaces') === 'solid'; })
+  .observe(root, { attributes: true, attributeFilter: ['data-glass-surfaces'] });
+
+for (const b of document.querySelectorAll('.toolbar button')) {
+  b.addEventListener('click', () => b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'));
+}
+const sw = document.getElementById('switch');
+sw.addEventListener('click', () => sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true'));
+
+// ---------- Worst-case contrast estimate ----------
+// Composites the card tint over every backdrop color (flat, no blur) and
+// reports the lowest WCAG contrast ratio for the card's body text. This is
+// an estimate: it ignores refraction, blur and anti-aliasing, so confirm
+// with a pixel sampler on the real render.
+function hex(h) { return [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)); }
+function lin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }
+function lum([r, g, b]) { return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b); }
+function ratio(a, b) { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); }
+function updateContrast() {
+  const card = document.getElementById('card');
+  const tier = card.getAttribute('data-glass-tier') || 'refract';
+  const text = hex('#2b3140'); // body text color on the card (the lighter of the two inks)
+  const alpha = tier === 'solid' ? 1 : Math.min(1, Number(getComputedStyle(root).getPropertyValue('--tint')) + (tier === 'frost' ? 0.08 : 0));
+  const base = tier === 'solid' ? hex('#eef0f5') : [255, 255, 255];
+  let worst = { r: Infinity, c: '' };
+  for (const c of PALETTE) {
+    const bg = hex(c).map((v, i) => Math.round(alpha * base[i] + (1 - alpha) * v));
+    const r = ratio(text, bg);
+    if (r < worst.r) worst = { r, c };
+  }
+  const pass = worst.r >= 4.5;
+  document.getElementById('contrast-note').textContent =
+    `Estimated worst case for the card body text: ${worst.r.toFixed(2)}:1 over backdrop color ${worst.c} ` +
+    `(${pass ? 'meets' : 'fails'} the 4.5:1 minimum for body text). Estimate only: it composites the tint over each ` +
+    'flat backdrop color and ignores refraction and blur, which can move a darker or brighter pixel under a glyph. ' +
+    'Confirm by sampling real rendered pixels behind the text.';
+}
+new MutationObserver(updateContrast).observe(document.getElementById('card'), { attributes: true, attributeFilter: ['data-glass-tier'] });
+updateContrast();
+
+window.__glassLab = { instances, capabilities };
+</script>
+</body>
+</html>

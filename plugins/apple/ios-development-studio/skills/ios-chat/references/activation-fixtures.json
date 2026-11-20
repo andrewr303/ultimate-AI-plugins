@@ -1,0 +1,22 @@
+[
+  {
+    "prompt": "Integrate ExyteChat in the existing native chat screen",
+    "classification": "positive",
+    "expected_behavior": "Inspect resolved package and backend boundary; do not treat send closure as transport"
+  },
+  {
+    "prompt": "Older chat pages duplicate messages and jump the scroll position",
+    "classification": "positive",
+    "expected_behavior": "Inspect cursor, stable identity, event order and UI grouping"
+  },
+  {
+    "prompt": "Build a chat screen in Expo Router",
+    "classification": "negative",
+    "expected_behavior": "Route to ios-expo; do not add ExyteChat"
+  },
+  {
+    "prompt": "Create an image of a chat app icon",
+    "classification": "negative",
+    "expected_behavior": "Do not activate chat implementation"
+  }
+]

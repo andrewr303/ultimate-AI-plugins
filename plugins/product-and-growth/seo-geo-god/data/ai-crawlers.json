@@ -1,0 +1,1239 @@
+{
+  "schema": "seo-geo-god.ai-crawlers/1",
+  "as_of": "2026-11-01",
+  "note": "Robots.txt tokens for AI crawlers, user-triggered fetchers, agents and control tokens, seeded from vendor documentation fetched on 2026-11-01. Entries labelled 3P come from third-party sources only and need verification. User-agent strings are claims: verify bots with the published IP lists, reverse DNS or signatures. block_rule is the finding SEO-GEO-god emits when a group blocks the whole site for that token.",
+  "recheck_by": [
+    "2026-12-15",
+    "2027-02-01",
+    "2027-03-01",
+    "2027-09-30"
+  ],
+  "labels": {
+    "V": "vendor primary source fetched 2026-11-01",
+    "S": "standards body primary source",
+    "SR": "seen only in search-result snippets (needs verification)",
+    "3P": "third-party or secondary source only (needs verification)"
+  },
+  "classes": {
+    "TRAIN": "Collects content for model training or fine-tuning; blocking it affects training use, not search inclusion.",
+    "INDEX": "Builds a search or answer index that an AI product cites; blocking it removes or reduces the site there.",
+    "USER": "Fetches a page because a person asked an assistant to; some vendors say robots.txt may not apply.",
+    "AGENT": "Browser agent that navigates and acts for a person; generally not bound by robots.txt.",
+    "ADS": "Reviews ad landing pages.",
+    "PREVIEW": "Fetches link previews for shared URLs.",
+    "MIXED": "One crawler serves classic search and other products, which can include AI features.",
+    "CONTROL": "robots.txt token with no crawler of its own (training controls and legacy names).",
+    "CORPUS": "Builds an open web corpus that third parties reuse, including for AI training."
+  },
+  "crawlers": [
+    {
+      "token": "GPTBot",
+      "vendor": "OpenAI",
+      "class": "TRAIN",
+      "ua_substring": "GPTBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": true,
+      "ip_list_url": "https://openai.com/gptbot.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://developers.openai.com/api/docs/bots",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-01"
+      ],
+      "notes": "UA token GPTBot/1.4. Collects content for training OpenAI models. OpenAI crawler settings are independent of each other; robots.txt changes take about 24 hours."
+    },
+    {
+      "token": "OAI-SearchBot",
+      "vendor": "OpenAI",
+      "class": "INDEX",
+      "ua_substring": "OAI-SearchBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "ChatGPT search answers"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://openai.com/searchbot.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://developers.openai.com/api/docs/bots",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-01",
+        "F-AI-02"
+      ],
+      "notes": "UA token OAI-SearchBot/1.4. Sites that disallow it are not shown in ChatGPT search answers but can still appear as navigational links; about 24 hours to take effect. OpenAI notes that allowing both OAI-SearchBot and GPTBot lets it reuse one crawl for both purposes."
+    },
+    {
+      "token": "ChatGPT-User",
+      "vendor": "OpenAI",
+      "class": "USER",
+      "ua_substring": "ChatGPT-User",
+      "honors_robots": "partial",
+      "visibility_surfaces": [
+        "ChatGPT visits for users, custom GPTs and GPT Actions"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://openai.com/chatgpt-user.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developers.openai.com/api/docs/bots",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-01"
+      ],
+      "notes": "UA token ChatGPT-User/1.0. OpenAI says robots.txt rules may not apply to these user-initiated visits; the token does not decide ChatGPT search eligibility."
+    },
+    {
+      "token": "OAI-AdsBot",
+      "vendor": "OpenAI",
+      "class": "ADS",
+      "ua_substring": "OAI-AdsBot",
+      "honors_robots": "unknown",
+      "visibility_surfaces": [],
+      "training": false,
+      "ip_list_url": "https://openai.com/adsbot.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": null,
+      "source_url": "https://developers.openai.com/api/docs/bots",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-01"
+      ],
+      "notes": "UA token OAI-AdsBot/1.0. Reviews ad landing pages; not used for training; robots.txt behavior not stated."
+    },
+    {
+      "token": "ClaudeBot",
+      "vendor": "Anthropic",
+      "class": "TRAIN",
+      "ua_substring": "ClaudeBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": true,
+      "ip_list_url": "https://claude.com/crawling/bots.json",
+      "rdns": null,
+      "crawl_delay": "honored",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-04-07",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-04"
+      ],
+      "notes": "Collects training data. Anthropic honors robots.txt and the non-standard Crawl-delay field."
+    },
+    {
+      "token": "Claude-User",
+      "vendor": "Anthropic",
+      "class": "USER",
+      "ua_substring": "Claude-User",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Claude answers that fetch a page on a user's request"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://claude.com/crawling/bots.json",
+      "rdns": null,
+      "crawl_delay": "honored",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-04-07",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-04"
+      ],
+      "notes": "Blocking it stops Claude from retrieving pages for user queries."
+    },
+    {
+      "token": "Claude-SearchBot",
+      "vendor": "Anthropic",
+      "class": "INDEX",
+      "ua_substring": "Claude-SearchBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Claude search results"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://claude.com/crawling/bots.json",
+      "rdns": null,
+      "crawl_delay": "honored",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-04-07",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-04"
+      ],
+      "notes": "Indexes pages to improve search results in Claude."
+    },
+    {
+      "token": "PerplexityBot",
+      "vendor": "Perplexity",
+      "class": "INDEX",
+      "ua_substring": "PerplexityBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Perplexity search answers"
+      ],
+      "training": false,
+      "ip_list_url": "https://www.perplexity.ai/perplexitybot.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://docs.perplexity.ai/guides/bots",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-05"
+      ],
+      "notes": "Robots compliance is implied: the vendor page recommends allowing it. Not used for foundation-model training. Changes take up to 24 hours."
+    },
+    {
+      "token": "Perplexity-User",
+      "vendor": "Perplexity",
+      "class": "USER",
+      "ua_substring": "Perplexity-User",
+      "honors_robots": "no",
+      "visibility_surfaces": [
+        "Perplexity answers that fetch a page on a user's request"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://www.perplexity.ai/perplexity-user.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://docs.perplexity.ai/guides/bots",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-05"
+      ],
+      "notes": "The vendor says it generally ignores robots.txt because a user requested the fetch."
+    },
+    {
+      "token": "Googlebot",
+      "vendor": "Google",
+      "class": "MIXED",
+      "ua_substring": "Googlebot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Google Search",
+        "AI Overviews",
+        "AI Mode"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "ignored",
+      "fallback": null,
+      "block_rule": "AI004",
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-30",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-T-18",
+        "F-AI-09",
+        "F-AI-10",
+        "F-AI-11"
+      ],
+      "notes": "Crawls for Google Search, including the index that AI Overviews and AI Mode draw on. Limit AI feature use with nosnippet, max-snippet or data-nosnippet, or site-wide with Search Console Settings > Search generative AI. Gemini training and grounding are governed by Google-Extended. Verify with Google's published IP files or reverse DNS."
+    },
+    {
+      "token": "Google-Extended",
+      "vendor": "Google",
+      "class": "CONTROL",
+      "ua_substring": null,
+      "honors_robots": "token-only",
+      "visibility_surfaces": [
+        "Gemini Apps grounding",
+        "Vertex AI Grounding with Google Search"
+      ],
+      "training": true,
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-30",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-06",
+        "F-AI-07"
+      ],
+      "notes": "Control token with no crawler of its own; it governs Gemini model training and grounding. It does not affect inclusion or ranking in Google Search, so it does not control AI Overviews or AI Mode. Google plans (early 2027) to treat a __usage_ai-training disallow as a Google-Extended disallow when the site sets no Google-Extended group."
+    },
+    {
+      "token": "GoogleOther",
+      "vendor": "Google",
+      "class": "MIXED",
+      "ua_substring": "GoogleOther",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "ignored",
+      "fallback": null,
+      "block_rule": null,
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-30",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Generic crawler for Google product teams and research; no Search or product effect."
+    },
+    {
+      "token": "GoogleOther-Image",
+      "vendor": "Google",
+      "class": "MIXED",
+      "ua_substring": "GoogleOther-Image",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "ignored",
+      "fallback": null,
+      "block_rule": null,
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-30",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Image variant of GoogleOther; no Search effect."
+    },
+    {
+      "token": "GoogleOther-Video",
+      "vendor": "Google",
+      "class": "MIXED",
+      "ua_substring": "GoogleOther-Video",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "ignored",
+      "fallback": null,
+      "block_rule": null,
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-30",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Video variant of GoogleOther; no Search effect."
+    },
+    {
+      "token": "Google-CloudVertexBot",
+      "vendor": "Google",
+      "class": "INDEX",
+      "ua_substring": "Google-CloudVertexBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "ignored",
+      "fallback": null,
+      "block_rule": null,
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-30",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Crawls that a site owner requests for Vertex AI Agents; no Search effect."
+    },
+    {
+      "token": "Google-Agent",
+      "vendor": "Google",
+      "class": "AGENT",
+      "ua_substring": "Google-Agent",
+      "honors_robots": "no",
+      "visibility_surfaces": [
+        "Google agents acting on a user's request"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-agent",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-08-19",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-08"
+      ],
+      "notes": "Agents on Google infrastructure that browse and act on a user's request; generally ignores robots.txt. IP list file user-triggered-agents.json. Web Bot Auth experiment with identity https://agent.bot.goog."
+    },
+    {
+      "token": "Google-GeminiNotebook",
+      "vendor": "Google",
+      "class": "USER",
+      "ua_substring": "Google-GeminiNotebook",
+      "honors_robots": "no",
+      "visibility_surfaces": [
+        "Sources that a user adds to a Google notebook"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developers.google.com/crawling/",
+      "source_url_note": "Google user-triggered fetchers page (updated 2026-08-19); research did not record its exact URL; confirm it under developers.google.com/crawling/.",
+      "source_label": "V",
+      "page_date": "2026-08-19",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "User-triggered fetcher; generally ignores robots.txt. Replaced Google-NotebookLM."
+    },
+    {
+      "token": "Google-NotebookLM",
+      "vendor": "Google",
+      "class": "USER",
+      "ua_substring": "Google-NotebookLM",
+      "honors_robots": "no",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developers.google.com/crawling/",
+      "source_url_note": "Google user-triggered fetchers page (updated 2026-08-19); research did not record its exact URL; confirm it under developers.google.com/crawling/.",
+      "source_label": "V",
+      "page_date": "2026-08-19",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Former name of Google-GeminiNotebook (replaced 2026-07-16; supported until August 2026)."
+    },
+    {
+      "token": "Google-Pinpoint",
+      "vendor": "Google",
+      "class": "USER",
+      "ua_substring": "Google-Pinpoint",
+      "honors_robots": "no",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developers.google.com/crawling/",
+      "source_url_note": "Google user-triggered fetchers page (updated 2026-08-19); research did not record its exact URL; confirm it under developers.google.com/crawling/.",
+      "source_label": "V",
+      "page_date": "2026-08-19",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Google user-triggered fetcher; generally ignores robots.txt."
+    },
+    {
+      "token": "Google-Read-Aloud",
+      "vendor": "Google",
+      "class": "USER",
+      "ua_substring": "Google-Read-Aloud",
+      "honors_robots": "no",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://developers.google.com/crawling/ipranges/",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developers.google.com/crawling/",
+      "source_url_note": "Google user-triggered fetchers page (updated 2026-08-19); research did not record its exact URL; confirm it under developers.google.com/crawling/.",
+      "source_label": "V",
+      "page_date": "2026-08-19",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Google user-triggered fetcher; generally ignores robots.txt."
+    },
+    {
+      "token": "Applebot",
+      "vendor": "Apple",
+      "class": "MIXED",
+      "ua_substring": "Applebot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Spotlight",
+        "Siri",
+        "Safari search"
+      ],
+      "training": true,
+      "ip_list_url": null,
+      "rdns": "*.applebot.apple.com",
+      "crawl_delay": "ignored",
+      "fallback": "Googlebot",
+      "block_rule": "AI001",
+      "source_url": "https://support.apple.com/en-us/119829",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-09-04",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-35"
+      ],
+      "notes": "Crawls for Apple search features; its data may also train Apple models unless Applebot-Extended is disallowed. Follows Googlebot rules when no Applebot group exists. Ignores Crawl-delay. An IP JSON is published at search.developer.apple.com (path to confirm)."
+    },
+    {
+      "token": "Applebot-Extended",
+      "vendor": "Apple",
+      "class": "CONTROL",
+      "ua_substring": null,
+      "honors_robots": "token-only",
+      "visibility_surfaces": [],
+      "training": true,
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://support.apple.com/en-us/119829",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-09-04",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-35"
+      ],
+      "notes": "Training-use control for content Applebot fetched; it does not crawl."
+    },
+    {
+      "token": "bingbot",
+      "vendor": "Microsoft",
+      "class": "MIXED",
+      "ua_substring": "bingbot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Bing search",
+        "Copilot grounding"
+      ],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI004",
+      "source_url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-30",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-19"
+      ],
+      "notes": "Page-level AI preferences from 2027-02-01: Bingbot ai-training:disallow, ai-grounding:disallow or ai-grounding:disallowextended (meta tag or X-Robots-Tag); training also via __usage_ai-training; no robots.txt grounding control. Bing's bot verification method was not re-checked on 2026-11-01."
+    },
+    {
+      "token": "meta-externalagent",
+      "vendor": "Meta",
+      "class": "TRAIN",
+      "ua_substring": "meta-externalagent",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": true,
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://developers.facebook.com/",
+      "source_url_note": "Research recorded the Meta web crawlers documentation on developers.facebook.com without its exact path; confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-36"
+      ],
+      "notes": "Training or product indexing; can be disallowed. No IP ranges published."
+    },
+    {
+      "token": "meta-webindexer",
+      "vendor": "Meta",
+      "class": "INDEX",
+      "ua_substring": "meta-webindexer",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Meta AI search citations"
+      ],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://developers.facebook.com/",
+      "source_url_note": "Research recorded the Meta web crawlers documentation on developers.facebook.com without its exact path; confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-36"
+      ],
+      "notes": "No IP ranges published."
+    },
+    {
+      "token": "meta-externalfetcher",
+      "vendor": "Meta",
+      "class": "USER",
+      "ua_substring": "meta-externalfetcher",
+      "honors_robots": "partial",
+      "visibility_surfaces": [
+        "Meta AI fetches for a user"
+      ],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developers.facebook.com/",
+      "source_url_note": "Research recorded the Meta web crawlers documentation on developers.facebook.com without its exact path; confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-36"
+      ],
+      "notes": "May bypass robots.txt. No IP ranges published."
+    },
+    {
+      "token": "meta-externalads",
+      "vendor": "Meta",
+      "class": "ADS",
+      "ua_substring": "meta-externalads",
+      "honors_robots": "partial",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": null,
+      "source_url": "https://developers.facebook.com/",
+      "source_url_note": "Research recorded the Meta web crawlers documentation on developers.facebook.com without its exact path; confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Ad review; robots.txt honored only partially. No IP ranges published."
+    },
+    {
+      "token": "facebookexternalhit",
+      "vendor": "Meta",
+      "class": "PREVIEW",
+      "ua_substring": "facebookexternalhit",
+      "honors_robots": "partial",
+      "visibility_surfaces": [
+        "Link previews in Meta apps"
+      ],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": null,
+      "source_url": "https://developers.facebook.com/",
+      "source_url_note": "Research recorded the Meta web crawlers documentation on developers.facebook.com without its exact path; confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [],
+      "notes": "Fetches link previews; may bypass robots.txt for integrity checks. No IP ranges published."
+    },
+    {
+      "token": "Amazonbot",
+      "vendor": "Amazon",
+      "class": "MIXED",
+      "ua_substring": "Amazonbot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": true,
+      "ip_list_url": "https://developer.amazon.com/amazonbot/ip-addresses/",
+      "rdns": null,
+      "crawl_delay": "ignored",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://developer.amazon.com/amazonbot",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-26",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-37"
+      ],
+      "notes": "Used for Amazon products and services and may train Amazon AI models; Amzn-SearchBot is the separate search crawler. Honors a noarchive robots meta tag as 'no model training'. Caches robots.txt for up to 30 days."
+    },
+    {
+      "token": "Amzn-SearchBot",
+      "vendor": "Amazon",
+      "class": "INDEX",
+      "ua_substring": "Amzn-SearchBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Alexa and other Amazon search experiences"
+      ],
+      "training": false,
+      "ip_list_url": "https://developer.amazon.com/amazonbot/searchbot-ip-addresses/",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://developer.amazon.com/amazonbot",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-26",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-37"
+      ],
+      "notes": "Not used for training. Follows other search crawlers' rules when it has no group of its own (which ones is not specified)."
+    },
+    {
+      "token": "Amzn-User",
+      "vendor": "Amazon",
+      "class": "USER",
+      "ua_substring": "Amzn-User",
+      "honors_robots": "partial",
+      "visibility_surfaces": [
+        "Amazon assistant fetches for a user"
+      ],
+      "training": false,
+      "ip_list_url": "https://developer.amazon.com/amazonbot/live-ip-addresses/",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI003",
+      "source_url": "https://developer.amazon.com/amazonbot",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": "2026-10-26",
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-37"
+      ],
+      "notes": "User-triggered; may not follow all directives; not used for training."
+    },
+    {
+      "token": "DuckAssistBot",
+      "vendor": "DuckDuckGo",
+      "class": "USER",
+      "ua_substring": "DuckAssistBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "DuckDuckGo AI answers (DuckAssist)"
+      ],
+      "training": false,
+      "ip_list_url": "https://duckduckgo.com/duckassistbot.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://duckduckgo.com/",
+      "source_url_note": "Research recorded the DuckDuckGo help page without its exact path; confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-38"
+      ],
+      "notes": "UA token DuckAssistBot/1.2. Real-time fetches for AI answers; not used to train AI models; opting out does not affect DuckDuckGo rankings; changes take about 72 hours."
+    },
+    {
+      "token": "MistralAI-User",
+      "vendor": "Mistral",
+      "class": "USER",
+      "ua_substring": "MistralAI-User",
+      "honors_robots": "yes",
+      "visibility_surfaces": [
+        "Mistral Vibe fetches for a user"
+      ],
+      "training": "unknown",
+      "ip_list_url": "https://mistral.ai/mistralai-user-ips.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://docs.mistral.ai/robots",
+      "source_url_note": "Path as recorded in research (docs.mistral.ai/robots); confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-39"
+      ],
+      "notes": "robots.txt governs these fetches."
+    },
+    {
+      "token": "MistralAI-Index",
+      "vendor": "Mistral",
+      "class": "INDEX",
+      "ua_substring": "MistralAI-Index",
+      "honors_robots": "unknown",
+      "visibility_surfaces": [
+        "Mistral AI answers"
+      ],
+      "training": false,
+      "ip_list_url": "https://mistral.ai/mistralai-index-ips.json",
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI001",
+      "source_url": "https://docs.mistral.ai/robots",
+      "source_url_note": "Path as recorded in research (docs.mistral.ai/robots); confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-39"
+      ],
+      "notes": "Index for answers; not used for training; robots.txt behavior not described."
+    },
+    {
+      "token": "MistralAI-Training",
+      "vendor": "Mistral",
+      "class": "TRAIN",
+      "ua_substring": "MistralAI-Training",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": true,
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://docs.mistral.ai/robots",
+      "source_url_note": "Path as recorded in research (docs.mistral.ai/robots); confirm the page URL.",
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-39"
+      ],
+      "notes": "Can be disallowed. IP ranges not listed."
+    },
+    {
+      "token": "CCBot",
+      "vendor": "Common Crawl",
+      "class": "CORPUS",
+      "ua_substring": "CCBot",
+      "honors_robots": "yes",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": "https://index.commoncrawl.org/ccbot.json",
+      "rdns": "*.crawl.commoncrawl.org",
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://commoncrawl.org/ccbot",
+      "source_url_note": null,
+      "source_label": "V",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": false,
+      "facts": [
+        "F-AI-40"
+      ],
+      "notes": "UA token CCBot/2.0. Builds an open web corpus that third parties widely reuse for AI training (the vendor page itself does not say so). Block via robots.txt."
+    },
+    {
+      "token": "Bytespider",
+      "vendor": "ByteDance",
+      "class": "TRAIN",
+      "ua_substring": "Bytespider",
+      "honors_robots": "unknown",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/",
+      "source_url_note": "No ByteDance documentation found; the URL is Cloudflare's managed robots.txt page, which lists the token among blocked AI crawlers.",
+      "source_label": "3P",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": true,
+      "facts": [],
+      "notes": "Third-party sources describe training and search for ByteDance products; robots.txt compliance is disputed."
+    },
+    {
+      "token": "cohere-ai",
+      "vendor": "Cohere",
+      "class": "TRAIN",
+      "ua_substring": "cohere-ai",
+      "honors_robots": "unknown",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": null,
+      "source_url_note": "No vendor documentation found; third-party mentions only (2026-11-01).",
+      "source_label": "3P",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": true,
+      "facts": [],
+      "notes": "Purpose and robots.txt behavior unclear; third-party sources conflict."
+    },
+    {
+      "token": "cohere-training-data-crawler",
+      "vendor": "Cohere",
+      "class": "TRAIN",
+      "ua_substring": "cohere-training-data-crawler",
+      "honors_robots": "unknown",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": null,
+      "source_url_note": "No vendor documentation found; third-party mentions only (2026-11-01).",
+      "source_label": "3P",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": true,
+      "facts": [],
+      "notes": "Purpose and robots.txt behavior unclear; third-party sources conflict."
+    },
+    {
+      "token": "anthropic-ai",
+      "vendor": "Anthropic",
+      "class": "CONTROL",
+      "ua_substring": null,
+      "honors_robots": "unknown",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "source_url_note": "Not listed on the vendor page, which documents ClaudeBot, Claude-User and Claude-SearchBot.",
+      "source_label": "3P",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": true,
+      "facts": [],
+      "notes": "legacy token (3P); keep only if already present"
+    },
+    {
+      "token": "Claude-Web",
+      "vendor": "Anthropic",
+      "class": "CONTROL",
+      "ua_substring": null,
+      "honors_robots": "unknown",
+      "visibility_surfaces": [],
+      "training": "unknown",
+      "ip_list_url": null,
+      "rdns": null,
+      "crawl_delay": "unknown",
+      "fallback": null,
+      "block_rule": "AI002",
+      "source_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "source_url_note": "Not listed on the vendor page, which documents ClaudeBot, Claude-User and Claude-SearchBot.",
+      "source_label": "3P",
+      "page_date": null,
+      "verified_on": "2026-11-01",
+      "needs_verification": true,
+      "facts": [],
+      "notes": "legacy token (3P); keep only if already present"
+    }
+  ],
+  "signed_agents": [
+    {
+      "name": "ChatGPT agent",
+      "vendor": "OpenAI",
+      "class": "AGENT",
+      "robots_token": null,
+      "verification": "Signs requests with HTTP Message Signatures (RFC 9421) using Signature-Agent \"https://chatgpt.com\"; keys at chatgpt.com/.well-known/http-message-signatures-directory",
+      "source_url": null,
+      "source_label": "3P",
+      "verified_on": "2026-11-01",
+      "needs_verification": true,
+      "notes": "Third-party reports only; not listed on OpenAI's bots page. No robots.txt token."
+    }
+  ],
+  "policy_tokens": [
+    {
+      "token": "__usage_ai-training",
+      "status": "IETF individual draft (draft-kelley-aipref-training-preference-signal-00)",
+      "star_matches": false,
+      "meaning": {
+        "disallow": "preference against use for AI training",
+        "allow": "preference in favor of use for AI training",
+        "absent": "no preference expressed"
+      },
+      "notes": "A preference, not access control and not a crawling directive. User-agent: * never matches it. RFC 9309 longest-match applies. Crawler-specific groups stay independent; keep vendor tokens such as GPTBot, ClaudeBot and Google-Extended alongside it.",
+      "honored_by": [
+        {
+          "vendor": "Anthropic",
+          "from": "implementing (announced 2026-10-30)",
+          "label": "V",
+          "source_url": "https://mailarchive.ietf.org/arch/msg/ai-control/mddjatOxSR0h6GmLRBWlc839c7w"
+        },
+        {
+          "vendor": "Google",
+          "from": "early 2027",
+          "label": "V",
+          "source_url": "https://developers.google.com/search/blog/2026/10/ai-training-control",
+          "notes": "Treated as a Google-Extended disallow when Google-Extended is not explicitly set."
+        },
+        {
+          "vendor": "Microsoft Bing",
+          "from": "2027-02-01",
+          "label": "V",
+          "source_url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/"
+        },
+        {
+          "vendor": "OpenAI",
+          "from": "announced; date unknown",
+          "label": "SR",
+          "source_url": "https://openai.com/index/helping-websites-express-ai-training-preferences/"
+        }
+      ],
+      "source_url": "https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/",
+      "source_label": "S",
+      "verified_on": "2026-11-01",
+      "facts": [
+        "F-AI-17",
+        "F-AI-18",
+        "F-AI-07"
+      ]
+    }
+  ],
+  "content_signals": {
+    "field": "Content-Signal",
+    "keys": [
+      "search",
+      "ai-input",
+      "ai-train"
+    ],
+    "values": [
+      "yes",
+      "no"
+    ],
+    "testing_keys": {
+      "use": [
+        "immediate",
+        "reference",
+        "full"
+      ]
+    },
+    "definitions": {
+      "search": "build a search index and return links or short excerpts (not AI summaries)",
+      "ai-input": "use as real-time input to AI models (retrieval or grounding)",
+      "ai-train": "use for training or fine-tuning AI models",
+      "use": "testing parameter (immediate, reference or full)"
+    },
+    "status": "Cloudflare Content Signals Policy (CC0): a stated preference, not technical enforcement; RFC 9309 parsers ignore the line, and named groups do not inherit it from the * group.",
+    "managed_default": "search=yes, ai-train=no, use=reference",
+    "markdown_for_agents_default": "ai-train=yes, search=yes, ai-input=yes",
+    "source_url": "https://blog.cloudflare.com/content-signals-policy/",
+    "source_label": "V",
+    "verified_on": "2026-11-01",
+    "facts": [
+      "F-AI-22",
+      "F-AI-25"
+    ]
+  },
+  "cloudflare_managed": {
+    "markers": [
+      "BEGIN Cloudflare Managed content",
+      "END Cloudflare Managed Content"
+    ],
+    "marker_source": "3P (marker observed by geo-seo-claude; Cloudflare docs describe the managed file)",
+    "example_disallowed": [
+      "Amazonbot",
+      "Applebot-Extended",
+      "Bytespider",
+      "CCBot",
+      "ClaudeBot",
+      "Google-Extended",
+      "GPTBot",
+      "meta-externalagent"
+    ],
+    "notes": "Edge-injected rules appear only in the live response, not in the repository file. Defaults changed on 2025-07-01 and, for new domains from 2026-09-15, Training and Agent categories are blocked on pages that show ads.",
+    "source_url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/",
+    "source_label": "V",
+    "verified_on": "2026-11-01",
+    "facts": [
+      "F-AI-22",
+      "F-AI-23"
+    ]
+  },
+  "bing_directives": {
+    "meta_name": "Bingbot",
+    "values": [
+      "ai-training:disallow",
+      "ai-grounding:disallow",
+      "ai-grounding:disallowextended"
+    ],
+    "header_example": "X-Robots-Tag: Bingbot: ai-training:disallow",
+    "effective": "2027-02-01",
+    "noarchive_nocache_ai_signals_until": "2027-03-01",
+    "temporary_webmaster_tools_preferences": [
+      "2026-12-15",
+      "2027-09-30"
+    ],
+    "notes": "Training: robots.txt __usage_ai-training or page level; page level overrides robots.txt. Grounding: page level only, no robots.txt form. Both default to allow.",
+    "source_url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/",
+    "source_label": "V",
+    "verified_on": "2026-11-01",
+    "facts": [
+      "F-AI-19"
+    ]
+  },
+  "google_ai_controls": {
+    "page_controls": [
+      "nosnippet",
+      "max-snippet",
+      "data-nosnippet",
+      "noindex"
+    ],
+    "ignored_by_google": [
+      "noarchive",
+      "nocache",
+      "nositelinkssearchbox"
+    ],
+    "site_control": "Search Console > Settings > Search generative AI (Include, Exclude or Inherit)",
+    "site_control_worldwide_since": "2026-08-31",
+    "notes": "Google-Extended governs Gemini training and grounding, not Google Search features.",
+    "source_url": "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag",
+    "source_label": "V",
+    "verified_on": "2026-11-01",
+    "facts": [
+      "F-AI-09",
+      "F-AI-10"
+    ]
+  },
+  "claims": [
+    {
+      "claim": "Pages can be cited in ChatGPT search answers",
+      "check_token": "OAI-SearchBot",
+      "not_token": "GPTBot",
+      "fact": "F-AI-02"
+    },
+    {
+      "claim": "Pages can appear in Google AI Overviews or AI Mode",
+      "check_token": "Googlebot",
+      "also_check": [
+        "nosnippet, max-snippet and data-nosnippet",
+        "Search Console > Settings > Search generative AI"
+      ],
+      "not_token": "Google-Extended",
+      "fact": "F-AI-06"
+    },
+    {
+      "claim": "Pages can be cited in Claude search",
+      "check_token": "Claude-SearchBot",
+      "not_token": "ClaudeBot",
+      "fact": "F-AI-04"
+    },
+    {
+      "claim": "Pages can appear in Apple Siri or Spotlight",
+      "check_token": "Applebot",
+      "not_token": "Applebot-Extended",
+      "fact": "F-AI-35"
+    },
+    {
+      "claim": "Pages can appear in Perplexity answers",
+      "check_token": "PerplexityBot",
+      "not_token": "Perplexity-User",
+      "fact": "F-AI-05",
+      "notes": "Perplexity-User may fetch pages regardless of robots.txt."
+    }
+  ]
+}

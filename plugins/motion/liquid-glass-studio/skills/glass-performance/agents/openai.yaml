@@ -1,0 +1,7 @@
+interface:
+  display_name: Glass Performance
+  short_description: Measure and budget glass
+  default_prompt: Use $glass-performance to measure the cost of these glass surfaces
+    and bring them inside the frame budget.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: Glass Web
+  short_description: Build glass in a web stack
+  default_prompt: Use $glass-web to implement the solid, frost and refract tiers in this project and verify each in a browser.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-workflow",
+  "productRevision": "tandem-4f236886e8ed1dea",
+  "captureJobId": "tandem-workflow",
+  "assets": [
+    {
+      "id": "tandem-workflow-initial",
+      "path": "initial.png",
+      "sha256": "d62955569498a8fa210df1d45a79bd91c0617edb419c34b43c04504f834deecf",
+      "kind": "image",
+      "mode": "actual",
+      "source": {
+        "type": "capture",
+        "url": "http://127.0.0.1:53117/app.html",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Synthetic data"
+      },
+      "rightsId": "tandem-original",
+      "claims": [
+        "triage-context",
+        "human-review"
+      ],
+      "capturedAt": "2026-10-23T04:25:04.842130+00:00",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "tandem-workflow-result",
+      "path": "result.png",
+      "sha256": "bf53c8dba3e81b6fd0b01e2225857b64be36e32cc489583f069ebd4bd0d22c9f",
+      "kind": "image",
+      "mode": "actual",
+      "source": {
+        "type": "capture",
+        "url": "http://127.0.0.1:53117/app.html",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Synthetic data"
+      },
+      "rightsId": "tandem-original",
+      "claims": [
+        "triage-context",
+        "human-review"
+      ],
+      "capturedAt": "2026-10-23T04:25:09.051951+00:00",
+      "width": 1440,
+      "height": 1106
+    },
+    {
+      "id": "tandem-workflow-ready-review",
+      "path": "ready-review.png",
+      "sha256": "b51996fff11b31cf38709133e24b40cd2bf8daad5e6043a33ede14d9c9f07696",
+      "kind": "image",
+      "mode": "actual",
+      "source": {
+        "type": "capture",
+        "url": "http://127.0.0.1:53117/app.html",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Synthetic data"
+      },
+      "rightsId": "tandem-original",
+      "claims": [
+        "triage-context",
+        "human-review"
+      ],
+      "capturedAt": "2026-10-23T04:25:13.252076+00:00",
+      "width": 1440,
+      "height": 1106
+    },
+    {
+      "id": "tandem-workflow-recording",
+      "path": "tandem-workflow.webm",
+      "sha256": "4cc83b73770181f49e223d394ba3451c2bd9d9a4705cf2926b90238b215f7b8a",
+      "kind": "video",
+      "mode": "actual",
+      "source": {
+        "type": "capture",
+        "url": "http://127.0.0.1:53117/app.html",
+        "revision": "tandem-4f236886e8ed1dea",
+        "note": "Synthetic data"
+      },
+      "rightsId": "tandem-original",
+      "claims": [
+        "triage-context",
+        "human-review"
+      ],
+      "capturedAt": "2026-10-23T04:25:38.471721+00:00",
+      "width": 1440,
+      "height": 1080,
+      "duration": 11.44
+    }
+  ]
+}

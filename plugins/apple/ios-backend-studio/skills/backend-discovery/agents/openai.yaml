@@ -1,0 +1,6 @@
+interface:
+  display_name: Backend Discovery
+  short_description: Backend discovery workflows
+  default_prompt: Use $backend-discovery to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

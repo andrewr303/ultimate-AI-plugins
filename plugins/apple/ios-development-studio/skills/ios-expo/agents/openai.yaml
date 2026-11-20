@@ -1,0 +1,6 @@
+interface:
+  display_name: Expo and EAS
+  short_description: Develop Expo apps and preserve native EAS hosts
+  default_prompt: Use $ios-expo to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

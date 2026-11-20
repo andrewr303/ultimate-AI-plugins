@@ -1,0 +1,6 @@
+interface:
+  display_name: Image Loading
+  short_description: iOS image loading workflows and verification
+  default_prompt: Use $ios-images to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

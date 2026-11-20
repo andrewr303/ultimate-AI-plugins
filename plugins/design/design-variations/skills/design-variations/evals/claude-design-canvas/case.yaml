@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: claude-design-canvas
+expected_outcome: |
+  New .dc.html files and an updated or new canvas index add an options document plus live options for the Tasks
+  artboard, following the Design Component format, without editing project/Tasks.dc.html.
+context:
+  scaffold_script: place-files.sh

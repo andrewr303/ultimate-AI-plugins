@@ -1,0 +1,11 @@
+query_id,query,query_class,intent,holdout,target_url,surfaces,locale,device,notes
+q01,What is Example Co,branded,definition,false,https://example.com/about/,google-ai-overviews;google-ai-mode;gemini-app;chatgpt-search;perplexity;copilot;claude,en-US,desktop,synthetic example: checks how answers describe the entity
+q02,Example Co pricing plans,branded,pricing,false,https://example.com/pricing/,google-ai-overviews;google-ai-mode;chatgpt-search;perplexity;copilot,en-US,desktop,synthetic example
+q03,Is Example Co safe for client data,branded,trust,true,https://example.com/security/,chatgpt-search;perplexity;claude,en-US,desktop,synthetic example: hold-out query never used to tune pages
+q04,best invoicing tool for freelancers,commercial,recommendation,false,https://example.com/freelancers/,google-ai-overviews;google-ai-mode;chatgpt-search;perplexity;copilot,en-US,mobile,synthetic example: generic category query
+q05,how to send a recurring invoice,informational,how-to,false,https://example.com/guides/recurring-invoices/,google-ai-overviews;google-ai-mode;chatgpt-search;perplexity,en-US,mobile,synthetic example
+q06,what is a pro forma invoice,informational,definition,true,https://example.com/guides/pro-forma-invoice/,google-ai-overviews;google-ai-mode;chatgpt-search;perplexity,en-US,desktop,synthetic example: hold-out query never used to tune pages
+q07,invoicing software vs spreadsheet invoicing,commercial,comparison,false,https://example.com/compare/spreadsheets/,google-ai-overviews;google-ai-mode;chatgpt-search;perplexity;copilot,en-US,desktop,synthetic example: comparison query
+q08,how to add tax lines to an invoice API request,informational,technical,false,https://example.com/docs/api/taxes/,chatgpt-search;perplexity;claude,en-US,desktop,synthetic example: technical query
+q09,Example Co API rate limits,branded,technical,false,https://example.com/docs/api/limits/,chatgpt-search;perplexity;claude;copilot,en-US,desktop,synthetic example
+q10,late payment reminder email template,informational,how-to,false,https://example.com/guides/payment-reminders/,google-ai-overviews;google-ai-mode;chatgpt-search;perplexity,en-US,mobile,synthetic example

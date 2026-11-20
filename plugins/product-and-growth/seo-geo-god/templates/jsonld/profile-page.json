@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "[REPLACE: absolute https URL of this profile page]#profilepage",
+  "dateCreated": "[REPLACE: ISO 8601 date-time the profile was created]",
+  "dateModified": "[REPLACE: ISO 8601 date-time of the last real profile change]",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "[REPLACE: absolute https URL of this profile page]#person",
+    "name": "[REPLACE: name shown on the profile]",
+    "alternateName": "[REPLACE: handle or other name shown on the profile, or delete this line]",
+    "description": "[REPLACE: bio text shown on the profile]",
+    "image": "[REPLACE: absolute https URL of the profile photo]",
+    "sameAs": [
+      "[REPLACE: absolute URL of a verified profile on another site; delete unverified entries]"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: Store Metadata
+  short_description: iOS store metadata workflows and verification
+  default_prompt: Use $ios-store-metadata to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

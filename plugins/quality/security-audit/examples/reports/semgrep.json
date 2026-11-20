@@ -1,0 +1,14 @@
+{
+  "version": "synthetic-example",
+  "results": [
+    {
+      "check_id": "example.boundary-review",
+      "path": "src/example.js",
+      "start": {"line": 3, "col": 1, "offset": 0},
+      "end": {"line": 3, "col": 8, "offset": 7},
+      "extra": {"severity": "WARNING", "message": "Synthetic scanner fixture; inspect source before making any claim."}
+    }
+  ],
+  "errors": [],
+  "paths": {"scanned": ["src/example.js"]}
+}

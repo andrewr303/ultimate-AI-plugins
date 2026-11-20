@@ -1,0 +1,6 @@
+interface:
+  display_name: Testing
+  short_description: iOS testing workflows and verification
+  default_prompt: Use $ios-testing to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

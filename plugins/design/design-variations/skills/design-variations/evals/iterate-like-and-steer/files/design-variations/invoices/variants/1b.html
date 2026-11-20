@@ -1,0 +1,122 @@
+<style>
+main{padding:var(--space-8) var(--space-8) 96px;display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.head{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap}
+.head h1{margin:0;font-size:var(--text-2xl);letter-spacing:-.02em;flex:1}
+.lead{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:var(--space-6);padding:var(--space-6);align-items:center}
+.lead .eyebrow{display:inline-flex;gap:6px;align-items:center;color:var(--overdue);font-weight:600;font-size:var(--text-sm)}
+.lead .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--overdue)}
+.lead .fig{font:600 36px/1.1 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin:6px 0 4px;color:var(--text)}
+.lead p{margin:0;color:var(--text-2)}
+.oldest{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--border);padding-left:var(--space-6)}
+.oldest li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:baseline;font-size:var(--text-sm)}
+.oldest .c{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.oldest .d{color:var(--overdue);font-weight:600;font-variant-numeric:tabular-nums}
+.oldest .a{font-family:var(--font-mono);color:var(--text-2)}
+.oldest .cap{color:var(--text-3);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.05em;font-weight:600;display:block}
+.lead .go{display:flex;flex-direction:column;gap:8px}
+.lead .clear{color:var(--paid);font-weight:600}
+.minor{display:flex;gap:var(--space-6);flex-wrap:wrap;color:var(--text-2);font-size:var(--text-sm);padding:0 2px}
+.minor b{font:600 var(--text-md)/1 var(--font-mono);color:var(--text);margin-left:6px;font-variant-numeric:tabular-nums}
+.bar{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;background:var(--surface-2);padding:3px;border-radius:var(--radius-sm);overflow-x:auto;max-width:100%}
+.tab{border:0;background:transparent;padding:7px 12px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer;white-space:nowrap}
+.tab[aria-pressed=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tab .n{color:var(--text-2);margin-left:4px}
+.bar .k-search{flex:1;min-width:200px}
+.sortc{display:flex;gap:6px;align-items:center;font-size:var(--text-sm);color:var(--text-2)}
+.sortc select{font:inherit;color:var(--text);padding:8px 10px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface);min-height:38px}
+.sortc select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:860px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);font-weight:600}
+th button{all:unset;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+th[aria-sort=ascending] button,th[aria-sort=descending] button{color:var(--text)}
+th button .k-ico{width:12px;height:12px}
+th:not([aria-sort=ascending]):not([aria-sort=descending]) button .k-ico{opacity:.3}
+tbody tr:hover{background:var(--surface-2)} tbody tr.sel{background:var(--accent-soft)} tbody tr:last-child td{border-bottom:0}
+.late{display:inline-flex;min-width:96px;font-weight:600;font-size:var(--text-sm)}
+.late.o{color:var(--overdue)} .late.d{color:var(--due)} .late.q{color:var(--text-3);font-weight:500}
+td.client{font-weight:600}
+td.inv{font-family:var(--font-mono);font-size:var(--text-sm);color:var(--text-2)}
+td.num,th.num{text-align:right} td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:500}
+.acts{display:flex;gap:6px;justify-content:flex-end}
+.dock{position:fixed;left:calc(232px + 50%);transform:translateX(calc(-50% - 116px));bottom:20px;z-index:30;display:none;align-items:center;gap:12px;background:var(--text);color:#fff;border-radius:var(--radius-lg);padding:8px 8px 8px 16px;box-shadow:var(--shadow-2);max-width:calc(100% - 32px);flex-wrap:wrap}
+.dock.on{display:flex}
+.dock .k-btn{background:transparent;color:#fff;border-color:#ffffff59}
+.dock .k-btn:hover{background:#ffffff1a}
+.dock .sum{font-family:var(--font-mono);color:#c9d3ce}
+@media (max-width:1100px){.lead{grid-template-columns:1fr 1fr}.lead .go{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}}
+@media (max-width:760px){main{padding:var(--space-4) var(--space-4) 110px}.lead{grid-template-columns:1fr;padding:var(--space-4)}.oldest{border-left:0;padding-left:0;border-top:1px solid var(--border);padding-top:var(--space-3)}.dock{left:50%;transform:translateX(-50%)}.bar .k-search{min-width:100%}.head h1{flex-basis:100%}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="head"><h1>Invoices</h1><button class="k-btn" id="export" type="button"></button><button class="k-btn primary" id="new" type="button"></button></div>
+    <section class="lead" aria-label="Needs chasing" id="lead"></section>
+    <section class="minor" aria-label="Other totals" id="minor"></section>
+    <div class="bar">
+      <div class="tabs" role="group" aria-label="Filter by status" id="tabs"></div>
+      <label class="k-search"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #"></label>
+      <div class="sortc"><label for="sortk">Sort</label><select id="sortk"></select><button type="button" class="k-btn icon" id="sortd"></button></div>
+    </div>
+    <div class="card"><table><thead><tr id="th"></tr></thead><tbody id="rows"></tbody></table><div id="empty" hidden></div></div>
+  </main>
+</div>
+<div class="dock" id="dock" role="region" aria-label="Selected invoices"><strong id="dock-n"></strong><span class="sum" id="dock-sum"></span>
+  <button class="k-btn sm" id="remind" type="button">Send reminders</button><button class="k-btn sm" id="markpaid" type="button">Mark paid</button><button class="k-btn sm" id="clear" type="button">Clear</button></div>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#export').innerHTML=K.icon('download')+'Export CSV';$('#new').innerHTML=K.icon('plus')+'New invoice';$('#sicon').innerHTML=K.icon('search');
+const SORTS=[['urgency','Most urgent']].concat(K.SORTS);
+$('#sortk').innerHTML=SORTS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
+let st={tab:'all',q:'',sort:{k:'urgency',dir:1}};
+const COLS=[['urgency','Lateness'],['client','Client'],['no','Invoice'],['due','Due'],['issued','Issued'],[null,'Status'],['amount','Amount','num']];
+const view=()=>S.view(st);
+function render(){K.keepFocus(document.body,()=>{
+  const t=S.totals(),late=S.data.filter(r=>r.status==='overdue').sort((a,b)=>K.daysLate(b)-K.daysLate(a));
+  $('#lead').innerHTML=late.length?
+   `<div><span class="eyebrow">Needs chasing</span><div class="fig">${f.money(t.overdue)}</div><p>${late.length} overdue invoice${late.length>1?'s':''} · oldest ${K.daysLate(late[0])} days late</p></div>
+    <ul class="oldest" aria-label="Most overdue"><li><span class="cap">Most overdue</span></li>${late.slice(0,3).map(r=>`<li><span class="c">${f.esc(r.client)}</span><span class="d">${K.daysLate(r)} days</span><span class="a">${f.money(r.amount)}</span></li>`).join('')}</ul>
+    <div class="go"><button type="button" class="k-btn primary" id="remind-all" data-focus="remind-all">${K.icon('mail')}Send ${late.length} reminder${late.length>1?'s':''}</button><button type="button" class="k-btn" id="only-over" data-focus="only-over">Show overdue only</button></div>`
+   :`<div><span class="eyebrow clear" style="color:var(--paid)">Nothing overdue</span><div class="fig">${f.money(0)}</div><p>No invoice is past its due date.</p></div><div></div><div></div>`;
+  $('#minor').innerHTML=`<span>Outstanding<b>${f.money(t.outstanding)}</b></span><span>Paid this month<b>${f.money(t.paid)}</b></span><span>Drafts<b>${t.drafts}</b></span>`;
+  $('#tabs').innerHTML=K.TABS.map(([k,l])=>`<button type="button" class="tab" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}">${l}<span class="n">${S.count(k)}</span></button>`).join('');
+  $('#sortk').value=st.sort.k;$('#sortd').innerHTML=K.icon(st.sort.dir>0?(st.sort.k==='urgency'?'down':'up'):(st.sort.k==='urgency'?'up':'down'));
+  $('#sortd').setAttribute('aria-label',st.sort.k==='urgency'?(st.sort.dir>0?'Most urgent first, switch to least urgent first':'Least urgent first, switch to most urgent first'):(st.sort.dir>0?'Ascending, switch to descending':'Descending, switch to ascending'));
+  $('#th').innerHTML=`<th style="width:44px"><input type="checkbox" class="k-check" id="all" aria-label="Select all shown invoices"></th>`+COLS.map(([k,l,c])=>k?`<th class="${c||''}" aria-sort="${st.sort.k===k?(st.sort.dir>0?'ascending':'descending'):'none'}"><button type="button" data-k="${k}" data-focus="sort-${k}">${l}${K.icon(st.sort.k===k&&st.sort.dir<0?'up':'down')}</button></th>`:`<th>${l}</th>`).join('')+`<th><span class="k-sr">Actions</span></th>`;
+  const v=view();
+  $('#rows').innerHTML=v.map(r=>{const c=r.status==='overdue'?'o':r.status==='due'?'d':'q';
+   return `<tr class="${S.sel.has(r.no)?'sel':''}"><td><input type="checkbox" class="k-check" data-s="${r.no}" data-focus="s-${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}"></td>
+   <td><span class="late ${c}">${f.timing(r)}</span></td><td class="client">${f.esc(r.client)}</td><td class="inv">${r.no}</td><td>${f.date(r.due)}</td><td>${f.date(r.issued)}</td>
+   <td><span class="k-pill ${r.status}">${f.status(r.status)}</span></td><td class="num">${f.money(r.amount)}</td>
+   <td><div class="acts"><button type="button" class="k-btn icon sm" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for ${r.no}" data-m="${r.no}" data-focus="m-${r.no}">${K.icon('more')}</button></div></td></tr>`}).join('');
+  const e=$('#empty');e.hidden=v.length>0;e.innerHTML=v.length?'':K.emptyHTML(S);
+  $('#all').checked=v.length>0&&v.every(r=>S.sel.has(r.no));
+  const sel=[...S.sel].map(S.find).filter(Boolean);
+  $('#dock').classList.toggle('on',sel.length>0);$('#dock-n').textContent=sel.length+' selected';$('#dock-sum').textContent=f.money(sel.reduce((a,r)=>a+r.amount,0));
+})}
+S.on(render);
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.t){st.tab=b.dataset.t;render()}
+ if(b.dataset.k){const k=b.dataset.k;st.sort={k,dir:st.sort.k===k?-st.sort.dir:1};render()}
+ if(b.id==='sortd'){st.sort.dir=-st.sort.dir;render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);render()}
+ if(b.id==='all'){view().forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));render()}
+ if(b.dataset.m)K.menu(b,K.rowItems(S,S.find(b.dataset.m)));
+ if(b.id==='remind-all'){const ids=S.data.filter(r=>r.status==='overdue').map(r=>r.no);K.act(S,'remind',ids)}
+ if(b.id==='only-over'){st.tab='overdue';render()}
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';$('#q').value='';render()}
+ if(b.id==='export')K.toast('Exported '+view().length+' rows');
+ if(b.id==='new'||b.hasAttribute('data-k-new'))K.openInvoiceForm(S);
+});
+$('#sortk').addEventListener('change',e=>{st.sort={k:e.target.value,dir:e.target.value==='urgency'||e.target.value==='client'||e.target.value==='no'?1:-1};render()});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+render();
+})();
+</script>

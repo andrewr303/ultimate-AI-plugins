@@ -1,0 +1,34 @@
+{
+  "name": "issue-assistant",
+  "version": "1.1.1",
+  "description": "Reconcile Linear or GitHub issues with source-backed evidence, safely recover planned changes, and resolve one issue decision at a time.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "linear",
+    "github",
+    "issues",
+    "reconciliation",
+    "triage"
+  ],
+  "skills": "./skills/",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Issue Assistant",
+    "shortDescription": "Reconcile issues. Pick next.",
+    "longDescription": "Audit merged PRs and project context, maintain a source-backed backlog, and work directly on a named issue or the next actionable priority. Includes verifiable subtasks, explicit preview mode, recoverable change plans, offline coverage checks, and a separately invoked unattended reconciliation skill.",
+    "developerName": "Andrew Rodriguez",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive"
+    ],
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg",
+    "defaultPrompt": [
+      "Reconcile the last 28 days of merged PRs with my issues, apply evidence-backed updates, then grill me on the highest-priority actionable issue, one question at a time.",
+      "Find missing issues, stale completion states, and changed requirements in my Linear or GitHub backlog.",
+      "Break this issue into independently verifiable subtasks and identify the first task to implement."
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+# Example Links
+
+> Synthetic link problems for tests.
+
+## Docs
+
+- [Relative](/docs/relative)
+- [Mail](mailto:team@example.com)
+- Plain list item without a link
+- [Missing page](https://example.com/docs/missing)
+- [Present page](https://example.com/docs/present/)
+- [External](https://example.org/elsewhere)
+- [Mirror of present](https://example.com/docs/present.md)

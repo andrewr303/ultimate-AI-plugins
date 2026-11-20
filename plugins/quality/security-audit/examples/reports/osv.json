@@ -1,0 +1,14 @@
+{
+  "results": [
+    {
+      "source": {"path": "package-lock.json", "type": "lockfile"},
+      "packages": [
+        {
+          "package": {"name": "@example/library", "version": "1.0.0", "ecosystem": "npm"},
+          "vulnerabilities": [{"id": "EXAMPLE-0001", "database_specific": {"severity": "MODERATE"}}],
+          "groups": [{"ids": ["EXAMPLE-0001"], "max_severity": "5.0"}]
+        }
+      ]
+    }
+  ]
+}

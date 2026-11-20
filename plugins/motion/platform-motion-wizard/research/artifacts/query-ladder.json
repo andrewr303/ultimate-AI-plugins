@@ -1,0 +1,287 @@
+[
+  {
+    "query": "motion animation microinteractions stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": []
+    }
+  },
+  {
+    "query": "topic:animation topic:react stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "repository_full_name": "motiondivision/motion",
+          "url": "https://github.com/motiondivision/motion",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "pmndrs/react-three-fiber",
+          "url": "https://github.com/pmndrs/react-three-fiber",
+          "default_branch": "master",
+          "archived": false
+        },
+        {
+          "repository_full_name": "DavidHDev/canvas-ui",
+          "url": "https://github.com/DavidHDev/canvas-ui",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "gkurt/tegaki",
+          "url": "https://github.com/gkurt/tegaki",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "codse/animata",
+          "url": "https://github.com/codse/animata",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "guillermolg00/morphicons",
+          "url": "https://github.com/guillermolg00/morphicons",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "margelo/react-native-graph",
+          "url": "https://github.com/margelo/react-native-graph",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "lucasmarkes/hairline",
+          "url": "https://github.com/lucasmarkes/hairline",
+          "default_branch": "main",
+          "archived": false
+        }
+      ]
+    }
+  },
+  {
+    "query": "gesture animation stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "repository_full_name": "software-mansion/react-native-reanimated",
+          "url": "https://github.com/software-mansion/react-native-reanimated",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "enzomanuelmangano/demos",
+          "url": "https://github.com/enzomanuelmangano/demos",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "esthor/react-native-swipeable-list",
+          "url": "https://github.com/esthor/react-native-swipeable-list",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "chrizuuu/react-native-gallery-preview",
+          "url": "https://github.com/chrizuuu/react-native-gallery-preview",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "nongio/otto",
+          "url": "https://github.com/nongio/otto",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "humanspeak/svelte-motion",
+          "url": "https://github.com/humanspeak/svelte-motion",
+          "default_branch": "main",
+          "archived": false
+        }
+      ]
+    }
+  },
+  {
+    "query": "accessible headless components stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "repository_full_name": "ng-primitives/ng-primitives",
+          "url": "https://github.com/ng-primitives/ng-primitives",
+          "default_branch": "next",
+          "archived": false
+        },
+        {
+          "repository_full_name": "chakra-ui/ark",
+          "url": "https://github.com/chakra-ui/ark",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "blazorblueprintui/ui",
+          "url": "https://github.com/blazorblueprintui/ui",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "radix-ng/primitives",
+          "url": "https://github.com/radix-ng/primitives",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "unovue/reka-ui",
+          "url": "https://github.com/unovue/reka-ui",
+          "default_branch": "v2",
+          "archived": false
+        },
+        {
+          "repository_full_name": "P4sca1/nuxt-headlessui",
+          "url": "https://github.com/P4sca1/nuxt-headlessui",
+          "default_branch": "main",
+          "archived": false
+        }
+      ]
+    }
+  },
+  {
+    "query": "view transitions stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "repository_full_name": "igorm84/spotify-astro-transitions",
+          "url": "https://github.com/igorm84/spotify-astro-transitions",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "Aeastr/Portal",
+          "url": "https://github.com/Aeastr/Portal",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "f728743/AppleMusicStylePlayer",
+          "url": "https://github.com/f728743/AppleMusicStylePlayer",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "humanspeak/svelte-motion",
+          "url": "https://github.com/humanspeak/svelte-motion",
+          "default_branch": "main",
+          "archived": false
+        }
+      ]
+    }
+  },
+  {
+    "query": "animation agent skills stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "repository_full_name": "quodsoler/unreal-engine-skills",
+          "url": "https://github.com/quodsoler/unreal-engine-skills",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "iart-ai/motion-skills",
+          "url": "https://github.com/iart-ai/motion-skills",
+          "default_branch": "master",
+          "archived": false
+        },
+        {
+          "repository_full_name": "gnipbao/story-to-handdrawn-video",
+          "url": "https://github.com/gnipbao/story-to-handdrawn-video",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "alchaincyf/huashu-motion",
+          "url": "https://github.com/alchaincyf/huashu-motion",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "EL4CTEO/blender-skills",
+          "url": "https://github.com/EL4CTEO/blender-skills",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "EmadBeltaje/flutter_getx_template",
+          "url": "https://github.com/EmadBeltaje/flutter_getx_template",
+          "default_branch": "master",
+          "archived": false
+        },
+        {
+          "repository_full_name": "lovisdotio/motion2code",
+          "url": "https://github.com/lovisdotio/motion2code",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "yjl9903/AnimeGarden",
+          "url": "https://github.com/yjl9903/AnimeGarden",
+          "default_branch": "main",
+          "archived": false
+        }
+      ]
+    }
+  },
+  {
+    "query": "spring animation react stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "repository_full_name": "pmndrs/react-spring",
+          "url": "https://github.com/pmndrs/react-spring",
+          "default_branch": "next",
+          "archived": false
+        },
+        {
+          "repository_full_name": "motiondivision/motion",
+          "url": "https://github.com/motiondivision/motion",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "stipsan/react-spring-bottom-sheet",
+          "url": "https://github.com/stipsan/react-spring-bottom-sheet",
+          "default_branch": "main",
+          "archived": false
+        },
+        {
+          "repository_full_name": "guillermolg00/morphicons",
+          "url": "https://github.com/guillermolg00/morphicons",
+          "default_branch": "main",
+          "archived": false
+        }
+      ]
+    }
+  },
+  {
+    "query": "UI motion skills stars:>=100 pushed:>=2026-09-21 archived:false fork:false",
+    "result": {
+      "archive_filter_applied": null,
+      "repositories": [
+        {
+          "repository_full_name": "Jakubantalik/transitions.dev",
+          "url": "https://github.com/Jakubantalik/transitions.dev",
+          "default_branch": "main",
+          "archived": false
+        }
+      ]
+    }
+  }
+]

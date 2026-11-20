@@ -1,0 +1,4 @@
+# Synthetic fixture: Hugo site configuration.
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Example Field Notes'

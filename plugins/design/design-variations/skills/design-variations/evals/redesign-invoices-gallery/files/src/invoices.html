@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invoices · Ledgerly</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:400 var(--text-md)/1.45 var(--font-sans)}
+.app{display:grid;grid-template-columns:232px 1fr;min-height:100vh}
+.side{background:var(--surface);border-right:1px solid var(--border);padding:var(--space-5) var(--space-4);display:flex;flex-direction:column;gap:var(--space-1)}
+.brand{font-weight:700;font-size:var(--text-lg);display:flex;gap:8px;align-items:center;margin:0 0 var(--space-5) var(--space-2)}
+.brand i{width:22px;height:22px;border-radius:6px;background:var(--accent);display:inline-block}
+.nav a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:var(--radius-sm);color:var(--text-2);text-decoration:none;font-weight:500}
+.nav a[aria-current=page]{background:var(--accent-soft);color:var(--accent)}
+.nav a:hover{background:var(--surface-2)}
+main{padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.head{display:flex;align-items:center;gap:var(--space-4)} .head h1{margin:0;font-size:var(--text-2xl);letter-spacing:-.02em;flex:1}
+.btn{font:600 var(--text-sm)/1 var(--font-sans);border-radius:var(--radius-sm);padding:10px 14px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text);cursor:pointer;min-height:38px}
+.btn:hover{background:var(--surface-2)} .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)} .btn.primary:hover{background:var(--accent-hover)}
+.btn:focus-visible,.tab:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-4)}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-4)} .stat b{display:block;font:600 var(--text-xl)/1.2 var(--font-mono);margin-top:4px} .stat span{color:var(--text-3);font-size:var(--text-sm)}
+.bar{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;background:var(--surface-2);padding:3px;border-radius:var(--radius-sm)}
+.tab{border:0;background:transparent;padding:7px 12px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer}
+.tab[aria-selected=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+.search{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font:inherit;background:var(--surface)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:760px} th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);font-weight:600;background:var(--surface)}
+th button{all:unset;cursor:pointer} th button:focus-visible{outline:2px solid var(--accent)}
+tbody tr:hover{background:var(--surface-2)} td.num{font-family:var(--font-mono);text-align:right} th.num{text-align:right}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-size:var(--text-xs);font-weight:600}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.paid{color:var(--paid);background:var(--paid-soft)} .due{color:var(--due);background:var(--due-soft)} .overdue{color:var(--overdue);background:var(--overdue-soft)} .draft{color:var(--draft);background:var(--draft-soft)}
+.bulk{display:none;gap:var(--space-3);align-items:center;background:var(--text);color:#fff;padding:10px 14px;border-radius:var(--radius)} .bulk.on{display:flex} .bulk .btn{background:transparent;color:#fff;border-color:#ffffff40}
+.menu{position:relative} .menu ul{position:absolute;right:0;top:100%;z-index:5;list-style:none;margin:4px 0;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);box-shadow:var(--shadow-2);min-width:160px;display:none} .menu.open ul{display:block}
+.menu li button{all:unset;display:block;width:100%;padding:8px 10px;border-radius:5px;cursor:pointer;box-sizing:border-box} .menu li button:hover,.menu li button:focus-visible{background:var(--surface-2)}
+.empty{padding:48px;text-align:center;color:var(--text-3)}
+.drawer{position:fixed;inset:0;background:rgb(20 32 27 / .35);display:none;justify-content:flex-end} .drawer.open{display:flex}
+.drawer form{width:420px;max-width:100%;background:var(--surface);height:100%;padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-4);box-shadow:var(--shadow-2)}
+label{display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:var(--text-sm)} label input,label select{padding:9px 12px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);font:inherit}
+.err{color:var(--overdue);font-size:var(--text-xs);min-height:1em}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:var(--radius-sm);opacity:0;transition:opacity var(--dur) var(--ease)} .toast.on{opacity:1}
+@media (max-width:760px){.app{grid-template-columns:1fr}.side{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:var(--space-4)}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side"><div class="brand"><i></i>Ledgerly</div>
+    <nav class="nav" aria-label="Main"><a href="#">Overview</a><a href="#" aria-current="page">Invoices</a><a href="#">Clients</a><a href="#">Payments</a><a href="#">Reports</a><a href="#">Settings</a></nav></aside>
+  <main>
+    <div class="head"><h1>Invoices</h1><button class="btn" id="export">Export CSV</button><button class="btn primary" id="new">New invoice</button></div>
+    <section class="stats" aria-label="Summary">
+      <div class="stat"><span>Outstanding</span><b id="s-out">—</b></div><div class="stat"><span>Overdue</span><b id="s-over">—</b></div>
+      <div class="stat"><span>Paid this month</span><b id="s-paid">—</b></div><div class="stat"><span>Drafts</span><b id="s-draft">—</b></div></section>
+    <div class="bar"><div class="tabs" role="tablist" aria-label="Status"></div><input class="search" id="q" type="search" placeholder="Search client or invoice #" aria-label="Search invoices"></div>
+    <div class="bulk" id="bulk" role="region" aria-label="Bulk actions"><span id="bulk-n"></span><button class="btn" id="remind">Send reminders</button><button class="btn" id="markpaid">Mark paid</button><button class="btn" id="clear">Clear</button></div>
+    <div class="card"><table><thead><tr><th><input type="checkbox" id="all" aria-label="Select all"></th>
+      <th><button data-k="no">Invoice</button></th><th><button data-k="client">Client</button></th><th><button data-k="issued">Issued</button></th><th><button data-k="due">Due</button></th><th>Status</th><th class="num"><button data-k="amount">Amount</button></th><th><span class="sr" style="position:absolute;left:-9999px">Actions</span></th></tr></thead>
+      <tbody id="rows"></tbody></table><div class="empty" id="empty" hidden>No invoices match. <button class="btn" id="reset">Clear filters</button></div></div>
+  </main>
+</div>
+<div class="drawer" id="drawer" aria-hidden="true"><form id="f" aria-labelledby="ft" novalidate><h2 id="ft" style="margin:0">New invoice</h2>
+  <label>Client<select name="client" required><option value="">Choose a client</option></select><span class="err" data-for="client"></span></label>
+  <label>Amount (USD)<input name="amount" inputmode="decimal" required><span class="err" data-for="amount"></span></label>
+  <label>Due date<input name="due" type="date" required><span class="err" data-for="due"></span></label>
+  <div style="display:flex;gap:8px;margin-top:auto"><button type="button" class="btn" id="cancel">Cancel</button><button class="btn" name="as" value="draft">Save draft</button><button class="btn primary" name="as" value="send">Create &amp; send</button></div></form></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const CLIENTS=["Northwind Bakery","Atlas Robotics","Fernhill Studio","Quayside Dental","Orbit Coffee Co.","Halden & Partners","Mosaic Learning","Pinecrest Vets"];
+let seq=1040;const iso=d=>d.toISOString().slice(0,10);const today=new Date('2026-10-30');
+let data=Array.from({length:18},(_,i)=>{const c=CLIENTS[i%CLIENTS.length];const issued=new Date(today-((i*5+3)*864e5));const due=new Date(+issued+30*864e5);
+ const st=i%7===0?'draft':(i%4===0?'paid':(due<today?'overdue':'due'));return{no:'INV-'+(seq-i),client:c,issued:iso(issued),due:iso(due),status:st,amount:Math.round((380+((i*7919)%5200))*100)/100}});
+let state={tab:'all',q:'',sort:{k:'issued',dir:-1},sel:new Set()};
+const fmt=n=>n.toLocaleString('en-US',{style:'currency',currency:'USD'});const $=s=>document.querySelector(s);
+const TABS=[['all','All'],['due','Due'],['overdue','Overdue'],['paid','Paid'],['draft','Drafts']];
+function view(){let v=data.filter(r=>(state.tab==='all'||r.status===state.tab)&&(r.client+' '+r.no).toLowerCase().includes(state.q.toLowerCase()));
+ const{k,dir}=state.sort;return v.sort((a,b)=>(a[k]>b[k]?1:a[k]<b[k]?-1:0)*dir)}
+function render(){$('.tabs').innerHTML=TABS.map(([k,l])=>`<button class="tab" role="tab" aria-selected="${state.tab===k}" data-t="${k}">${l} <span style="color:var(--text-3)">${k==='all'?data.length:data.filter(r=>r.status===k).length}</span></button>`).join('');
+ const v=view();$('#rows').innerHTML=v.map(r=>`<tr><td><input type="checkbox" data-s="${r.no}" ${state.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}"></td><td style="font-family:var(--font-mono)">${r.no}</td><td>${r.client}</td><td>${r.issued}</td><td>${r.due}</td><td><span class="pill ${r.status}">${r.status[0].toUpperCase()+r.status.slice(1)}</span></td><td class="num">${fmt(r.amount)}</td><td><div class="menu"><button class="btn" aria-haspopup="menu" aria-label="Actions for ${r.no}" data-m="${r.no}">···</button><ul role="menu"><li><button role="menuitem" data-a="view" data-n="${r.no}">View</button></li><li><button role="menuitem" data-a="remind" data-n="${r.no}">Send reminder</button></li><li><button role="menuitem" data-a="paid" data-n="${r.no}">Mark paid</button></li><li><button role="menuitem" data-a="dup" data-n="${r.no}">Duplicate</button></li><li><button role="menuitem" data-a="del" data-n="${r.no}">Delete</button></li></ul></div></td></tr>`).join('');
+ $('#empty').hidden=v.length>0;const sum=s=>data.filter(r=>s.includes(r.status)).reduce((a,r)=>a+r.amount,0);
+ $('#s-out').textContent=fmt(sum(['due','overdue']));$('#s-over').textContent=fmt(sum(['overdue']));$('#s-paid').textContent=fmt(sum(['paid']));$('#s-draft').textContent=data.filter(r=>r.status==='draft').length;
+ $('#bulk').classList.toggle('on',state.sel.size>0);$('#bulk-n').textContent=state.sel.size+' selected';$('#all').checked=v.length&&v.every(r=>state.sel.has(r.no))}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.t){state.tab=b.dataset.t;render()} if(b.dataset.k){state.sort={k:b.dataset.k,dir:state.sort.k===b.dataset.k?-state.sort.dir:1};render()}
+ if(b.dataset.s){b.checked?state.sel.add(b.dataset.s):state.sel.delete(b.dataset.s);render()} if(b.id==='all'){view().forEach(r=>b.checked?state.sel.add(r.no):state.sel.delete(r.no));render()}
+ if(b.dataset.m){const m=b.parentElement;document.querySelectorAll('.menu.open').forEach(x=>x!==m&&x.classList.remove('open'));m.classList.toggle('open');return}
+ if(b.dataset.a){const r=data.find(x=>x.no===b.dataset.n);if(b.dataset.a==='paid'){r.status='paid';toast(r.no+' marked paid')}if(b.dataset.a==='remind')toast('Reminder sent to '+r.client);if(b.dataset.a==='del'){data=data.filter(x=>x!==r);toast(r.no+' deleted')}if(b.dataset.a==='dup'){data.unshift({...r,no:'INV-'+(++seq+20),status:'draft'});toast('Duplicated as draft')}if(b.dataset.a==='view')toast('Opening '+r.no);render()}
+ if(b.id==='remind'){toast('Reminders sent for '+state.sel.size+' invoices');state.sel.clear();render()} if(b.id==='markpaid'){data.forEach(r=>state.sel.has(r.no)&&(r.status='paid'));toast('Marked '+state.sel.size+' paid');state.sel.clear();render()}
+ if(b.id==='clear'){state.sel.clear();render()} if(b.id==='reset'){state.tab='all';state.q='';$('#q').value='';render()} if(b.id==='export')toast('Exported '+view().length+' rows')
+ if(b.id==='new'){$('#drawer').classList.add('open');$('#drawer').setAttribute('aria-hidden','false');$('#f select').focus()} if(b.id==='cancel'){$('#drawer').classList.remove('open')}
+ if(!b.closest('.menu'))document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'))});
+$('#q').addEventListener('input',e=>{state.q=e.target.value;render()});
+$('#f select').innerHTML+=CLIENTS.map(c=>`<option>${c}</option>`).join('');
+$('#f').addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(e.target);const errs={};if(!fd.get('client'))errs.client='Choose a client';const a=parseFloat(fd.get('amount'));if(!(a>0))errs.amount='Enter an amount above 0';if(!fd.get('due'))errs.due='Pick a due date';
+ document.querySelectorAll('.err').forEach(x=>x.textContent=errs[x.dataset.for]||'');if(Object.keys(errs).length)return;const as=e.submitter&&e.submitter.value;
+ data.unshift({no:'INV-'+(++seq+20),client:fd.get('client'),issued:iso(today),due:fd.get('due'),status:as==='send'?'due':'draft',amount:a});$('#drawer').classList.remove('open');e.target.reset();toast(as==='send'?'Invoice created and sent':'Draft saved');render()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#drawer').classList.remove('open');document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'))}});
+render();
+</script>
+</body></html>

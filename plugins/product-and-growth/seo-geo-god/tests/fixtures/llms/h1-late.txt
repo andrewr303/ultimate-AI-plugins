@@ -1,0 +1,9 @@
+Welcome text that should not come before the title.
+
+# Example Docs
+
+# A second title
+
+## Docs
+
+- [Getting started](https://example.com/docs/getting-started)

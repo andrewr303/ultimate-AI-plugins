@@ -1,0 +1,159 @@
+# SEO-GEO-god example GitLab CI configuration. Merge it into .gitlab-ci.yml and edit
+# it; nothing runs until it is part of your pipeline configuration.
+#
+# What it does: builds the site, audits the build output offline with the bundled
+# standard-library CLI, writes JSON, Markdown and SARIF reports, prints the Markdown
+# report to the job log, keeps the reports as job artifacts, and fails the job only
+# on the gates configured below. It uses no secrets or tokens, and the checks
+# themselves make no network requests.
+#
+# Before you use it:
+#   1. Replace every <FULL_IMAGE_DIGEST> with the sha256 digest of an image you
+#      verified yourself, so the job does not change when a tag moves.
+#   2. Replace <PRODUCTION_ORIGIN> with the production origin, for example
+#      https://www.example.com. The job refuses to run with the placeholder.
+#   3. Make the CLI available at SEO_GEO_GOD_DIR: commit a copy of the seo-geo-god
+#      plugin directory there, or fetch it at a pinned commit as shown in the
+#      commented lines (record the full commit SHA you verified as <FULL_COMMIT_SHA>).
+#   4. Replace the build job with your project's documented production build, and
+#      keep its artifacts path in sync with SEO_BUILD_DIR.
+#
+# Facts and defaults as of 2026-11-01. Details: references/ci-recipes.md in the plugin.
+
+stages:
+  - build
+  - seo
+
+variables:
+  SEO_GEO_GOD_DIR: "tools/seo-geo-god"      # plugin copy, relative to the repository root
+  SEO_BUILD_DIR: "dist"                     # build output directory, relative, no ".."
+  SEO_SITE_URL: "<PRODUCTION_ORIGIN>"       # production origin, e.g. https://www.example.com
+  SEO_PROFILE: "default"                    # default, launch, programmatic, local, ecommerce or geo
+  SEO_FAIL_ON: "never"                      # severity gate: error, warning, info or never
+  SEO_BLOCKING_RULES: "SD001 SD002 SD006 SD012 CANON002 CANON003 CRAWL004 AI004 LAUNCH003 LAUNCH004 IDX001"
+  SEO_TEMPLATE_DIR: ""                      # optional source directory with JSON-LD templates, e.g. src
+  SEO_BASELINE: ".seo-geo-god/baselines/main.json"   # optional committed drift baseline
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "web"
+
+build-site:
+  stage: build
+  image: node:22-bookworm-slim@sha256:<FULL_IMAGE_DIGEST>
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 day
+
+seo-geo-checks:
+  stage: seo
+  image: python:3.12-slim@sha256:<FULL_IMAGE_DIGEST>
+  needs:
+    - build-site
+  variables:
+    GIT_DEPTH: "1"
+  # Alternative to a committed copy (needs git in the image and network access at
+  # this step only; the checks stay offline):
+  # before_script:
+  #   - git clone --no-checkout <PLUGIN_REPOSITORY_URL> tools/seo-geo-god-src
+  #   - git -C tools/seo-geo-god-src checkout <FULL_COMMIT_SHA>
+  #   - export SEO_GEO_GOD_DIR=tools/seo-geo-god-src
+  script:
+    - |
+      set -eu
+      fail() { echo "ERROR: $1"; exit 2; }
+      case "$SEO_SITE_URL" in
+        https://*) ;;
+        *) fail "SEO_SITE_URL must be an https:// origin; replace the <PRODUCTION_ORIGIN> placeholder" ;;
+      esac
+      case "$SEO_SITE_URL" in
+        *[!A-Za-z0-9.:/-]*) fail "SEO_SITE_URL contains unexpected characters" ;;
+      esac
+      case "$SEO_FAIL_ON" in
+        error|warning|info|never) ;;
+        *) fail "SEO_FAIL_ON must be error, warning, info or never" ;;
+      esac
+      case "$SEO_PROFILE" in
+        default|launch|programmatic|local|ecommerce|geo) ;;
+        *) fail "SEO_PROFILE is not a known profile" ;;
+      esac
+      case "$SEO_BLOCKING_RULES" in
+        *[!A-Z0-9\ ]*) fail "SEO_BLOCKING_RULES must be rule IDs separated by spaces" ;;
+      esac
+      for dir in "$SEO_BUILD_DIR" "$SEO_GEO_GOD_DIR" "$SEO_BASELINE"; do
+        case "$dir" in
+          ""|/*|*..*) fail "paths must be relative to the repository and must not contain '..'" ;;
+        esac
+      done
+      case "$SEO_TEMPLATE_DIR" in
+        /*|*..*) fail "SEO_TEMPLATE_DIR must be relative and must not contain '..'" ;;
+      esac
+      [ -d "$SEO_BUILD_DIR" ] || fail "build output directory $SEO_BUILD_DIR not found"
+      [ -f "$SEO_GEO_GOD_DIR/scripts/seo_geo.py" ] || fail "SEO-GEO-god CLI not found under $SEO_GEO_GOD_DIR"
+      # Deterministic report timestamps: the commit time, not the wall clock.
+      export SEO_GEO_GOD_NOW="$CI_COMMIT_TIMESTAMP"
+      sg() { python3 -I "$SEO_GEO_GOD_DIR/scripts/seo_geo.py" "$@"; }
+      audit() { sg audit-build "$SEO_BUILD_DIR" --base-url "$SEO_SITE_URL" --expect-indexable --profile "$SEO_PROFILE" "$@"; }
+      out=.seo-geo-god/ci
+      mkdir -p "$out"
+      audit --format md --output "$out/seo-geo.md"
+      audit --format sarif --output "$out/seo-geo.sarif"
+      audit_status=0
+      audit --format json --output "$out/seo-geo.json" --fail-on "$SEO_FAIL_ON" || audit_status=$?
+      cat "$out/seo-geo.md"
+      template_status=0
+      if [ -n "$SEO_TEMPLATE_DIR" ]; then
+        sg jsonld "$SEO_TEMPLATE_DIR" --recursive --format text --fail-on error || template_status=$?
+      fi
+      drift_status=0
+      if [ -f "$SEO_BASELINE" ]; then
+        sg drift compare "$SEO_BASELINE" "$SEO_BUILD_DIR" --base-url "$SEO_SITE_URL" --format md --output "$out/drift.md" --fail-on error || drift_status=$?
+        [ ! -f "$out/drift.md" ] || cat "$out/drift.md"
+      fi
+      for code in "$audit_status" "$template_status" "$drift_status"; do
+        if [ "$code" -ge 2 ]; then
+          fail "seo-geo-god stopped with exit code $code (2 input error, 3 refused by safety policy, 4 internal error)"
+        fi
+      done
+      export AUDIT_GATE="$audit_status" TEMPLATE_GATE="$template_status" DRIFT_GATE="$drift_status"
+      python3 -I - "$out/seo-geo.json" <<'PY'
+      import json
+      import os
+      import sys
+
+      blocking = set(os.environ.get("SEO_BLOCKING_RULES", "").split())
+      with open(sys.argv[1], encoding="utf-8") as handle:
+          report = json.load(handle)
+      findings = [f for f in report.get("findings") or [] if isinstance(f, dict)]
+      hits = [f for f in findings if f.get("rule") in blocking]
+      for finding in hits:
+          where = finding.get("file") or finding.get("url") or ""
+          if finding.get("file") and isinstance(finding.get("line"), int):
+              where = "%s:%d" % (where, finding["line"])
+          message = " ".join(str(finding.get("message", "")).split())
+          print("BLOCKING %s %s %s" % (finding.get("rule", ""), " ".join(where.split()), message))
+      failed = []
+      if hits:
+          failed.append("%d finding(s) from blocking rules" % len(hits))
+      if os.environ.get("AUDIT_GATE") == "1":
+          failed.append("severity gate SEO_FAIL_ON=%s reached" % os.environ.get("SEO_FAIL_ON", ""))
+      if os.environ.get("TEMPLATE_GATE") == "1":
+          failed.append("JSON-LD template errors")
+      if os.environ.get("DRIFT_GATE") == "1":
+          failed.append("error-level drift against the baseline")
+      if failed:
+          print("SEO and GEO gate failed: " + "; ".join(failed))
+          sys.exit(1)
+      print("SEO and GEO gates passed; advisory findings remain in the reports.")
+      PY
+  artifacts:
+    when: always
+    paths:
+      - .seo-geo-god/ci/
+    expire_in: 14 days

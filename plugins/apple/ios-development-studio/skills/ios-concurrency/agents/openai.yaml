@@ -1,0 +1,6 @@
+interface:
+  display_name: Concurrency
+  short_description: Fix Swift isolation, cancellation, and async behavior
+  default_prompt: Use $ios-concurrency to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

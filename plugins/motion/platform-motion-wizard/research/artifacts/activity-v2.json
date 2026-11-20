@@ -1,0 +1,1510 @@
+[
+  {
+    "repo": "motiondivision/motion",
+    "default_branch": "main",
+    "stars": 34416,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://motion.dev",
+    "sha": "a03a6daf30d6ff63286e716a0f612d3b3a493802",
+    "date": "2026-10-21T05:26:37Z",
+    "message": "Merge pull request #3959 from motiondivision/claude/project-thread-waqh6s-issue-3955",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "dev/react/src/tests/issue-3955.tsx",
+        "status": "added",
+        "changes": 51
+      },
+      {
+        "path": "dev/react/src/tests/reorder-auto-scroll-page-drift.tsx",
+        "status": "modified",
+        "changes": 10
+      },
+      {
+        "path": "packages/framer-motion/src/components/Reorder/utils/__tests__/auto-scroll.test.ts",
+        "status": "modified",
+        "changes": 40
+      },
+      {
+        "path": "packages/framer-motion/src/components/Reorder/utils/auto-scroll.ts",
+        "status": "modified",
+        "changes": 11
+      },
+      {
+        "path": "tests/react/issue-3955.spec.ts",
+        "status": "added",
+        "changes": 83
+      },
+      {
+        "path": "tests/react/reorder-auto-scroll-page-drift.spec.ts",
+        "status": "modified",
+        "changes": 12
+      }
+    ],
+    "commit_url": "https://github.com/motiondivision/motion/commit/a03a6daf30d6ff63286e716a0f612d3b3a493802"
+  },
+  {
+    "repo": "pmndrs/react-spring",
+    "default_branch": "next",
+    "stars": 29176,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "http://www.react-spring.dev/",
+    "sha": "e17c982134c2d62403f8f5b2958efbbcd79de435",
+    "date": "2026-10-20T06:33:16Z",
+    "message": "fix(deps): update dependency @react-three/fiber to ~9.8.2 (#2636)",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "demo/package.json",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "demo/src/sandboxes/presence-webgl/package.json",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "demo/src/sandboxes/springy-boxes/package.json",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "demo/src/sandboxes/webgl-switch/package.json",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "package.json",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "status": "modified",
+        "changes": 22
+      }
+    ],
+    "commit_url": "https://github.com/pmndrs/react-spring/commit/e17c982134c2d62403f8f5b2958efbbcd79de435",
+    "implementation_activity": {
+      "sha": "82146aacf875c175c8f965c339e69c8c1fe049ac",
+      "date": "2026-10-19T18:43:20Z",
+      "url": "https://github.com/pmndrs/react-spring/commit/82146aacf875c175c8f965c339e69c8c1fe049ac",
+      "changed_files": [
+        {
+          "path": ".changeset/resize-zero-dimensions.md",
+          "changes": 5
+        },
+        {
+          "path": "packages/core/src/hooks/useResize.animation.test.tsx",
+          "changes": 92
+        },
+        {
+          "path": "packages/core/src/hooks/useResize.ts",
+          "changes": 7
+        },
+        {
+          "path": "tests/e2e/useResize.spec.tsx",
+          "changes": 45
+        }
+      ]
+    }
+  },
+  {
+    "repo": "radix-ui/primitives",
+    "default_branch": "main",
+    "stars": 19415,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://radix-ui.com/primitives",
+    "sha": "d715acbf2283c7867ad01165586d97fd6c163f09",
+    "date": "2026-10-14T17:36:35Z",
+    "message": "dismissable-layer: Fix content unclickable for first frame (#4105)",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": ".changeset/sweet-tigers-wink.md",
+        "status": "added",
+        "changes": 6
+      },
+      {
+        "path": "packages/react/dismissable-layer/src/dismissable-layer.test.tsx",
+        "status": "modified",
+        "changes": 21
+      },
+      {
+        "path": "packages/react/dismissable-layer/src/dismissable-layer.tsx",
+        "status": "modified",
+        "changes": 7
+      }
+    ],
+    "commit_url": "https://github.com/radix-ui/primitives/commit/d715acbf2283c7867ad01165586d97fd6c163f09"
+  },
+  {
+    "repo": "adobe/react-spectrum",
+    "default_branch": "main",
+    "stars": 15974,
+    "archived": false,
+    "fork": false,
+    "license": "Apache-2.0",
+    "homepage": "https://react-spectrum.adobe.com",
+    "sha": "2eb4e0e9154943e92466daf9213183af84b6e6ad",
+    "date": "2026-10-20T23:46:06Z",
+    "message": "fix(select): Select component keyboard type-ahead (#10006)",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "packages/@adobe/react-spectrum/test/listbox/ListBox.test.js",
+        "status": "modified",
+        "changes": 13
+      },
+      {
+        "path": "packages/@adobe/react-spectrum/test/menu/Menu.test.js",
+        "status": "modified",
+        "changes": 17
+      },
+      {
+        "path": "packages/react-aria-components/test/Select.test.js",
+        "status": "modified",
+        "changes": 128
+      },
+      {
+        "path": "packages/react-aria/src/selection/ListKeyboardDelegate.ts",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "packages/react-aria/src/selection/useTypeSelect.ts",
+        "status": "modified",
+        "changes": 32
+      }
+    ],
+    "commit_url": "https://github.com/adobe/react-spectrum/commit/2eb4e0e9154943e92466daf9213183af84b6e6ad"
+  },
+  {
+    "repo": "mui/base-ui",
+    "default_branch": "master",
+    "stars": 11202,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://base-ui.com",
+    "sha": "051a971ee93dad550ae29f2563f7c2e44592a96d",
+    "date": "2026-10-20T19:21:53Z",
+    "message": "[popups] Dismiss after dropped IME compositions (#5978)",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "packages/react/src/utils/popups/interactions/useDismiss.test.tsx",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "packages/react/src/utils/popups/interactions/useDismiss.ts",
+        "status": "modified",
+        "changes": 26
+      },
+      {
+        "path": "packages/react/test/popupConformanceTests.tsx",
+        "status": "modified",
+        "changes": 52
+      }
+    ],
+    "commit_url": "https://github.com/mui/base-ui/commit/051a971ee93dad550ae29f2563f7c2e44592a96d"
+  },
+  {
+    "repo": "pmndrs/use-gesture",
+    "default_branch": "main",
+    "stars": 9623,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://use-gesture.netlify.app",
+    "sha": "c779631aa05959638dee81b9a25fb1299a7467f6",
+    "date": "2024-03-21T16:15:04Z",
+    "message": "chore(deploy): Release (#656)",
+    "activity_verified": true,
+    "stale_default_branch": true,
+    "changed_files": [
+      {
+        "path": ".changeset/stale-seahorses-speak.md",
+        "status": "removed",
+        "changes": 5
+      },
+      {
+        "path": "packages/core/CHANGELOG.md",
+        "status": "modified",
+        "changes": 6
+      },
+      {
+        "path": "packages/core/package.json",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "packages/react/CHANGELOG.md",
+        "status": "modified",
+        "changes": 7
+      },
+      {
+        "path": "packages/react/package.json",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vanilla/CHANGELOG.md",
+        "status": "modified",
+        "changes": 7
+      },
+      {
+        "path": "packages/vanilla/package.json",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "status": "modified",
+        "changes": 4
+      }
+    ],
+    "commit_url": "https://github.com/pmndrs/use-gesture/commit/c779631aa05959638dee81b9a25fb1299a7467f6"
+  },
+  {
+    "repo": "floating-ui/floating-ui",
+    "default_branch": "master",
+    "stars": 32758,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://floating-ui.com",
+    "sha": "defb25074a69f1d985bb7b7d96c3f2cd34868a94",
+    "date": "2026-10-16T18:31:10Z",
+    "message": "add backupdrill sponsor",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "website/data.js",
+        "status": "modified",
+        "changes": 6
+      },
+      {
+        "path": "website/public/sponsors/backupdrill.svg",
+        "status": "added",
+        "changes": 1
+      }
+    ],
+    "commit_url": "https://github.com/floating-ui/floating-ui/commit/defb25074a69f1d985bb7b7d96c3f2cd34868a94",
+    "implementation_activity": {
+      "sha": "9887c9679906900ffac4ee632deaa8bc959f71d2",
+      "date": "2026-07-11T06:38:38Z",
+      "message": "fix(types): restore bivariant parameters for optional callbacks",
+      "within_requested_window": false
+    }
+  },
+  {
+    "repo": "software-mansion/react-native-reanimated",
+    "default_branch": "main",
+    "stars": 11032,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "http://docs.swmansion.com/react-native-reanimated/",
+    "sha": "8381986bc254a0652543dac545cc08e37d90a6e6",
+    "date": "2026-10-21T17:00:22Z",
+    "message": "feat(Worklets): read iOS dev bundle from file (#10181)",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "packages/react-native-worklets/apple/worklets/apple/ScriptLoader.h",
+        "status": "modified",
+        "changes": 2
+      },
+      {
+        "path": "packages/react-native-worklets/apple/worklets/apple/ScriptLoader.mm",
+        "status": "modified",
+        "changes": 13
+      },
+      {
+        "path": "packages/react-native-worklets/apple/worklets/apple/WorkletsModule.mm",
+        "status": "modified",
+        "changes": 17
+      },
+      {
+        "path": "packages/react-native-worklets/changelog/ios-bundle-from-file.feature.md",
+        "status": "added",
+        "changes": 1
+      },
+      {
+        "path": "packages/react-native-worklets/src/WorkletsModule/NativeWorklets.native.ts",
+        "status": "modified",
+        "changes": 11
+      }
+    ],
+    "commit_url": "https://github.com/software-mansion/react-native-reanimated/commit/8381986bc254a0652543dac545cc08e37d90a6e6"
+  },
+  {
+    "repo": "iart-ai/motion-skills",
+    "default_branch": "master",
+    "stars": 936,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://www.iart.ai",
+    "sha": "bb5a3ce666110855a3437de2f70e9968c408e005",
+    "date": "2026-10-14T14:10:05Z",
+    "message": "Add b-roll-skills (18th pack): b-roll motion graphics for talking-head videos (#4)",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "README.md",
+        "status": "modified",
+        "changes": 7
+      }
+    ],
+    "commit_url": "https://github.com/iart-ai/motion-skills/commit/bb5a3ce666110855a3437de2f70e9968c408e005"
+  },
+  {
+    "repo": "Jakubantalik/transitions.dev",
+    "default_branch": "main",
+    "stars": 5474,
+    "archived": false,
+    "fork": false,
+    "license": "NOASSERTION",
+    "homepage": "https://transitions.dev/",
+    "sha": "7ec0b0b0b8beb15788a9de68a40ec6be2d5e84b5",
+    "date": "2026-10-17T13:09:37Z",
+    "message": "fix(pricing): the revamp note uses the Studio's blue info banner",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "pro.html",
+        "status": "modified",
+        "changes": 11
+      }
+    ],
+    "commit_url": "https://github.com/Jakubantalik/transitions.dev/commit/7ec0b0b0b8beb15788a9de68a40ec6be2d5e84b5"
+  },
+  {
+    "repo": "chakra-ui/ark",
+    "default_branch": "main",
+    "stars": 5427,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://ark-ui.com",
+    "sha": "5d6dfcc64685d29eea6992fc0e484901da50baf0",
+    "date": "2026-10-15T17:35:47Z",
+    "message": "fix(field): describe the focusable element with the field's helper and error text (#4223)",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": ".changeset/field-description-focusable.md",
+        "status": "added",
+        "changes": 9
+      },
+      {
+        "path": "packages/react/src/components/color-picker/color-picker-channel-input.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/color-picker/color-picker-trigger.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/color-picker/tests/color-picker.test.tsx",
+        "status": "modified",
+        "changes": 6
+      },
+      {
+        "path": "packages/react/src/components/file-upload/file-upload-dropzone.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/file-upload/file-upload-trigger.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/file-upload/tests/basic.tsx",
+        "status": "modified",
+        "changes": 1
+      },
+      {
+        "path": "packages/react/src/components/file-upload/tests/file-upload.test.tsx",
+        "status": "modified",
+        "changes": 6
+      },
+      {
+        "path": "packages/react/src/components/pin-input/pin-input-control.tsx",
+        "status": "modified",
+        "changes": 13
+      },
+      {
+        "path": "packages/react/src/components/pin-input/tests/pin-input.test.tsx",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/react/src/components/rating-group/rating-group-control.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/rating-group/rating-group-item.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/rating-group/tests/rating-group.test.tsx",
+        "status": "modified",
+        "changes": 8
+      },
+      {
+        "path": "packages/react/src/components/select/select-trigger.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/select/tests/select.test.tsx",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/react/src/components/signature-pad/signature-pad-control.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/signature-pad/tests/signature-pad.test.tsx",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/react/src/components/tags-input/tags-input-input.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/react/src/components/tags-input/tests/tags-input.test.tsx",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/solid/src/components/color-picker/color-picker-channel-input.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/color-picker/color-picker-trigger.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/color-picker/tests/color-picker.test.tsx",
+        "status": "modified",
+        "changes": 6
+      },
+      {
+        "path": "packages/solid/src/components/file-upload/file-upload-dropzone.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/file-upload/file-upload-trigger.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/file-upload/tests/basic.tsx",
+        "status": "modified",
+        "changes": 15
+      },
+      {
+        "path": "packages/solid/src/components/file-upload/tests/file-upload.test.tsx",
+        "status": "modified",
+        "changes": 20
+      },
+      {
+        "path": "packages/solid/src/components/pin-input/pin-input-control.tsx",
+        "status": "modified",
+        "changes": 12
+      },
+      {
+        "path": "packages/solid/src/components/pin-input/tests/pin-input.test.tsx",
+        "status": "modified",
+        "changes": 161
+      },
+      {
+        "path": "packages/solid/src/components/rating-group/rating-group-control.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/rating-group/rating-group-item.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/rating-group/tests/rating-group.test.tsx",
+        "status": "modified",
+        "changes": 8
+      },
+      {
+        "path": "packages/solid/src/components/select/select-trigger.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/select/tests/select.test.tsx",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/solid/src/components/signature-pad/signature-pad-control.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/signature-pad/tests/signature-pad.test.tsx",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/solid/src/components/tags-input/tags-input-input.tsx",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/solid/src/components/tags-input/tests/tags-input.test.tsx",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/svelte/src/lib/components/color-picker/color-picker-channel-input.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/color-picker/color-picker-trigger.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/color-picker/tests/color-picker-field.test.svelte",
+        "status": "added",
+        "changes": 17
+      },
+      {
+        "path": "packages/svelte/src/lib/components/color-picker/tests/color-picker-field.test.ts",
+        "status": "added",
+        "changes": 13
+      },
+      {
+        "path": "packages/svelte/src/lib/components/combobox/combobox-input.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/combobox/tests/combobox-field.test.svelte",
+        "status": "added",
+        "changes": 17
+      },
+      {
+        "path": "packages/svelte/src/lib/components/combobox/tests/combobox-field.test.ts",
+        "status": "added",
+        "changes": 12
+      },
+      {
+        "path": "packages/svelte/src/lib/components/editable/editable-input.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/editable/tests/editable-field.test.svelte",
+        "status": "added",
+        "changes": 15
+      },
+      {
+        "path": "packages/svelte/src/lib/components/editable/tests/editable-field.test.ts",
+        "status": "added",
+        "changes": 10
+      },
+      {
+        "path": "packages/svelte/src/lib/components/file-upload/file-upload-dropzone.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/file-upload/file-upload-trigger.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/file-upload/tests/file-upload-field.test.svelte",
+        "status": "added",
+        "changes": 16
+      },
+      {
+        "path": "packages/svelte/src/lib/components/file-upload/tests/file-upload-field.test.ts",
+        "status": "added",
+        "changes": 13
+      },
+      {
+        "path": "packages/svelte/src/lib/components/pin-input/pin-input-control.svelte",
+        "status": "modified",
+        "changes": 12
+      },
+      {
+        "path": "packages/svelte/src/lib/components/pin-input/tests/pin-input-field.test.svelte",
+        "status": "added",
+        "changes": 18
+      },
+      {
+        "path": "packages/svelte/src/lib/components/pin-input/tests/pin-input-field.test.ts",
+        "status": "added",
+        "changes": 12
+      },
+      {
+        "path": "packages/svelte/src/lib/components/rating-group/rating-group-control.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/rating-group/rating-group-item.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/rating-group/tests/rating-group-field.test.svelte",
+        "status": "added",
+        "changes": 18
+      },
+      {
+        "path": "packages/svelte/src/lib/components/rating-group/tests/rating-group-field.test.ts",
+        "status": "added",
+        "changes": 13
+      },
+      {
+        "path": "packages/svelte/src/lib/components/select/select-trigger.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/select/select.test.ts",
+        "status": "modified",
+        "changes": 8
+      },
+      {
+        "path": "packages/svelte/src/lib/components/select/tests/select-field.test.svelte",
+        "status": "added",
+        "changes": 20
+      },
+      {
+        "path": "packages/svelte/src/lib/components/signature-pad/signature-pad-control.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/signature-pad/tests/signature-pad-field.test.svelte",
+        "status": "added",
+        "changes": 15
+      },
+      {
+        "path": "packages/svelte/src/lib/components/signature-pad/tests/signature-pad-field.test.ts",
+        "status": "added",
+        "changes": 10
+      },
+      {
+        "path": "packages/svelte/src/lib/components/switch/switch-hidden-input.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/switch/tests/switch-field.test.svelte",
+        "status": "added",
+        "changes": 14
+      },
+      {
+        "path": "packages/svelte/src/lib/components/switch/tests/switch-field.test.ts",
+        "status": "added",
+        "changes": 12
+      },
+      {
+        "path": "packages/svelte/src/lib/components/tags-input/tags-input-input.svelte",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/svelte/src/lib/components/tags-input/tests/tags-input-field.test.svelte",
+        "status": "added",
+        "changes": 16
+      },
+      {
+        "path": "packages/svelte/src/lib/components/tags-input/tests/tags-input-field.test.ts",
+        "status": "added",
+        "changes": 10
+      },
+      {
+        "path": "packages/vue/src/components/color-picker/color-picker-channel-input.vue",
+        "status": "modified",
+        "changes": 8
+      },
+      {
+        "path": "packages/vue/src/components/color-picker/color-picker-trigger.vue",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vue/src/components/color-picker/tests/color-picker.test.ts",
+        "status": "modified",
+        "changes": 6
+      },
+      {
+        "path": "packages/vue/src/components/file-upload/file-upload-dropzone.vue",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vue/src/components/file-upload/file-upload-trigger.vue",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vue/src/components/file-upload/tests/field.test.vue",
+        "status": "added",
+        "changes": 20
+      },
+      {
+        "path": "packages/vue/src/components/file-upload/tests/file-upload.test.ts",
+        "status": "modified",
+        "changes": 12
+      },
+      {
+        "path": "packages/vue/src/components/pin-input/pin-input-control.vue",
+        "status": "modified",
+        "changes": 11
+      },
+      {
+        "path": "packages/vue/src/components/pin-input/tests/pin-input.test.ts",
+        "status": "modified",
+        "changes": 7
+      },
+      {
+        "path": "packages/vue/src/components/rating-group/rating-group-control.vue",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vue/src/components/rating-group/rating-group-item.vue",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vue/src/components/rating-group/tests/rating-group.test.ts",
+        "status": "modified",
+        "changes": 8
+      },
+      {
+        "path": "packages/vue/src/components/select/select-trigger.vue",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vue/src/components/select/tests/select.test.ts",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/vue/src/components/signature-pad/signature-pad-control.vue",
+        "status": "modified",
+        "changes": 4
+      },
+      {
+        "path": "packages/vue/src/components/signature-pad/tests/signature-pad.test.ts",
+        "status": "modified",
+        "changes": 5
+      },
+      {
+        "path": "packages/vue/src/components/tags-input/tags-input-input.vue",
+        "status": "modified",
+        "changes": 6
+      },
+      {
+        "path": "packages/vue/src/components/tags-input/tests/tags-input.test.ts",
+        "status": "modified",
+        "changes": 7
+      }
+    ],
+    "commit_url": "https://github.com/chakra-ui/ark/commit/5d6dfcc64685d29eea6992fc0e484901da50baf0"
+  },
+  {
+    "repo": "unovue/reka-ui",
+    "default_branch": "v2",
+    "stars": 6896,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://reka-ui.com",
+    "sha": "f35ae317d2d79225d7405f60110616913f9accc5",
+    "date": "2026-10-19T03:24:40Z",
+    "message": "chore(docs): update contributors and sponsors",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "docs/.vitepress/contributor-names.json",
+        "status": "modified",
+        "changes": 47
+      }
+    ],
+    "commit_url": "https://github.com/unovue/reka-ui/commit/f35ae317d2d79225d7405f60110616913f9accc5"
+  },
+  {
+    "repo": "stipsan/react-spring-bottom-sheet",
+    "default_branch": "main",
+    "stars": 1065,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://react-spring.bottom-sheet.dev/",
+    "sha": "3cb57d11c9a1e3a23e4e855e9525abc380b527b2",
+    "date": "2022-06-01T22:13:06Z",
+    "message": "chore(release): 3.4.1 [skip ci]",
+    "activity_verified": true,
+    "stale_default_branch": true,
+    "changed_files": [
+      {
+        "path": "CHANGELOG.md",
+        "status": "modified",
+        "changes": 7
+      },
+      {
+        "path": "package-lock.json",
+        "status": "modified",
+        "changes": 142
+      },
+      {
+        "path": "package.json",
+        "status": "modified",
+        "changes": 2
+      }
+    ],
+    "commit_url": "https://github.com/stipsan/react-spring-bottom-sheet/commit/3cb57d11c9a1e3a23e4e855e9525abc380b527b2"
+  },
+  {
+    "repo": "humanspeak/svelte-motion",
+    "default_branch": "main",
+    "stars": 105,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": "https://motion.svelte.page",
+    "sha": "f2b5d7666cb62767fc4a753391fc35da840f46a2",
+    "date": "2026-10-17T18:44:29Z",
+    "message": "Bump version to v2.1.1 [skip ci]",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": "package.json",
+        "status": "modified",
+        "changes": 2
+      }
+    ],
+    "commit_url": "https://github.com/humanspeak/svelte-motion/commit/f2b5d7666cb62767fc4a753391fc35da840f46a2",
+    "implementation_activity": {
+      "sha": "dc421f810c1922a90f8ab8a22d02d5f28d351ac9",
+      "date": "2026-10-17T18:25:09Z",
+      "url": "https://github.com/humanspeak/svelte-motion/commit/dc421f810c1922a90f8ab8a22d02d5f28d351ac9",
+      "changed_files": [
+        {
+          "path": ".agents/.plans/motion-14-2-0/001-bump-motion-14-2-0.md",
+          "changes": 274
+        },
+        {
+          "path": ".agents/.plans/motion-14-2-0/002-demote-accelerated-transforms-before-measure.md",
+          "changes": 249
+        },
+        {
+          "path": ".agents/.plans/motion-14-2-0/003-reorder-click-after-drag.md",
+          "changes": 186
+        },
+        {
+          "path": ".agents/.plans/motion-14-2-0/004-on-update-prop.md",
+          "changes": 297
+        },
+        {
+          "path": ".agents/.plans/motion-14-2-0/005-no-layout-update-on-mount.md",
+          "changes": 297
+        },
+        {
+          "path": ".agents/.plans/motion-14-2-0/006-layout-mount-and-detach-parity.md",
+          "changes": 418
+        },
+        {
+          "path": ".agents/.plans/motion-14-2-0/README.md",
+          "changes": 81
+        },
+        {
+          "path": ".changeset/layout-mount-parity.md",
+          "changes": 14
+        },
+        {
+          "path": ".changeset/layout-stays-accelerated.md",
+          "changes": 5
+        },
+        {
+          "path": ".changeset/motion-14-2-0.md",
+          "changes": 10
+        },
+        {
+          "path": ".changeset/on-update-prop.md",
+          "changes": 5
+        },
+        {
+          "path": ".changeset/reorder-click-after-drag.md",
+          "changes": 5
+        },
+        {
+          "path": "docs/src/lib/docsNav.ts",
+          "changes": 1
+        },
+        {
+          "path": "docs/src/lib/examples/on-update/demos/Default.svelte",
+          "changes": 135
+        },
+        {
+          "path": "docs/src/lib/seo-title-policy.spec.ts",
+          "changes": 7
+        },
+        {
+          "path": "docs/src/routes/docs/on-update/+page.svx",
+          "changes": 96
+        },
+        {
+          "path": "docs/src/routes/docs/transform-template/+page.svx",
+          "changes": 9
+        },
+        {
+          "path": "docs/src/routes/examples/on-update/+page.svelte",
+          "changes": 103
+        },
+        {
+          "path": "e2e/independent-transforms/basic.spec.ts",
+          "changes": 104
+        },
+        {
+          "path": "e2e/independent-transforms/layout-hydration.spec.ts",
+          "changes": 149
+        },
+        {
+          "path": "e2e/independent-transforms/layout-idle.spec.ts",
+          "changes": 43
+        },
+        {
+          "path": "e2e/independent-transforms/layout-measure.spec.ts",
+          "changes": 54
+        },
+        {
+          "path": "e2e/independent-transforms/layout-mount-ready.spec.ts",
+          "changes": 113
+        },
+        {
+          "path": "e2e/independent-transforms/layout-toggle.spec.ts",
+          "changes": 61
+        },
+        {
+          "path": "e2e/independent-transforms/layout-user-transform.spec.ts",
+          "changes": 368
+        },
+        {
+          "path": "e2e/motion/on-update.spec.ts",
+          "changes": 63
+        },
+        {
+          "path": "e2e/reorder/click-after-drag.spec.ts",
+          "changes": 57
+        },
+        {
+          "path": "package.json",
+          "changes": 6
+        },
+        {
+          "path": "pnpm-lock.yaml",
+          "changes": 65
+        },
+        {
+          "path": "scripts/generate-html.ts",
+          "changes": 1
+        },
+        {
+          "path": "src/lib/components/Reorder/Group.svelte",
+          "changes": 43
+        },
+        {
+          "path": "src/lib/components/Reorder/Item.svelte",
+          "changes": 2
+        },
+        {
+          "path": "src/lib/components/Reorder/__tests__/ClickAfterDragHarness.svelte",
+          "changes": 40
+        },
+        {
+          "path": "src/lib/components/Reorder/context.ts",
+          "changes": 5
+        },
+        {
+          "path": "src/lib/components/Reorder/reorder.component.spec.ts",
+          "changes": 139
+        },
+        {
+          "path": "src/lib/components/Reorder/types.ts",
+          "changes": 12
+        },
+        {
+          "path": "src/lib/html/_MotionContainer.spec.ts",
+          "changes": 183
+        },
+        {
+          "path": "src/lib/html/_MotionContainer.svelte",
+          "changes": 190
+        },
+        {
+          "path": "src/lib/html/__tests__/LayoutIdToggleHarness.svelte",
+          "changes": 15
+        },
+        {
+          "path": "src/lib/html/index.ts",
+          "changes": 169
+        },
+        {
+          "path": "src/lib/index.ts",
+          "changes": 1
+        },
+        {
+          "path": "src/lib/types.ts",
+          "changes": 12
+        },
+        {
+          "path": "src/lib/utils/layoutId.spec.ts",
+          "changes": 41
+        },
+        {
+          "path": "src/lib/utils/layoutId.ts",
+          "changes": 29
+        },
+        {
+          "path": "src/lib/utils/motionDomProjection.spec.ts",
+          "changes": 433
+        },
+        {
+          "path": "src/lib/utils/motionDomProjection.ts",
+          "changes": 220
+        },
+        {
+          "path": "src/routes/+page.svelte",
+          "changes": 81
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/_countTransformAnimations.ts",
+          "changes": 39
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/_paintedFrames.ts",
+          "changes": 49
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/basic/+page.svelte",
+          "changes": 220
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/layout-hydration/+page.svelte",
+          "changes": 221
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/layout-idle/+page.svelte",
+          "changes": 166
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/layout-measure/+page.svelte",
+          "changes": 184
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/layout-mount-ready/+page.svelte",
+          "changes": 253
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/layout-toggle/+page.svelte",
+          "changes": 245
+        },
+        {
+          "path": "src/routes/tests/independent-transforms/layout-user-transform/+page.svelte",
+          "changes": 688
+        },
+        {
+          "path": "src/routes/tests/motion/on-update/+page.svelte",
+          "changes": 202
+        },
+        {
+          "path": "src/routes/tests/reorder/click-after-drag/+page.svelte",
+          "changes": 185
+        }
+      ]
+    }
+  },
+  {
+    "repo": "lovisdotio/motion2code",
+    "default_branch": "main",
+    "stars": 151,
+    "archived": false,
+    "fork": false,
+    "license": "MIT",
+    "homepage": null,
+    "sha": "7fa40202b485c8e47e0f155135a324151259dd52",
+    "date": "2026-10-20T04:17:40Z",
+    "message": "Motion2Code: motion design video to SVG + GSAP code skill",
+    "activity_verified": true,
+    "stale_default_branch": false,
+    "changed_files": [
+      {
+        "path": ".claude-plugin/marketplace.json",
+        "status": "added",
+        "changes": 14
+      },
+      {
+        "path": ".claude-plugin/plugin.json",
+        "status": "added",
+        "changes": 11
+      },
+      {
+        "path": ".github/workflows/checks.yml",
+        "status": "added",
+        "changes": 34
+      },
+      {
+        "path": ".gitignore",
+        "status": "added",
+        "changes": 13
+      },
+      {
+        "path": "AGENTS.md",
+        "status": "added",
+        "changes": 38
+      },
+      {
+        "path": "LICENSE",
+        "status": "added",
+        "changes": 21
+      },
+      {
+        "path": "README.md",
+        "status": "added",
+        "changes": 142
+      },
+      {
+        "path": "adapters/chatgpt-custom-gpt.md",
+        "status": "added",
+        "changes": 8
+      },
+      {
+        "path": "adapters/claude-project.md",
+        "status": "added",
+        "changes": 15
+      },
+      {
+        "path": "adapters/copilot/motion2code.instructions.md",
+        "status": "added",
+        "changes": 14
+      },
+      {
+        "path": "adapters/cursor/motion2code.mdc",
+        "status": "added",
+        "changes": 15
+      },
+      {
+        "path": "adapters/gemini-gem.md",
+        "status": "added",
+        "changes": 8
+      },
+      {
+        "path": "adapters/universal-system-prompt.md",
+        "status": "added",
+        "changes": 39
+      },
+      {
+        "path": "gallery/eye/compare.html",
+        "status": "added",
+        "changes": 96
+      },
+      {
+        "path": "gallery/eye/index.html",
+        "status": "added",
+        "changes": 453
+      },
+      {
+        "path": "gallery/eye/poster.gif",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/eye/source.mp4",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/festival-map/compare.html",
+        "status": "added",
+        "changes": 96
+      },
+      {
+        "path": "gallery/festival-map/index.html",
+        "status": "added",
+        "changes": 694
+      },
+      {
+        "path": "gallery/festival-map/poster.gif",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/festival-map/site.html",
+        "status": "added",
+        "changes": 1430
+      },
+      {
+        "path": "gallery/festival-map/source.mp4",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/hero.gif",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/podcast-player/compare.html",
+        "status": "added",
+        "changes": 96
+      },
+      {
+        "path": "gallery/podcast-player/index.html",
+        "status": "added",
+        "changes": 557
+      },
+      {
+        "path": "gallery/podcast-player/poster.gif",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/podcast-player/site.html",
+        "status": "added",
+        "changes": 1371
+      },
+      {
+        "path": "gallery/podcast-player/source.mp4",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/sticker-portfolio/compare.html",
+        "status": "added",
+        "changes": 96
+      },
+      {
+        "path": "gallery/sticker-portfolio/index.html",
+        "status": "added",
+        "changes": 809
+      },
+      {
+        "path": "gallery/sticker-portfolio/poster.gif",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/sticker-portfolio/site.html",
+        "status": "added",
+        "changes": 1645
+      },
+      {
+        "path": "gallery/sticker-portfolio/source.mp4",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/think-big/compare.html",
+        "status": "added",
+        "changes": 96
+      },
+      {
+        "path": "gallery/think-big/index.html",
+        "status": "added",
+        "changes": 313
+      },
+      {
+        "path": "gallery/think-big/poster.gif",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/think-big/source.mp4",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/weather-radar/compare.html",
+        "status": "added",
+        "changes": 96
+      },
+      {
+        "path": "gallery/weather-radar/index.html",
+        "status": "added",
+        "changes": 511
+      },
+      {
+        "path": "gallery/weather-radar/poster.gif",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gallery/weather-radar/site.html",
+        "status": "added",
+        "changes": 1455
+      },
+      {
+        "path": "gallery/weather-radar/source.mp4",
+        "status": "added",
+        "changes": 0
+      },
+      {
+        "path": "gemini-extension.json",
+        "status": "added",
+        "changes": 5
+      },
+      {
+        "path": "prompts/convert-video-prompt.md",
+        "status": "added",
+        "changes": 26
+      },
+      {
+        "path": "prompts/source-video-prompt.md",
+        "status": "added",
+        "changes": 30
+      },
+      {
+        "path": "skills/motion2code/SKILL.md",
+        "status": "added",
+        "changes": 114
+      },
+      {
+        "path": "skills/motion2code/agents/openai.yaml",
+        "status": "added",
+        "changes": 5
+      },
+      {
+        "path": "skills/motion2code/references/animation-architecture.md",
+        "status": "added",
+        "changes": 111
+      },
+      {
+        "path": "skills/motion2code/references/interfaces-and-sites.md",
+        "status": "added",
+        "changes": 60
+      },
+      {
+        "path": "skills/motion2code/references/motion-vocabulary.md",
+        "status": "added",
+        "changes": 41
+      },
+      {
+        "path": "skills/motion2code/references/seamless-loop.md",
+        "status": "added",
+        "changes": 55
+      },
+      {
+        "path": "skills/motion2code/references/study-the-source.md",
+        "status": "added",
+        "changes": 66
+      },
+      {
+        "path": "skills/motion2code/references/verification.md",
+        "status": "added",
+        "changes": 63
+      },
+      {
+        "path": "skills/motion2code/scripts/_m2c.py",
+        "status": "added",
+        "changes": 165
+      },
+      {
+        "path": "skills/motion2code/scripts/check_anim.py",
+        "status": "added",
+        "changes": 199
+      },
+      {
+        "path": "skills/motion2code/scripts/frame_diff.py",
+        "status": "added",
+        "changes": 93
+      },
+      {
+        "path": "skills/motion2code/scripts/palette.py",
+        "status": "added",
+        "changes": 89
+      },
+      {
+        "path": "skills/motion2code/scripts/render_anim.py",
+        "status": "added",
+        "changes": 122
+      },
+      {
+        "path": "skills/motion2code/scripts/side_by_side.py",
+        "status": "added",
+        "changes": 93
+      },
+      {
+        "path": "skills/motion2code/scripts/study_video.py",
+        "status": "added",
+        "changes": 107
+      },
+      {
+        "path": "skills/motion2code/templates/compare.html",
+        "status": "added",
+        "changes": 96
+      },
+      {
+        "path": "skills/motion2code/templates/index.html",
+        "status": "added",
+        "changes": 122
+      },
+      {
+        "path": "skills/motion2code/templates/site.html",
+        "status": "added",
+        "changes": 212
+      },
+      {
+        "path": "tests/check_repo.py",
+        "status": "added",
+        "changes": 45
+      }
+    ],
+    "commit_url": "https://github.com/lovisdotio/motion2code/commit/7fa40202b485c8e47e0f155135a324151259dd52"
+  }
+]

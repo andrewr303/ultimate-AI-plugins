@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: safari-flat-glass
+expected_outcome: |
+  The answer explains that SVG filters inside backdrop-filter (backdrop-filter: url(#...)) only render in
+  Chromium; Safari has not shipped them, so the flat look is expected rather than a bug in the user's markup.
+  It recommends a designed frosted tier for Safari, and a WebGL or content-layer capture approach if refraction
+  in Safari is a hard requirement, without promising that a CSS tweak will make Safari refract.

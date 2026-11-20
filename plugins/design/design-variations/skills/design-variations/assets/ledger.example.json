@@ -1,0 +1,1116 @@
+{
+  "schema": "design-variations/1",
+  "title": "Team members",
+  "slug": "team-members",
+  "lang": "en",
+  "mode": "redesign",
+  "host": "html",
+  "created": "2026-11-01T18:00:00+00:00",
+  "subject": {
+    "kind": "screen",
+    "archetype": "settings / people management",
+    "platform": "web",
+    "source": [
+      "src/settings/Members.tsx",
+      "src/settings/InviteDialog.tsx",
+      "src/styles/tokens.css"
+    ],
+    "summary": "The Members page in Fieldnote's workspace settings, where admins invite people, change roles and remove access a few times a month."
+  },
+  "theme": {
+    "source": "src/styles/tokens.css",
+    "summary": "Light theme; Inter at 14px body; slate neutrals with an indigo accent used only for primary actions; 8px radius; hairline borders; calm, plain-spoken copy."
+  },
+  "chrome": {
+    "theme": "light",
+    "tokens": {
+      "--dv-bg": "#f6f7f9",
+      "--dv-surface": "#ffffff",
+      "--dv-surface-2": "#eef0f4",
+      "--dv-line": "rgb(15 23 42 / 0.08)",
+      "--dv-line-strong": "rgb(15 23 42 / 0.16)",
+      "--dv-text": "#0f172a",
+      "--dv-text-2": "#334155",
+      "--dv-text-3": "#475569",
+      "--dv-accent": "#4338ca",
+      "--dv-accent-text": "#4338ca",
+      "--dv-on-accent": "#ffffff",
+      "--dv-font": "Inter, ui-sans-serif, system-ui, sans-serif"
+    }
+  },
+  "contract": {
+    "must_keep": [
+      "See every member with name, email, role and last active date",
+      "Search members by name or email",
+      "Filter by role: Owner, Admin, Member, Guest",
+      "Invite people by email with a role, validated",
+      "Change a member's role (the Owner role cannot be removed from the last owner)",
+      "Remove a member, with confirmation",
+      "Resend or revoke a pending invite",
+      "Seat usage: used of available seats",
+      "Fieldnote brand: indigo for primary actions only, Inter, calm copy"
+    ],
+    "may_change": [
+      "layout and grouping",
+      "where editing happens",
+      "how invites are started",
+      "density and hierarchy"
+    ],
+    "lifted": [],
+    "constraints": [
+      "Desktop web at 1280×800, usable at 390 wide",
+      "WCAG 2.2 AA"
+    ]
+  },
+  "frame": {
+    "w": 1280,
+    "h": 800
+  },
+  "baseline": {
+    "name": "Today",
+    "description": "The Members page as it ships now: a table with a role filter, search, an Invite dialog and row menus.",
+    "states": [
+      "default",
+      "empty",
+      "error"
+    ]
+  },
+  "preferences": [
+    {
+      "kind": "like",
+      "trait": "organising people by role",
+      "why": "Picked 1h, then chose 2a, which keeps its role cards.",
+      "round": 2,
+      "from": [
+        "1h",
+        "2a"
+      ]
+    },
+    {
+      "kind": "dislike",
+      "trait": "a command bar as the main way to act",
+      "why": "The user said 'No command bar.'",
+      "round": 3,
+      "from": [
+        "1f"
+      ]
+    }
+  ],
+  "rounds": [
+    {
+      "n": 1,
+      "kind": "explore",
+      "topic": "Members",
+      "question": "How should admins see and manage who has access?",
+      "title": "Ten ways to manage who has access",
+      "summary": "All ten use the same 24 members and 3 pending invites, and keep search, role filtering, inviting, role changes, removal with confirmation, invite resend and the seat count. Every frame is live; Invite, role changes and removal work. Emails are not actually sent.",
+      "feedback": null,
+      "basis": [],
+      "chosen": [
+        "1e",
+        "1h",
+        "1d"
+      ],
+      "passed": [],
+      "references": [
+        {
+          "id": "r1",
+          "provider": "gummble",
+          "title": "[App name] · Members settings",
+          "url": "[Gummble link from the result]",
+          "borrowed": "Role counts shown as group headers",
+          "strength": "precedent",
+          "use": "seed"
+        },
+        {
+          "id": "r2",
+          "provider": "gummble",
+          "title": "[App name] · Access matrix",
+          "url": "[Gummble link from the result]",
+          "borrowed": "People against workspaces as an editable grid",
+          "strength": "example",
+          "use": "seed"
+        },
+        {
+          "id": "r3",
+          "provider": "gummble",
+          "title": "[App name] · Security review queue",
+          "url": "[Gummble link from the result]",
+          "borrowed": "Leading with what needs attention, one-click fixes",
+          "strength": "example",
+          "use": "seed"
+        },
+        {
+          "id": "r4",
+          "provider": "knowledge",
+          "title": "Command palettes in admin tools",
+          "borrowed": "Typed commands for frequent admin actions",
+          "strength": "exploratory",
+          "use": "seed"
+        }
+      ],
+      "options": [
+        {
+          "id": "1a",
+          "name": "Calmer roster",
+          "rung": 1,
+          "band": "refine",
+          "plane": "surface",
+          "axis": "visual-hierarchy",
+          "paradigm": "table",
+          "description": "Same table, quieter borders and a stronger name column so people scan by person.",
+          "cost": "Barely changes anything users rely on; fixes little beyond scanning.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "row styling, column emphasis",
+          "idea": "Same table, quieter borders and a stronger name column so people scan by person.",
+          "parents": [],
+          "refs": [],
+          "tags": [
+            "visual-hierarchy",
+            "table"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ]
+        },
+        {
+          "id": "1b",
+          "name": "Tinted role labels",
+          "rung": 2,
+          "band": "refine",
+          "plane": "surface",
+          "axis": "colour-stance",
+          "paradigm": "table",
+          "description": "Roles become quiet tinted text labels from the existing palette; indigo stays on Invite and Save only.",
+          "cost": "More colour on a calm page, and the words, not the colour, must tell roles apart.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "role label styling, accent use",
+          "idea": "Roles become quiet tinted text labels from the existing palette; indigo stays on Invite and Save only.",
+          "parents": [],
+          "refs": [],
+          "tags": [
+            "colour-stance",
+            "table"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ]
+        },
+        {
+          "id": "1c",
+          "name": "Role-first rows",
+          "rung": 3,
+          "band": "refine",
+          "plane": "skeleton",
+          "axis": "density",
+          "paradigm": "table",
+          "description": "Name and role share the first line and the email moves under it, so rows get shorter and more people fit on screen.",
+          "cost": "Email is one line lower; long emails truncate sooner.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "row layout, row height",
+          "idea": "Name and role share the first line and the email moves under it, so rows get shorter and more people fit on screen.",
+          "parents": [],
+          "refs": [],
+          "tags": [
+            "density",
+            "table"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ]
+        },
+        {
+          "id": "1d",
+          "name": "Inline role picker",
+          "rung": 4,
+          "band": "evolve",
+          "plane": "skeleton",
+          "axis": "input-and-controls",
+          "paradigm": "table",
+          "description": "Role changes happen in place from a picker in the row instead of the Edit dialog, with undo.",
+          "cost": "Admins relearn where roles change; accidental changes rely on the undo this option adds.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "role editing control, dialog removed for roles",
+          "idea": "Role changes happen in place from a picker in the row instead of the Edit dialog, with undo.",
+          "parents": [],
+          "refs": [],
+          "tags": [
+            "input-and-controls",
+            "table"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "unchanged location"
+            },
+            {
+              "item": "1",
+              "how": "unchanged location"
+            },
+            {
+              "item": "2",
+              "how": "unchanged location"
+            },
+            {
+              "item": "3",
+              "how": "unchanged location"
+            },
+            {
+              "item": "4",
+              "how": "unchanged location"
+            },
+            {
+              "item": "5",
+              "how": "unchanged location"
+            },
+            {
+              "item": "6",
+              "how": "unchanged location"
+            },
+            {
+              "item": "7",
+              "how": "unchanged location"
+            },
+            {
+              "item": "8",
+              "how": "unchanged location"
+            }
+          ]
+        },
+        {
+          "id": "1e",
+          "name": "Filter rail",
+          "rung": 5,
+          "band": "evolve",
+          "plane": "skeleton",
+          "axis": "navigation-model",
+          "paradigm": "table",
+          "description": "Search, role filters with counts and seat usage move into a left rail; the table takes the rest of the width.",
+          "cost": "Admins look left instead of above the table for filters; the table loses width, and on phones the rail folds into a sheet.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "filter and seat placement",
+          "idea": "Search, role filters with counts and seat usage move into a left rail; the table takes the rest of the width.",
+          "parents": [],
+          "refs": [],
+          "tags": [
+            "navigation-model",
+            "table"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "unchanged location"
+            },
+            {
+              "item": "1",
+              "how": "unchanged location"
+            },
+            {
+              "item": "2",
+              "how": "unchanged location"
+            },
+            {
+              "item": "3",
+              "how": "unchanged location"
+            },
+            {
+              "item": "4",
+              "how": "unchanged location"
+            },
+            {
+              "item": "5",
+              "how": "unchanged location"
+            },
+            {
+              "item": "6",
+              "how": "unchanged location"
+            },
+            {
+              "item": "7",
+              "how": "unchanged location"
+            },
+            {
+              "item": "8",
+              "how": "unchanged location"
+            }
+          ]
+        },
+        {
+          "id": "1f",
+          "name": "Keyboard roster",
+          "rung": 6,
+          "band": "evolve",
+          "plane": "structure",
+          "axis": "interaction-model",
+          "paradigm": "command-first",
+          "description": "A command bar handles invite, change role and remove by typing; the list follows the keyboard.",
+          "cost": "A new habit to learn; mouse users lose nothing, but the main gain is for frequent admins only.",
+          "signature": "a command bar at the top that invites, changes roles and removes people by typing, with the list following the keyboard",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "primary interaction, shortcuts",
+          "idea": "A command bar handles invite, change role and remove by typing; the list follows the keyboard.",
+          "parents": [],
+          "refs": [
+            "r4"
+          ],
+          "tags": [
+            "interaction-model",
+            "command-first"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "unchanged location"
+            },
+            {
+              "item": "1",
+              "how": "unchanged location"
+            },
+            {
+              "item": "2",
+              "how": "unchanged location"
+            },
+            {
+              "item": "3",
+              "how": "unchanged location"
+            },
+            {
+              "item": "4",
+              "how": "unchanged location"
+            },
+            {
+              "item": "5",
+              "how": "unchanged location"
+            },
+            {
+              "item": "6",
+              "how": "unchanged location"
+            },
+            {
+              "item": "7",
+              "how": "unchanged location"
+            },
+            {
+              "item": "8",
+              "how": "unchanged location"
+            }
+          ]
+        },
+        {
+          "id": "1g",
+          "name": "People and detail",
+          "rung": 7,
+          "band": "rethink",
+          "plane": "structure",
+          "axis": "layout-paradigm",
+          "paradigm": "master-detail",
+          "description": "A narrow people list on the left; the selected person's role, access and activity on the right.",
+          "cost": "Editing moves from the row to the detail panel; two panes need width, and on phones the detail opens as its own screen.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "layout, editing location",
+          "idea": "A narrow people list on the left; the selected person's role, access and activity on the right.",
+          "parents": [],
+          "refs": [
+            "r1"
+          ],
+          "tags": [
+            "layout-paradigm",
+            "master-detail"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "unchanged location"
+            },
+            {
+              "item": "1",
+              "how": "unchanged location"
+            },
+            {
+              "item": "2",
+              "how": "unchanged location"
+            },
+            {
+              "item": "3",
+              "how": "unchanged location"
+            },
+            {
+              "item": "4",
+              "how": "unchanged location"
+            },
+            {
+              "item": "5",
+              "how": "unchanged location"
+            },
+            {
+              "item": "6",
+              "how": "unchanged location"
+            },
+            {
+              "item": "7",
+              "how": "unchanged location"
+            },
+            {
+              "item": "8",
+              "how": "unchanged location"
+            }
+          ],
+          "solves": "Admins lose track of who has which access when they work person by person.",
+          "traits": {
+            "skeleton": "narrow list beside a detail panel",
+            "device": "a person's access and activity panel",
+            "interaction": "select a person, then edit in the panel",
+            "moment": "one person's whole access on one screen"
+          }
+        },
+        {
+          "id": "1h",
+          "name": "Roles first",
+          "rung": 8,
+          "band": "rethink",
+          "plane": "structure",
+          "axis": "information-architecture",
+          "paradigm": "role cards",
+          "description": "The page opens on four role cards, each saying what the role can do and listing its people; an All people view keeps the flat list with search.",
+          "cost": "People are found by role or search rather than in one list; the flat list moves one step away to All people.",
+          "keeps": "all 7 actions, role filtering via the role cards, search in All people, seat count",
+          "changes": "organising object, page structure",
+          "idea": "The page opens on four role cards, each saying what the role can do and listing its people; an All people view keeps the flat list with search.",
+          "parents": [],
+          "refs": [
+            "r1"
+          ],
+          "tags": [
+            "information-architecture",
+            "role cards"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "unchanged location"
+            },
+            {
+              "item": "1",
+              "how": "unchanged location"
+            },
+            {
+              "item": "2",
+              "how": "unchanged location"
+            },
+            {
+              "item": "3",
+              "how": "unchanged location"
+            },
+            {
+              "item": "4",
+              "how": "unchanged location"
+            },
+            {
+              "item": "5",
+              "how": "unchanged location"
+            },
+            {
+              "item": "6",
+              "how": "unchanged location"
+            },
+            {
+              "item": "7",
+              "how": "unchanged location"
+            },
+            {
+              "item": "8",
+              "how": "unchanged location"
+            }
+          ],
+          "solves": "Roles are hard to reason about when they are scattered across a long list.",
+          "traits": {
+            "skeleton": "four role cards over an All people tab",
+            "device": "cards that say what each role can do",
+            "interaction": "browse by role, then act on a person",
+            "moment": "seeing who holds Admin at a glance"
+          }
+        },
+        {
+          "id": "1i",
+          "name": "Access map",
+          "rung": 9,
+          "band": "reinvent",
+          "plane": "scope",
+          "axis": "data-representation",
+          "paradigm": "matrix",
+          "description": "People down the side and workspaces across the top, with each cell showing and editing access directly.",
+          "cost": "A new way to think about roles; wide teams need horizontal scrolling.",
+          "switch_back": "A List toggle at the top switches back to today's table, with search and the role filter.",
+          "keeps": "all 7 actions mapped: search and role filter → the map's row filter; invite → a new row at the foot; role change and removal → the person's cells and row menu; resend and revoke → the pending rows; seat count → the map header",
+          "changes": "organising idea, editing model",
+          "idea": "People down the side and workspaces across the top, with each cell showing and editing access directly.",
+          "parents": [],
+          "refs": [
+            "r2"
+          ],
+          "tags": [
+            "data-representation",
+            "matrix"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "unchanged location"
+            },
+            {
+              "item": "1",
+              "how": "unchanged location"
+            },
+            {
+              "item": "2",
+              "how": "unchanged location"
+            },
+            {
+              "item": "3",
+              "how": "unchanged location"
+            },
+            {
+              "item": "4",
+              "how": "unchanged location"
+            },
+            {
+              "item": "5",
+              "how": "unchanged location"
+            },
+            {
+              "item": "6",
+              "how": "unchanged location"
+            },
+            {
+              "item": "7",
+              "how": "unchanged location"
+            },
+            {
+              "item": "8",
+              "how": "unchanged location"
+            }
+          ],
+          "solves": "Nobody can see at a glance which people can reach which workspaces.",
+          "traits": {
+            "skeleton": "people-by-workspace grid",
+            "device": "editable access cells",
+            "interaction": "click a cell to change access",
+            "moment": "the whole team's access in one picture"
+          }
+        },
+        {
+          "id": "1j",
+          "name": "Access review queue",
+          "rung": 10,
+          "band": "reinvent",
+          "plane": "scope",
+          "axis": "automation-and-guidance",
+          "paradigm": "queue",
+          "description": "Opens on what needs attention (pending invites, inactive admins, guests about to expire) with one-click fixes; the full roster, today's table, is one tab away.",
+          "cost": "Browsing the roster takes one more step for people who just want the list.",
+          "switch_back": "The Roster tab is today's table, with search, the role filter and every row action.",
+          "keeps": "all 7 actions mapped: every action → the Roster tab (today's table); queue fixes are shortcuts to the same actions; search, role filter and seat count on the Roster tab",
+          "changes": "what the page leads with, suggestions",
+          "idea": "Opens on what needs attention (pending invites, inactive admins, guests about to expire) with one-click fixes; the full roster, today's table, is one tab away.",
+          "parents": [],
+          "refs": [
+            "r3"
+          ],
+          "tags": [
+            "interaction-model",
+            "queue"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "unchanged location"
+            },
+            {
+              "item": "1",
+              "how": "unchanged location"
+            },
+            {
+              "item": "2",
+              "how": "unchanged location"
+            },
+            {
+              "item": "3",
+              "how": "unchanged location"
+            },
+            {
+              "item": "4",
+              "how": "unchanged location"
+            },
+            {
+              "item": "5",
+              "how": "unchanged location"
+            },
+            {
+              "item": "6",
+              "how": "unchanged location"
+            },
+            {
+              "item": "7",
+              "how": "unchanged location"
+            },
+            {
+              "item": "8",
+              "how": "unchanged location"
+            }
+          ],
+          "solves": "Risky access (stale admins, expiring guests) goes unnoticed until it causes trouble.",
+          "traits": {
+            "skeleton": "attention queue over a Roster tab",
+            "device": "fix cards with one-click actions",
+            "interaction": "work down the queue",
+            "moment": "the queue reaching zero"
+          }
+        }
+      ],
+      "distribution": "default",
+      "inspiration": {
+        "connected": [
+          "gummble"
+        ],
+        "needs_signin": [],
+        "absent": [
+          "mobbin",
+          "refero",
+          "uxkin"
+        ],
+        "failed": [],
+        "queries": 9,
+        "fallback": ""
+      }
+    },
+    {
+      "n": 2,
+      "kind": "chosen",
+      "topic": "Members",
+      "title": "Role cards with a filter rail",
+      "summary": "1h's role cards beside 1e's filter rail, with 1d's inline role picker. Now the base for round 3.",
+      "feedback": "I like 1e and 1h. Put 1h's role cards beside 1e's filter rail and use 1d's inline role picker.",
+      "basis": [
+        "1e",
+        "1h",
+        "1d"
+      ],
+      "chosen": [
+        "2a"
+      ],
+      "references": [],
+      "options": [
+        {
+          "id": "2a",
+          "name": "Role cards with filter rail",
+          "band": "chosen",
+          "axis": "information-architecture",
+          "paradigm": "role cards",
+          "description": "Role cards from 1h beside 1e's filter rail, with 1d's inline role picker, each part taken whole from its donor.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "layout from 1h, rail from 1e, role editing from 1d",
+          "parents": [
+            "1e",
+            "1h",
+            "1d"
+          ],
+          "tags": [
+            "role cards",
+            "filter rail",
+            "inline roles"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ]
+        }
+      ],
+      "inspiration": {
+        "connected": [
+          "gummble"
+        ],
+        "queries": 0
+      }
+    },
+    {
+      "n": 3,
+      "kind": "like",
+      "topic": "Members",
+      "question": "How far can role cards with a filter rail go?",
+      "title": "Five takes on role cards with a filter rail",
+      "summary": "Five variations of 2a, from a sharper version of it to a wildcard that drops the role cards. All five use the same 24 members and 3 pending invites and keep every must-keep function; 3d crosses 2a with 1j's review queue.",
+      "feedback": "More like 2a, please. No command bar. Five is enough, and include one wild one.",
+      "basis": [
+        "2a"
+      ],
+      "count": 5,
+      "chosen": [],
+      "passed": [
+        "1f"
+      ],
+      "distribution": "default",
+      "references": [
+        {
+          "id": "r5",
+          "provider": "gummble",
+          "title": "[App name] · Audit log timeline",
+          "url": "[Gummble link from the result]",
+          "borrowed": "Access changes laid out on a time axis",
+          "strength": "example",
+          "use": "seed"
+        },
+        {
+          "id": "r6",
+          "provider": "gummble",
+          "title": "[App name] · Access history",
+          "url": "[Gummble link from the result]",
+          "borrowed": "A per-person history of role changes",
+          "strength": "example",
+          "use": "corroborating"
+        }
+      ],
+      "options": [
+        {
+          "id": "3a",
+          "name": "Sharper role cards",
+          "rung": 2,
+          "band": "refine",
+          "plane": "surface",
+          "role": "refine",
+          "axis": "visual-hierarchy",
+          "paradigm": "role cards",
+          "description": "2a with role cards that lead with their head count and a one-line summary of what the role can do.",
+          "cost": "Card headers grow a line taller, so fewer people show before scrolling.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "card header hierarchy",
+          "parents": [
+            "2a"
+          ],
+          "refs": [],
+          "tags": [
+            "visual-hierarchy",
+            "role cards"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ]
+        },
+        {
+          "id": "3b",
+          "name": "Slim filter strip",
+          "rung": 3,
+          "band": "refine",
+          "plane": "skeleton",
+          "role": "secondary",
+          "axis": "density",
+          "paradigm": "role cards",
+          "description": "2a's rail becomes a slim strip of role filters and seat usage, so the role cards get the full width.",
+          "cost": "Search moves into the strip and loses its label; seat details need a hover or tap.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "rail density and placement",
+          "parents": [
+            "2a"
+          ],
+          "refs": [],
+          "tags": [
+            "density",
+            "role cards"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ]
+        },
+        {
+          "id": "3c",
+          "name": "Role columns",
+          "rung": 6,
+          "band": "evolve",
+          "plane": "structure",
+          "role": "push",
+          "axis": "information-architecture",
+          "paradigm": "role columns",
+          "description": "Each role is a column of its people beside the rail, and dragging a person to another column changes their role.",
+          "cost": "Dragging people is new, and large teams make long columns.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "cards become columns; drag to change role",
+          "parents": [
+            "2a"
+          ],
+          "refs": [
+            "r1"
+          ],
+          "tags": [
+            "information-architecture",
+            "role columns"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "the role columns"
+            },
+            {
+              "item": "1",
+              "how": "the rail's search"
+            },
+            {
+              "item": "2",
+              "how": "the rail's role filters"
+            },
+            {
+              "item": "3",
+              "how": "Invite at the top of the rail"
+            },
+            {
+              "item": "4",
+              "how": "drag between columns, or the inline role picker"
+            },
+            {
+              "item": "5",
+              "how": "each person's row menu"
+            },
+            {
+              "item": "6",
+              "how": "the Pending column"
+            },
+            {
+              "item": "7",
+              "how": "the rail's seat meter"
+            },
+            {
+              "item": "8",
+              "how": "unchanged tokens and copy"
+            }
+          ]
+        },
+        {
+          "id": "3d",
+          "name": "Roles with review queue",
+          "rung": 7,
+          "band": "rethink",
+          "plane": "structure",
+          "role": "crossover",
+          "axis": "automation-and-guidance",
+          "paradigm": "attention band over role cards",
+          "description": "2a's role cards and rail under 1j's attention band, which lists pending invites, inactive admins and expiring guests with one-click fixes.",
+          "cost": "The band pushes the role cards down, and its fixes are suggestions admins have to trust.",
+          "keeps": "all 7 actions, role filter, search, seat count",
+          "changes": "adds an attention band from 1j",
+          "parents": [
+            "2a",
+            "1j"
+          ],
+          "refs": [
+            "r3"
+          ],
+          "tags": [
+            "automation-and-guidance",
+            "role cards",
+            "queue"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "the role cards"
+            },
+            {
+              "item": "1",
+              "how": "the rail's search"
+            },
+            {
+              "item": "2",
+              "how": "the rail's role filters"
+            },
+            {
+              "item": "3",
+              "how": "Invite at the top of the rail"
+            },
+            {
+              "item": "4",
+              "how": "the inline role picker; band fixes use the same action"
+            },
+            {
+              "item": "5",
+              "how": "each person's row menu"
+            },
+            {
+              "item": "6",
+              "how": "the band and the Pending card"
+            },
+            {
+              "item": "7",
+              "how": "the rail's seat meter"
+            },
+            {
+              "item": "8",
+              "how": "unchanged tokens and copy"
+            }
+          ],
+          "solves": "Admins spot risky access only when they happen to scroll past it.",
+          "traits": {
+            "skeleton": "attention band over role cards and a rail",
+            "device": "fix cards with one-click actions",
+            "interaction": "fix from the band, browse by role below",
+            "moment": "the band emptying as fixes land"
+          }
+        },
+        {
+          "id": "3e",
+          "name": "Access timeline",
+          "rung": 9,
+          "band": "reinvent",
+          "plane": "scope",
+          "role": "wildcard",
+          "axis": "data-representation",
+          "paradigm": "timeline",
+          "description": "Each person is a line through time showing when they joined, changed role and were invited or removed, with today's roster at the right edge.",
+          "cost": "Breaks the role-first habit the user liked, and finding one person's current role takes a glance to the far right.",
+          "switch_back": "A Roster button at the top right returns to 2a's role cards with the rail.",
+          "keeps": "all 7 actions mapped to the timeline and the Roster view",
+          "changes": "organising idea: time instead of role",
+          "parents": [],
+          "refs": [
+            "r5",
+            "r6"
+          ],
+          "tags": [
+            "data-representation",
+            "timeline"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "each person's line, and the Roster view"
+            },
+            {
+              "item": "1",
+              "how": "search above the timeline"
+            },
+            {
+              "item": "2",
+              "how": "role filter above the timeline"
+            },
+            {
+              "item": "3",
+              "how": "Invite adds a line that starts today"
+            },
+            {
+              "item": "4",
+              "how": "the role marker at the right edge of a line"
+            },
+            {
+              "item": "5",
+              "how": "the line's menu"
+            },
+            {
+              "item": "6",
+              "how": "dashed lines for pending invites"
+            },
+            {
+              "item": "7",
+              "how": "the header's seat meter"
+            },
+            {
+              "item": "8",
+              "how": "unchanged tokens and copy"
+            }
+          ],
+          "solves": "Nobody can tell who was given access when, or who has drifted into roles they no longer need.",
+          "traits": {
+            "skeleton": "one line per person on a time axis",
+            "device": "role changes as marks on each line",
+            "interaction": "scrub the time axis, open a person's line",
+            "moment": "watching the team's access change over a year"
+          }
+        }
+      ],
+      "inspiration": {
+        "connected": [
+          "gummble"
+        ],
+        "needs_signin": [],
+        "absent": [
+          "mobbin",
+          "refero",
+          "uxkin"
+        ],
+        "failed": [],
+        "queries": 4,
+        "fallback": "",
+        "connections": [
+          {
+            "provider": "gummble",
+            "via": "claude.ai connector",
+            "status": "used"
+          },
+          {
+            "provider": "gummble",
+            "via": "plugin server",
+            "status": "needs-signin"
+          }
+        ]
+      }
+    }
+  ],
+  "round_label": "Turn"
+}

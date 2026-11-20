@@ -1,0 +1,6 @@
+interface:
+  display_name: Performance
+  short_description: iOS performance workflows and verification
+  default_prompt: Use $ios-performance to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,9 @@
+{
+  "name": "ios-backend-studio",
+  "version": "1.0.0",
+  "description": "Integrate native iOS and Node.js backends with shared cross-platform contracts, Apple system surfaces, and reproducible Xcode/Mac workflows.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "iOS Backend Studio"
+  }
+}

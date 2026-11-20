@@ -1,0 +1,4 @@
+# Use only the installed scanner's built-in rules, not repository configuration.
+title = "DeepSec Agent directory secrets"
+[extend]
+useDefault = true

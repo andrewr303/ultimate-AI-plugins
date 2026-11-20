@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "[REPLACE: absolute https URL of this page]#article",
+  "headline": "[REPLACE: the visible page headline]",
+  "description": "[REPLACE: summary that matches the visible introduction]",
+  "image": [
+    "[REPLACE: absolute https URL of a crawlable image shown in the article]"
+  ],
+  "datePublished": "[REPLACE: ISO 8601 publication date-time, for example 2026-11-01T09:00:00+00:00]",
+  "dateModified": "[REPLACE: ISO 8601 date-time of the last real content change]",
+  "author": {
+    "@type": "Person",
+    "name": "[REPLACE: author name shown on the page]",
+    "url": "[REPLACE: absolute https URL of the author profile page]"
+  },
+  "publisher": {
+    "@id": "https://example.com/#organization"
+  },
+  "mainEntityOfPage": "[REPLACE: absolute https URL of this page]"
+}

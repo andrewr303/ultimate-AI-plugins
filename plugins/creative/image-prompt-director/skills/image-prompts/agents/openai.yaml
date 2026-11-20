@@ -1,0 +1,6 @@
+interface:
+  display_name: Image Prompt Director
+  short_description: Detailed image prompt sets
+  default_prompt: Create five detailed, distinct, independently usable image prompts from my idea, preserving my requirements.
+policy:
+  allow_implicit_invocation: true

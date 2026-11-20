@@ -1,0 +1,218 @@
+{
+  "schema": "seo-geo-god.content-lexicons/1",
+  "as_of": "2026-11-01",
+  "language": "en",
+  "note": "SEO-GEO-god's own phrase lists, written for this plugin; no third-party list was copied. English only: non-English pages get fewer hits, never extra ones. Items match case-insensitively on word boundaries (spaces match any whitespace); patterns are regular expressions with their own case setting. Every hit is a heuristic signal for a person to review. None of these lists detects AI authorship, and none is a ranking factor.",
+  "lexicons": {
+    "filler": {
+      "note": "style signal, not AI detection. Stock phrases that add words but no information (CONT002).",
+      "items": [
+        "a wide range of", "all things considered", "as a matter of fact", "as we all know", "as you may already know",
+        "at the end of the day", "believe it or not", "each and every", "first and foremost", "for all intents and purposes",
+        "have you ever wondered", "having said that", "in the grand scheme of things", "in this day and age",
+        "in this article we will", "in this post we will", "it goes without saying", "it is worth mentioning that",
+        "it is worth noting that", "it should be noted that", "last but not least", "let's take a closer look",
+        "look no further", "needless to say", "now more than ever", "read on to find out", "read on to learn",
+        "simply put", "that being said", "the bottom line is", "the fact of the matter is", "to put it simply",
+        "truth be told", "when all is said and done", "with that being said", "without further ado",
+        "you might be wondering"
+      ]
+    },
+    "hype_superlatives": {
+      "note": "style signal, not AI detection. Superlatives and promotional claims that need evidence (CONT008); also the default list for the fidelity superlative check (FID009).",
+      "items": [
+        "#1", "award-winning", "best", "best-in-class", "biggest", "cheapest", "comprehensive", "cutting-edge",
+        "easiest", "effortless", "fastest", "flawless", "game changer", "game-changer", "game-changing", "greatest",
+        "groundbreaking", "industry-leading", "largest", "leading", "market-leading", "most advanced",
+        "most popular", "most powerful", "most reliable", "most trusted", "next-gen", "next-generation",
+        "number one", "perfect", "revolutionary", "safest", "seamless", "second to none", "smartest",
+        "state-of-the-art", "top-rated", "ultimate", "unbeatable", "unmatched", "unparalleled", "unrivaled",
+        "unrivalled", "world-class"
+      ],
+      "exceptions": [
+        "at best", "best effort", "best-effort", "best practice", "best practices", "leading edge", "leading slash",
+        "leading space", "leading spaces", "leading to", "leading up to", "leading whitespace", "leading zero",
+        "leading zeros"
+      ]
+    },
+    "ai_artifacts": {
+      "note": "Leftover assistant, editor or template text that should not ship (CONT004). These match literal leftovers only; they are not AI detection.",
+      "items": [
+        "as a large language model", "as an ai assistant", "as an ai language model", "as an ai model",
+        "as of my last training", "as of my last update", "dolor sit amet", "i cannot browse the internet",
+        "i don't have access to real-time", "i hope this helps", "i'm sorry, but i can't", "i'm unable to browse",
+        "knowledge cutoff", "let me know if you'd like", "lorem ipsum", "my training data", "regenerate response"
+      ],
+      "patterns": [
+        {"name": "unfilled placeholder", "regex": "\\[(?:INSERT|ADD|YOUR|PLACEHOLDER|REPLACE|TBD|TODO)\\b[^\\]\\n]{0,80}\\]", "case_sensitive": false},
+        {"name": "unrendered template variable", "regex": "\\{\\{\\s*[A-Za-z_][\\w.]{0,40}\\s*\\}\\}", "case_sensitive": true},
+        {"name": "TODO marker", "regex": "\\b(?:TODO|FIXME)\\b\\s*:?", "case_sensitive": true},
+        {"name": "TK marker", "regex": "(?<![\\w-])(?:TKTK|\\[TK\\]|TK)(?![\\w-])(?!\\s+[A-Z][a-z])", "case_sensitive": true},
+        {"name": "assistant citation token", "regex": "contentReference\\[oaicite|\\boaicite:\\d+|\\bturn\\d+(?:search|news|view|file)\\d+\\b", "case_sensitive": true},
+        {"name": "markdown fence in HTML text", "regex": "(?<!\\S)(?:`{3,}|~{3,})", "case_sensitive": true, "html_only": true},
+        {"name": "markdown bold in HTML text", "regex": "\\*\\*[^*\\n]{1,80}\\*\\*", "case_sensitive": true, "html_only": true},
+        {"name": "markdown link in HTML text", "regex": "\\[[^\\]\\n]{1,80}\\]\\((?:https?://|/)[^)\\s]{0,200}\\)", "case_sensitive": true, "html_only": true}
+      ]
+    },
+    "dangling_openers": {
+      "note": "style signal, not AI detection. First words that point back to earlier text, so the passage cannot stand alone when quoted (CONT007, citability).",
+      "items": ["it", "that", "these", "they", "this", "those", "such"]
+    },
+    "citation_markers": {
+      "note": "Attribution phrases that count as a nearby citation when followed by a named source (capital letter, digit or quote). A marker is not proof that the source exists or supports the claim.",
+      "items": [
+        "according to", "as reported by", "as reported in", "cited by", "cited in", "data from", "published by",
+        "published in", "reported by", "source:", "sources:", "via"
+      ]
+    },
+    "vague_authority": {
+      "note": "style signal, not AI detection. Authority claims without a named source (CONT001 claim kind 'authority').",
+      "items": [
+        "a recent study", "data shows", "experts agree", "experts say", "it is widely known", "many experts",
+        "recent research", "research proves", "research shows", "scientists agree", "scientists say",
+        "statistics show", "studies have shown", "studies show", "surveys show"
+      ]
+    },
+    "unit_nouns": {
+      "note": "Count nouns that turn a number into a quantity claim (CONT001) and a statistic signal (citability).",
+      "items": [
+        "businesses", "buyers", "cities", "clients", "companies", "countries", "customers", "developers", "downloads",
+        "employees", "installs", "members", "orders", "organizations", "participants", "patients", "people",
+        "queries", "respondents", "reviews", "searches", "shoppers", "sites", "stores", "students", "subscribers",
+        "teams", "transactions", "users", "visitors", "websites"
+      ]
+    },
+    "caveats": {
+      "note": "Qualifiers that a faithful rewrite must keep (FID010). Presence-based: a caveat in the original must still appear in the rewrite.",
+      "items": [
+        "a proxy", "a single snapshot", "an estimate", "approximately", "as of", "at least", "at most",
+        "cannot guarantee", "depending on", "does not guarantee", "doesn't guarantee", "estimated", "except",
+        "experimental", "heuristic", "in our tests", "in some cases", "may not", "may vary", "might not",
+        "needs verification", "no guarantee", "not a guarantee", "not all", "not always", "not guaranteed",
+        "not measured", "not verified", "one snapshot", "only if", "only when", "preliminary", "results may vary",
+        "roughly", "self-reported", "small sample", "subject to change", "unless", "unverified", "up to"
+      ]
+    },
+    "prompt_injection_markers": {
+      "note": "Standalone instructions aimed at AI systems (CONT010). Combined with ai_address_terms and ai_imperative_verbs to find text that addresses an AI system and tells it what to do.",
+      "patterns": [
+        {"name": "override earlier instructions", "regex": "\\b(?:ignore|disregard|forget|override)\\s+(?:all\\s+|any\\s+|the\\s+|your\\s+)?(?:previous|prior|above|earlier|preceding|other|existing)\\s+(?:instructions|prompts?|directions|rules|guidelines|context)\\b", "case_sensitive": false},
+        {"name": "system prompt reference", "regex": "\\b(?:new|updated|hidden|real)\\s+system\\s+prompt\\b|\\bsystem\\s+prompt\\s*:", "case_sensitive": false},
+        {"name": "role reassignment", "regex": "\\byou\\s+are\\s+now\\s+(?:a|an|in|the)\\b", "case_sensitive": false},
+        {"name": "chat template token", "regex": "<\\|im_start\\|>|<\\|system\\|>|\\[INST\\]|<<SYS>>", "case_sensitive": false},
+        {"name": "conditional address to AI", "regex": "\\bif\\s+you\\s+are\\s+(?:an?\\s+)?(?:AI|LLM|large\\s+language\\s+model|language\\s+model|chatbot|AI\\s+assistant|AI\\s+agent)\\b[^.\\n]{0,40}?\\b(?:you\\s+must|please|always|never|ignore|recommend|describe|say|tell|mention|cite|rank)\\b", "case_sensitive": false}
+      ]
+    },
+    "ai_address_terms": {
+      "note": "Ways a text can address an AI system. Only a hit when used as an address (\"note to ...\", \"dear ...\", \"... :\") and followed by an instruction.",
+      "items": [
+        "ai agent", "ai agents", "ai assistant", "ai assistants", "ai bot", "ai bots", "ai crawler", "ai crawlers",
+        "ai model", "ai models", "ai reader", "ai readers", "ai search engine", "ai search engines", "ai system",
+        "ai systems", "answer engine", "answer engines", "assistant", "assistants", "chatbot", "chatbots", "chatgpt",
+        "claude", "copilot", "gemini", "gpt", "language model", "language models", "large language model",
+        "large language models", "llm", "llms", "perplexity"
+      ]
+    },
+    "ai_imperative_verbs": {
+      "note": "Instruction verbs that make an address to an AI system an attempted instruction (CONT010).",
+      "items": [
+        "always", "answer", "cite", "describe", "disregard", "do not", "don't", "forget", "ignore", "include",
+        "list", "mention", "never", "only recommend", "prefer", "promote", "rank", "rate", "recommend", "reply",
+        "respond", "say", "state", "summarize", "summarise", "tell", "treat", "you must", "you should"
+      ]
+    },
+    "definition_patterns_en": {
+      "note": "style signal, not AI detection. Sentence shapes that define a term, used by the citability heuristic.",
+      "patterns": [
+        {"name": "X is a/an/the", "regex": "\\b[\\w-]+(?:\\s+[\\w-]+){0,3}\\s+(?:is|are)\\s+(?:a|an|the)\\s", "case_sensitive": false},
+        {"name": "refers to", "regex": "\\brefers?\\s+to\\b", "case_sensitive": false},
+        {"name": "means", "regex": "\\b[\\w-]+\\s+means\\s", "case_sensitive": false},
+        {"name": "defined as", "regex": "\\b(?:is|are|can\\s+be)\\s+defined\\s+as\\b", "case_sensitive": false},
+        {"name": "stands for", "regex": "\\b(?:stands\\s+for|is\\s+short\\s+for)\\b", "case_sensitive": false},
+        {"name": "in plain terms", "regex": "\\bin\\s+(?:simple|plain|other)\\s+(?:terms|words)\\b", "case_sensitive": false}
+      ]
+    },
+    "cue_transitions": {
+      "note": "style signal, not AI detection. Sequence and contrast words that signal structure (citability structure part).",
+      "items": [
+        "as a result", "by contrast", "finally", "first", "for this reason", "in addition", "in contrast", "next",
+        "second", "step 1", "third"
+      ]
+    },
+    "cue_first_party": {
+      "note": "style signal, not AI detection. Phrases that introduce first-hand evidence (citability uniqueness part). They do not verify the evidence.",
+      "items": [
+        "in our experience", "in our tests", "our analysis", "our benchmark", "our data", "our research",
+        "our study", "our survey", "our testing", "we analysed", "we analyzed", "we found", "we measured",
+        "we reviewed", "we surveyed", "we tested"
+      ]
+    },
+    "cue_examples": {
+      "note": "style signal, not AI detection. Phrases that introduce a concrete example (citability uniqueness part).",
+      "items": ["case study", "e.g.", "for example", "for instance", "in practice", "worked example"]
+    },
+    "answer_deferrals": {
+      "note": "style signal, not AI detection. Openings that postpone the answer to a question heading (CITE002).",
+      "items": [
+        "before we", "before answering", "first, let's", "good question", "great question", "in this article",
+        "in this section", "let us", "let's", "many people wonder", "to answer this", "you may be wondering",
+        "you might be wondering"
+      ]
+    },
+    "reference_headings": {
+      "note": "Headings under which numbered citation targets usually live (CONT009).",
+      "items": ["bibliography", "citations", "footnotes", "further reading", "notes", "references", "sources", "works cited"]
+    },
+    "stock_cta": {
+      "note": "Generic calls to action that end templated meta descriptions (META006). Matched at the end of a description.",
+      "items": [
+        "book now", "buy now", "call now", "call today", "check it out", "click here", "contact us today",
+        "discover more", "find out more", "get a quote", "get started", "get started today", "learn more",
+        "order now", "read more", "see more", "shop now", "sign up today", "start your free trial", "try it free",
+        "try it now", "try it today"
+      ]
+    },
+    "generic_titles": {
+      "note": "Framework-default and placeholder page titles (exact match after trimming, case-insensitive). Shared data for title checks; content.py does not emit META002.",
+      "items": ["Create Next App", "Home", "My Site", "New Page", "React App", "Untitled", "Untitled Document", "Vite + React", "Vite App", "Welcome"]
+    },
+    "stop_words_en": {
+      "note": "Function words ignored when comparing a question heading with its answer (CITE002) and query terms (citability).",
+      "items": [
+        "a", "about", "an", "and", "any", "are", "as", "at", "be", "been", "being", "but", "by", "can", "could",
+        "did", "do", "does", "for", "from", "had", "has", "have", "how", "i", "if", "in", "into", "is", "it",
+        "its", "may", "me", "might", "my", "no", "not", "of", "on", "or", "our", "should", "so", "than", "that",
+        "the", "their", "them", "then", "there", "these", "they", "this", "those", "to", "us", "vs", "was",
+        "we", "were", "what", "when", "where", "which", "who", "whom", "whose", "why", "will", "with", "would",
+        "yes", "you", "your"
+      ]
+    }
+  },
+  "thresholds": {
+    "source": "heuristic",
+    "note": "Our own opinionated defaults for the content rules (evidence class C unless the rule says B). They are not search-engine facts.",
+    "citation_window_chars": 200,
+    "claims": {"min_uncited": 1},
+    "filler": {"min_hits": 3, "per_1000_words": 5.0},
+    "hype": {"min_unsupported": 3, "per_100_words": 1.0},
+    "dangling": {"min_paragraphs": 3, "min_hits": 2, "ratio": 0.25, "min_paragraph_words": 8},
+    "stale_years": {"dated_label_max_age_years": 1, "future_years_allowed": 1},
+    "citability": {
+      "min_block_words": 20,
+      "low_mean_top5": 40,
+      "coverage_score": 70,
+      "top_n": 5,
+      "passage_words": [40, 300],
+      "answer_window_words": 60,
+      "note": "Bands 134-167 and 40-60 words are house heuristics carried over from the adapted scorer, not engine requirements."
+    },
+    "templated_metadata": {
+      "min_templated_pages": 3,
+      "high_ratio": 0.3,
+      "medium_ratio": 0.1,
+      "min_core_tokens": 3,
+      "skeleton_min_tokens": 3,
+      "skeleton_min_pages": 3
+    }
+  }
+}

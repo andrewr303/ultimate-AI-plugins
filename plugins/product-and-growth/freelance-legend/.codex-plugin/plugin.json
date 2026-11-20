@@ -1,0 +1,32 @@
+{
+  "name": "freelance-legend",
+  "version": "1.0.1",
+  "description": "Upwork and freelance toolkit for Andrew Rodriguez: elite proposals and cover letters, rule-compliant job scanning across platforms, job vetting and scam checks, pricing and milestones, client communications, profile and portfolio writing, a personal portfolio website, contracts, outreach, and a pipeline ledger.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT",
+  "keywords": [
+    "upwork",
+    "freelance",
+    "proposals",
+    "cover-letter",
+    "job-search",
+    "portfolio",
+    "client-communication",
+    "pricing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Freelance Legend",
+    "shortDescription": "Win and run freelance work",
+    "longDescription": "One toolkit for Andrew's freelance business. Find jobs from alerts and pasted listings without breaking platform automation rules, vet clients and spot scams, price work with transparent math and milestones that sum exactly, write proposals and screening answers in his voice from claims he can prove, handle every client message from first reply to closing the contract, keep Upwork and other profiles sharp, turn projects into case studies, build a proposal-safe portfolio website, and track the pipeline. It never logs in, submits, messages, or spends Connects on his behalf.",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "I like this one. Write the full proposal package for this Upwork job.",
+      "Here are today's Upwork alert emails. Which jobs are worth my Connects?",
+      "The client wants to add a dashboard mid-project. Draft my reply and the change order."
+    ]
+  }
+}

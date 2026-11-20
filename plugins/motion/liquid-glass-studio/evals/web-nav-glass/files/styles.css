@@ -1,0 +1,67 @@
+:root {
+  --ink: #10222b;
+  --ink-muted: #3d5560;
+  --paper: #f7f4ee;
+  --accent: #0b6e8a;
+  --nav-bg: #ffffff;
+  --nav-ink: #10222b;
+  --focus: #0b6e8a;
+  --radius: 14px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.6; }
+.defs { position: absolute; width: 0; height: 0; }
+
+.site-nav {
+  position: sticky;
+  top: 12px;
+  z-index: 10;
+  margin: 12px auto 0;
+  max-width: 1080px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 16px;
+  background: var(--nav-bg);
+  color: var(--nav-ink);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(16, 34, 43, 0.12);
+}
+.brand { display: flex; align-items: center; gap: 10px; color: inherit; font-weight: 700; text-decoration: none; }
+.site-nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.site-nav a { color: inherit; text-decoration: none; padding: 6px 10px; border-radius: 8px; }
+.site-nav a[aria-current="page"] { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.subscribe {
+  margin-left: auto;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.site-nav a:focus-visible,
+.subscribe:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+html { scroll-padding-top: 88px; }
+
+.hero { position: relative; margin: -64px 0 0; }
+.hero img { display: block; width: 100%; height: 520px; object-fit: cover; }
+.hero-copy { max-width: 1080px; margin: -140px auto 0; padding: 24px; position: relative; color: #fff; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45); }
+.hero-copy h1 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); }
+
+.post, .cards { max-width: 720px; margin: 48px auto; padding: 0 16px; }
+.cards { max-width: 1080px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: #fff; border-radius: var(--radius); padding: 20px; box-shadow: 0 2px 8px rgba(16, 34, 43, 0.08); }
+.card h3 { margin-top: 0; }
+.site-footer { text-align: center; color: var(--ink-muted); padding: 32px 16px 48px; }

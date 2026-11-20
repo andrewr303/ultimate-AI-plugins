@@ -1,0 +1,18 @@
+{
+  "name": "apple-swift-ios-and-macos",
+  "version": "1.3.0",
+  "description": "Apple platform engineering plugin for Swift 6.2+ concurrency, SwiftUI UI patterns, MV view refactoring, iOS 26+ Liquid Glass adoption, SwiftUI & Instruments performance profiling, XcodeBuildMCP iOS simulator debugging, macOS Tuist menubar apps, Xcode-free SwiftPM app packaging, and App Store release notes.",
+  "keywords": [
+    "apple-swift-ios-and-macos",
+    "apple-platform-router",
+    "swiftui-architecture-and-liquid-glass",
+    "swift-concurrency-and-profiling",
+    "macos-tuist-and-spm-packaging",
+    "ios-debugging-and-release"
+  ],
+  "skills": "./skills/",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT"
+}

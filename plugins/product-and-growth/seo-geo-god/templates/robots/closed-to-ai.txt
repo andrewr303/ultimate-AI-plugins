@@ -1,0 +1,81 @@
+# SEO-GEO-god robots.txt template, policy mode: closed-to-ai
+#
+# Purpose: keep classic search crawlers (Googlebot, bingbot, Applebot)
+# allowed, and disallow AI search and answer indexers, user-triggered AI
+# fetchers, AI training crawlers and training-control tokens.
+#
+# REQUIRES OWNER APPROVAL. This removes the site from answers in ChatGPT
+# search, Claude, Perplexity, Meta AI, DuckDuckGo AI answers, Mistral and
+# Amazon AI features, in addition to opting out of training. Confirm that the
+# owner accepts that visibility loss before deploying. Replace example.com and
+# deploy as /robots.txt on every host that serves the site.
+#
+# Facts as of 2026-11-01 (see references/ai-crawlers.md and
+# references/current-facts.md in the SEO-GEO-god plugin).
+# Re-check on or after: 2026-12-15, 2027-02-01, 2027-03-01, early 2027
+# (Google starts honoring the shared training token), about March 2027 (UK CMA
+# deadline for Google's publisher AI controls) and 2027-09-30.
+#
+# What robots.txt cannot do here:
+# - Google AI Overviews and AI Mode use the Googlebot index. Blocking
+#   Googlebot removes the site from Google Search. To keep Search but exclude
+#   AI features, the owner sets Search Console > Settings > "Search generative
+#   AI" to Exclude, or uses nosnippet, max-snippet or data-nosnippet on pages.
+# - Bing Copilot grounding uses pages crawled by bingbot. From 2027-02-01 Bing
+#   honors <meta name="Bingbot" content="ai-grounding:disallow"> per page.
+# - User-triggered fetchers such as ChatGPT-User, Perplexity-User,
+#   meta-externalfetcher, Amzn-User and Google-Agent may ignore robots.txt.
+#   Blocking them reliably needs server or WAF rules based on verified bot
+#   identity (published IP lists or signatures), not user-agent strings.
+# - robots.txt is a preference, not access control. Protect private paths
+#   with authentication.
+# - Named groups do not inherit rules from "User-agent: *". Any Disallow line
+#   added for private or low-value paths must be repeated in every group.
+#
+# Optional Cloudflare Content Signals preference (a stated preference, ignored
+# by Google). If the owner wants it, add this line inside EVERY group:
+# Content-Signal: search=yes, ai-input=no, ai-train=no
+
+# AI search and answer indexers and user-triggered fetchers: disallowed.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Amzn-SearchBot
+User-agent: Amzn-User
+User-agent: MistralAI-Index
+User-agent: MistralAI-User
+User-agent: meta-webindexer
+User-agent: meta-externalfetcher
+User-agent: DuckAssistBot
+Disallow: /
+
+# AI training crawlers, training-control tokens and site-owner-requested AI
+# crawls: disallowed. Amazonbot is mixed use, so this also affects Amazon
+# product features. Bytespider is documented only by third parties.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Google-CloudVertexBot
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: MistralAI-Training
+User-agent: CCBot
+User-agent: Bytespider
+Disallow: /
+
+# Shared AI-training preference token (IETF individual draft): a preference,
+# not a crawler. Bing honors it from 2027-02-01, Google plans early 2027,
+# Anthropic is implementing it and OpenAI has announced support.
+User-agent: __usage_ai-training
+Disallow: /
+
+# Classic search and everyone else: Googlebot, bingbot, Applebot (Applebot
+# follows Googlebot rules when it has no group of its own).
+User-agent: *
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml

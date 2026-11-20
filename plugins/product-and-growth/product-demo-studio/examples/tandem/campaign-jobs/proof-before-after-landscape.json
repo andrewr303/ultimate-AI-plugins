@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "proof-before-after-landscape",
+  "renderer": "html-playwright",
+  "productRevision": "tandem-4f236886e8ed1dea",
+  "visualMode": "faithful-replay",
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "duration": 12,
+  "hook": "Watch one request become a reply.",
+  "promise": "Turn an unassigned request into a reviewable next step.",
+  "cta": "Try the sample workflow",
+  "body": "before-after",
+  "brand": {
+    "name": "Tandem",
+    "background": "#f4f1e9",
+    "ink": "#18251f",
+    "accent": "#d95830"
+  },
+  "claimIds": [
+    "triage-context",
+    "human-review"
+  ],
+  "evidence": "product-evidence.json",
+  "captions": [
+    {
+      "start": 0.5,
+      "end": 2.7,
+      "text": "Start with the request."
+    },
+    {
+      "start": 3.0,
+      "end": 4.0,
+      "text": "Suggest a next step."
+    },
+    {
+      "start": 4.5,
+      "end": 7.3,
+      "text": "Priority, owner, and an editable reply."
+    },
+    {
+      "start": 8.8,
+      "end": 11.5,
+      "text": "Review first. Your team decides."
+    }
+  ],
+  "audio": [],
+  "placement": "landscape",
+  "sourceHashes": {
+    "fixture/styles.css": "d1f548cfd4e805e53a7c75b4b2211bb79a972a13f4476bbac8290a3e53242a73",
+    "fixture/app.html": "9fb9422305acedaf97a5bb4379dfd93f49f96e5d41aa0f57603569a79fbdb7cd",
+    "fixture/product.js": "4fad7f0605f0d79becb0994b58c0b3ff1bbe5c7bfd6bad0aa4cd4d1737e0bf90",
+    "asset-manifest.json": "32127b6813b04bc70d4820394486ac8dbcadae25a91dfde733be0105a0311190"
+  },
+  "campaignId": "tandem-production-launch"
+}

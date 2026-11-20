@@ -1,0 +1,92 @@
+{
+  "mode": "separate executed queries",
+  "rungs": [
+    {
+      "query": "microinteractions animation in:name,description stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "webkul/micron"
+      ]
+    },
+    {
+      "query": "topic:animation topic:react stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "motiondivision/motion",
+        "pmndrs/react-three-fiber",
+        "formkit/auto-animate",
+        "barvian/number-flow",
+        "sghall/react-move"
+      ]
+    },
+    {
+      "query": "presence animation in:name,description stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "natemoo-re/animate-presence"
+      ]
+    },
+    {
+      "query": "web animations spring in:name,description stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "199-biotechnologies/motion-dev-animations-skill",
+        "jettbrains/-L-",
+        "swati1024/torrents"
+      ]
+    },
+    {
+      "query": "accessible headless components in:name,description stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "tailwindlabs/headlessui",
+        "melt-ui/melt-ui",
+        "ng-primitives/ng-primitives",
+        "blazorblueprintui/ui",
+        "roginfarrer/collapsed"
+      ]
+    },
+    {
+      "query": "view transitions in:name,description stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "dev-labs-bg/transitioner",
+        "shuding/next-view-transitions",
+        "KelvinJin/AnimatedCollectionViewLayout",
+        "Ramotion/garland-view-android",
+        "xmuSistone/ViewpagerTransition"
+      ]
+    },
+    {
+      "query": "gesture drag in:name,description stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "kornelski/slip",
+        "taye/interact.js",
+        "Elnix90/Dragon-Launcher",
+        "manuelstofer/pinchzoom",
+        "keske/react-native-easy-gestures"
+      ]
+    },
+    {
+      "query": "native animation in:name,description stars:>=100 archived:false fork:false",
+      "status": "fulfilled",
+      "source": "GitHub repository search via connected tool",
+      "candidates": [
+        "shoutem/animation",
+        "airbnb/lottie-android",
+        "airbnb/lottie-ios",
+        "oblador/react-native-animatable",
+        "airbnb/lottie-web"
+      ]
+    }
+  ],
+  "directory_record": "Awesome match/tag/filtered/unfiltered/named retrieval performed separately; directory metadata was not accepted as activity or license proof."
+}

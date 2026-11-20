@@ -1,0 +1,6 @@
+interface:
+  display_name: Backend Cross Platform Qa
+  short_description: Backend cross platform qa workflows
+  default_prompt: Use $backend-cross-platform-qa to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

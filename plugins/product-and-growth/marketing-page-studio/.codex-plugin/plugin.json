@@ -1,0 +1,21 @@
+{
+  "name": "marketing-page-studio",
+  "version": "1.0.1",
+  "description": "Build accurate product marketing sites with working interactive demonstrations and browser evidence.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "product",
+    "evidence",
+    "local-production"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Marketing Page Studio",
+    "shortDescription": "Build accurate product marketing sites with working interactive demonstrations and browser evidence.",
+    "capabilities": []
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:product-evidence",
+  "title": "Product Evidence",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "product": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "synthetic": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "revision",
+        "synthetic"
+      ],
+      "additionalProperties": false
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "supplied",
+              "illustrative",
+              "unsupported"
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "repository",
+                    "capture",
+                    "documentation",
+                    "website",
+                    "user-supplied"
+                  ]
+                },
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "revision": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          },
+          "allowedUses": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "website",
+                "video",
+                "ads",
+                "internal"
+              ]
+            },
+            "minItems": 0
+          },
+          "limitations": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "status",
+          "sources",
+          "allowedUses"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "brief": {
+      "type": "object",
+      "properties": {
+        "audience": {
+          "type": "string",
+          "minLength": 1
+        },
+        "buyer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "problem": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outcome": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "primaryCapability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shipped": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "planned": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "conversionAction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "audience",
+        "buyer",
+        "problem",
+        "outcome",
+        "workflow",
+        "primaryCapability",
+        "shipped",
+        "planned",
+        "conversionAction",
+        "constraints"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "product",
+    "claims",
+    "brief"
+  ],
+  "additionalProperties": false
+}

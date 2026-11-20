@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reading list · 1d Reading-time lanes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#0f766e}a:hover{color:#0b5f58}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 100%; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 18px; background: #f7f8f6; color: #14201b; font-family: ui-sans-serif, system-ui, sans-serif;">
+  <div style="display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap;">
+    <h1 style="margin: 0; font-size: 26px; letter-spacing: -0.02em; flex-grow: 1;">Articles by how long they take</h1>
+    <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px;">Save a link for a quick read
+      <input type="text" value="{{ draft }}" onInput="{{ typeDraft }}" style="padding: 9px 12px; border: 1px solid #cfd5ce; border-radius: 6px; font: inherit; min-height: 40px;">
+    </label>
+    <button type="button" onClick="{{ add }}" style="min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; background: #0f766e; color: #ffffff; font-weight: 600;">Save</button>
+  </div>
+  <div style="display: flex; gap: 6px;" role="group" aria-label="Show">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+      <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.on }}" style="{{ f.style }}">{{ f.label }}</button>
+    </sc-for>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px;">
+    <sc-for list="{{ lanes }}" as="lane" hint-placeholder-count="3">
+      <section style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 12px; background: #eef1ed; min-height: 220px;" aria-label="{{ lane.label }}">
+        <h2 style="margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: #46524c;">{{ lane.heading }}</h2>
+        <sc-for list="{{ lane.items }}" as="t" hint-placeholder-count="2">
+          <article style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 2px rgba(20,32,27,0.08);">
+            <span style="{{ t.titleStyle }}">{{ t.title }}</span>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <button type="button" onClick="{{ t.toggle }}" style="min-height: 36px; padding: 0 10px; border-radius: 8px; border: 1px solid #cfd5ce; background: #ffffff; font: 600 12px/1 ui-sans-serif, system-ui, sans-serif;">{{ t.doneLabel }}</button>
+              <button type="button" onClick="{{ t.later }}" style="min-height: 36px; padding: 0 10px; border-radius: 8px; border: 1px solid #cfd5ce; background: #ffffff; font: 600 12px/1 ui-sans-serif, system-ui, sans-serif;">{{ t.laterLabel }}</button>
+            </div>
+          </article>
+        </sc-for>
+      </section>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":560}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { draft: '', show: 'all', tasks: [
+      { id: 1, title: 'How tidal power stations store energy', lane: 0, done: false },
+      { id: 2, title: 'A field guide to winter birds', lane: 1, done: false },
+      { id: 3, title: 'Why sourdough needs a cold proof', lane: 1, done: true },
+      { id: 4, title: 'The history of the shipping container', lane: 2, done: false }
+    ] };
+  }
+  renderVals() {
+    const s = this.state;
+    const set = (id, patch) => this.setState({ tasks: s.tasks.map((x) => x.id === id ? { ...x, ...patch } : x) });
+    const pill = (on) => 'min-height: 36px; padding: 0 12px; border-radius: 999px; font: 600 13px/1 ui-sans-serif, system-ui, sans-serif; border: 1px solid ' + (on ? '#0f766e' : '#cfd5ce') + '; background: ' + (on ? '#e3f2ef' : '#ffffff') + '; color: ' + (on ? '#0b5f58' : '#46524c') + ';';
+    const visible = (t) => s.show === 'all' || (s.show === 'open' ? !t.done : t.done);
+    return {
+      draft: s.draft,
+      typeDraft: (e) => this.setState({ draft: e.target.value }),
+      add: () => { const title = s.draft.trim(); if (title) this.setState({ draft: '', tasks: [{ id: Date.now(), title, lane: 0, done: false }, ...s.tasks] }); },
+      filters: [['all', 'All'], ['open', 'Unread'], ['done', 'Read']].map(([k, label]) => ({ label, on: s.show === k, style: pill(s.show === k), pick: () => this.setState({ show: k }) })),
+      lanes: ['Quick reads', 'This weekend', 'Long reads'].map((label, i) => {
+        const items = s.tasks.filter((t) => t.lane === i && visible(t));
+        return {
+          label, heading: label + ' · ' + items.length,
+          items: items.map((t) => ({
+            title: t.title,
+            titleStyle: 'font-size: 14px; font-weight: 600; color: ' + (t.done ? '#6a756f' : '#14201b') + '; text-decoration: ' + (t.done ? 'line-through' : 'none') + ';',
+            doneLabel: t.done ? 'Mark unread' : 'Mark read',
+            laterLabel: t.lane < 2 ? 'Move later' : 'Move to quick reads',
+            toggle: () => set(t.id, { done: !t.done }),
+            later: () => set(t.id, { lane: t.lane < 2 ? t.lane + 1 : 0 })
+          }))
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+interface:
+  display_name: iOS Development
+  short_description: Inspect the project and choose the right iOS workflow
+  default_prompt: Use $ios-development to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

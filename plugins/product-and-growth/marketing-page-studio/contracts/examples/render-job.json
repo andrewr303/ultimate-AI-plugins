@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-render",
+  "renderer": "html-playwright",
+  "productRevision": "tandem-fixture-v1",
+  "visualMode": "faithful-replay",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 8,
+  "hook": "Too many requests. What comes next?",
+  "promise": "A clear editable next step.",
+  "cta": "Try the sample workflow",
+  "brand": {
+    "name": "Tandem",
+    "background": "#F5F3EB",
+    "ink": "#182B26",
+    "accent": "#C3EA6F"
+  },
+  "claimIds": [
+    "triage-draft"
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 2,
+      "text": "A busy inbox. One clear next step."
+    },
+    {
+      "start": 2,
+      "end": 6,
+      "text": "Group. Draft. Make it yours."
+    },
+    {
+      "start": 6,
+      "end": 8,
+      "text": "Try the sample workflow"
+    }
+  ],
+  "audio": []
+}

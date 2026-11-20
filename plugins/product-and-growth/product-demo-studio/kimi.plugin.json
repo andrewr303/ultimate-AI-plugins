@@ -1,0 +1,9 @@
+{
+  "name": "product-demo-studio",
+  "version": "1.1.1",
+  "description": "Produce evidence-backed product videos, social variants, captions and reproducible render receipts.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Product Demo Studio"
+  }
+}

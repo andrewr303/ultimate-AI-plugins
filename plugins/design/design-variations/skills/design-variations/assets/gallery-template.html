@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__DV_TITLE__ · Variations</title>
+<!--
+  design-variations gallery shell.
+  Built by scripts/dv.py from design-variations.json + kit/ + variants/, or authored by hand following
+  references/host-html.md. Regions between DV:*:START and DV:*:END markers are replaced on every build;
+  everything else is the gallery runtime. Each variant runs in its own sandboxed iframe, so variants never
+  share CSS, state or errors, and none of them can touch this page. Frames load the shared kit (#dv-kit), then
+  their own round's additions (#dv-kit-round-<n>, from kit/round-<n>.html) when that round has any.
+-->
+<style>
+:root {
+  /* DV:TOKENS:START — neutral chrome defaults (dark). Redesigns map the product's own tokens in the overrides block below. */
+  --dv-bg: #0e0e10;
+  --dv-surface: #18181b;
+  --dv-surface-2: #232326;
+  --dv-line: rgb(255 255 255 / 0.08);
+  --dv-line-strong: rgb(255 255 255 / 0.16);
+  --dv-text: #fafafa;
+  --dv-text-2: #e4e4e7;
+  --dv-text-3: #a1a1aa;
+  --dv-accent: #e4e4e7;
+  --dv-accent-text: #e4e4e7;
+  --dv-on-accent: #18181b;
+  --dv-danger: #f87171;
+  --dv-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --dv-font-display: var(--dv-font);
+  --dv-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* DV:TOKENS:END */
+  --dv-radius: 16px;
+  --dv-pad-x: clamp(16px, 4.4vw, 64px);
+  --dv-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: dark;
+}
+:root[data-theme="light"] { color-scheme: light;
+  --dv-bg: #f6f6f7; --dv-surface: #ffffff; --dv-surface-2: #ececef; --dv-line: rgb(0 0 0 / 0.08); --dv-line-strong: rgb(0 0 0 / 0.16);
+  --dv-text: #111113; --dv-text-2: #3f3f46; --dv-text-3: #52525b; --dv-accent: #18181b; --dv-accent-text: #18181b; --dv-on-accent: #ffffff; --dv-danger: #b91c1c; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; background: var(--dv-bg); color: var(--dv-text); font-family: var(--dv-font); -webkit-font-smoothing: antialiased; }
+body { min-height: 100vh; }
+a { color: var(--dv-accent-text); text-underline-offset: 3px; }
+button, select, textarea, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--dv-accent-text); outline-offset: 2px; }
+.dv-skip { position: absolute; left: -9999px; top: 8px; }
+.dv-skip:focus { left: 8px; z-index: 50; background: var(--dv-surface); padding: 8px 12px; border-radius: 8px; }
+
+/* Top bar */
+.dv-top { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+  padding: 12px var(--dv-pad-x); background: color-mix(in srgb, var(--dv-bg) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4); box-shadow: inset 0 -1px 0 var(--dv-line); }
+.dv-top h1 { margin: 0; font: 650 15px/1.2 var(--dv-font); letter-spacing: -0.01em; flex: 1 1 220px; min-width: 0; }
+.dv-top h1 span { color: var(--dv-text-3); font-weight: 500; }
+.dv-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.dv-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 10px; background: var(--dv-surface); box-shadow: inset 0 0 0 1px var(--dv-line); }
+.dv-seg button { border: 0; background: transparent; padding: 6px 10px; border-radius: 7px; font-size: 13px; font-weight: 550; color: var(--dv-text-3); cursor: pointer; min-height: 30px; }
+.dv-seg button[aria-pressed="true"] { background: var(--dv-surface-2); color: var(--dv-text); box-shadow: 0 0 0 1px var(--dv-line-strong); }
+.dv-btn { display: inline-flex; align-items: center; gap: 6px; border: 0; padding: 7px 12px; min-height: 36px; border-radius: 10px; background: var(--dv-surface);
+  box-shadow: inset 0 0 0 1px var(--dv-line); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--dv-text-2); text-decoration: none; }
+.dv-btn:hover { background: var(--dv-surface-2); color: var(--dv-text); }
+.dv-btn.dv-primary { background: var(--dv-accent); color: var(--dv-on-accent); box-shadow: none; }
+.dv-btn.dv-primary:hover { filter: brightness(1.1); }
+.dv-btn svg { width: 16px; height: 16px; flex: none; }
+.dv-count { font-family: var(--dv-font-mono); font-size: 12px; padding: 1px 6px; border-radius: 6px; background: var(--dv-line); }
+select.dv-select { background: var(--dv-surface); border: 0; box-shadow: inset 0 0 0 1px var(--dv-line); border-radius: 10px; padding: 7px 10px; min-height: 36px; font-size: 13px; }
+
+/* Rounds */
+.dv-round { display: flex; flex-direction: column; gap: 28px; padding: 56px var(--dv-pad-x) 48px; box-shadow: inset 0 -1px 0 var(--dv-line); }
+.dv-round-head { display: flex; flex-direction: column; gap: 10px; max-width: 1100px; }
+.dv-eyebrow { margin: 0; font: 600 14px/1.3 var(--dv-font-display); letter-spacing: 0.07em; text-transform: uppercase; color: var(--dv-text-2); }
+.dv-round-head h2 { margin: 0; font: 700 clamp(30px, 4vw, 48px)/1.05 var(--dv-font-display); letter-spacing: -0.03em; text-wrap: balance; }
+.dv-summary { margin: 0; font-size: 17px; line-height: 1.55; color: var(--dv-text-2); text-wrap: pretty; }
+.dv-chosen-line { margin: 0; font-size: 15px; color: var(--dv-text-3); }
+.dv-degraded { margin: 0; font-size: 14px; color: var(--dv-text-3); padding-left: 10px; box-shadow: inset 2px 0 0 var(--dv-line-strong); }
+.dv-strength { color: var(--dv-text-3); font-size: 12px; }
+.dv-round.dv-collapsed .dv-options, .dv-round.dv-collapsed .dv-spectrum, .dv-round.dv-collapsed .dv-bands { display: none; }
+.dv-expand { align-self: flex-start; }
+
+/* Spectrum strip */
+.dv-spectrum { margin-top: 10px; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; max-width: 1100px; }
+.dv-spectrum-cell { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; min-width: 0; }
+.dv-spectrum-cell .dv-rail { width: 100%; height: 4px; border-radius: 4px; background: var(--dv-line); }
+.dv-spectrum-cell .dv-rail.dv-on { background: color-mix(in srgb, var(--dv-accent) 70%, transparent); }
+.dv-spectrum-cell .dv-rung { font: 500 11px/1 var(--dv-font-mono); color: var(--dv-text-3); }
+.dv-spectrum-cell .dv-ids { display: flex; flex-wrap: wrap; gap: 3px; }
+.dv-spectrum-cell a { font: 600 12px/1 var(--dv-font-mono); padding: 3px 5px; border-radius: 5px; background: var(--dv-surface-2); color: var(--dv-text); text-decoration: none; }
+.dv-spectrum-cell a:hover { background: var(--dv-accent); color: var(--dv-on-accent); }
+.dv-bands { display: grid; grid-template-columns: 3fr 3fr 2fr 2fr; gap: 4px; max-width: 1100px; font: 600 11px/1 var(--dv-font); letter-spacing: 0.06em; text-transform: uppercase; color: var(--dv-text-3); }
+.dv-bands span { padding-top: 6px; box-shadow: inset 0 1px 0 var(--dv-line-strong); }
+
+/* Options */
+.dv-options { display: flex; flex-direction: column; gap: 64px; }
+.dv-option { display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 80px; min-width: 0; }
+.dv-option-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+.dv-chip { font: 600 15px/1 var(--dv-font-mono); padding: 5px 9px; border-radius: 7px; background: var(--dv-accent); color: var(--dv-on-accent); align-self: center; }
+.dv-role { font: 600 12px/1 var(--dv-font); letter-spacing: 0.04em; text-transform: uppercase; padding: 6px 8px; border-radius: 7px; color: var(--dv-text-2); box-shadow: inset 0 0 0 1px var(--dv-line-strong); align-self: center; white-space: nowrap; }
+.dv-option[data-role="wildcard"] .dv-role { color: var(--dv-text); box-shadow: inset 0 0 0 1.5px var(--dv-accent-text); }
+.dv-name { margin: 0; font: 700 22px/1.2 var(--dv-font-display); letter-spacing: -0.015em; }
+.dv-desc { margin: 0; flex: 1 1 360px; font-size: 15.5px; line-height: 1.5; color: var(--dv-text-2); text-wrap: pretty; }
+.dv-tools { display: flex; gap: 6px; align-items: center; margin-left: auto; align-self: center; }
+.dv-level { font: 600 12px/1 var(--dv-font); letter-spacing: 0.04em; text-transform: uppercase; color: var(--dv-text-3); padding: 6px 8px; border-radius: 7px; box-shadow: inset 0 0 0 1px var(--dv-line); white-space: nowrap; }
+.dv-level b { font-family: var(--dv-font-mono); color: var(--dv-text); }
+.dv-icon-btn { display: inline-grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 9px; background: transparent; color: var(--dv-text-3); cursor: pointer; box-shadow: inset 0 0 0 1px var(--dv-line); }
+.dv-icon-btn:hover { color: var(--dv-text); background: var(--dv-surface); }
+.dv-icon-btn[aria-pressed="true"] { color: var(--dv-on-accent); background: var(--dv-accent); box-shadow: none; }
+.dv-icon-btn.dv-pass[aria-pressed="true"] { color: var(--dv-text); background: var(--dv-surface-2); box-shadow: inset 0 0 0 1px var(--dv-danger); }
+.dv-option.dv-is-passed .dv-frame { opacity: 0.55; filter: saturate(0.6); }
+.dv-option.dv-is-passed .dv-name { text-decoration: line-through; text-decoration-color: var(--dv-danger); }
+.dv-state { background: var(--dv-surface); border: 0; box-shadow: inset 0 0 0 1px var(--dv-line); border-radius: 9px; padding: 0 8px; height: 36px; font-size: 12.5px; color: var(--dv-text-2); }
+.dv-baseline .dv-chip { background: var(--dv-surface-2); color: var(--dv-text); box-shadow: inset 0 0 0 1px var(--dv-line-strong); }
+.dv-option[hidden] { display: none !important; }
+.dv-icon-btn svg { width: 17px; height: 17px; }
+.dv-meta { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13.5px; line-height: 1.45; color: var(--dv-text-3); max-width: 1440px; }
+.dv-meta b { color: var(--dv-text-2); font-weight: 600; }
+.dv-meta a { color: var(--dv-accent-text); }
+.dv-frame { position: relative; width: 100%; max-width: var(--dv-w, 1440px); border-radius: var(--dv-radius); overflow: hidden; background: #fff;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1), 0 24px 60px -24px rgb(0 0 0 / 0.8); }
+:root[data-theme="light"] .dv-frame { box-shadow: 0 0 0 1px rgb(0 0 0 / 0.1), 0 24px 60px -28px rgb(0 0 0 / 0.35); }
+.dv-frame iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; background: #fff; display: block; }
+.dv-frame .dv-loading { position: absolute; inset: 0; display: grid; place-items: center; color: #666; font-size: 13px; background: #f4f4f5; }
+.dv-error { display: none; margin: 0; padding: 8px 12px; border-radius: 9px; font: 12.5px/1.4 var(--dv-font-mono); color: var(--dv-danger); background: color-mix(in srgb, var(--dv-danger) 12%, transparent); }
+.dv-option[data-dv-status="error"] .dv-error { display: block; }
+.dv-note { display: none; flex-direction: column; gap: 6px; font-size: 13px; color: var(--dv-text-3); max-width: 720px; }
+.dv-option.dv-noting .dv-note, .dv-option.dv-has-note .dv-note { display: flex; }
+.dv-note textarea { min-height: 64px; resize: vertical; border: 0; border-radius: 10px; padding: 10px 12px; background: var(--dv-surface); box-shadow: inset 0 0 0 1px var(--dv-line); font-size: 14px; line-height: 1.45; }
+
+/* Grid overview */
+body.dv-grid .dv-options { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(440px, 100%), 1fr)); gap: 40px 28px; }
+body.dv-grid .dv-desc { flex-basis: 100%; font-size: 14px; }
+body.dv-grid .dv-name { font-size: 18px; }
+body.dv-grid .dv-meta { display: none; }
+
+/* Dialogs */
+dialog.dv-dialog { width: min(1600px, 96vw); max-height: 94vh; padding: 0; border: 0; border-radius: 18px; background: var(--dv-bg); color: var(--dv-text);
+  box-shadow: 0 0 0 1px var(--dv-line-strong), 0 40px 120px -20px rgb(0 0 0 / 0.8); }
+dialog.dv-dialog::backdrop { background: rgb(0 0 0 / 0.6); backdrop-filter: blur(4px); }
+.dv-dialog-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 14px 18px; box-shadow: inset 0 -1px 0 var(--dv-line); }
+.dv-dialog-head h2 { margin: 0; font: 700 18px/1.2 var(--dv-font-display); flex: 1 1 200px; }
+.dv-dialog-body { padding: 18px; overflow: auto; max-height: calc(94vh - 70px); }
+.dv-compare { display: grid; gap: 18px; grid-template-columns: repeat(var(--dv-cols, 2), minmax(0, 1fr)); }
+.dv-compare .dv-option-head { gap: 8px; }
+.dv-feedback textarea { width: 100%; min-height: 240px; border: 0; border-radius: 12px; padding: 14px; background: var(--dv-surface); box-shadow: inset 0 0 0 1px var(--dv-line); font: 14px/1.5 var(--dv-font-mono); }
+.dv-next { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; padding: 0; border: 0; }
+.dv-next legend { font-size: 13px; color: var(--dv-text-3); margin-bottom: 8px; padding: 0; }
+.dv-next label { display: inline-flex; gap: 6px; align-items: center; padding: 7px 11px; border-radius: 9px; background: var(--dv-surface); box-shadow: inset 0 0 0 1px var(--dv-line); font-size: 13px; cursor: pointer; }
+.dv-next label:has(input:checked) { box-shadow: inset 0 0 0 1px var(--dv-accent-text); color: var(--dv-text); }
+.dv-help { font-size: 13px; color: var(--dv-text-3); line-height: 1.6; }
+.dv-help kbd { font: 600 12px/1 var(--dv-font-mono); padding: 3px 6px; border-radius: 5px; background: var(--dv-surface-2); box-shadow: inset 0 -1px 0 var(--dv-line-strong); color: var(--dv-text); }
+.dv-toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 60; padding: 10px 16px; border-radius: 10px; background: var(--dv-surface-2); box-shadow: 0 0 0 1px var(--dv-line-strong); font-size: 14px; opacity: 0; pointer-events: none; transition: opacity 160ms var(--dv-ease); }
+.dv-toast.dv-on { opacity: 1; }
+.dv-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 720px) { .dv-round { padding-top: 36px; } .dv-tools { margin-left: 0; } .dv-compare { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+</style>
+<style id="dv-overrides">
+/* Product tokens for the gallery chrome, written by dv.py build from design-variations.json (chrome.tokens). */
+:root[data-theme] {
+/* DV:OVERRIDES */
+}
+</style>
+</head>
+<body data-dv-key="__DV_KEY__">
+<a class="dv-skip" href="#dv-rounds">Skip to variations</a>
+<header class="dv-top">
+  <h1>__DV_TITLE__ <span>· Variations</span></h1>
+  <div class="dv-controls">
+    <label class="dv-sr" for="dv-jump">Jump to round</label>
+    <select id="dv-jump" class="dv-select"></select>
+    <div class="dv-seg" role="group" aria-label="Layout">
+      <button type="button" data-dv-view="stack" aria-pressed="true">Full size</button>
+      <button type="button" data-dv-view="grid" aria-pressed="false">Overview</button>
+    </div>
+    <div class="dv-seg" role="group" aria-label="Show band" id="dv-bands"></div>
+    <div class="dv-seg" role="group" aria-label="Prototype width" id="dv-widths"></div>
+    <button type="button" class="dv-btn" id="dv-compare-open" title="Compare shortlisted options side by side">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="8" height="16" rx="2"/><rect x="13" y="4" width="8" height="16" rx="2"/></svg>
+      Compare <span class="dv-count" id="dv-liked-count">0</span>
+    </button>
+    <button type="button" class="dv-btn dv-primary" id="dv-feedback-open">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Give feedback
+    </button>
+    <button type="button" class="dv-icon-btn" id="dv-help-open" aria-label="Keyboard shortcuts and help">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.5h.01"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="dv-rounds" tabindex="-1">
+<!-- DV:ROUNDS:START -->
+  <section class="dv-round" id="round-1" data-round="1" data-kind="explore" data-w="1280" data-h="760" aria-labelledby="round-1-title">
+    <div class="dv-round-head">
+      <p class="dv-eyebrow">Turn 1 · Template demo</p>
+      <h2 id="round-1-title">Two ways to show a counter</h2>
+      <p class="dv-summary">This demo round shows the gallery anatomy. A real round holds ten options ordered from the smallest change to the most radical, all built on the same data and the same rules. Shortlist the ones you like, add notes, then use Give feedback.</p>
+    </div>
+    <div class="dv-options">
+      <article class="dv-option" id="1a" data-rung="2" data-band="refine" data-axis="visual-hierarchy" data-states="default,empty" aria-labelledby="1a-name">
+        <div class="dv-option-head">
+          <span class="dv-chip">1a</span>
+          <h3 class="dv-name" id="1a-name">Quiet card</h3>
+          <p class="dv-desc">The counter as a calm card with one button. Smallest change from today.</p>
+        </div>
+        <p class="dv-meta"><span><b>Keeps</b> count, increment, reset</span><span><b>Changes</b> emphasis</span></p>
+        <div class="dv-frame"></div>
+      </article>
+      <article class="dv-option" id="1b" data-rung="8" data-band="rethink" data-axis="interaction-model" aria-labelledby="1b-name">
+        <div class="dv-option-head">
+          <span class="dv-chip">1b</span>
+          <h3 class="dv-name" id="1b-name">Dial</h3>
+          <p class="dv-desc">A large dial you drag or arrow-key to change the value. A new interaction model; costs discoverability.</p>
+        </div>
+        <p class="dv-meta"><span><b>Keeps</b> count, increment, reset</span><span><b>Changes</b> interaction model, layout</span></p>
+        <div class="dv-frame"></div>
+      </article>
+    </div>
+  </section>
+<!-- DV:ROUNDS:END -->
+</main>
+
+<!-- DV:KIT:START -->
+<template id="dv-kit">
+  <style>
+    :root { --ink: #18181b; --muted: #52525b; --line: #e4e4e7; --accent: #0f766e; --bg: #fafafa; }
+    * { box-sizing: border-box; } body { margin: 0; font: 15px/1.5 ui-sans-serif, system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+    button { font: inherit; cursor: pointer; } :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  </style>
+  <script>
+    window.KIT = { start: 3 };
+  </script>
+</template>
+<!-- DV:KIT:END -->
+
+<!-- DV:VARIANTS:START -->
+<template id="variant-1a">
+  <style>
+    .wrap { min-height: 100vh; display: grid; place-items: center; }
+    .card { display: flex; flex-direction: column; gap: 16px; align-items: center; padding: 40px 56px; border-radius: 16px; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+    .n { font: 600 64px/1 ui-monospace, monospace; } .row { display: flex; gap: 8px; }
+    .row button { padding: 10px 16px; border-radius: 10px; border: 1px solid var(--line); background: #fff; min-height: 44px; }
+    .row button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  </style>
+  <div class="wrap"><div class="card"><div class="n" aria-live="polite" id="n"></div>
+    <div class="row"><button type="button" id="reset">Reset</button><button type="button" class="primary" id="inc">Add one</button></div></div></div>
+  <script>
+    let n = KIT.start; const out = document.getElementById('n'); const show = () => { out.textContent = n === 0 ? 'Nothing counted yet' : n; out.style.fontSize = n === 0 ? '20px' : ''; }; show();
+    window.addEventListener('dv:state', (e) => { n = e.detail === 'empty' ? 0 : KIT.start; show(); });
+    document.getElementById('inc').addEventListener('click', () => { n++; show(); });
+    document.getElementById('reset').addEventListener('click', () => { n = KIT.start; show(); });
+  </script>
+</template>
+<template id="variant-1b">
+  <style>
+    .wrap { min-height: 100vh; display: grid; place-items: center; gap: 20px; background: #0f0f14; color: #fff; }
+    .dial { width: 260px; height: 260px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--accent) var(--p), #26262e 0); touch-action: none; }
+    .dial span { width: 200px; height: 200px; border-radius: 50%; background: #0f0f14; display: grid; place-items: center; font: 600 64px/1 ui-monospace, monospace; }
+    .wrap button { padding: 10px 16px; border-radius: 10px; border: 1px solid #ffffff30; background: transparent; color: #fff; min-height: 44px; }
+  </style>
+  <div class="wrap"><div class="dial" id="dial" role="slider" tabindex="0" aria-label="Count" aria-valuemin="0" aria-valuemax="20"><span id="n"></span></div>
+    <button type="button" id="reset">Reset</button></div>
+  <script>
+    let n = KIT.start; const dial = document.getElementById('dial'); const out = document.getElementById('n');
+    const show = () => { out.textContent = n; dial.style.setProperty('--p', (n / 20 * 100) + '%'); dial.setAttribute('aria-valuenow', n); }; show();
+    const set = (v) => { n = Math.max(0, Math.min(20, v)); show(); };
+    dial.addEventListener('keydown', (e) => { if (e.key === 'ArrowUp' || e.key === 'ArrowRight') { set(n + 1); e.preventDefault(); } if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') { set(n - 1); e.preventDefault(); } });
+    dial.addEventListener('pointerdown', (e) => { dial.setPointerCapture(e.pointerId); const move = (ev) => { const r = dial.getBoundingClientRect(); const a = Math.atan2(ev.clientX - r.left - r.width / 2, -(ev.clientY - r.top - r.height / 2)); set(Math.round(((a + Math.PI * 2) % (Math.PI * 2)) / (Math.PI * 2) * 20)); }; move(e); dial.onpointermove = move; dial.onpointerup = () => { dial.onpointermove = null; }; });
+    document.getElementById('reset').addEventListener('click', () => set(KIT.start));
+  </script>
+</template>
+<!-- DV:VARIANTS:END -->
+
+<dialog class="dv-dialog" id="dv-focus" aria-labelledby="dv-focus-title">
+  <div class="dv-dialog-head">
+    <span class="dv-chip" id="dv-focus-chip"></span>
+    <h2 id="dv-focus-title"></h2>
+    <button type="button" class="dv-btn" id="dv-focus-prev" aria-label="Previous option">Prev</button>
+    <button type="button" class="dv-btn" id="dv-focus-next" aria-label="Next option">Next</button>
+    <button type="button" class="dv-icon-btn" id="dv-focus-like" aria-pressed="false" aria-label="Shortlist this option">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.8 1.3-1.7 2.9-2.8 4.9-2.8 3.5 0 5.7 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>
+    </button>
+    <button type="button" class="dv-btn" data-dv-close>Close</button>
+  </div>
+  <div class="dv-dialog-body"><div class="dv-frame" id="dv-focus-frame"></div></div>
+</dialog>
+
+<dialog class="dv-dialog" id="dv-compare" aria-labelledby="dv-compare-title">
+  <div class="dv-dialog-head">
+    <h2 id="dv-compare-title">Compare shortlist</h2>
+    <button type="button" class="dv-btn" data-dv-close>Close</button>
+  </div>
+  <div class="dv-dialog-body"><div class="dv-compare" id="dv-compare-grid"></div></div>
+</dialog>
+
+<dialog class="dv-dialog dv-feedback" id="dv-feedback" aria-labelledby="dv-feedback-title" style="width:min(820px,96vw)">
+  <div class="dv-dialog-head">
+    <h2 id="dv-feedback-title">Feedback for the next round</h2>
+    <button type="button" class="dv-btn dv-primary" id="dv-copy">Copy</button>
+    <button type="button" class="dv-btn" data-dv-close>Close</button>
+  </div>
+  <div class="dv-dialog-body">
+    <fieldset class="dv-next" id="dv-next">
+      <legend>What should the next round do?</legend>
+      <label><input type="radio" name="dv-next" value="like" checked> More like my shortlist</label>
+      <label><input type="radio" name="dv-next" value="combine"> Combine my shortlist</label>
+      <label><input type="radio" name="dv-next" value="refine"> Refine one option</label>
+      <label><input type="radio" name="dv-next" value="more"> Ten new directions</label>
+      <label><input type="radio" name="dv-next" value="bolder"> Push bolder</label>
+      <label><input type="radio" name="dv-next" value="closer"> Stay closer to today</label>
+      <label><input type="radio" name="dv-next" value="choose"> I choose my top pick</label>
+    </fieldset>
+    <label class="dv-sr" for="dv-feedback-text">Feedback message</label>
+    <textarea id="dv-feedback-text" spellcheck="true"></textarea>
+    <p class="dv-help">Paste this into your conversation with Claude. Edit it freely: anything you write is read as feedback.</p>
+  </div>
+</dialog>
+
+<dialog class="dv-dialog" id="dv-help" aria-labelledby="dv-help-title" style="width:min(560px,96vw)">
+  <div class="dv-dialog-head"><h2 id="dv-help-title">Using this gallery</h2><button type="button" class="dv-btn" data-dv-close>Close</button></div>
+  <div class="dv-dialog-body dv-help">
+    <p>Every frame is a live prototype: click, type and drag inside it. Each one keeps its own state, so nothing you do in one frame changes another.</p>
+    <p><kbd>J</kbd> / <kbd>K</kbd> next or previous option · <kbd>S</kbd> shortlist the current option · <kbd>X</kbd> mark it "not this" · <kbd>F</kbd> open it full size · <kbd>N</kbd> add a note · <kbd>R</kbd> reset its prototype · <kbd>Esc</kbd> close.</p>
+    <p>Shortlisted options feed "More like my shortlist" and Compare. Options marked "not this" are left out of later rounds unless you ask for them again. Where an option offers a State menu, it switches the prototype between empty, loading, error and other states.</p>
+    <p>Links: add <code>#2c</code> to the address to open on option 2c, and <code>?w=390</code> to start at phone width.</p>
+  </div>
+</dialog>
+<div class="dv-toast" id="dv-toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const KEY = 'dv:' + (document.body.dataset.dvKey || document.title);
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(KEY + ':' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(KEY + ':' + k, JSON.stringify(v)); } catch (e) { /* storage unavailable: keep in memory */ } }
+  };
+  const params = new URLSearchParams(location.search);
+  const WIDTHS = [['', 'Design'], ['1440', 'Desktop'], ['1024', 'Laptop'], ['768', 'Tablet'], ['390', 'Phone']];
+  const S = {
+    width: params.get('w') || '',
+    liked: new Set(store.get('liked', [])),
+    passed: new Set(store.get('passed', [])),
+    notes: store.get('notes', {}),
+    current: null
+  };
+  const kitTpl = document.getElementById('dv-kit');
+  const kitHTML = kitTpl ? kitTpl.innerHTML : '';
+  const lang = document.documentElement.lang || 'en';
+
+  /* A small prelude runs first in every frame: it reports errors to the gallery and stops links from navigating the frame away. */
+  const prelude = (id) => '<script>(function(){var id=' + JSON.stringify(id) + ';' +
+    'function send(t,m){try{parent.postMessage({dv:t,id:id,msg:String(m||"").slice(0,300)},"*")}catch(e){}}' +
+    'window.addEventListener("error",function(e){send("error",e.message||"Script error")});' +
+    'window.addEventListener("unhandledrejection",function(e){send("error",(e.reason&&e.reason.message)||e.reason)});' +
+    'document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||a.hasAttribute("data-allow-nav"))return;var h=a.getAttribute("href")||"";if(h.charAt(0)!=="#"||h==="#")e.preventDefault();},true);' +
+    'window.DV_STATE="default";window.addEventListener("message",function(e){if(e.source!==parent||!e.data||typeof e.data.dvState!=="string")return;window.DV_STATE=e.data.dvState;' +
+    'try{window.dispatchEvent(new CustomEvent("dv:state",{detail:e.data.dvState}))}catch(x){}});' +
+    'window.addEventListener("load",function(){send("loaded","")});})();<\/script>';
+
+  /* A later round's additions (kit/round-<n>.html) load after the shared kit, in that round's frames only. */
+  function roundKit(id) {
+    const m = /^(\d{1,3})[a-z]$/.exec(id);
+    const t = m && document.getElementById('dv-kit-round-' + m[1]);
+    return t ? t.innerHTML : '';
+  }
+
+  function docFor(id) {
+    const t = document.getElementById('variant-' + id);
+    if (!t) return null;
+    return '<!doctype html><html lang="' + lang + '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      prelude(id) + kitHTML + roundKit(id) + '<\/head><body>' + t.innerHTML + '<\/body><\/html>';
+  }
+
+  function sizeOf(article) {
+    const round = article.closest('.dv-round');
+    const w = +(S.width || article.dataset.w || (round && round.dataset.w) || 1440);
+    const h = +(article.dataset.h || (round && round.dataset.h) || 900);
+    return { w, h };
+  }
+
+  function mountFrame(holder, id, size, label) {
+    holder.innerHTML = '';
+    const html = docFor(id);
+    if (!html) { holder.innerHTML = '<div class="dv-loading">No prototype found for ' + id + '</div>'; holder.style.height = '120px'; return null; }
+    const f = document.createElement('iframe');
+    f.title = label + ' (live prototype)';
+    f.setAttribute('sandbox', 'allow-scripts allow-forms allow-modals allow-downloads');
+    f.setAttribute('loading', 'lazy');
+    f.dataset.variant = id;
+    f.width = size.w; f.height = size.h;
+    f.style.width = size.w + 'px'; f.style.height = size.h + 'px';
+    f.srcdoc = html;
+    const art = document.getElementById(id);
+    setTimeout(() => {
+      if (art && art.classList.contains('dv-option') && !art.dataset.dvStatus && f.isConnected) {
+        art.dataset.dvStatus = 'error';
+        let p = $('.dv-error', art);
+        if (!p) { p = document.createElement('p'); p.className = 'dv-error'; $('.dv-frame', art).before(p); }
+        p.textContent = 'Prototype ' + id + ' did not report loading. This host may block embedded frames; open variants-standalone/' + id + '.html instead.';
+      }
+    }, 9000);
+    holder.style.setProperty('--dv-w', size.w + 'px');
+    holder.appendChild(f);
+    fit(holder);
+    return f;
+  }
+
+  function fit(holder) {
+    const f = holder.querySelector('iframe');
+    if (!f) return;
+    const w = parseFloat(f.style.width), h = parseFloat(f.style.height);
+    const avail = holder.clientWidth || w;
+    const s = Math.min(1, avail / w);
+    f.style.transform = s < 1 ? 'scale(' + s + ')' : '';
+    holder.style.height = Math.round(h * s) + 'px';
+  }
+  const ro = typeof ResizeObserver === 'function' ? new ResizeObserver((entries) => entries.forEach((e) => fit(e.target))) : null;
+
+  const articles = () => $$('.dv-option');
+  function labelOf(a) { const n = $('.dv-name', a); return a.id + ' ' + (n ? n.textContent.trim() : ''); }
+
+  function mountAll(force) {
+    articles().forEach((a) => {
+      const holder = $('.dv-frame', a);
+      if (!holder) return;
+      if (!force && holder.querySelector('iframe')) return;
+      mountFrame(holder, a.id, sizeOf(a), labelOf(a));
+      if (ro) ro.observe(holder);
+    });
+  }
+
+  /* Lazy mount: frames start when they come near the viewport. */
+  const io = typeof IntersectionObserver === 'function' ? new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const a = e.target; io.unobserve(a);
+      const holder = $('.dv-frame', a);
+      if (holder && !holder.querySelector('iframe')) { mountFrame(holder, a.id, sizeOf(a), labelOf(a)); if (ro) ro.observe(holder); }
+    });
+  }, { rootMargin: '1200px 0px' }) : null;
+
+  function reserve() {
+    articles().forEach((a) => {
+      const holder = $('.dv-frame', a); if (!holder) return;
+      const { w, h } = sizeOf(a); holder.style.setProperty('--dv-w', w + 'px');
+      const s = Math.min(1, (holder.clientWidth || w) / w); holder.style.height = Math.round(h * s) + 'px';
+      if (!holder.querySelector('iframe')) holder.innerHTML = '<div class="dv-loading">Loading ' + a.id + '</div>';
+    });
+  }
+
+  /* Status messages from frames */
+  window.addEventListener('message', (e) => {
+    const d = e.data; if (!d || typeof d !== 'object' || typeof d.dv !== 'string' || typeof d.id !== 'string') return;
+    const a = document.getElementById(d.id); if (!a || !a.classList.contains('dv-option')) return;
+    const frame = $('.dv-frame iframe', a);
+    if (!frame || e.source !== frame.contentWindow) return;
+    if (d.dv === 'error') {
+      a.dataset.dvStatus = 'error';
+      let p = $('.dv-error', a);
+      if (!p) { p = document.createElement('p'); p.className = 'dv-error'; $('.dv-frame', a).before(p); }
+      p.textContent = 'Prototype error in ' + d.id + ': ' + d.msg;
+    } else if (d.dv === 'loaded' && a.dataset.dvStatus !== 'error') {
+      a.dataset.dvStatus = 'loaded';
+    }
+  });
+
+  /* Option tools: shortlist, note, focus, reset */
+  const ICON = {
+    like: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7.1 4.5c2 0 3.6 1.1 4.9 2.8 1.3-1.7 2.9-2.8 4.9-2.8 3.5 0 5.7 3.5 4.4 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>',
+    note: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>',
+    focus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+    pass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg>',
+    reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>'
+  };
+  const BAND = { today: 'Today', refine: 'Refine', evolve: 'Evolve', rethink: 'Rethink', reinvent: 'Reinvent', proven: 'Proven', fresh: 'Fresh', novel: 'Novel', experimental: 'Experimental', chosen: 'Chosen' };
+
+  function decorate() {
+    articles().forEach((a) => {
+      const head = $('.dv-option-head', a); if (!head || $('.dv-tools', head)) return;
+      const tools = document.createElement('div'); tools.className = 'dv-tools';
+      const rung = a.dataset.rung, band = a.dataset.band;
+      if (rung || band) {
+        const lv = document.createElement('span'); lv.className = 'dv-level';
+        lv.title = 'Change level ' + (rung || '?') + ' of 10';
+        lv.innerHTML = (BAND[band] || band || 'Level') + (rung ? ' · <b>' + rung + '</b>' : '');
+        tools.appendChild(lv);
+      }
+      const name = labelOf(a);
+      const mk = (cls, icon, label, extra) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'dv-icon-btn ' + cls; b.innerHTML = icon; b.setAttribute('aria-label', label + ' ' + name); b.title = label; if (extra) extra(b); tools.appendChild(b); return b; };
+      mk('dv-like', ICON.like, 'Shortlist', (b) => b.setAttribute('aria-pressed', String(S.liked.has(a.id))));
+      mk('dv-pass', ICON.pass, 'Not this:', (b) => b.setAttribute('aria-pressed', String(S.passed.has(a.id))));
+      a.classList.toggle('dv-is-passed', S.passed.has(a.id));
+      mk('dv-note-btn', ICON.note, 'Add a note to');
+      mk('dv-focus-btn', ICON.focus, 'Open full size:');
+      mk('dv-reset', ICON.reset, 'Reset prototype for');
+      const states = (a.dataset.states || '').split(',').map((s) => s.trim()).filter(Boolean);
+      if (states.length > 1) {
+        const sel = document.createElement('select'); sel.className = 'dv-state'; sel.setAttribute('aria-label', 'Preview state for ' + name);
+        sel.innerHTML = states.map((s) => '<option value="' + s.replace(/"/g, '') + '">' + s.charAt(0).toUpperCase() + s.slice(1) + '</option>').join('');
+        sel.addEventListener('change', () => { const f = $('.dv-frame iframe', a); if (f && f.contentWindow) f.contentWindow.postMessage({ dvState: sel.value }, '*'); });
+        tools.insertBefore(sel, tools.firstChild);
+      }
+      head.appendChild(tools);
+      if (!$('.dv-note', a)) {
+        const l = document.createElement('label'); l.className = 'dv-note';
+        l.innerHTML = '<span>Note for ' + a.id + '</span><textarea placeholder="I like … / I wish … / What if …"></textarea>';
+        a.appendChild(l);
+        const ta = $('textarea', l); ta.value = S.notes[a.id] || '';
+        if (ta.value) a.classList.add('dv-has-note');
+        ta.addEventListener('input', () => { S.notes[a.id] = ta.value; if (!ta.value) delete S.notes[a.id]; store.set('notes', S.notes); a.classList.toggle('dv-has-note', !!ta.value); });
+      }
+      a.addEventListener('focusin', () => { S.current = a; });
+      a.addEventListener('pointerenter', () => { S.current = a; });
+    });
+  }
+
+  function setLiked(id, on) {
+    if (on) { S.liked.add(id); if (S.passed.has(id)) setPassed(id, false); } else S.liked.delete(id);
+    store.set('liked', Array.from(S.liked));
+    const a = document.getElementById(id); const b = a && $('.dv-like', a); if (b) b.setAttribute('aria-pressed', String(on));
+    $('#dv-liked-count').textContent = S.liked.size;
+    const fl = $('#dv-focus-like'); if (fl && fl.dataset.id === id) fl.setAttribute('aria-pressed', String(on));
+  }
+
+  function setPassed(id, on) {
+    if (on) { S.passed.add(id); setLiked(id, false); } else S.passed.delete(id);
+    store.set('passed', Array.from(S.passed));
+    const a = document.getElementById(id); if (a) { const b = $('.dv-pass', a); if (b) b.setAttribute('aria-pressed', String(on)); a.classList.toggle('dv-is-passed', on); }
+  }
+
+  function resetFrame(a) { const holder = $('.dv-frame', a); if (holder) { delete a.dataset.dvStatus; mountFrame(holder, a.id, sizeOf(a), labelOf(a)); const sel = $('.dv-state', a); if (sel) sel.selectedIndex = 0; } }
+
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    const a = b.closest('.dv-option');
+    if (b.classList.contains('dv-like') && a) setLiked(a.id, !S.liked.has(a.id));
+    else if (b.classList.contains('dv-pass') && a) setPassed(a.id, !S.passed.has(a.id));
+    else if (b.hasAttribute('data-dv-band')) setBand(b.dataset.dvBand);
+    else if (b.classList.contains('dv-note-btn') && a) { a.classList.add('dv-noting'); const ta = $('.dv-note textarea', a); if (ta) ta.focus(); }
+    else if (b.classList.contains('dv-focus-btn') && a) openFocus(a);
+    else if (b.classList.contains('dv-reset') && a) resetFrame(a);
+    else if (b.hasAttribute('data-dv-view')) setView(b.dataset.dvView);
+    else if (b.hasAttribute('data-dv-width')) setWidth(b.dataset.dvWidth);
+    else if (b.hasAttribute('data-dv-close')) b.closest('dialog').close();
+  });
+
+  /* Views and widths */
+  function setView(v) {
+    document.body.classList.toggle('dv-grid', v === 'grid');
+    $$('[data-dv-view]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.dvView === v)));
+    store.set('view', v);
+    requestAnimationFrame(() => $$('.dv-frame').forEach(fit));
+  }
+  function setWidth(w) {
+    S.width = w;
+    $$('[data-dv-width]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.dvWidth === w)));
+    const u = new URL(location.href); if (w) u.searchParams.set('w', w); else u.searchParams.delete('w');
+    try { history.replaceState(null, '', u); } catch (e) { /* sandboxed host */ }
+    articles().forEach((a) => { if ($('.dv-frame iframe', a)) resetFrame(a); });
+    reserve();
+  }
+  const widthsEl = $('#dv-widths');
+  WIDTHS.forEach(([v, l]) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.dvWidth = v; b.textContent = l; b.setAttribute('aria-pressed', String(v === S.width)); widthsEl.appendChild(b); });
+
+  /* Band filter */
+  const BAND_ORDER = ['refine', 'evolve', 'rethink', 'reinvent', 'proven', 'fresh', 'novel', 'experimental'];
+  function setBand(bd) {
+    $$('[data-dv-band]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.dvBand === bd)));
+    articles().forEach((a) => { a.hidden = !!bd && !a.classList.contains('dv-baseline') && a.dataset.band !== bd; });
+    requestAnimationFrame(() => $$('.dv-frame').forEach(fit));
+  }
+  (function buildBands() {
+    const present = BAND_ORDER.filter((b) => $$('.dv-option').some((a) => a.dataset.band === b));
+    const host = $('#dv-bands');
+    if (present.length < 2) { host.remove(); return; }
+    host.innerHTML = '<button type="button" data-dv-band="" aria-pressed="true">All</button>' +
+      present.map((b) => '<button type="button" data-dv-band="' + b + '" aria-pressed="false">' + (BAND[b] || b) + '</button>').join('');
+  })();
+
+  /* Spectrum strip and round jump */
+  function buildSpectrum() {
+    $$('.dv-round').forEach((r) => {
+      const opts = $$('.dv-option', r).filter((a) => a.dataset.rung);
+      const head = $('.dv-round-head', r);
+      if (!head || opts.length < 3 || $('.dv-spectrum', head)) return;
+      const strip = document.createElement('div'); strip.className = 'dv-spectrum'; strip.setAttribute('aria-label', 'Options by change level, 1 smallest to 10 most radical');
+      for (let i = 1; i <= 10; i++) {
+        const ids = opts.filter((a) => +a.dataset.rung === i);
+        const cell = document.createElement('div'); cell.className = 'dv-spectrum-cell';
+        cell.innerHTML = '<span class="dv-rail' + (ids.length ? ' dv-on' : '') + '"></span><span class="dv-rung">' + i + '</span><span class="dv-ids">' + ids.map((a) => '<a href="#' + a.id + '">' + a.id + '</a>').join('') + '</span>';
+        strip.appendChild(cell);
+      }
+      const bands = document.createElement('div'); bands.className = 'dv-bands'; bands.setAttribute('aria-hidden', 'true');
+      const isNew = opts.some((a) => ['proven', 'fresh', 'novel', 'experimental'].includes(a.dataset.band));
+      bands.innerHTML = isNew ? '<span>Proven</span><span>Fresh</span><span>Novel</span><span>Experimental</span>' : '<span>Refine</span><span>Evolve</span><span>Rethink</span><span>Reinvent</span>';
+      head.appendChild(strip); head.appendChild(bands);
+    });
+    const jump = $('#dv-jump');
+    jump.innerHTML = $$('.dv-round').map((r) => { const e = $('.dv-eyebrow', r); return '<option value="' + r.id + '">' + (e ? e.textContent.trim() : r.id) + '</option>'; }).join('');
+    jump.addEventListener('change', () => { const t = document.getElementById(jump.value); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  }
+
+  /* Focus dialog */
+  function roundOptions(a) { return $$('.dv-option', a.closest('.dv-round')); }
+  function openFocus(a) {
+    const d = $('#dv-focus');
+    S.current = a;
+    $('#dv-focus-chip').textContent = a.id;
+    const n = $('.dv-name', a); $('#dv-focus-title').textContent = n ? n.textContent : a.id;
+    const like = $('#dv-focus-like'); like.dataset.id = a.id; like.setAttribute('aria-pressed', String(S.liked.has(a.id)));
+    const holder = $('#dv-focus-frame');
+    if (!d.open) d.showModal();
+    mountFrame(holder, a.id, sizeOf(a), labelOf(a));
+    requestAnimationFrame(() => fit(holder));
+  }
+  $('#dv-focus-prev').addEventListener('click', () => step(-1, true));
+  $('#dv-focus-next').addEventListener('click', () => step(1, true));
+  $('#dv-focus-like').addEventListener('click', (e) => { const id = e.currentTarget.dataset.id; setLiked(id, !S.liked.has(id)); });
+  if (ro) ro.observe($('#dv-focus-frame'));
+
+  function step(dir, inFocus) {
+    const all = (S.current ? roundOptions(S.current) : articles()).filter((a) => !a.hidden);
+    if (!all.length) return;
+    let i = S.current ? all.indexOf(S.current) : -1;
+    i = Math.max(0, Math.min(all.length - 1, i + dir));
+    const a = all[i]; S.current = a;
+    if (inFocus) openFocus(a); else a.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* Compare dialog */
+  $('#dv-compare-open').addEventListener('click', () => {
+    const ids = Array.from(S.liked).filter((id) => document.getElementById(id));
+    const grid = $('#dv-compare-grid');
+    if (ids.length < 2) { toast('Shortlist two to four options to compare them.'); return; }
+    const pick = ids.slice(0, 4);
+    if (ids.length > 4) toast('Comparing the first four of ' + ids.length + ' shortlisted options.');
+    grid.style.setProperty('--dv-cols', String(pick.length));
+    grid.innerHTML = '';
+    $('#dv-compare').showModal();
+    pick.forEach((id) => {
+      const a = document.getElementById(id);
+      const col = document.createElement('div'); col.className = 'dv-option';
+      col.innerHTML = '<div class="dv-option-head"><span class="dv-chip">' + id + '</span><h3 class="dv-name" style="font-size:17px"></h3></div><div class="dv-frame"></div>';
+      $('.dv-name', col).textContent = ($('.dv-name', a) || {}).textContent || id;
+      grid.appendChild(col);
+      const holder = $('.dv-frame', col);
+      mountFrame(holder, id, sizeOf(a), labelOf(a));
+      if (ro) ro.observe(holder);
+    });
+  });
+
+  /* Feedback composer */
+  function compose() {
+    const next = ($('#dv-next input:checked') || {}).value || 'like';
+    const rounds = $$('.dv-round');
+    const latest = rounds[0];
+    const topic = latest ? (($('.dv-eyebrow', latest) || {}).textContent || '').trim() : '';
+    const title = document.title.replace(/ · Variations$/, '');
+    const liked = Array.from(S.liked).filter((id) => document.getElementById(id));
+    const name = (id) => { const a = document.getElementById(id); return id + ' ' + ((a && $('.dv-name', a)) ? $('.dv-name', a).textContent.trim() : ''); };
+    const lines = ['Design variations feedback: ' + title + (topic ? ' (' + topic + ')' : '')];
+    lines.push('Shortlist: ' + (liked.length ? liked.map(name).join(', ') : 'none yet'));
+    const passed = Array.from(S.passed).filter((id) => document.getElementById(id));
+    if (passed.length) lines.push('Not for me: ' + passed.map(name).join(', '));
+    const notes = Object.entries(S.notes).filter(([id, t]) => t && t.trim() && document.getElementById(id));
+    if (notes.length) { lines.push('Notes:'); notes.forEach(([id, t]) => lines.push('- ' + name(id) + ': ' + t.trim().replace(/\s+/g, ' '))); }
+    const NEXT = {
+      like: 'Next: ten new options that evolve my shortlist.',
+      combine: 'Next: combine my shortlist into one direction (say which part comes from which option), then show variations of the result.',
+      refine: 'Next: ten refinements of ' + (liked[0] || '[option]') + ' only.',
+      more: 'Next: ten new directions unlike anything shown so far.',
+      bolder: 'Next: push further. More of the ten should be bold or radical.',
+      closer: 'Next: stay closer to the current design. More of the ten should be refinements.',
+      choose: 'Next: I choose ' + (liked[0] || '[option]') + '. Mark it chosen and tell me how to apply it.'
+    };
+    lines.push(NEXT[next]);
+    return lines.join('\n');
+  }
+  $('#dv-feedback-open').addEventListener('click', () => { $('#dv-feedback-text').value = compose(); $('#dv-feedback').showModal(); });
+  $('#dv-next').addEventListener('change', () => { $('#dv-feedback-text').value = compose(); });
+  $('#dv-copy').addEventListener('click', async () => {
+    const ta = $('#dv-feedback-text');
+    try { await navigator.clipboard.writeText(ta.value); toast('Copied. Paste it into your chat with Claude.'); }
+    catch (e) { ta.focus(); ta.select(); toast('Press Ctrl+C or Cmd+C to copy the selected text.'); }
+  });
+  $('#dv-help-open').addEventListener('click', () => $('#dv-help').showModal());
+
+  function toast(m) { const t = $('#dv-toast'); t.textContent = m; t.classList.add('dv-on'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('dv-on'), 2600); }
+
+  /* Keyboard */
+  document.addEventListener('keydown', (e) => {
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable) return;
+    const focusOpen = $('#dv-focus').open;
+    if (document.querySelector('dialog[open]') && !focusOpen) return;
+    const k = e.key.toLowerCase();
+    if (k === 'j' || (focusOpen && e.key === 'ArrowRight')) { step(1, focusOpen); e.preventDefault(); }
+    else if (k === 'k' || (focusOpen && e.key === 'ArrowLeft')) { step(-1, focusOpen); e.preventDefault(); }
+    else if (k === 's' && S.current) { setLiked(S.current.id, !S.liked.has(S.current.id)); }
+    else if (k === 'x' && S.current) { setPassed(S.current.id, !S.passed.has(S.current.id)); }
+    else if (k === 'f' && S.current && !focusOpen) { openFocus(S.current); }
+    else if (k === 'n' && S.current) { S.current.classList.add('dv-noting'); const ta = $('.dv-note textarea', S.current); if (ta) { ta.focus(); e.preventDefault(); } }
+    else if (k === 'r' && S.current) { resetFrame(S.current); }
+  });
+
+  /* Older rounds start collapsed to their headers so only the newest round's prototypes load. */
+  function setupCollapse() {
+    const rounds = $$('.dv-round');
+    rounds.forEach((r, i) => {
+      const head = $('.dv-round-head', r); if (!head || $('.dv-expand', r)) return;
+      const n = $$('.dv-option', r).length;
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'dv-btn dv-expand';
+      const sync = () => { const c = r.classList.contains('dv-collapsed'); b.textContent = c ? 'Show ' + n + ' option' + (n === 1 ? '' : 's') : 'Hide options'; b.setAttribute('aria-expanded', String(!c)); };
+      b.addEventListener('click', () => { r.classList.toggle('dv-collapsed'); sync(); if (!r.classList.contains('dv-collapsed')) { reserve(); if (io) $$('.dv-option', r).forEach((a) => io.observe(a)); else mountAll(false); } });
+      if (i > 0 && !(location.hash && r.contains(document.getElementById(location.hash.slice(1))))) r.classList.add('dv-collapsed');
+      head.appendChild(b); sync();
+    });
+  }
+
+  /* Boot */
+  setupCollapse();
+  decorate();
+  buildSpectrum();
+  setView(store.get('view', 'stack'));
+  $('#dv-liked-count').textContent = S.liked.size;
+  reserve();
+  if (io) articles().forEach((a) => { if (!a.closest('.dv-collapsed')) io.observe(a); }); else mountAll(false);
+  window.addEventListener('resize', () => $$('.dv-frame').forEach(fit));
+  if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t) { S.current = t.classList.contains('dv-option') ? t : null; setTimeout(() => t.scrollIntoView({ block: 'start' }), 60); } }
+  window.DV_GALLERY = { mountAll: () => mountAll(true), compose, liked: () => Array.from(S.liked), passed: () => Array.from(S.passed) };
+})();
+</script>
+</body>
+</html>

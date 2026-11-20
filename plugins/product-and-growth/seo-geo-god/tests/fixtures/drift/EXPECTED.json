@@ -1,0 +1,30 @@
+{
+ "not_comparable_rule": "DRIFT020",
+ "note": "Synthetic snapshot pair: each page changes one field and triggers exactly one DRIFT rule; robots.txt changes too (DRIFT019). current-other-origin.json differs only in base URL (DRIFT020).",
+ "pages": {
+  "https://example.com/added": "DRIFT018",
+  "https://example.com/canonical-changed": "DRIFT003",
+  "https://example.com/canonical-removed": "DRIFT004",
+  "https://example.com/description-changed": "DRIFT009",
+  "https://example.com/directives": "DRIFT013",
+  "https://example.com/h1-changed": "DRIFT007",
+  "https://example.com/h1-removed": "DRIFT006",
+  "https://example.com/hash": "DRIFT017",
+  "https://example.com/hreflang": "DRIFT012",
+  "https://example.com/links": "DRIFT016",
+  "https://example.com/noindex": "DRIFT002",
+  "https://example.com/og-removed": "DRIFT014",
+  "https://example.com/removed": "DRIFT001",
+  "https://example.com/retired-removed": "DRIFT010",
+  "https://example.com/status": "DRIFT001",
+  "https://example.com/title-changed": "DRIFT008",
+  "https://example.com/title-removed": "DRIFT005",
+  "https://example.com/types-added": "DRIFT011",
+  "https://example.com/types-removed": "DRIFT010",
+  "https://example.com/unchanged": null,
+  "https://example.com/words": "DRIFT015"
+ },
+ "site_rules": [
+  "DRIFT019"
+ ]
+}

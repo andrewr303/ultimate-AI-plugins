@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:qa-results",
+  "title": "Qa Results",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "subjectId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "productRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceHashes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "artifactHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "checkedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "category": {
+            "enum": [
+              "technical",
+              "visual",
+              "editorial",
+              "accessibility",
+              "host",
+              "package"
+            ]
+          },
+          "status": {
+            "enum": [
+              "pass",
+              "fail",
+              "untested",
+              "blocked",
+              "not-applicable"
+            ]
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+            },
+            "minItems": 0
+          },
+          "details": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "category",
+          "status",
+          "method",
+          "evidence",
+          "details"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "subjectId",
+    "productRevision",
+    "sourceHashes",
+    "checkedAt",
+    "checks",
+    "reviewer"
+  ],
+  "additionalProperties": false
+}

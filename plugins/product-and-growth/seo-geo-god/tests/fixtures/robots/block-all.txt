@@ -1,0 +1,3 @@
+# Synthetic staging robots.txt shipped to production (example.test).
+User-agent: *
+Disallow: /

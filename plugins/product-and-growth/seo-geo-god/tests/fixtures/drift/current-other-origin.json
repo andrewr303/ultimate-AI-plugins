@@ -1,0 +1,523 @@
+{
+ "created": "2026-11-01T00:00:00Z",
+ "pages": {
+  "https://example.com/added": {
+   "canonical": "https://example.com/added/",
+   "content_hash": "e5c90e2cbad2d9bb0cf77da00dbc6db76995d2c77d10234386e9711825d9e5b9",
+   "h1": "Heading for added",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About added.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page added",
+   "url": "https://example.com/added/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/canonical-changed": {
+   "canonical": "https://example.com/other/",
+   "content_hash": "650bf11dd40d3776615d965329e91cd1ceccf6d5baef169631e5d22adad53e60",
+   "h1": "Heading for canonical-changed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About canonical-changed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page canonical-changed",
+   "url": "https://example.com/canonical-changed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/canonical-removed": {
+   "canonical": null,
+   "content_hash": "c06dfd1a82d033bdbf205048de563a5fb0bde899281d0253cbbf48d75f9ad40c",
+   "h1": "Heading for canonical-removed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About canonical-removed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page canonical-removed",
+   "url": "https://example.com/canonical-removed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/description-changed": {
+   "canonical": "https://example.com/description-changed/",
+   "content_hash": "41bc8adccac55f895f476a717f70a7121503bf13b153bb0ef8c9814c80e2e24f",
+   "h1": "Heading for description-changed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "Automate repeat billing for regular clients.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page description-changed",
+   "url": "https://example.com/description-changed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/directives": {
+   "canonical": "https://example.com/directives/",
+   "content_hash": "c07f5ebd1c37a9b13a2bef4ffb16bcd16cbd36990852a0732ea18914f0d4553b",
+   "h1": "Heading for directives",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About directives.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [
+    "max-snippet:50",
+    "nosnippet"
+   ],
+   "status": 200,
+   "title": "Page directives",
+   "url": "https://example.com/directives/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/h1-changed": {
+   "canonical": "https://example.com/h1-changed/",
+   "content_hash": "27c2626ee1e644b5d781af5d2b705f947f35fbd2a84ee8cea655e3bcbbbe536c",
+   "h1": "Company history and team",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About h1-changed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page h1-changed",
+   "url": "https://example.com/h1-changed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/h1-removed": {
+   "canonical": "https://example.com/h1-removed/",
+   "content_hash": "ab5ed54aca6ac0968ad1952dc949e013e6a4c977b34af3ee3609642e94c55e80",
+   "h1": null,
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About h1-removed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page h1-removed",
+   "url": "https://example.com/h1-removed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/hash": {
+   "canonical": "https://example.com/hash/",
+   "content_hash": "ae907ab9a383483e5c37beee966723544b9e6f12148a7dcd56ceea7ad44c5a7b",
+   "h1": "Heading for hash",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About hash.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page hash",
+   "url": "https://example.com/hash/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/hreflang": {
+   "canonical": "https://example.com/hreflang/",
+   "content_hash": "4137abfcb0875965d4ba907d0a74616d590bd4776d8f718ce036eb77cac5264a",
+   "h1": "Heading for hreflang",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [
+    [
+     "en",
+     "https://example.com/hreflang/"
+    ]
+   ],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About hreflang.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page hreflang",
+   "url": "https://example.com/hreflang/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/links": {
+   "canonical": "https://example.com/links/",
+   "content_hash": "8bbde2f46b59e9586b064daf7b88b22dffebe85e866cb5e8467a10e59fe07831",
+   "h1": "Heading for links",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 5,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About links.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page links",
+   "url": "https://example.com/links/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/noindex": {
+   "canonical": "https://example.com/noindex/",
+   "content_hash": "9c5cbecd9f69bf04e4aca768b3fdb033086cc74972552d1db964c29fa88928fa",
+   "h1": "Heading for noindex",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About noindex.",
+   "noindex": true,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [
+    "noindex"
+   ],
+   "status": 200,
+   "title": "Page noindex",
+   "url": "https://example.com/noindex/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/og-removed": {
+   "canonical": "https://example.com/og-removed/",
+   "content_hash": "ae728323cf0ed1e0eae5e82233beb3ca2a37f12ce66225150c5e4a48a7300305",
+   "h1": "Heading for og-removed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About og-removed.",
+   "noindex": false,
+   "og": {},
+   "robots": [],
+   "status": 200,
+   "title": "Page og-removed",
+   "url": "https://example.com/og-removed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/retired-removed": {
+   "canonical": "https://example.com/retired-removed/",
+   "content_hash": "dcaff71a40aadc2951b2635f534da22063b803486f3a87cba9de688bf244fcd5",
+   "h1": "Heading for retired-removed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "Organization"
+   ],
+   "meta_description": "About retired-removed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page retired-removed",
+   "url": "https://example.com/retired-removed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/status": {
+   "canonical": "https://example.com/status/",
+   "content_hash": "0d77a8d6a37dc0d0d56fa3baa9ee4f45bf47bbbb1813eae5bae6c6b0882e75e0",
+   "h1": "Heading for status",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About status.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 404,
+   "title": "Page status",
+   "url": "https://example.com/status/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/title-changed": {
+   "canonical": "https://example.com/title-changed/",
+   "content_hash": "02bc609431532e850822ee4e986bdbaf9c840ed6c6c2fe738e1623de55c164cc",
+   "h1": "Heading for title-changed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About title-changed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Recurring invoices: a setup guide",
+   "url": "https://example.com/title-changed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/title-removed": {
+   "canonical": "https://example.com/title-removed/",
+   "content_hash": "9fa84371cdd4469780d75c752dbf0c08c2dee6b59df51337463f3a41b6b6ec80",
+   "h1": "Heading for title-removed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About title-removed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": null,
+   "url": "https://example.com/title-removed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/types-added": {
+   "canonical": "https://example.com/types-added/",
+   "content_hash": "c667a33788fb53c62fd9b6447bffe0f5587ab30ced3d7157a47d48e846111dc4",
+   "h1": "Heading for types-added",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "Product"
+   ],
+   "meta_description": "About types-added.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page types-added",
+   "url": "https://example.com/types-added/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/types-removed": {
+   "canonical": "https://example.com/types-removed/",
+   "content_hash": "1ef9f7783909bb96c2f811b9c7d7108468f723b9f3e1c5982b611318a171e207",
+   "h1": "Heading for types-removed",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "BreadcrumbList"
+   ],
+   "meta_description": "About types-removed.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page types-removed",
+   "url": "https://example.com/types-removed/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/unchanged": {
+   "canonical": "https://example.com/unchanged/",
+   "content_hash": "36115a2a30e2bd83d603f24c8057ed56beb0d8081ca8140a85d2fba9c9b60092",
+   "h1": "Heading for unchanged",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About unchanged.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page unchanged",
+   "url": "https://example.com/unchanged/",
+   "word_count": 400,
+   "x_robots": null
+  },
+  "https://example.com/words": {
+   "canonical": "https://example.com/words/",
+   "content_hash": "9ea7bc3b307d769877ac371809f60715594338a5b9e8a1a161fd8973f86f3d00",
+   "h1": "Heading for words",
+   "h2": [
+    "Overview",
+    "Details"
+   ],
+   "hreflang": [],
+   "internal_links": 10,
+   "jsonld_types": [
+    "WebPage"
+   ],
+   "meta_description": "About words.",
+   "noindex": false,
+   "og": {
+    "og:title": "Page"
+   },
+   "robots": [],
+   "status": 200,
+   "title": "Page words",
+   "url": "https://example.com/words/",
+   "word_count": 300,
+   "x_robots": null
+  }
+ },
+ "robots_sha256": "128b4ac46fceaad0e02844fb603387a9b7c989376b74c49541b89a7b564bafbd",
+ "robots_txt": "User-agent: *\nDisallow: /admin/\nDisallow: /drafts/\n\nSitemap: https://example.com/sitemap.xml\n",
+ "schema": "seo-geo-god.snapshot/1",
+ "source": {
+  "base_url": "https://example.org",
+  "profile": "default",
+  "type": "live",
+  "url": "https://example.org/"
+ },
+ "tool_version": "1.0.0"
+}

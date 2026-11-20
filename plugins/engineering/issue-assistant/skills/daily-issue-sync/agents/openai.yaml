@@ -1,0 +1,7 @@
+interface:
+  display_name: Daily Issue Sync
+  short_description: Reconcile without an interview
+  default_prompt: Run the configured unattended issue reconciliation and verify all
+    tracker changes.
+policy:
+  allow_implicit_invocation: false

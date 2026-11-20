@@ -1,0 +1,15 @@
+old_url,new_url,status
+/a/,/hop/,301
+/hop/,/new-a/,301
+/loop-1/,/loop-2/,301
+/loop-2/,/loop-1/,301
+/b/,/does-not-exist/,301
+/temp/,/temp-new/,302
+/x1/,/,301
+/x2/,/,301
+/x3/,https://example.com/,301
+/a/,/new-a/,301
+not a url,/new-a/,301
+/only-one-column
+/bad-status/,/new-a/,200
+# comment rows are ignored

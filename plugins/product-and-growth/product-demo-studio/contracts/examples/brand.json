@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-brand",
+  "name": "Tandem",
+  "productRevision": "tandem-fixture-v1",
+  "audience": "Small support teams",
+  "voice": [
+    "clear",
+    "calm",
+    "specific"
+  ],
+  "colors": {
+    "ink": "#182B26",
+    "paper": "#F5F3EB",
+    "accent": "#C3EA6F"
+  },
+  "typography": {
+    "heading": "system-ui",
+    "body": "system-ui",
+    "fallback": "sans-serif"
+  },
+  "source": {
+    "type": "repository",
+    "path": "product/index.html",
+    "revision": "tandem-fixture-v1",
+    "note": "Synthetic support triage fixture. No customer or commercial claims."
+  },
+  "synthetic": true
+}

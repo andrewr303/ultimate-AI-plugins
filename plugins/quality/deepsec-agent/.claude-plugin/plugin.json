@@ -1,0 +1,7 @@
+{
+  "name": "deepsec-agent",
+  "version": "1.0.0",
+  "description": "Local source security review, evidence, baselines, and remediation planning for coding agents.",
+  "author": {"name": "DeepSec Agent contributors"},
+  "keywords": ["security", "code-review", "local", "mcp"]
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "project": {
+    "id": "[REPLACE: lowercase-kebab-case project id]",
+    "name": "[REPLACE: site or product name as the owner writes it]",
+    "repository": "[REPLACE: https URL of the source repository]",
+    "canonical_domain": "[REPLACE: production host without scheme, for example www.example.com]",
+    "canonical_url": "[REPLACE: production origin with scheme and trailing slash, for example https://www.example.com/]",
+    "language": "[REPLACE: primary language as a BCP 47 code, for example en or en-GB]"
+  },
+  "guardrails": {
+    "no_duplicate_query_owners": true,
+    "no_auto_publish_visible_copy": true,
+    "no_fabricated_proof": true,
+    "require_fresh_crawl_before_verdict": true
+  },
+  "pages": [
+    {
+      "id": "home",
+      "url": "[REPLACE: absolute production URL of the home page]",
+      "source_path": "[REPLACE: repository path of the file that renders it, for example app/page.tsx]",
+      "status": "[REPLACE: active, draft or retired]"
+    },
+    {
+      "id": "guide",
+      "url": "[REPLACE: absolute production URL of a guide or documentation page]",
+      "source_path": "[REPLACE: repository path of its content file, for example content/guides/setup.md]",
+      "status": "[REPLACE: active, draft or retired]"
+    },
+    {
+      "id": "pricing",
+      "url": "[REPLACE: absolute production URL of the pricing or product page]",
+      "source_path": "[REPLACE: repository path of the file that renders it]",
+      "status": "[REPLACE: active, draft or retired]"
+    }
+  ],
+  "queries": [
+    {
+      "id": "brand-name",
+      "text": "[REPLACE: a real branded query from Search Console or the owner]",
+      "class": "branded",
+      "intent": "[REPLACE: short intent label, for example find-official-site]",
+      "target_page": "home",
+      "holdout": false,
+      "experiment": null
+    },
+    {
+      "id": "how-to-setup",
+      "text": "[REPLACE: a real informational query the guide answers]",
+      "class": "informational",
+      "intent": "[REPLACE: short intent label, for example setup-instructions]",
+      "target_page": "guide",
+      "holdout": false,
+      "experiment": null
+    },
+    {
+      "id": "pricing-compare",
+      "text": "[REPLACE: a real commercial query the pricing page answers]",
+      "class": "commercial",
+      "intent": "[REPLACE: short intent label, for example compare-plans]",
+      "target_page": "pricing",
+      "holdout": true,
+      "experiment": null
+    }
+  ],
+  "measurement": {
+    "engines": [
+      "[REPLACE: surfaces you will actually measure, for example google-search-console]",
+      "[REPLACE: for example chatgpt-search or perplexity, sampled with a fixed prompt panel]"
+    ],
+    "cadence": "[REPLACE: weekly or monthly]"
+  }
+}

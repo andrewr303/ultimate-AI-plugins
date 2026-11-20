@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO-GEO Audit"
+  short_description: "Evidence-first site audit and plan"
+  default_prompt: "Use $seo-geo-audit to audit this repository's build output for SEO and GEO with the bundled offline checks, report coverage and what was not measured, and deliver a prioritized, verifiable fix plan."
+policy:
+  allow_implicit_invocation: true

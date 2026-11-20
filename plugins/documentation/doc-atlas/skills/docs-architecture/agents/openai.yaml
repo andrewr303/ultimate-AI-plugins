@@ -1,0 +1,6 @@
+interface:
+  display_name: "Documentation Architecture"
+  short_description: "Map repository facts to reader journeys"
+  default_prompt: "Organize this repository's documentation around reader tasks and trace technical claims to source."
+policy:
+  allow_implicit_invocation: true

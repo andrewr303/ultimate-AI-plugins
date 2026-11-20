@@ -1,0 +1,31 @@
+# Synthetic AI access policy with deliberate problems (example.com; not a real site).
+Disallow: /orphan-rule/
+
+User-agent: *
+Content-Signal: search=yes, ai-train=no
+Disallow: /admin/
+Disallow: /café/
+Crawl-delay: 10
+
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Content-Signal: search=yes, ai-train=maybe, foo=bar
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /members/
+
+User-agent: __usage_ai-training
+Disallow: /
+Allow: /press/
+
+Noindex: /old/
+Sitemap: /sitemap.xml

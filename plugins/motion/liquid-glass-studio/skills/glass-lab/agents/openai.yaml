@@ -1,0 +1,6 @@
+interface:
+  display_name: Glass Lab
+  short_description: Tune glass in the live lab
+  default_prompt: Use $glass-lab to run the local Glass Lab, tune and compare variants, and export the chosen settings.
+policy:
+  allow_implicit_invocation: true

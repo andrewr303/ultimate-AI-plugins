@@ -1,0 +1,6 @@
+interface:
+  display_name: Build Debug
+  short_description: iOS build debug workflows and verification
+  default_prompt: Use $ios-build-debug to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

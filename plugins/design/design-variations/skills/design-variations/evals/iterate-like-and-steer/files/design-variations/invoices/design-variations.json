@@ -1,0 +1,1146 @@
+{
+  "schema": "design-variations/1",
+  "title": "Invoices list",
+  "slug": "invoices-list",
+  "mode": "redesign",
+  "host": "html",
+  "created": "2026-11-01T17:25:53+00:00",
+  "subject": {
+    "kind": "screen",
+    "archetype": "data-table",
+    "platform": "web",
+    "source": [
+      "src/invoices.html",
+      "src/tokens.css",
+      "README.md"
+    ],
+    "summary": "The Invoices list in Ledgerly's web app, the page finance staff open daily to find, chase and close unpaid invoices."
+  },
+  "theme": {
+    "source": "src/tokens.css (exact custom properties) and src/invoices.html (component styles)",
+    "summary": "Light theme on a pale sage ground (#f7f8f6) with white surfaces and hairline borders; one teal accent (#0f766e) for the current page and primary action; semantic status colours (paid green, due amber, overdue red, draft grey) as soft pills with text. Inter for UI, JetBrains Mono for invoice numbers and money; 12-26px type scale, 4px spacing steps, 6/10/14px radii, two soft shadows. Calm, terse business voice: Invoice, Client, Due, Overdue, Drafts, Send reminder, Mark paid."
+  },
+  "chrome": {
+    "theme": "light",
+    "tokens": {
+      "--dv-bg": "#f7f8f6",
+      "--dv-surface": "#ffffff",
+      "--dv-text": "#14201b",
+      "--dv-text-2": "#46524c",
+      "--dv-text-3": "#5d6862",
+      "--dv-accent": "#0f766e",
+      "--dv-on-accent": "#ffffff",
+      "--dv-accent-text": "#0f766e",
+      "--dv-font": "\"Inter\",ui-sans-serif,system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif",
+      "--dv-font-display": "\"Inter\",ui-sans-serif,system-ui,-apple-system,\"Segoe UI\",Roboto,sans-serif",
+      "--dv-font-mono": "\"JetBrains Mono\",ui-monospace,SFMono-Regular,Menlo,monospace"
+    }
+  },
+  "contract": {
+    "must_keep": [
+      "Ledgerly shell: the teal mark and Ledgerly wordmark, and navigation to Overview, Invoices (current), Clients, Payments, Reports, Settings",
+      "Page heading Invoices",
+      "Totals: Outstanding, Overdue, Paid this month and Drafts, with today's values",
+      "Filter by status: All, Due, Overdue, Paid, Drafts, each with a live count",
+      "Search by client name or invoice number",
+      "Sort by invoice number, client, issued date, due date and amount, both directions",
+      "Every invoice shows its number, client, issued date, due date, status and amount in USD",
+      "Select one, several or all shown invoices, see how many are selected, then Send reminders, Mark paid or Clear",
+      "Per-invoice actions: View, Send reminder, Mark paid, Duplicate (as a draft), Delete",
+      "Export CSV of the current view",
+      "New invoice: client from the client list, amount above 0, due date, with inline messages; Save draft or Create & send; Cancel",
+      "No-match state with Clear filters (resets status and search)",
+      "Confirmation for every action, announced to screen readers",
+      "Keyboard: every control reachable with visible focus; Escape closes menus and the new-invoice panel",
+      "Brand: teal accent, Inter and JetBrains Mono, light theme, status colours with text labels, calm terse voice and today's terms",
+      "Usable on a phone (390 wide): navigation, filters, invoices and actions all reachable"
+    ],
+    "may_change": [
+      "layout and grouping",
+      "filter, search and sort placement",
+      "table versus other list forms",
+      "density and type scale",
+      "visual hierarchy and what leads",
+      "how row actions are reached",
+      "how creation opens",
+      "default ordering",
+      "derived views of existing data (days late, age, per-client balances)"
+    ],
+    "lifted": [],
+    "constraints": [
+      "Desktop web at 1440x900, usable down to 390 wide",
+      "WCAG 2.2 AA contrast and keyboard access, no worse than today",
+      "Light theme and Ledgerly tokens; no new colours for brand roles",
+      "No new capabilities or data beyond what the page has today (derived views of the same data are fine)"
+    ]
+  },
+  "frame": {
+    "w": 1440,
+    "h": 900
+  },
+  "rounds": [
+    {
+      "n": 1,
+      "kind": "explore",
+      "topic": "Invoices list",
+      "question": "How should finance staff find what to chase today?",
+      "title": "Ten ways to find what needs chasing",
+      "summary": "Every option shows the same 18 invoices with today's totals and keeps every function on the page: status filters with counts, search, five sorts, bulk reminders and mark paid, the row menu, Export CSV and New invoice with its checks. What varies is what leads and how you get to the invoices that need chasing, from a re-weighted table to a one-at-a-time chase queue. Every frame is live: filter, sort, select, open menus and the New invoice panel; use the State menu for long values or no invoices. Reminders, export and navigation are simulated with a confirmation.",
+      "references": [
+        {
+          "id": "r1",
+          "provider": "capture",
+          "title": "Stripe Docs · Invoices list in the Dashboard (captured 2026-11-01)",
+          "url": "https://docs.stripe.com/invoicing/dashboard",
+          "borrowed": "Status tabs that read as plain words; row menu split into actions and links; a visible key for Create invoice."
+        },
+        {
+          "id": "r2",
+          "provider": "capture",
+          "title": "Linear Docs · Triage inbox (captured 2026-11-01)",
+          "url": "https://linear.app/docs/triage",
+          "borrowed": "Everything that needs a decision gathered in one place; two-line rows with the id and age right-aligned."
+        },
+        {
+          "id": "r3",
+          "provider": "capture",
+          "title": "Linear Docs · Inbox with Priority and Other (captured 2026-11-01)",
+          "url": "https://linear.app/docs/inbox",
+          "borrowed": "Split the list into what needs you and everything else, each with a count; age as a short right-aligned value."
+        },
+        {
+          "id": "r4",
+          "provider": "capture",
+          "title": "Linear Docs · Reminder intervals menu (captured 2026-11-01)",
+          "url": "https://linear.app/docs/inbox",
+          "borrowed": "Relative wording beside the exact date (Tomorrow / Wed, 12 Feb); used for 'Oct 12 · 18 days late'."
+        },
+        {
+          "id": "r5",
+          "provider": "capture",
+          "title": "GitHub Docs · Projects board layout (captured 2026-11-01)",
+          "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view",
+          "borrowed": "Columns by state with a count and a sum in each column header; cards carry id, title and labels."
+        },
+        {
+          "id": "r6",
+          "provider": "capture",
+          "title": "GitHub Docs · Projects roadmap layout (captured 2026-11-01)",
+          "url": "https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view",
+          "borrowed": "Collapsible groups with a count in the group header; a marker for today on the time scale."
+        },
+        {
+          "id": "k1",
+          "provider": "knowledge",
+          "title": "Accounts-receivable aging report (from model knowledge, not a live reference)",
+          "url": "",
+          "borrowed": "Unpaid balances bucketed by days past due (current, 1-30, 31-60, 61+), read left to right."
+        },
+        {
+          "id": "k2",
+          "provider": "knowledge",
+          "title": "Keyboard-first mail and issue tools (from model knowledge, not a live reference)",
+          "url": "",
+          "borrowed": "j/k to move, single keys to act, a command palette for everything else, a shortcut sheet on ?."
+        },
+        {
+          "id": "k3",
+          "provider": "knowledge",
+          "title": "Customer statements in accounting tools (from model knowledge, not a live reference)",
+          "url": "",
+          "borrowed": "Organise receivables by customer with the balance and oldest overdue item first."
+        },
+        {
+          "id": "k4",
+          "provider": "knowledge",
+          "title": "Editorial financial reporting typography (from model knowledge, not a live reference)",
+          "url": "",
+          "borrowed": "Large tabular figures as the headline, hairline rules instead of boxes, generous margins."
+        }
+      ],
+      "options": [
+        {
+          "id": "1a",
+          "name": "Lateness in view",
+          "rung": 3,
+          "band": "refine",
+          "axis": "visual-hierarchy",
+          "secondary_axes": [
+            "content-and-voice"
+          ],
+          "paradigm": "table (today's)",
+          "idea": "Today's page on its best day, re-weighted so overdue reads loudest: days late under every due date, a red Overdue total with a Show overdue button, and a visible Remind button on unpaid rows.",
+          "description": "Same page and order as today; every due date now says how late it is, overdue totals and amounts are louder, and unpaid rows get a Remind button. Smallest change, but staff still scan a mixed list sorted by issue date.",
+          "cost": "Still a mixed list; finding what to chase relies on reading the red text.",
+          "keeps": "all contract items in today's positions; issue-date order; drawer for New invoice",
+          "changes": "days late under due dates; Overdue total emphasised with Show overdue; inline Remind on unpaid rows; readable dates; sort arrows; selection sum in the bulk bar",
+          "refs": [
+            "r1",
+            "r4"
+          ],
+          "tags": [
+            "table",
+            "polish",
+            "hierarchy"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Four totals in today's boxes; Overdue louder with count, oldest lateness and Show overdue"
+            },
+            {
+              "item": "3",
+              "how": "Status tabs with counts above the table (Overdue count in red)"
+            },
+            {
+              "item": "4",
+              "how": "Search field beside the tabs"
+            },
+            {
+              "item": "5",
+              "how": "Click Invoice, Client, Issued, Due or Amount headers; arrow shows direction"
+            },
+            {
+              "item": "6",
+              "how": "Table columns as today; due date also says how late"
+            },
+            {
+              "item": "7",
+              "how": "Row ticks and Select all; dark bar with count and selected total, Send reminders, Mark paid, Clear"
+            },
+            {
+              "item": "8",
+              "how": "Row menu (View, Send reminder, Mark paid, Duplicate, Delete) plus a Remind button on unpaid rows"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        },
+        {
+          "id": "1b",
+          "name": "Chase-first page",
+          "rung": 4,
+          "band": "evolve",
+          "axis": "visual-hierarchy",
+          "secondary_axes": [
+            "information-architecture",
+            "navigation-model"
+          ],
+          "paradigm": "table with lead band",
+          "idea": "The page opens on what needs chasing: an overdue band with the amount, count and oldest invoice plus one Send reminders action, and the table ordered most-overdue-first.",
+          "description": "A Needs chasing band replaces the four boxes and the table opens most-overdue-first, with selection actions in a bar pinned to the bottom. The three other totals shrink to one line, and the habitual issue-date order is one click away.",
+          "cost": "Outstanding, Paid this month and Drafts lose prominence; the default order changes.",
+          "keeps": "all totals (three in a compact line), status filters, search, every sort plus Most urgent, bulk and row actions, export, drawer",
+          "changes": "four total boxes become an overdue band with Send reminders to all overdue; default order most overdue first; sort menu beside search; bulk bar pinned to the bottom",
+          "refs": [
+            "r3",
+            "r2"
+          ],
+          "tags": [
+            "table",
+            "rearrange",
+            "overdue-first"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Overdue in the Needs chasing band; Outstanding, Paid this month and Drafts on the line below"
+            },
+            {
+              "item": "3",
+              "how": "Status tabs with counts above the table"
+            },
+            {
+              "item": "4",
+              "how": "Search field beside the tabs"
+            },
+            {
+              "item": "5",
+              "how": "Sort menu (Most urgent plus the five keys) with a direction button; headers also sort"
+            },
+            {
+              "item": "6",
+              "how": "Table columns: lateness, client, invoice, due, issued, status, amount"
+            },
+            {
+              "item": "7",
+              "how": "Row ticks and Select all; bar pinned to the bottom with count, total, Send reminders, Mark paid, Clear; Send 7 reminders in the band"
+            },
+            {
+              "item": "8",
+              "how": "Row menu with all five actions"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        },
+        {
+          "id": "1c",
+          "name": "Grouped by status",
+          "rung": 5,
+          "band": "evolve",
+          "axis": "information-architecture",
+          "secondary_axes": [
+            "progressive-disclosure"
+          ],
+          "paradigm": "grouped table",
+          "idea": "One table split into collapsible sections, Overdue first, each section header carrying its count, total and a select-all, so the totals live where the invoices are.",
+          "description": "Invoices sit in sections (Overdue, Due, Drafts, Paid) whose headers show the count and total and select the whole group; Paid starts collapsed. Grouping is fixed by status, so a single list sorted across statuses is gone.",
+          "cost": "One grouping only; sorting works inside each section, not across them.",
+          "keeps": "all totals (Outstanding in the header, the rest on section headers), status filters, search, sorting within sections, bulk and row actions, export, drawer",
+          "changes": "table becomes status sections with totals; Paid collapsed by default; group select-all; Remind all overdue on the Overdue header",
+          "refs": [
+            "r6",
+            "r5"
+          ],
+          "tags": [
+            "grouped",
+            "sections"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Outstanding beside the heading; Overdue, Paid this month and Drafts on their section headers"
+            },
+            {
+              "item": "3",
+              "how": "Segmented status control with counts; a status shows only its section"
+            },
+            {
+              "item": "4",
+              "how": "Search field beside the filters; opens every section"
+            },
+            {
+              "item": "5",
+              "how": "Column headers sort within each section"
+            },
+            {
+              "item": "6",
+              "how": "Table columns as today with days late under the due date"
+            },
+            {
+              "item": "7",
+              "how": "Row ticks, a tick on each section header and Select all; sticky bar with Send reminders, Mark paid, Clear; Remind all on Overdue and Due"
+            },
+            {
+              "item": "8",
+              "how": "Row menu with all five actions"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        },
+        {
+          "id": "1d",
+          "name": "Statement ledger",
+          "rung": 6,
+          "band": "evolve",
+          "axis": "typography",
+          "secondary_axes": [
+            "shape-and-depth",
+            "density"
+          ],
+          "paradigm": "typographic list",
+          "idea": "Ledgerly at its most confident: display-size money figures as the page headline, rows as typographic lines on hairlines with no boxes, overdue said in words.",
+          "description": "Big tabular figures lead the page and each invoice is a two-level line (client over number, days late, large amount) with no boxes or grid lines. About six invoices fit on the first screen instead of nine.",
+          "cost": "A third fewer rows per screen; more scrolling to scan the list.",
+          "keeps": "all totals, status filters, search, every sort, bulk and row actions, export, drawer",
+          "changes": "type scale and composition: display figures, hairline rows, text-style filters and sort row, actions as text buttons on hover and focus",
+          "refs": [
+            "k4"
+          ],
+          "tags": [
+            "editorial",
+            "type",
+            "visual-language"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Four display-size figures under the heading"
+            },
+            {
+              "item": "3",
+              "how": "Large text filters with counts"
+            },
+            {
+              "item": "4",
+              "how": "Underlined search field on the right of the filters"
+            },
+            {
+              "item": "5",
+              "how": "Sort by row: Invoice, Client, Issued, Due, Amount, each toggles direction"
+            },
+            {
+              "item": "6",
+              "how": "Each line shows client, number, issued date, lateness, due date, status and amount"
+            },
+            {
+              "item": "7",
+              "how": "Line ticks and Select all shown; quiet bar with count, total, Send reminders, Mark paid, Clear"
+            },
+            {
+              "item": "8",
+              "how": "Remind and Mark paid on hover or focus, the rest in the line's menu"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        },
+        {
+          "id": "1e",
+          "name": "Workbench split",
+          "rung": 7,
+          "band": "rethink",
+          "axis": "layout-paradigm",
+          "secondary_axes": [
+            "progressive-disclosure",
+            "interaction-model"
+          ],
+          "paradigm": "master-detail split",
+          "idea": "A narrow, urgency-ordered list on the left and the selected invoice on the right with its dates, lateness and every action; ticking several turns the right side into a batch panel.",
+          "description": "Pick an invoice on the left and act on it on the right: amount, issued and due dates on a line, days late, and all five actions; tick several and the right side becomes a batch panel. Needs width; phones show list and detail as two screens.",
+          "cost": "Needs width: the detail takes half the screen; phones show list and detail as two screens.",
+          "keeps": "all totals (top strip), status filters, search, every sort (menu), bulk via ticks, every row action, export, New invoice",
+          "changes": "table becomes list plus detail pane; New invoice opens in the right pane; arrow keys move through the list",
+          "refs": [
+            "r2",
+            "r1"
+          ],
+          "tags": [
+            "split-view",
+            "workbench"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Four totals in the strip beside the heading"
+            },
+            {
+              "item": "3",
+              "how": "Status tabs with counts above the list"
+            },
+            {
+              "item": "4",
+              "how": "Search field above the list"
+            },
+            {
+              "item": "5",
+              "how": "Sort menu (Most urgent plus the five keys) with a direction button"
+            },
+            {
+              "item": "6",
+              "how": "List shows client, amount, number, due date and lateness; detail shows every field and the dates on a line"
+            },
+            {
+              "item": "7",
+              "how": "Ticks on list items turn the right pane into a batch with Send reminders, Mark paid, Clear selection"
+            },
+            {
+              "item": "8",
+              "how": "Detail pane buttons: Send reminder, Mark paid, View, Duplicate, Delete"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice opens the same form in the right pane; Escape or Cancel closes it"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation; list first, detail as a second screen with Back"
+            }
+          ]
+        },
+        {
+          "id": "1f",
+          "name": "Aging at a glance",
+          "rung": 7,
+          "band": "rethink",
+          "axis": "data-representation",
+          "secondary_axes": [
+            "layout-paradigm"
+          ],
+          "paradigm": "panels above a table",
+          "idea": "Two clickable charts lead the page: unpaid money by how late it is, and who owes most; clicking a bar narrows the full table below.",
+          "description": "Bars show unpaid money by age (not yet due, 1-30 and 31-60 days late) and by client; click one to narrow the table, which keeps every filter and action. The charts take the top third of the screen, so the list starts about halfway down.",
+          "cost": "The list starts halfway down on laptops; two more ways to filter to learn.",
+          "keeps": "all totals, status filters, search, every sort, bulk and row actions, export, drawer",
+          "changes": "totals row becomes an aging chart and a by-client chart that filter the table; active chart filters shown as removable chips",
+          "refs": [
+            "k1",
+            "r6"
+          ],
+          "tags": [
+            "chart",
+            "aging",
+            "dashboard"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Totals panel beside the charts"
+            },
+            {
+              "item": "3",
+              "how": "Status tabs with counts above the table; the age and client bars add filters shown as chips"
+            },
+            {
+              "item": "4",
+              "how": "Search field beside the tabs"
+            },
+            {
+              "item": "5",
+              "how": "Column headers sort"
+            },
+            {
+              "item": "6",
+              "how": "Table columns as today with days late under the due date"
+            },
+            {
+              "item": "7",
+              "how": "Row ticks and Select all; dark bar with Send reminders, Mark paid, Clear"
+            },
+            {
+              "item": "8",
+              "how": "Row menu with all five actions"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        },
+        {
+          "id": "1g",
+          "name": "Status board",
+          "rung": 8,
+          "band": "rethink",
+          "axis": "interaction-model",
+          "secondary_axes": [
+            "layout-paradigm"
+          ],
+          "paradigm": "kanban board",
+          "idea": "Invoices as cards in Drafts, Due, Overdue and Paid columns with counts and totals; drag a card onto Paid (or use Move to Paid) to mark it paid.",
+          "description": "Four status columns show where the money is, overdue sorted most-late-first, and dragging a card to Paid marks it paid; every card also has Remind and a menu. Only Paid accepts drops, and long lists scroll inside each column.",
+          "cost": "Fewer fields per card; columns get long with volume; drag is new.",
+          "keeps": "all totals (column headers plus Outstanding), status filters (focus one column), search, every sort (menu), bulk via ticks, every action, export, drawer",
+          "changes": "table becomes status columns; drag to Paid or Move to Paid; status filter shows one column wide",
+          "refs": [
+            "r5"
+          ],
+          "tags": [
+            "board",
+            "drag"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Outstanding beside the heading; column headers carry Overdue, Paid this month, Drafts and Due"
+            },
+            {
+              "item": "3",
+              "how": "Status tabs with counts; a status shows only its column, wide"
+            },
+            {
+              "item": "4",
+              "how": "Search field narrows the cards"
+            },
+            {
+              "item": "5",
+              "how": "Sort cards menu (Most urgent plus the five keys) with a direction button"
+            },
+            {
+              "item": "6",
+              "how": "Cards show client, number, amount, due date or lateness, issued date and status by column"
+            },
+            {
+              "item": "7",
+              "how": "Card ticks and All shown; dark bar with Send reminders, Mark paid, Clear"
+            },
+            {
+              "item": "8",
+              "how": "Card menu with all five actions plus Move to Paid; Remind button on unpaid cards; drag onto Paid marks paid"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation; columns swipe sideways one at a time"
+            }
+          ]
+        },
+        {
+          "id": "1h",
+          "name": "Keyboard cockpit",
+          "rung": 8,
+          "band": "rethink",
+          "axis": "density",
+          "secondary_axes": [
+            "interaction-model",
+            "navigation-model"
+          ],
+          "paradigm": "dense grid with command palette",
+          "idea": "A compact grid for people who chase all day: every row and action reachable from the keyboard (j/k, x, r, p, /, n), a command palette, and a status bar with totals and the selection sum.",
+          "description": "Twice as many rows fit on screen, with a Days late column, keys for every action (shown on the buttons and on ?) and a Ctrl+K palette for the rest. Totals move to a status bar along the bottom. Dense for occasional users.",
+          "cost": "Dense and key-driven; occasional users see less guidance.",
+          "keeps": "all totals (status bar), status filters (keys 1-5), search (/), every sort, bulk and row actions, export, New invoice",
+          "changes": "compact rows, Days late column, roving keyboard focus, command palette, shortcut sheet, totals in a bottom status bar",
+          "refs": [
+            "k2",
+            "r1"
+          ],
+          "tags": [
+            "dense",
+            "keyboard",
+            "command-palette"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Status bar along the bottom with the four totals and the selection total"
+            },
+            {
+              "item": "3",
+              "how": "Status tabs with counts, keys 1 to 5"
+            },
+            {
+              "item": "4",
+              "how": "Search field, key /"
+            },
+            {
+              "item": "5",
+              "how": "Column headers sort (plus Days late); palette has every sort"
+            },
+            {
+              "item": "6",
+              "how": "Dense grid: invoice, client, issued, due, days late, status, amount"
+            },
+            {
+              "item": "7",
+              "how": "X or ticks select; status bar shows Send reminders, Mark paid, Clear; R and P act on the selection"
+            },
+            {
+              "item": "8",
+              "how": "Row menu with all five actions (Enter, R, P, D, Delete keys)"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Roving focus in the grid, shortcut sheet on ?, single-key shortcuts can be switched off; Escape closes menus, palette and the panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        },
+        {
+          "id": "1i",
+          "name": "Client balances",
+          "rung": 9,
+          "band": "reinvent",
+          "axis": "information-architecture",
+          "secondary_axes": [
+            "visual-hierarchy"
+          ],
+          "paradigm": "client panels",
+          "idea": "Organise the page by who owes money: one panel per client with outstanding and overdue balance, oldest lateness, their invoices inside, and Remind client for all of their unpaid invoices.",
+          "description": "Each client is a panel ordered by overdue money, with their invoices listed inside and one Remind client button for all of their unpaid ones. Finding a single invoice by number relies on search.",
+          "cost": "Invoices are split across eight panels; a single cross-client list is gone.",
+          "keeps": "all totals, status filters (inside panels), search, every sort (clients and invoices), bulk via ticks, every row action, export, New invoice (also per client)",
+          "changes": "list grouped by client with balances; Remind client sends reminders for that client's unpaid invoices; New invoice can start from a client",
+          "refs": [
+            "k3",
+            "r6"
+          ],
+          "tags": [
+            "by-client",
+            "reinvent"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Four totals in the strip beside the heading; each client shows outstanding and overdue"
+            },
+            {
+              "item": "3",
+              "how": "Status tabs with counts filter the invoices inside each client"
+            },
+            {
+              "item": "4",
+              "how": "Search field; clients without a match hide"
+            },
+            {
+              "item": "5",
+              "how": "Clients menu orders by overdue, outstanding, oldest or name; Invoices menu sorts by number, issued, due or amount with direction"
+            },
+            {
+              "item": "6",
+              "how": "Each client lists its invoices with number, issued, due, lateness, status and amount"
+            },
+            {
+              "item": "7",
+              "how": "Ticks per invoice and per client; dark bar with Send reminders, Mark paid, Clear; Remind client for one client's unpaid invoices"
+            },
+            {
+              "item": "8",
+              "how": "Row menu with all five actions"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV button in the page header; confirms the row count"
+            },
+            {
+              "item": "10",
+              "how": "New invoice in the header, or + on a client to start with that client chosen"
+            },
+            {
+              "item": "11",
+              "how": "No invoices match. with Clear filters, which resets status and search"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Every control is a real button or field with a visible focus ring; Escape closes menus and the New invoice panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        },
+        {
+          "id": "1j",
+          "name": "Today's chase queue",
+          "rung": 10,
+          "band": "reinvent",
+          "axis": "progressive-disclosure",
+          "secondary_axes": [
+            "information-architecture",
+            "interaction-model"
+          ],
+          "paradigm": "one-at-a-time queue",
+          "idea": "The page leads with a chase queue: overdue invoices one at a time, ordered by days late then amount, with Send reminder, Mark paid and Skip, a progress count, and All invoices one tab away.",
+          "description": "Opens on a queue of overdue invoices shown one at a time with the reason it is next, Send reminder, Mark paid and Skip, and progress through today's list. The full table with every filter is the second tab.",
+          "cost": "Overview and browsing move to a second tab; the queue's order is a rule staff must trust.",
+          "keeps": "all totals, the full table (status filters, search, every sort, bulk and row actions, export) under All invoices, New invoice",
+          "changes": "first screen becomes a one-at-a-time chase queue with R/P/S keys and progress; the table moves to a second tab",
+          "refs": [
+            "r2",
+            "r3"
+          ],
+          "tags": [
+            "queue",
+            "triage",
+            "reframe"
+          ],
+          "states": [
+            "default",
+            "long values",
+            "no invoices"
+          ],
+          "contract": [
+            {
+              "item": "0",
+              "how": "Same sidebar with the Ledgerly mark and six destinations; a Menu button opens it on phones"
+            },
+            {
+              "item": "1",
+              "how": "Invoices heading at the top of the page"
+            },
+            {
+              "item": "2",
+              "how": "Four totals beside the view tabs"
+            },
+            {
+              "item": "3",
+              "how": "All invoices tab: status tabs with counts"
+            },
+            {
+              "item": "4",
+              "how": "All invoices tab: search field"
+            },
+            {
+              "item": "5",
+              "how": "All invoices tab: column headers sort"
+            },
+            {
+              "item": "6",
+              "how": "Chase card shows every field for one invoice; All invoices tab shows the full table"
+            },
+            {
+              "item": "7",
+              "how": "All invoices tab: row ticks, Select all and the dark bar with Send reminders, Mark paid, Clear"
+            },
+            {
+              "item": "8",
+              "how": "Chase card: Send reminder, Mark paid, View, menu with Duplicate and Delete; All invoices tab: row menu with all five"
+            },
+            {
+              "item": "9",
+              "how": "Export CSV in the header; exports the chase list or the current table"
+            },
+            {
+              "item": "10",
+              "how": "New invoice button opens the side panel with client, amount and due date, inline messages, Save draft, Create & send, Cancel"
+            },
+            {
+              "item": "11",
+              "how": "All invoices tab: No invoices match. with Clear filters"
+            },
+            {
+              "item": "12",
+              "how": "Toast for every action in a polite live region; Delete offers Undo"
+            },
+            {
+              "item": "13",
+              "how": "Visible focus everywhere; R, P, S, V work only while the chase card has focus; Escape closes menus and the panel"
+            },
+            {
+              "item": "14",
+              "how": "Ledgerly tokens unchanged: teal accent, Inter and JetBrains Mono, light theme, status colours with text, today's terms"
+            },
+            {
+              "item": "15",
+              "how": "Works at 390 wide: Menu for navigation, wrapping toolbar, list scrolls inside its own box"
+            }
+          ]
+        }
+      ],
+      "distribution": "bolder",
+      "inspiration": {
+        "connected": [],
+        "needs_signin": [
+          "gummble"
+        ],
+        "failed": [
+          "dembrandt"
+        ],
+        "absent": [
+          "mobbin",
+          "refero",
+          "uxkin",
+          "figma"
+        ],
+        "queries": 0,
+        "fallback": "capture, knowledge"
+      }
+    }
+  ],
+  "baseline": {
+    "name": "Today",
+    "description": "The page as it ships today: four totals, status tabs and search, a table sorted by issue date, the dark bulk bar, the row menu and the New invoice drawer."
+  }
+}

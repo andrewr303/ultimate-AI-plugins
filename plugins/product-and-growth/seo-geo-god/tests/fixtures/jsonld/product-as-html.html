@@ -1,0 +1,8 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "offers": {"@type": "Offer", "price": {{ product.price | money_without_currency | json }}, "priceCurrency": {{ shop.currency | json }}}
+}
+</script>

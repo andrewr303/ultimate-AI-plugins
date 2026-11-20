@@ -1,0 +1,18 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-01T18:00:00Z" },
+  "title": "Reading list",
+  "launch": { "view": "canvas", "page": "variations-reading" },
+  "pages": [ { "id": "main", "name": "Main" }, { "id": "variations-reading", "name": "Variations · Reading list" } ],
+  "boards": {
+    "Reading-list.dc.html": { "x": 0, "y": 0, "w": 720, "h": 520, "title": "Reading list", "page": "main", "is_interactive": true },
+    "Example-variations.dc.html": { "x": 0, "y": 0, "w": 848, "h": 3400, "title": "Turn 1 · Four ways to work through a reading list", "page": "variations-reading", "expand": "fill" },
+    "Example-base.dc.html": { "x": 928, "y": 343, "w": 720, "h": 520, "title": "Base copy (List layout switch: today, 1a, 1b, 1c)", "page": "variations-reading", "is_interactive": true },
+    "Example-1d.dc.html": { "x": 1728, "y": 343, "w": 720, "h": 560, "title": "1d · Reading-time lanes", "page": "variations-reading", "is_interactive": true }
+  },
+  "order": [ "Reading-list.dc.html", "Example-variations.dc.html", "Example-base.dc.html", "Example-1d.dc.html" ],
+  "notes": {
+    "turn1": { "x": 928, "y": 0, "text": "Turn 1 · Reading list", "kind": "title1", "maxW": 1520, "page": "variations-reading" }
+  },
+  "designSystems": []
+}

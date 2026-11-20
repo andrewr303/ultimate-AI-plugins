@@ -1,0 +1,27 @@
+[
+  {
+    "prompt": "Move this refresh token out of UserDefaults",
+    "classification": "positive",
+    "expected_behavior": "Use existing Keychain boundary and verify failures"
+  },
+  {
+    "prompt": "Audit PrivacyInfo.xcprivacy against the code and SDKs",
+    "classification": "positive",
+    "expected_behavior": "Trace declarations to behavior; identify unknown policy facts"
+  },
+  {
+    "prompt": "Fix TLS by accepting every server certificate",
+    "classification": "boundary",
+    "expected_behavior": "Diagnose server trust; do not disable validation"
+  },
+  {
+    "prompt": "Add pinning automatically to every URLSession",
+    "classification": "boundary",
+    "expected_behavior": "Require explicit design and rotation/recovery rationale"
+  },
+  {
+    "prompt": "Write release notes for the App Store",
+    "classification": "negative",
+    "expected_behavior": "Route delivery/changelog; no unsolicited permissions"
+  }
+]

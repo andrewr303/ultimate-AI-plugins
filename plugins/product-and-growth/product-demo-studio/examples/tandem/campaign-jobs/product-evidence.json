@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-fixture-evidence",
+  "product": {
+    "name": "Tandem",
+    "revision": "tandem-4f236886e8ed1dea",
+    "synthetic": true
+  },
+  "claims": [
+    {
+      "id": "triage-context",
+      "text": "The sample groups a request with priority, topic, and a suggested owner.",
+      "status": "verified",
+      "sources": [
+        {
+          "type": "repository",
+          "path": "fixture/product.js",
+          "revision": "tandem-4f236886e8ed1dea",
+          "note": "Synthetic local fixture; browser evidence in supplied QA report."
+        }
+      ],
+      "allowedUses": [
+        "website",
+        "video",
+        "ads"
+      ],
+      "limitations": "Verified only in the deterministic synthetic local fixture. No external AI provider or actual outbound message."
+    },
+    {
+      "id": "human-review",
+      "text": "The sample creates an editable reply and offers a ready-for-review confirmation; it sends nothing.",
+      "status": "verified",
+      "sources": [
+        {
+          "type": "repository",
+          "path": "fixture/product.js",
+          "revision": "tandem-4f236886e8ed1dea",
+          "note": "Synthetic local fixture; browser evidence in supplied QA report."
+        }
+      ],
+      "allowedUses": [
+        "website",
+        "video",
+        "ads"
+      ],
+      "limitations": "Verified only in the deterministic synthetic local fixture. No external AI provider or actual outbound message."
+    }
+  ],
+  "brief": {
+    "audience": "Small support teams",
+    "buyer": "Support lead",
+    "problem": "Requests arrive without a clear next step.",
+    "outcome": "Review a grouped queue and edit a draft reply.",
+    "workflow": [
+      "Open a sample request",
+      "Organize request",
+      "Review priority, category and owner",
+      "Edit the draft and mark ready for review"
+    ],
+    "primaryCapability": "Prepare an editable reply with routing context",
+    "shipped": [
+      "Local deterministic request organization",
+      "Editable drafts",
+      "Search and filter",
+      "Ready-for-review confirmation"
+    ],
+    "planned": [],
+    "conversionAction": "Try the sample workflow",
+    "constraints": [
+      "Synthetic data",
+      "Deterministic local demo",
+      "No external AI calls"
+    ]
+  }
+}

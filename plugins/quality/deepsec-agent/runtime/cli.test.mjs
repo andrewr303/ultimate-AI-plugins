@@ -1,0 +1,33 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { execFile } from 'node:child_process';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const cli = fileURLToPath(new URL('../bin/deepsec-agent.mjs', import.meta.url));
+function run(args) { return new Promise(resolve => execFile(process.execPath, [cli, ...args], { timeout: 10000, maxBuffer: 8 * 1024 * 1024 }, (error, stdout, stderr) => resolve({ code: error?.code ?? 0, stdout, stderr }))); }
+test('CLI scans, exports, baselines, review packets and declarative workflow', async t => {
+  const temporary = await fs.mkdtemp(path.join(os.tmpdir(), 'deepsec-cli-'));
+  t.after(() => fs.rm(temporary, { recursive: true, force: true }));
+  const root = path.join(temporary, 'repo'); await fs.mkdir(root);
+  await fs.writeFile(path.join(root, 'app.js'), 'export function unsafe(input) { return eval(input); }\n');
+  const input = path.join(temporary, 'report.json'); const baseline = path.join(temporary, 'baseline.json');
+  const scanned = await run(['scan', '--root', root, '--out', input, '--fail-on', 'medium']);
+  assert.equal(scanned.code, 1, scanned.stderr);
+  const report = JSON.parse(await fs.readFile(input, 'utf8')); assert(report.findings.length);
+  assert.equal((await run(['baseline', '--input', input, '--out', baseline])).code, 0);
+  const unchanged = await run(['scan', '--root', root, '--baseline', baseline, '--fail-on', 'medium']);
+  assert.equal(unchanged.code, 0, unchanged.stderr); assert.equal(JSON.parse(unchanged.stdout).summary.new, 0);
+  const sarif = await run(['report', '--input', input, '--format', 'sarif']);
+  assert.equal(sarif.code, 0); assert.equal(JSON.parse(sarif.stdout).version, '2.1.0');
+  const plan = await run(['plan', '--input', input]); assert.equal(JSON.parse(plan.stdout).trust, 'untrusted-data');
+  const config = path.join(temporary, 'workflow.json');
+  await fs.writeFile(config, JSON.stringify({ root: './repo', outputDir: './reports', engines: ['deepsec'], formats: ['json', 'markdown', 'sarif'] }));
+  const workflow = await run(['workflow', '--config', config]); assert.equal(workflow.code, 0, workflow.stderr);
+  assert.equal((await fs.readdir(path.join(temporary, 'reports'))).length, 3);
+  const partial = await run(['scan', '--root', root, '--max-file-bytes', '1']); assert.equal(partial.code, 2);
+  assert.equal(JSON.parse(partial.stdout).complete, false);
+  const error = await run(['scan', '--root', root, '--engines', 'unknown']); assert.equal(error.code, 2);
+  assert.equal((await run(['--version'])).stdout.trim(), '1.0.0');
+});

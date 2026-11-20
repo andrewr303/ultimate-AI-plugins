@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "studio-placement-profiles",
+  "verifiedDate": "2026-10-22",
+  "verifiedTimezone": "America/Denver",
+  "note": "Editable production defaults. Resolution, safe margins, caption areas and loudness here are creative/export recommendations unless explicitly listed under technicalRequirements. Verify live uploader and current overlay templates before publication.",
+  "exportDefaults": {
+    "codec": "h264",
+    "pixelFormat": "yuv420p",
+    "fps": 30,
+    "audioCodec": "aac",
+    "audioSampleRate": 48000,
+    "creativeAudioTargetLufs": -16,
+    "creativeTruePeakDbtp": -1
+  },
+  "profiles": [
+    {
+      "id": "vertical-short",
+      "aspectRatio": "9:16",
+      "width": 1080,
+      "height": 1920,
+      "safeZone": {
+        "x": 86,
+        "y": 220,
+        "width": 820,
+        "height": 1280
+      },
+      "captionArea": {
+        "x": 100,
+        "y": 1320,
+        "width": 800,
+        "height": 160
+      },
+      "poster": {
+        "width": 1080,
+        "height": 1920,
+        "recommendation": "Choose a settled product result and a readable hook within the safe region."
+      },
+      "technicalRequirements": {
+        "platform": "TikTok Auction In-Feed Non-Spark Ads",
+        "status": "verified-official-source",
+        "minWidth": 540,
+        "minHeight": 960,
+        "maxDurationSeconds": 600,
+        "maxFileSizeBytes": 500000000,
+        "minBitrateKbps": 516,
+        "acceptedContainers": [
+          "mp4",
+          "mov",
+          "mpeg",
+          "3gp",
+          "avi"
+        ],
+        "source": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads?lang=en",
+        "verifiedDate": "2026-10-22"
+      },
+      "creativeRecommendations": [
+        "Use early product proof.",
+        "Caption meaningful actions for muted comprehension.",
+        "Recompose detail and copy for vertical; do not center-crop a full dashboard."
+      ],
+      "overlayStatus": "Creative margins only. Official safe zones vary by caption length, anchors and locale; download the target template before final ad submission."
+    },
+    {
+      "id": "square-feed",
+      "aspectRatio": "1:1",
+      "width": 1080,
+      "height": 1080,
+      "safeZone": {
+        "x": 72,
+        "y": 72,
+        "width": 936,
+        "height": 840
+      },
+      "captionArea": {
+        "x": 96,
+        "y": 790,
+        "width": 888,
+        "height": 100
+      },
+      "poster": {
+        "width": 1080,
+        "height": 1080,
+        "recommendation": "Show one legible product detail."
+      },
+      "technicalRequirements": {
+        "platform": "TikTok Auction In-Feed Non-Spark Ads",
+        "status": "verified-official-source",
+        "minWidth": 640,
+        "minHeight": 640,
+        "source": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads?lang=en",
+        "verifiedDate": "2026-10-22"
+      },
+      "creativeRecommendations": [
+        "Keep action and captions separated.",
+        "Use fewer simultaneous panels than landscape."
+      ],
+      "overlayStatus": "Creative margins; confirm target uploader overlay."
+    },
+    {
+      "id": "portrait-feed",
+      "aspectRatio": "4:5",
+      "width": 1080,
+      "height": 1350,
+      "safeZone": {
+        "x": 72,
+        "y": 90,
+        "width": 936,
+        "height": 1080
+      },
+      "captionArea": {
+        "x": 96,
+        "y": 1030,
+        "width": 888,
+        "height": 100
+      },
+      "poster": {
+        "width": 1080,
+        "height": 1350,
+        "recommendation": "Compose product state below a compact promise."
+      },
+      "technicalRequirements": {
+        "platform": "Generic portrait feed",
+        "status": "platform-specific-upload-requirements-unverified",
+        "source": null,
+        "verifiedDate": null
+      },
+      "creativeRecommendations": [
+        "Use the extra vertical room for a readable detail view.",
+        "Verify platform-specific 4:5 acceptance before publication."
+      ],
+      "overlayStatus": "Creative margins only, not a platform-certified safe area."
+    },
+    {
+      "id": "landscape",
+      "aspectRatio": "16:9",
+      "width": 1920,
+      "height": 1080,
+      "safeZone": {
+        "x": 96,
+        "y": 54,
+        "width": 1728,
+        "height": 864
+      },
+      "captionArea": {
+        "x": 192,
+        "y": 780,
+        "width": 1536,
+        "height": 100
+      },
+      "poster": {
+        "width": 1920,
+        "height": 1080,
+        "recommendation": "Show a settled result; avoid a transition frame."
+      },
+      "technicalRequirements": {
+        "platform": "TikTok Auction In-Feed Non-Spark Ads",
+        "status": "verified-official-source",
+        "minWidth": 960,
+        "minHeight": 540,
+        "source": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads?lang=en",
+        "verifiedDate": "2026-10-22"
+      },
+      "creativeRecommendations": [
+        "Keep product text readable at embedded size.",
+        "Use a detail crop if the full interface becomes decorative."
+      ],
+      "overlayStatus": "Creative margins; confirm target uploader overlay."
+    }
+  ],
+  "additionalVerifiedFacts": [
+    {
+      "platform": "YouTube Shorts",
+      "fact": "For standard channels, videos uploaded on or after October 15, 2024 with square or vertical aspect ratio and up to three minutes are categorized as Shorts. This is categorization guidance, not a universal ad upload specification. Official Artist Channels have a different cutoff.",
+      "source": "https://support.google.com/youtube/answer/15424877?hl=en",
+      "verifiedDate": "2026-10-22"
+    }
+  ]
+}

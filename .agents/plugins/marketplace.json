@@ -1,0 +1,344 @@
+{
+  "name": "ultimate-ai-plugins",
+  "interface": {
+    "displayName": "Ultimate AI Plugins"
+  },
+  "plugins": [
+    {
+      "name": "apple-compliance",
+      "source": {
+        "source": "local",
+        "path": "./plugins/apple/apple-compliance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Apple"
+    },
+    {
+      "name": "apple-swift-ios-and-macos",
+      "source": {
+        "source": "local",
+        "path": "./plugins/apple/apple-swift-ios-and-macos"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Apple"
+    },
+    {
+      "name": "ios-backend-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/apple/ios-backend-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Apple"
+    },
+    {
+      "name": "ios-development-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/apple/ios-development-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Apple"
+    },
+    {
+      "name": "mac-developer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/apple/mac-developer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Apple"
+    },
+    {
+      "name": "image-prompt-director",
+      "source": {
+        "source": "local",
+        "path": "./plugins/creative/image-prompt-director"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creative"
+    },
+    {
+      "name": "video-prompt-director",
+      "source": {
+        "source": "local",
+        "path": "./plugins/creative/video-prompt-director"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creative"
+    },
+    {
+      "name": "anti-slop-and-design-quality",
+      "source": {
+        "source": "local",
+        "path": "./plugins/design/anti-slop-and-design-quality"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "design-variations",
+      "source": {
+        "source": "local",
+        "path": "./plugins/design/design-variations"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "ui-component-expert",
+      "source": {
+        "source": "local",
+        "path": "./plugins/design/ui-component-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "web-design-and-ui-systems",
+      "source": {
+        "source": "local",
+        "path": "./plugins/design/web-design-and-ui-systems"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "doc-atlas",
+      "source": {
+        "source": "local",
+        "path": "./plugins/documentation/doc-atlas"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Documentation"
+    },
+    {
+      "name": "ultimate-prose",
+      "source": {
+        "source": "local",
+        "path": "./plugins/documentation/ultimate-prose"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Documentation"
+    },
+    {
+      "name": "ultimate-prose-universal",
+      "source": {
+        "source": "local",
+        "path": "./plugins/documentation/ultimate-prose-universal"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Documentation"
+    },
+    {
+      "name": "issue-assistant",
+      "source": {
+        "source": "local",
+        "path": "./plugins/engineering/issue-assistant"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "ult-engineer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/engineering/ult-engineer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "ultimate-sdd",
+      "source": {
+        "source": "local",
+        "path": "./plugins/engineering/ultimate-sdd"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Engineering"
+    },
+    {
+      "name": "liquid-glass-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/motion/liquid-glass-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Motion"
+    },
+    {
+      "name": "platform-motion-wizard",
+      "source": {
+        "source": "local",
+        "path": "./plugins/motion/platform-motion-wizard"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Motion"
+    },
+    {
+      "name": "creator-intelligence",
+      "source": {
+        "source": "local",
+        "path": "./plugins/product-and-growth/creator-intelligence"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Product & Growth"
+    },
+    {
+      "name": "freelance-legend",
+      "source": {
+        "source": "local",
+        "path": "./plugins/product-and-growth/freelance-legend"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Product & Growth"
+    },
+    {
+      "name": "marketing-page-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/product-and-growth/marketing-page-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Product & Growth"
+    },
+    {
+      "name": "product-demo-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/product-and-growth/product-demo-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Product & Growth"
+    },
+    {
+      "name": "seo-geo-god",
+      "source": {
+        "source": "local",
+        "path": "./plugins/product-and-growth/seo-geo-god"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Product & Growth"
+    },
+    {
+      "name": "deepsec-agent",
+      "source": {
+        "source": "local",
+        "path": "./plugins/quality/deepsec-agent"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Quality"
+    },
+    {
+      "name": "security-audit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/quality/security-audit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Quality"
+    },
+    {
+      "name": "ult-accessability",
+      "source": {
+        "source": "local",
+        "path": "./plugins/quality/ult-accessability"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Quality"
+    },
+    {
+      "name": "ult-performance",
+      "source": {
+        "source": "local",
+        "path": "./plugins/quality/ult-performance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Quality"
+    }
+  ]
+}

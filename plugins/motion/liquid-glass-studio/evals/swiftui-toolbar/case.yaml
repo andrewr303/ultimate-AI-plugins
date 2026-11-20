@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: swiftui-toolbar
+expected_outcome: |
+  CanvasView gains a floating tool palette over the canvas whose buttons use SwiftUI's glass APIs inside a
+  GlassEffectContainer, split into two visible groups (drawing tools, and undo/redo). Because the package targets
+  iOS 17, the glass code is gated with an iOS 26 availability check and older systems get a standard material
+  fallback. Only real, documented glass APIs are used.
+context:
+  scaffold_script: place-files.sh

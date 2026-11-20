@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://example.com/</loc><lastmod>2030-01-01</lastmod><changefreq>daily</changefreq><priority>1.0</priority>
+    <image:image><image:loc>https://example.com/assets/hero.jpg</image:loc><image:caption>Hero</image:caption></image:image>
+  </url>
+  <url><loc>https://example.com/noindex-page/</loc><lastmod>2026/10/01</lastmod></url>
+  <url><loc>https://example.com/gone/</loc></url>
+  <url><loc>https://example.com/old-page/</loc></url>
+  <url><loc>https://example.com/canon-other/</loc></url>
+  <url><loc>https://example.com/orphan/</loc></url>
+  <url><loc>https://example.com/404.html</loc></url>
+  <url><loc>/relative/</loc></url>
+  <url><loc>https://other.example.org/x/</loc></url>
+  <url><loc>http://localhost:3000/</loc></url>
+</urlset>

@@ -1,0 +1,14 @@
+{
+  "name": "product-demo-studio",
+  "version": "1.1.1",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "description": "Produce evidence-backed product videos, social variants, captions and reproducible render receipts.",
+  "keywords": [
+    "marketing",
+    "product",
+    "evidence",
+    "local-production"
+  ]
+}

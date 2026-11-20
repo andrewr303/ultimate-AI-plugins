@@ -1,0 +1,35 @@
+test_all_examples (test_contracts.ProductionContracts.test_all_examples) ... ok
+test_caption_outside_safe_zone (test_contracts.ProductionContracts.test_caption_outside_safe_zone) ... ok
+test_capture_hold_is_bounded (test_contracts.ProductionContracts.test_capture_hold_is_bounded) ... ok
+test_capture_hold_requires_ready_state (test_contracts.ProductionContracts.test_capture_hold_requires_ready_state) ... ok
+test_capture_rights_manifest_linkage (test_contracts.ProductionContracts.test_capture_rights_manifest_linkage) ... ok
+test_contextual_claim_allowlist (test_contracts.ProductionContracts.test_contextual_claim_allowlist) ... ok
+test_contextual_evidence_propagates_file_checks (test_contracts.ProductionContracts.test_contextual_evidence_propagates_file_checks) ... ok
+test_duplicate_hooks_not_experiments (test_contracts.ProductionContracts.test_duplicate_hooks_not_experiments) ... ok
+test_duplicate_ids (test_contracts.ProductionContracts.test_duplicate_ids) ... ok
+test_footage_requires_source (test_contracts.ProductionContracts.test_footage_requires_source) ... ok
+test_incorrect_export_ratio (test_contracts.ProductionContracts.test_incorrect_export_ratio) ... ok
+test_internal_planning_can_reference_published_claim (test_contracts.ProductionContracts.test_internal_planning_can_reference_published_claim) ... ok
+test_missing_contextual_evidence (test_contracts.ProductionContracts.test_missing_contextual_evidence) ... ok
+test_missing_local_product_evidence_source (test_contracts.ProductionContracts.test_missing_local_product_evidence_source) ... ok
+test_no_path_traversal (test_contracts.ProductionContracts.test_no_path_traversal) ... ok
+test_non_web_url_is_not_product_evidence (test_contracts.ProductionContracts.test_non_web_url_is_not_product_evidence) ... ok
+test_optional_config_hash_binds_configuration (test_contracts.ProductionContracts.test_optional_config_hash_binds_configuration) ... ok
+test_pass_needs_actual_evidence (test_contracts.ProductionContracts.test_pass_needs_actual_evidence) ... ok
+test_provenance_needs_location (test_contracts.ProductionContracts.test_provenance_needs_location) ... ok
+test_render_caption_bounds (test_contracts.ProductionContracts.test_render_caption_bounds) ... ok
+test_render_evidence_and_font_paths_stay_relative (test_contracts.ProductionContracts.test_render_evidence_and_font_paths_stay_relative) ... ok
+test_render_safe_zone_fits_composition (test_contracts.ProductionContracts.test_render_safe_zone_fits_composition) ... ok
+test_revision_mismatch (test_contracts.ProductionContracts.test_revision_mismatch) ... ok
+test_shot_overlaps (test_contracts.ProductionContracts.test_shot_overlaps) ... ok
+test_source_binding_rejects_changed_file (test_contracts.ProductionContracts.test_source_binding_rejects_changed_file) ... ok
+test_symlink_cannot_escape_root (test_contracts.ProductionContracts.test_symlink_cannot_escape_root) ... ok
+test_unknown_rights_cannot_be_redistributed (test_contracts.ProductionContracts.test_unknown_rights_cannot_be_redistributed) ... ok
+test_unreachable_interactive_state (test_contracts.ProductionContracts.test_unreachable_interactive_state) ... ok
+test_unsupported_claim_never_published (test_contracts.ProductionContracts.test_unsupported_claim_never_published) ... ok
+test_verified_claim_needs_support (test_contracts.ProductionContracts.test_verified_claim_needs_support) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.086s
+
+OK

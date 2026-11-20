@@ -1,0 +1,6 @@
+interface:
+  display_name: Review Content Safety
+  short_description: Review content safety workflows
+  default_prompt: Use $review-content-safety to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

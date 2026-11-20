@@ -1,0 +1,6 @@
+interface:
+  display_name: Compliance Security
+  short_description: Compliance security workflows
+  default_prompt: Use $compliance-security to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

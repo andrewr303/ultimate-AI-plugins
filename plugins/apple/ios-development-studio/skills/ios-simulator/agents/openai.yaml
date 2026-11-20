@@ -1,0 +1,6 @@
+interface:
+  display_name: Simulator
+  short_description: iOS simulator workflows and verification
+  default_prompt: Use $ios-simulator to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

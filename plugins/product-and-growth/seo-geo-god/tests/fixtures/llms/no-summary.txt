@@ -1,0 +1,5 @@
+# Example Minimal
+
+## Empty section
+
+Just prose here, no links.

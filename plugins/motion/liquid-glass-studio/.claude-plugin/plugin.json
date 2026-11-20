@@ -1,0 +1,20 @@
+{
+  "name": "liquid-glass-studio",
+  "version": "1.0.0",
+  "description": "Design, implement, tune, and review liquid glass style interfaces: refraction, frost, rim light, motion, native glass APIs, accessibility fallbacks, and performance, with an original engine and a live lab.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "liquid-glass",
+    "glassmorphism",
+    "refraction",
+    "svg-filters",
+    "webgl",
+    "swiftui",
+    "design",
+    "accessibility",
+    "coding-agents"
+  ],
+  "license": "MIT"
+}

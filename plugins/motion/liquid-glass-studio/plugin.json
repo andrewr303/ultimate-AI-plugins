@@ -1,0 +1,29 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "liquid-glass-studio",
+  "version": "1.0.0",
+  "description": "Design, implement, tune, and review liquid glass style interfaces: refraction, frost, rim light, motion, native glass APIs, accessibility fallbacks, and performance, with an original engine and a live lab.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT",
+  "keywords": ["liquid-glass", "glassmorphism", "refraction", "svg-filters", "webgl", "swiftui", "design", "accessibility", "coding-agents"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Liquid Glass Studio",
+        "shortDescription": "Liquid glass UI, done right",
+        "longDescription": "A routing skill and focused workflows for liquid glass style interfaces: design rules for when glass helps, optics and displacement maps, web rendering tiers with honest browser support, native SwiftUI, UIKit and AppKit glass APIs, motion and morphing, accessibility fallbacks, performance, a live tuning lab, and evidence-based review. Ships an original dependency-free engine, a backdrop contrast checker, cited notes on five open-source glass libraries, and a survey of existing agent skills.",
+        "developerName": "Andrew Rodriguez",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg",
+        "defaultPrompt": [
+          "Add liquid glass styling to this app's navigation and controls, with fallbacks for browsers and users that need them, and verify it in a real browser.",
+          "Review this glass UI for legibility, fallbacks, accessibility, and performance, and report evidence before suggesting fixes."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reading list (variations base)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#0f766e}a:hover{color:#0b5f58}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 100%; box-sizing: border-box; padding: 32px; display: flex; flex-direction: column; gap: 16px; background: #f7f8f6; color: #14201b; font-family: ui-sans-serif, system-ui, sans-serif;">
+  <div style="display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap;">
+    <h1 style="margin: 0; font-size: 26px; letter-spacing: -0.02em; flex-grow: 1;">Reading list</h1>
+    <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px;">Save a link
+      <input type="text" value="{{ draft }}" onInput="{{ typeDraft }}" style="padding: 9px 12px; border: 1px solid #cfd5ce; border-radius: 6px; font: inherit; min-height: 40px;">
+    </label>
+    <button type="button" onClick="{{ add }}" style="min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; background: #0f766e; color: #ffffff; font-weight: 600;">Save</button>
+  </div>
+  <div style="display: flex; gap: 6px;" role="group" aria-label="Show">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+      <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.on }}" style="{{ f.style }}">{{ f.label }}</button>
+    </sc-for>
+  </div>
+  <sc-if value="{{ oneLine }}" hint-placeholder-val="{{ true }}">
+    <ul style="{{ listStyle }}">
+      <sc-for list="{{ rows }}" as="t" hint-placeholder-count="4">
+        <li style="{{ rowStyle }}">
+          <input type="checkbox" checked="{{ t.done }}" onChange="{{ t.toggle }}" aria-label="{{ t.aria }}">
+          <span style="{{ t.titleStyle }}">{{ t.title }}</span>
+          <span style="{{ t.dueStyle }}">{{ t.due }}</span>
+        </li>
+      </sc-for>
+    </ul>
+  </sc-if>
+  <sc-if value="{{ twoLine }}" hint-placeholder-val="{{ false }}">
+    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+      <sc-for list="{{ rows }}" as="t" hint-placeholder-count="4">
+        <li style="display: flex; gap: 14px; align-items: flex-start; padding: 12px 16px; background: #ffffff; border-radius: 10px; box-shadow: 0 0 0 1px #e2e6e1;">
+          <input type="checkbox" checked="{{ t.done }}" onChange="{{ t.toggle }}" aria-label="{{ t.aria }}" style="margin-top: 4px;">
+          <span style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span style="{{ t.dueStyle }}">{{ t.due }}</span>
+            <span style="{{ t.titleStyle }}">{{ t.title }}</span>
+          </span>
+        </li>
+      </sc-for>
+    </ul>
+  </sc-if>
+  <p style="margin: 0; font-size: 13px; color: #46524c;" aria-live="polite">{{ status }}</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"listLayout":{"editor":"enum","options":["today","1a","1b","1c"],"default":"today","section":"Variations"},"$preview":{"width":720,"height":520}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { draft: '', show: 'all', note: '', tasks: [
+      { id: 1, title: 'How tidal power stations store energy', due: '4 min', soon: true, done: false },
+      { id: 2, title: 'A field guide to winter birds', due: '7 min', soon: true, done: false },
+      { id: 3, title: 'Why sourdough needs a cold proof', due: '12 min', soon: false, done: true },
+      { id: 4, title: 'The history of the shipping container', due: '25 min', soon: false, done: false }
+    ] };
+  }
+  renderVals() {
+    // One base, four looks: today (the original), 1a polish, 1b restyle in system, 1c hierarchy and density.
+    const MODES = ['today', '1a', '1b', '1c'];
+    const v = MODES.includes(this.props.listLayout) ? this.props.listLayout : 'today';
+    const s = this.state;
+    const shown = s.tasks.filter((t) => s.show === 'all' || (s.show === 'open' ? !t.done : t.done));
+    const pill = (on) => 'min-height: 36px; padding: 0 12px; border-radius: 999px; font: 600 13px/1 ui-sans-serif, system-ui, sans-serif; border: 1px solid ' + (on ? '#0f766e' : '#cfd5ce') + '; background: ' + (on ? '#e3f2ef' : '#ffffff') + '; color: ' + (on ? '#0b5f58' : '#46524c') + ';';
+    const listStyle = v === 'today'
+      ? 'margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 1px; background: #e2e6e1; border: 1px solid #e2e6e1; border-radius: 10px; overflow: hidden;'
+      : 'margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; background: #ffffff; border-radius: 12px; box-shadow: 0 1px 2px rgba(20,32,27,0.06);';
+    const rowStyle = v === 'today'
+      ? 'display: flex; gap: 12px; align-items: center; padding: 12px 14px; background: #ffffff;'
+      : 'display: flex; gap: 14px; align-items: center; padding: 13px 16px; border-bottom: 1px solid #eef0ec;';
+    const urgent = (t) => t.soon && !t.done;
+    const dueFor = (t) => {
+      if (v === '1b') return 'font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: ' + (urgent(t) ? '#fdf1e3' : '#eef0f2') + '; color: ' + (urgent(t) ? '#9a4708' : '#46524c') + ';';
+      if (v === '1c') return 'font-size: 12px; font-weight: 700; letter-spacing: 0.02em; color: ' + (urgent(t) ? '#9a4708' : '#46524c') + ';';
+      if (v === '1a') return 'font-size: 13px; color: #46524c; width: 84px; text-align: right; font-variant-numeric: tabular-nums;';
+      return 'font-size: 12px; color: #6a756f;';
+    };
+    const titleFor = (t) => 'flex-grow: 1; font-size: ' + (v === '1c' ? '15px' : '14px') + '; font-weight: ' + (v === 'today' ? '400' : '500') + '; color: ' + (t.done ? '#6a756f' : '#14201b') + '; text-decoration: ' + (t.done ? 'line-through' : 'none') + ';';
+    return {
+      oneLine: v !== '1c',
+      twoLine: v === '1c',
+      listStyle, rowStyle,
+      draft: s.draft,
+      typeDraft: (e) => this.setState({ draft: e.target.value }),
+      add: () => {
+        const title = s.draft.trim();
+        if (!title) { this.setState({ note: 'Paste a link or title first.' }); return; }
+        this.setState({ draft: '', note: 'Added “' + title + '”.', tasks: [{ id: Date.now(), title, due: 'Unknown', soon: false, done: false }, ...s.tasks] });
+      },
+      filters: [['all', 'All'], ['open', 'Unread'], ['done', 'Read']].map(([k, label]) => ({
+        label, on: s.show === k, style: pill(s.show === k), pick: () => this.setState({ show: k, note: '' })
+      })),
+      rows: shown.map((t) => ({
+        title: t.title, due: t.due, done: t.done,
+        titleStyle: titleFor(t), dueStyle: dueFor(t),
+        aria: 'Mark “' + t.title + '” ' + (t.done ? 'unread' : 'read'),
+        toggle: () => this.setState({ note: '', tasks: s.tasks.map((x) => x.id === t.id ? { ...x, done: !x.done } : x) })
+      })),
+      status: s.note || (shown.length + ' of ' + s.tasks.length + ' articles shown')
+    };
+  }
+}
+</script>
+</body>
+</html>

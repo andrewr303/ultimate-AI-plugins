@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Audit
+  short_description: Polish audit behavior
+  default_prompt: Use $motion-audit for the requested product interaction work and
+    verify the changed behavior.
+policy:
+  allow_implicit_invocation: true

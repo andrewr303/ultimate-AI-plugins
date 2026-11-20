@@ -1,0 +1,14 @@
+{
+  "responseAggregationType": "byPage",
+  "rows": [
+    {"keys": ["invoice template", "https://example.com/templates/"], "clicks": 100, "impressions": 3000, "ctr": 0.0333, "position": 4.0},
+    {"keys": ["invoice template", "https://example.com/blog/invoice-template/"], "clicks": 10, "impressions": 900, "ctr": 0.0111, "position": 9.0},
+    {"keys": ["invoice app", "https://example.com/app/"], "clicks": 50, "impressions": 400, "ctr": 0.125, "position": 2.0},
+    {"keys": ["invoice app", "https://example.com/download/"], "clicks": 20, "impressions": 300, "ctr": 0.0667, "position": 3.5},
+    {"keys": ["billing tool", "https://example.com/a/"], "clicks": 5, "impressions": 60, "ctr": 0.0833, "position": 6.0},
+    {"keys": ["billing tool", "https://example.com/b/"], "clicks": 9, "impressions": 60, "ctr": 0.15, "position": 6.0},
+    {"keys": ["single page query", "https://example.com/single/"], "clicks": 30, "impressions": 900, "ctr": 0.0333, "position": 3.0},
+    {"keys": ["low impression pair", "https://example.com/c/"], "clicks": 1, "impressions": 40, "ctr": 0.025, "position": 8.0},
+    {"keys": ["low impression pair", "https://example.com/d/"], "clicks": 1, "impressions": 50, "ctr": 0.02, "position": 9.0}
+  ]
+}

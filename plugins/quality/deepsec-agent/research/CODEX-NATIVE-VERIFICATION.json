@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-23",
+  "host": "codex-cli",
+  "hostVersion": "0.159.2",
+  "scope": "isolated scratch CODEX_HOME; no user/global installation",
+  "codexHome": "/workspace/work/codex-native-verification/codex-home",
+  "marketplace": "/workspace/work/codex-native-verification/marketplace",
+  "commands": [
+    {
+      "argv": [
+        "codex",
+        "plugin",
+        "marketplace",
+        "add",
+        "/workspace/work/codex-native-verification/marketplace",
+        "--json"
+      ],
+      "exitCode": 0,
+      "observedResult": {
+        "marketplaceName": "deepsec-local",
+        "installedRoot": "/workspace/work/codex-native-verification/marketplace",
+        "alreadyAdded": false
+      }
+    },
+    {
+      "argv": [
+        "codex",
+        "plugin",
+        "add",
+        "deepsec-agent@deepsec-local",
+        "--json"
+      ],
+      "exitCode": 0,
+      "observedResult": {
+        "pluginId": "deepsec-agent@deepsec-local",
+        "name": "deepsec-agent",
+        "marketplaceName": "deepsec-local",
+        "version": "1.0.0",
+        "installedPath": "/workspace/work/codex-native-verification/codex-home/plugins/cache/deepsec-local/deepsec-agent/1.0.0",
+        "authPolicy": "ON_INSTALL"
+      }
+    },
+    {
+      "argv": [
+        "codex",
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "exitCode": 0,
+      "observedResult": {
+        "installed": [
+          {
+            "pluginId": "deepsec-agent@deepsec-local",
+            "name": "deepsec-agent",
+            "marketplaceName": "deepsec-local",
+            "version": "1.0.0",
+            "installed": true,
+            "enabled": true,
+            "source": {
+              "source": "local",
+              "path": "/workspace/work/codex-native-verification/marketplace/plugins/deepsec-agent"
+            },
+            "marketplaceSource": {
+              "sourceType": "local",
+              "source": "/workspace/work/codex-native-verification/marketplace"
+            },
+            "installPolicy": "AVAILABLE",
+            "authPolicy": "ON_INSTALL"
+          }
+        ],
+        "available": []
+      }
+    }
+  ],
+  "limitations": [
+    "No model conversation was started.",
+    "Native MCP discovery inside a model conversation was not tested by this CLI registration/install/list check.",
+    "Claude Code and Kimi native loaders were unavailable; generated runtime scripts were exercised separately."
+  ],
+  "sourceEvidence": {
+    "url": "https://github.com/openai/codex/blob/970111f6cb62cc02fe36a82ea7d71b37a2889c97/codex-rs/core-plugins/src/marketplace.rs#L677",
+    "observation": "resolve_local_plugin_source_path joins the stripped ./ path against marketplace_root_dir, which removes the recognized .agents/plugins/marketplace.json layout."
+  }
+}

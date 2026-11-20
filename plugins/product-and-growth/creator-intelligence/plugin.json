@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "creator-intelligence",
+  "version": "0.2.1",
+  "description": "Find creators, capture their public business contact, vet them with a transparent score, and research their audience and content, from public data only.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT",
+  "keywords": [
+    "creators",
+    "influencers",
+    "discovery",
+    "vetting",
+    "social-research",
+    "brand-deals"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Creator Intelligence",
+        "shortDescription": "Discover, contact-capture and vet creators",
+        "longDescription": "One pipeline from niche to shortlist: discover creators who bring their own audience, capture the business contact they chose to publish, vet them with gates and a confidence-labelled score, and run the social research workflows around them (outliers, comments, transcripts, competitors, ads). Public data only. Sending outreach is out of scope and is governed by the outreach-compliance skill.",
+        "category": "Research",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Find 25 creators in the home-fitness niche who can carry a brand partnership and capture their published business contact.",
+          "Vet these ten creators: audience fit, authenticity risk, brand safety and a scored shortlist.",
+          "What do I need to check before emailing the creators in this list?"
+        ]
+      }
+    }
+  }
+}

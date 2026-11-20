@@ -1,0 +1,40 @@
+{
+  "_status": "INERT EXAMPLE. Claude Code does not read this file. Nothing runs until you copy the value of example_settings.hooks into the hooks key of your own .claude/settings.json (project) or .claude/settings.local.json (personal). Agents never do this unless the user explicitly asks for an editor hook.",
+  "_purpose": "After Claude Code edits or writes an HTML or component template file inside the project, run the SEO-GEO-god JSON-LD check on that one file. Error-level findings (malformed JSON-LD, unescaped </script, unreplaced placeholders) are sent back to Claude through stderr with exit code 2 so it can fix them; warnings and infos are not reported by the hook. The hook only reads the edited file and writes nothing.",
+  "_requirements": [
+    "python3 3.9 or newer on PATH.",
+    "A copy of the seo-geo-god plugin at <project>/tools/seo-geo-god, or the environment variable SEO_GEO_GOD_DIR pointing at the plugin directory (the one that contains scripts/seo_geo.py).",
+    "Files outside the project directory, files with other extensions and missing files are ignored."
+  ],
+  "_risks": [
+    "Runs a Python process after every matching edit; each run is limited to 25 seconds by the script and 30 seconds by the hook timeout.",
+    "Template blocks with template expressions are skipped in source (rule SD019); keep validating built output in CI.",
+    "Hooks run with your user permissions. Read the command before enabling it, and keep it in a settings file you control.",
+    "A hook that reports errors on every edit can slow an agent down; disable it if it gets in the way."
+  ],
+  "_enable": [
+    "Open your project's .claude/settings.json (create it if missing).",
+    "Copy the object under example_settings.hooks into that file's top-level hooks key, merging with any hooks you already have.",
+    "Restart the Claude Code session or review hooks with the /hooks command so the change is picked up."
+  ],
+  "_verify": "Ask Claude Code to write a test HTML file containing <script type=\"application/ld+json\">{\"@context\": \"https://schema.org\",}</script> inside the project; the hook should report SD001. Delete the test file afterwards.",
+  "_disable": "Remove the PostToolUse entry from your settings file.",
+  "_needs_verification": "Hook event names, the tool_input.file_path field, exit-code semantics (2 sends stderr to Claude) and CLAUDE_PROJECT_DIR follow Claude Code's hooks documentation as understood on 2026-11-01. Check your installed version's hooks documentation before enabling.",
+  "as_of": "2026-11-01",
+  "example_settings": {
+    "hooks": {
+      "PostToolUse": [
+        {
+          "matcher": "Edit|Write",
+          "hooks": [
+            {
+              "type": "command",
+              "command": "python3 -I -c 'import json, os, subprocess, sys\nEXTS = (\".html\", \".htm\", \".jsx\", \".tsx\", \".vue\", \".svelte\", \".astro\", \".php\", \".liquid\", \".njk\", \".erb\", \".ejs\", \".hbs\")\ntry:\n    event = json.load(sys.stdin)\nexcept ValueError:\n    sys.exit(0)\ntool_input = event.get(\"tool_input\") if isinstance(event, dict) else None\npath = tool_input.get(\"file_path\") if isinstance(tool_input, dict) else None\nroot = os.environ.get(\"CLAUDE_PROJECT_DIR\")\nif not isinstance(path, str) or not root or not path.lower().endswith(EXTS) or not os.path.isfile(path):\n    sys.exit(0)\nreal_root, real_path = os.path.realpath(root), os.path.realpath(path)\nif os.path.commonpath([real_root, real_path]) != real_root:\n    sys.exit(0)\nplugin = os.environ.get(\"SEO_GEO_GOD_DIR\") or os.path.join(real_root, \"tools\", \"seo-geo-god\")\ncli = os.path.join(plugin, \"scripts\", \"seo_geo.py\")\nif not os.path.isfile(cli):\n    sys.exit(0)\ntry:\n    proc = subprocess.run([sys.executable, \"-I\", cli, \"jsonld\", real_path, \"--format\", \"text\", \"--fail-on\", \"error\"], capture_output=True, text=True, timeout=25)\nexcept subprocess.TimeoutExpired:\n    sys.stderr.write(\"seo-geo-god jsonld timed out\\n\")\n    sys.exit(1)\nif proc.returncode == 1:\n    sys.stderr.write(proc.stdout[-4000:])\n    sys.exit(2)\nif proc.returncode:\n    sys.stderr.write(\"seo-geo-god jsonld could not run (exit %d)\\n\" % proc.returncode)\n    sys.exit(1)\nsys.exit(0)\n'",
+              "timeout": 30
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

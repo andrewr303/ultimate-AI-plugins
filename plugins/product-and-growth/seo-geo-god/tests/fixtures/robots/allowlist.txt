@@ -1,0 +1,9 @@
+# Synthetic allowlist: only classic search crawlers named (example.com).
+User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+User-agent: bingbot
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml

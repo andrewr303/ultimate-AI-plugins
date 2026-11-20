@@ -1,0 +1,6 @@
+interface:
+  display_name: Glass Library Select
+  short_description: Choose a glass renderer
+  default_prompt: Use $glass-library-select to choose a glass rendering approach for this project and record license obligations.
+policy:
+  allow_implicit_invocation: true

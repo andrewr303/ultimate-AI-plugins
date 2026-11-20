@@ -1,0 +1,6 @@
+interface:
+  display_name: Review Rejections
+  short_description: Review rejections workflows
+  default_prompt: Use $review-rejections to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

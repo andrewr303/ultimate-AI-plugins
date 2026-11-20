@@ -1,0 +1,37 @@
+{
+  "author": {
+    "email": "andrewrodriguez0@gmail.com",
+    "name": "Andrew Rodriguez"
+  },
+  "description": "A curated iOS development toolkit with focused skills for Swift, SwiftUI, persistence, diagnostics, simulator testing, App Store delivery, and optional Expo, Chat, and Nuke integrations.",
+  "interface": {
+    "capabilities": [],
+    "category": "Developer Tools",
+    "composerIcon": "assets/icon.svg",
+    "defaultPrompt": [
+      "Inspect this iOS project, identify its stack and constraints, and help me implement the next feature with appropriate tests.",
+      "Diagnose this Swift or SwiftUI issue using project evidence and verify the smallest reliable fix.",
+      "Prepare this iOS app for release and report build, signing, metadata, and submission readiness."
+    ],
+    "developerName": "Andrew Rodriguez",
+    "displayName": "iOS Development Studio",
+    "logo": "assets/icon.svg",
+    "longDescription": "Develop native SwiftUI and UIKit apps with project-aware guidance for architecture, concurrency, UI, persistence, networking, security, testing, observability, simulator debugging, signing, and App Store delivery. Includes optional Expo/EAS, ExyteChat, and Nuke workflows, read-only discovery tools, source provenance, and validation fixtures. Apple builds and simulator operations require a suitable Apple environment; account operations use your existing authorized tools.",
+    "shortDescription": "Build, test, and ship iOS apps"
+  },
+  "keywords": [
+    "ios",
+    "swift",
+    "swiftui",
+    "xcode",
+    "concurrency",
+    "core-data",
+    "swiftdata",
+    "app-store",
+    "expo"
+  ],
+  "license": "MIT",
+  "name": "ios-development-studio",
+  "skills": "./skills",
+  "version": "1.1.0"
+}

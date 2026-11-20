@@ -1,0 +1,6 @@
+interface:
+  display_name: Video Prompt Director
+  short_description: Detailed video prompt sets
+  default_prompt: Create five detailed scene-by-scene video prompt variations from my brief, with complete copy-ready shot prompts.
+policy:
+  allow_implicit_invocation: true

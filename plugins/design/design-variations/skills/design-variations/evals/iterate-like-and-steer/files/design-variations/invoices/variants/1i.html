@@ -1,0 +1,117 @@
+<style>
+main{padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.head{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap}
+.head h1{margin:0;font-size:var(--text-2xl);letter-spacing:-.02em}
+.strip{display:flex;gap:var(--space-6);flex:1;flex-wrap:wrap;padding-left:var(--space-5);border-left:1px solid var(--border);margin-left:var(--space-2)}
+.strip div{display:flex;flex-direction:column;font-size:var(--text-xs);color:var(--text-2);gap:2px}
+.strip b{font:600 var(--text-lg)/1.2 var(--font-mono);color:var(--text);font-variant-numeric:tabular-nums}
+.strip .o b{color:var(--overdue)}
+.bar{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;background:var(--surface-2);padding:3px;border-radius:var(--radius-sm);overflow-x:auto;max-width:100%}
+.tab{border:0;background:transparent;padding:7px 12px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer;white-space:nowrap}
+.tab[aria-pressed=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tab .n{margin-left:4px}
+.bar .k-search{flex:1;min-width:200px}
+.sel2{display:flex;gap:6px;align-items:center;font-size:var(--text-sm);color:var(--text-2)}
+.sel2 select{font:inherit;color:var(--text);padding:8px 10px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface);min-height:38px}
+.sel2 select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bulk{display:none;gap:var(--space-3);align-items:center;background:var(--text);color:#fff;padding:8px 8px 8px 14px;border-radius:var(--radius);position:sticky;top:8px;z-index:5;flex-wrap:wrap}
+.bulk.on{display:flex}.bulk .sp{flex:1}
+.bulk .k-btn{background:transparent;color:#fff;border-color:#ffffff59}.bulk .k-btn:hover{background:#ffffff1a}
+.bulk .sum{font-family:var(--font-mono);color:#c9d3ce;font-size:var(--text-sm)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);align-items:start}
+.cp{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.cp header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:var(--space-4) var(--space-4) var(--space-3)}
+.cp h2{margin:0;font-size:var(--text-lg);letter-spacing:-.01em;overflow-wrap:anywhere}
+.cp .hacts{display:flex;gap:6px}
+.cp .bal{grid-column:2/4;display:flex;gap:var(--space-5);flex-wrap:wrap;font-size:var(--text-sm);color:var(--text-2);align-items:baseline}
+.cp .bal b{font:600 var(--text-xl)/1.1 var(--font-mono);color:var(--text);font-variant-numeric:tabular-nums;margin-right:4px}
+.cp .bal .o b{color:var(--overdue);font-size:var(--text-lg)}
+.cp .bal .old{color:var(--overdue);font-weight:600}
+.cp .bal .ok{color:var(--paid);font-weight:600}
+.cp.settled header{background:var(--surface-2)}
+.cp table{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
+.cp td{padding:7px 10px;border-top:1px solid var(--border)}
+.cp td:first-child{padding-left:var(--space-4);width:36px}
+.cp td.inv{font-family:var(--font-mono);white-space:nowrap}
+.cp td.inv small{display:block;font-family:var(--font-sans);font-size:var(--text-xs);color:var(--text-2)}
+.cp td.w{white-space:nowrap}
+.cp td.num{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:500}
+.cp td.w small{display:block;font-size:var(--text-xs)}
+.cp tr.paid td,.cp tr.draft td{color:var(--text-2)}
+.cp tr.sel td{background:var(--accent-soft)}
+.cp td.m{width:44px;text-align:right;padding-right:var(--space-3)}
+.cp .none{padding:10px var(--space-4) 14px;color:var(--text-2);font-size:var(--text-sm);border-top:1px solid var(--border)}
+@media (max-width:1100px){.grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){main{padding:var(--space-4)}.strip{border-left:0;padding-left:0;margin-left:0;flex-basis:100%;order:3;gap:var(--space-4)}.bar .k-search{min-width:100%}.cp .hacts .lbl{display:none}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="head"><h1>Invoices</h1><div class="strip" id="strip" role="group" aria-label="Summary"></div><button class="k-btn" id="export" type="button"></button><button class="k-btn primary" id="new" type="button"></button></div>
+    <div class="bar">
+      <div class="tabs" role="group" aria-label="Filter by status" id="tabs"></div>
+      <label class="k-search"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #"></label>
+      <div class="sel2"><label for="corder">Clients</label><select id="corder"><option value="over">Most overdue first</option><option value="out">Most outstanding first</option><option value="old">Oldest overdue first</option><option value="name">Client name A-Z</option><option value="name-d">Client name Z-A</option></select></div>
+      <div class="sel2"><label for="iorder">Invoices</label><select id="iorder"></select><button type="button" class="k-btn icon" id="idir"></button></div>
+    </div>
+    <div class="bulk" id="bulk" role="region" aria-label="Bulk actions"><strong id="bulk-n"></strong><span class="sum" id="bulk-sum"></span><span class="sp"></span>
+      <button class="k-btn sm" id="remind" type="button">Send reminders</button><button class="k-btn sm" id="markpaid" type="button">Mark paid</button><button class="k-btn sm" id="clear" type="button">Clear</button></div>
+    <div class="grid" id="grid"></div><div id="empty" hidden></div>
+  </main>
+</div>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#export').innerHTML=K.icon('download')+'Export CSV';$('#new').innerHTML=K.icon('plus')+'New invoice';$('#sicon').innerHTML=K.icon('search');
+$('#iorder').innerHTML=K.SORTS.filter(s=>s[0]!=='client').map(([k,l])=>`<option value="${k}">${l==='Invoice'?'Invoice #':l==='Due'?'Due date':l==='Issued'?'Issued date':l}</option>`).join('');
+let st={tab:'all',q:'',sort:{k:'due',dir:1}},corder='over';
+const view=()=>S.view(st);
+function clients(v){const map={};
+ S.data.forEach(r=>{const c=map[r.client]=map[r.client]||{name:r.client,out:0,over:0,old:0,rows:[],all:[]};c.all.push(r);if(r.status==='due'||r.status==='overdue')c.out+=r.amount;if(r.status==='overdue'){c.over+=r.amount;c.old=Math.max(c.old,K.daysLate(r))}});
+ v.forEach(r=>map[r.client].rows.push(r));
+ let list=Object.values(map).filter(c=>c.rows.length);
+ const by={over:(a,b)=>b.over-a.over||b.out-a.out,out:(a,b)=>b.out-a.out,old:(a,b)=>b.old-a.old||b.over-a.over,name:(a,b)=>a.name.localeCompare(b.name),'name-d':(a,b)=>b.name.localeCompare(a.name)};
+ return list.sort(by[corder])}
+function panel(c){const unpaid=c.all.filter(r=>r.status==='due'||r.status==='overdue'),allSel=c.rows.every(r=>S.sel.has(r.no)),slug=c.name.replace(/[^a-z0-9]/gi,'');
+ return `<section class="cp${c.out?'':' settled'}" aria-labelledby="h-${slug}"><header>
+  <input type="checkbox" class="k-check" data-cs="${f.esc(c.name)}" data-focus="cs-${slug}" ${allSel?'checked':''} aria-label="Select shown invoices for ${f.esc(c.name)}">
+  <h2 id="h-${slug}">${f.esc(c.name)}</h2>
+  <span class="hacts">${unpaid.length?`<button type="button" class="k-btn sm" data-rc="${f.esc(c.name)}" data-focus="rc-${slug}">${K.icon('mail')}<span class="lbl">Remind client</span><span class="k-sr"> ${f.esc(c.name)} about ${unpaid.length} unpaid invoices</span></button>`:''}<button type="button" class="k-btn icon sm" data-nc="${f.esc(c.name)}" data-focus="nc-${slug}" aria-label="New invoice for ${f.esc(c.name)}">${K.icon('plus')}</button></span>
+  <div class="bal">${c.out?`<span><b>${f.money(c.out)}</b>outstanding</span>${c.over?`<span class="o"><b>${f.money(c.over)}</b>overdue</span><span class="old">oldest ${c.old} days late</span>`:'<span>nothing overdue</span>'}`:'<span class="ok">Settled, nothing outstanding</span>'}</div></header>
+  <table><tbody>${c.rows.map(r=>`<tr class="${r.status}${S.sel.has(r.no)?' sel':''}"><td><input type="checkbox" class="k-check" data-s="${r.no}" data-focus="s-${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}"></td>
+   <td class="inv">${r.no}<small>issued ${f.date(r.issued)}</small></td><td class="w">due ${f.date(r.due)}${r.status==='overdue'||r.status==='due'?`<small class="${r.status==='overdue'?'k-late':'k-soon'}">${f.timing(r)}</small>`:''}</td>
+   <td><span class="k-pill ${r.status}">${f.status(r.status)}</span></td><td class="num">${f.money(r.amount)}</td>
+   <td class="m"><button type="button" class="k-btn icon sm quiet" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for ${r.no}" data-m="${r.no}" data-focus="m-${r.no}">${K.icon('more')}</button></td></tr>`).join('')}</tbody></table></section>`}
+function render(){K.keepFocus(document.body,()=>{
+  const t=S.totals();
+  $('#strip').innerHTML=`<div><span>Outstanding</span><b>${f.money(t.outstanding)}</b></div><div class="o"><span>Overdue</span><b>${f.money(t.overdue)}</b></div><div><span>Paid this month</span><b>${f.money(t.paid)}</b></div><div><span>Drafts</span><b>${t.drafts}</b></div>`;
+  $('#tabs').innerHTML=K.TABS.map(([k,l])=>`<button type="button" class="tab" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}">${l}<span class="n">${S.count(k)}</span></button>`).join('');
+  $('#iorder').value=st.sort.k;$('#idir').innerHTML=K.icon(st.sort.dir>0?'up':'down');$('#idir').setAttribute('aria-label',st.sort.dir>0?'Invoices ascending, switch to descending':'Invoices descending, switch to ascending');
+  const v=view();$('#grid').innerHTML=clients(v).map(panel).join('');
+  const e=$('#empty');e.hidden=v.length>0;e.innerHTML=v.length?'':K.emptyHTML(S);
+  const sel=[...S.sel].map(S.find).filter(Boolean);
+  $('#bulk').classList.toggle('on',sel.length>0);$('#bulk-n').textContent=sel.length+' selected';$('#bulk-sum').textContent=f.money(sel.reduce((a,r)=>a+r.amount,0));
+})}
+S.on(render);
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.t){st.tab=b.dataset.t;render()}
+ if(b.id==='idir'){st.sort.dir=-st.sort.dir;render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);render()}
+ if(b.dataset.cs){view().filter(r=>r.client===b.dataset.cs).forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));render()}
+ if(b.dataset.rc){const ids=S.data.filter(r=>r.client===b.dataset.rc&&(r.status==='due'||r.status==='overdue')).map(r=>r.no);K.toast(ids.length===1?'Reminder sent to '+b.dataset.rc:'Reminders sent to '+b.dataset.rc+' for '+ids.length+' invoices')}
+ if(b.dataset.nc)K.openInvoiceForm(S,{client:b.dataset.nc,title:'New invoice for '+b.dataset.nc});
+ if(b.dataset.m)K.menu(b,K.rowItems(S,S.find(b.dataset.m)));
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';$('#q').value='';render()}
+ if(b.id==='export')K.toast('Exported '+view().length+' rows');
+ if(b.id==='new'||b.hasAttribute('data-k-new'))K.openInvoiceForm(S);
+});
+$('#corder').addEventListener('change',e=>{corder=e.target.value;render()});
+$('#iorder').addEventListener('change',e=>{st.sort={k:e.target.value,dir:e.target.value==='amount'||e.target.value==='issued'?-1:1};render()});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+render();
+})();
+</script>

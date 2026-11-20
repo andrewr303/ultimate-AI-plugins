@@ -1,0 +1,6 @@
+interface:
+  display_name: Architecture
+  short_description: iOS architecture workflows and verification
+  default_prompt: Use $ios-architecture to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

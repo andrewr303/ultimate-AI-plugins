@@ -1,0 +1,6 @@
+interface:
+  display_name: Docs Maintenance
+  short_description: Keep guidance aligned to code
+  default_prompt: Review these code changes and update only the documentation that would mislead a reader.
+policy:
+  allow_implicit_invocation: true

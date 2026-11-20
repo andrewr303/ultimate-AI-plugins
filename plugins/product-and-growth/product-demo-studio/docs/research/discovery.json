@@ -1,0 +1,320 @@
+{
+  "mode": "manual_source_review",
+  "research_gate": "not_configured; no automated PASS or verified_claims.json",
+  "github": {
+    "queries": [
+      {
+        "query": "\"product demo\" video stars:>=100 fork:false archived:false",
+        "candidates": [
+          "Alexwtlf/agentic-product-demo",
+          "shadcn-labs/snapcn",
+          "vincentsch/explainroo",
+          "greentfrapp/testreel"
+        ]
+      },
+      {
+        "query": "\"programmatic video\" stars:>=100 fork:false archived:false",
+        "candidates": [
+          "dmtrKovalenko/fframes",
+          "wshuyi/remotion-video-skill",
+          "0xS4N4TG/kinetograph",
+          "nexu-io/html-video"
+        ]
+      },
+      {
+        "query": "topic:video topic:animation stars:>=100 fork:false archived:false",
+        "candidates": [
+          "Zulko/moviepy",
+          "Justin62628/Squirrel-RIFE",
+          "feitangyuan/onetake",
+          "Jannchie/anichart.js"
+        ]
+      },
+      {
+        "query": "\"browser recording\" stars:>=100 fork:false archived:false",
+        "candidates": []
+      },
+      {
+        "query": "\"screen recording\" stars:>=100 fork:false archived:false",
+        "candidates": [
+          "CapSoftware/Cap",
+          "obsproject/obs-studio",
+          "saki4510t/ScreenRecordingSample",
+          "Isvisoft/flutter_screen_recording"
+        ]
+      },
+      {
+        "query": "\"captions\" \"video\" stars:>=100 fork:false archived:false",
+        "candidates": [
+          "mwaterfall/MWPhotoBrowser",
+          "pytube/pytube",
+          "instaloader/instaloader",
+          "3b1b/captions"
+        ]
+      },
+      {
+        "query": "\"remotion\" stars:>=100 fork:false archived:false",
+        "candidates": [
+          "remotion-dev/remotion",
+          "remotion-dev/trailer",
+          "wcandillon/remotion-fireship",
+          "haidrrrry/claude-remotion-skill"
+        ]
+      },
+      {
+        "query": "\"motion canvas\" stars:>=100 fork:false archived:false",
+        "candidates": [
+          "motion-canvas/motion-canvas",
+          "motion-canvas/examples",
+          "rodrigogama/awwwards-rebuilt-furrow"
+        ]
+      }
+    ],
+    "metadata_and_default_branch_screen": "screening.json",
+    "finalists": [
+      "remotion-dev/remotion",
+      "microsoft/playwright",
+      "rrweb-io/rrweb",
+      "dmtrKovalenko/fframes",
+      "CapSoftware/Cap",
+      "motion-canvas/motion-canvas",
+      "vincentsch/explainroo"
+    ],
+    "execution": "No upstream clone, dependency installation or candidate-code execution."
+  },
+  "awesome": {
+    "curatedMatches": [],
+    "filteredQuery": "programmatic video rendering deterministic browser animation",
+    "filterTagPaths": [
+      "graphics-multimedia/programmatic-video-rendering"
+    ],
+    "unfilteredQuery": "product demo video screen recorder captions",
+    "verification": "Each retained candidate received get_repository context/evidence; grade is relevance judgment, not freshness or rights proof. Directory activity flags remain false even where a separate pinned GitHub check exists.",
+    "records": [
+      {
+        "name": "midrender/revideo",
+        "htmlUrl": "https://github.com/midrender/revideo",
+        "url": "https://awesome-repositories.com/repositories/midrender-revideo",
+        "grade": "strong",
+        "activity_verified": false,
+        "license_verified": false,
+        "tags": [
+          {
+            "path": "graphics-multimedia/programmatic-video-generation",
+            "correlationIndex": 100,
+            "correlationDescription": "Creates high-quality video files automatically using code and templates instead of manual editing software."
+          },
+          {
+            "path": "graphics-multimedia/video-production/programmatic-video-frameworks",
+            "correlationIndex": 100,
+            "correlationDescription": "Ships a TypeScript framework for programmatically generating videos by rendering code-based templates through a headless browser."
+          },
+          {
+            "path": "content-management-publishing/dynamic-content-personalization/video-personalization",
+            "correlationIndex": 92,
+            "correlationDescription": "Generates unique video assets at scale by injecting external data into predefined TypeScript templates."
+          },
+          {
+            "path": "content-management-publishing/dynamic-content-personalization/video-personalization/dynamic-video-template-engines",
+            "correlationIndex": 92,
+            "correlationDescription": "Provides a tool for building type-safe video layouts and animations that inject external data for personalized production."
+          },
+          {
+            "path": "graphics-multimedia/graphics-engines-rendering/rendering/systems/server-side-rendering-architectures/server-side-rendering-engines",
+            "correlationIndex": 92,
+            "correlationDescription": "Provides a backend engine that renders code-defined compositions into high-quality media files using asynchronous task queues."
+          }
+        ]
+      },
+      {
+        "name": "heygen-com/hyperframes",
+        "htmlUrl": "https://github.com/heygen-com/hyperframes",
+        "url": "https://awesome-repositories.com/repositories/heygen-com-hyperframes",
+        "grade": "strong",
+        "activity_verified": false,
+        "license_verified": false,
+        "tags": [
+          {
+            "path": "artificial-intelligence-ml/ai-video-generators",
+            "correlationIndex": 100,
+            "correlationDescription": "Automates the generation of video plans, scripts, and renders using natural language prompts and AI agents."
+          },
+          {
+            "path": "graphics-multimedia/programmatic-video-rendering",
+            "correlationIndex": 100,
+            "correlationDescription": "Transforms web layouts and CSS into encoded video files by capturing headless browser frames."
+          },
+          {
+            "path": "user-interface-experience/html-content-processing/html-content-processing/html-to-image-converters/html-to-video-converters",
+            "correlationIndex": 100,
+            "correlationDescription": "Transforms web-based layouts and CSS into professional video files by capturing headless browser frames."
+          },
+          {
+            "path": "artificial-intelligence-ml/agentic-systems-frameworks/agent-orchestration-multi-agent/coordination-and-routing/ai-agent-orchestrators",
+            "correlationIndex": 92,
+            "correlationDescription": "Provides a system to organize and coordinate AI agents to generate and render video compositions via natural language."
+          },
+          {
+            "path": "development-tools-productivity/stream-piping-utilities/video-stream-pipes",
+            "correlationIndex": 92,
+            "correlationDescription": "Pipes raw captured browser frames directly into an encoder to produce video files without intermediate disk storage."
+          }
+        ]
+      },
+      {
+        "name": "webadderallorg/recordly",
+        "htmlUrl": "https://github.com/webadderallorg/Recordly",
+        "url": "https://awesome-repositories.com/repositories/webadderallorg-recordly",
+        "grade": "match",
+        "activity_verified": false,
+        "license_verified": false,
+        "tags": [
+          {
+            "path": "education-learning-resources/interactive-demonstrations/recorded-software-demonstrations",
+            "correlationIndex": 100,
+            "correlationDescription": "Captures screen activity and audio to create polished asynchronous software demonstrations."
+          },
+          {
+            "path": "development-tools-productivity/screen-capture-utilities/desktop-screen-recorders",
+            "correlationIndex": 92,
+            "correlationDescription": "Provides utilities for capturing desktop sessions and snapshots directly into a professional editing workflow."
+          },
+          {
+            "path": "development-tools-productivity/screen-recording-tools",
+            "correlationIndex": 92,
+            "correlationDescription": "Provides utilities for capturing and sharing screen activity and synchronized audio for software demonstrations."
+          },
+          {
+            "path": "graphics-multimedia/audio-music/audio-recording/screen-and-audio-capture",
+            "correlationIndex": 92,
+            "correlationDescription": "Records specific windows or displays along with synchronized microphone and system audio to create raw video sources."
+          },
+          {
+            "path": "graphics-multimedia/cursor-animations",
+            "correlationIndex": 92,
+            "correlationDescription": "Implements a specialized engine that applies smoothing and motion blur to rendered mouse movements for professional-looking demos."
+          }
+        ]
+      },
+      {
+        "name": "remotion-dev/remotion",
+        "htmlUrl": "https://github.com/remotion-dev/remotion",
+        "url": "https://awesome-repositories.com/repositories/remotion-dev-remotion",
+        "grade": "strong",
+        "activity_verified": false,
+        "license_verified": false,
+        "tags": [
+          {
+            "path": "graphics-multimedia/media-processing-analysis/cross-platform-media-frameworks",
+            "correlationIndex": 100,
+            "correlationDescription": "Provides a development environment for creating video content using component-based logic."
+          },
+          {
+            "path": "graphics-multimedia/video-production/programmatic-video-frameworks",
+            "correlationIndex": 100,
+            "correlationDescription": "Enables the creation of video content using component-based logic and programmatic APIs."
+          },
+          {
+            "path": "graphics-multimedia/animation-motion/animation-engines",
+            "correlationIndex": 95,
+            "correlationDescription": "Provides frame-synchronized rendering to ensure consistent and flicker-free animation output."
+          },
+          {
+            "path": "graphics-multimedia/graphics-engines-rendering/rendering",
+            "correlationIndex": 95,
+            "correlationDescription": "Ensures consistent animation and state updates by locking the execution timeline to specific frame indices."
+          },
+          {
+            "path": "graphics-multimedia/media-processing-analysis/video-processing-libraries",
+            "correlationIndex": 95,
+            "correlationDescription": "Enables programmatic video generation and rendering through a headless browser engine and serverless infrastructure."
+          }
+        ]
+      },
+      {
+        "name": "microsoft/playwright",
+        "htmlUrl": "https://github.com/microsoft/playwright",
+        "url": "https://awesome-repositories.com/repositories/microsoft-playwright",
+        "grade": "adjacent",
+        "activity_verified": false,
+        "license_verified": false,
+        "tags": [
+          {
+            "path": "testing-quality-assurance/software-testing/testing-frameworks/test-frameworks/browser-and-ui-testing/browser-automation-frameworks",
+            "correlationIndex": 100,
+            "correlationDescription": "Unifies browser control through a single API to streamline end-to-end testing and complex workflow automation."
+          },
+          {
+            "path": "development-tools-productivity/debugging-profiling-testing/test-execution-management/automated-test-execution",
+            "correlationIndex": 95,
+            "correlationDescription": "Triggers test suites via command line with built-in support for parallel processing and interactive debugging."
+          },
+          {
+            "path": "security-cryptography/identity-access-management/session-management/browser-context-managers",
+            "correlationIndex": 95,
+            "correlationDescription": "Generates isolated browser contexts to simulate multi-user sessions or complex cross-session interactions."
+          },
+          {
+            "path": "testing-quality-assurance/automation-interaction-tools/test-automation-architecture/accessibility-tree-based-locators",
+            "correlationIndex": 95,
+            "correlationDescription": "Targets elements using semantic roles and labels to maintain robust tests independent of brittle DOM structures."
+          },
+          {
+            "path": "testing-quality-assurance/general-testing-utilities/test-isolation/browser-context-isolation",
+            "correlationIndex": 95,
+            "correlationDescription": "Establishes isolated browser environments with independent storage, cookies, and session data to prevent cross-test interference."
+          }
+        ]
+      }
+    ]
+  },
+  "official_sources": [
+    {
+      "id": "playwright-assertions",
+      "url": "https://playwright.dev/python/docs/test-assertions",
+      "bytes": 51425,
+      "status": "read"
+    },
+    {
+      "id": "playwright-screenshot",
+      "url": "https://playwright.dev/python/docs/screenshots",
+      "bytes": 39386,
+      "status": "read"
+    },
+    {
+      "id": "remotion-delay-render",
+      "url": "https://www.remotion.dev/docs/delay-render",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "remotion-still",
+      "url": "https://www.remotion.dev/docs/renderer/render-still",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "ffmpeg-filters",
+      "url": "https://ffmpeg.org/ffmpeg-filters.html",
+      "bytes": 1734181,
+      "status": "read"
+    },
+    {
+      "id": "puppeteer-wait",
+      "url": "https://pptr.dev/api/puppeteer.page.waitforfunction",
+      "bytes": 68923,
+      "status": "read"
+    },
+    {
+      "id": "w3c-captions",
+      "url": "https://www.w3.org/WAI/media/av/captions/",
+      "bytes": 53562,
+      "status": "read"
+    }
+  ],
+  "limitations": [
+    "No local automated research gate configured.",
+    "Remotion documentation requests returned HTTP 403; pinned repository implementation was inspected instead.",
+    "Host skill invocation, optional Remotion/Hyperframes integration and commercial rights clearance are not established by this research."
+  ]
+}

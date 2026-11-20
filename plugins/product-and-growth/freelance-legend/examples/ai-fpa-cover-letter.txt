@@ -1,0 +1,15 @@
+Hi,
+
+An AI-powered FP&A tool earns trust when its forecasts can be traced and rerun, so the first thing I'd look at is where your current workflows let the model produce numbers and where plain calculation code should take over.
+
+That split is how I built the valuation features in HypeStake, a creator-brand deal platform I'm building as its solo founder and engineer: LLM research feeds structured inputs, and deterministic Python does the math, so every financial figure is reproducible rather than model-generated. Before that I was a financial analyst at a startup, building a five-year pro forma and revenue models, so the business metrics side is familiar ground.
+
+In the first week I'd review the existing workflows end to end, list the gaps that affect planning and forecast accuracy, and send you a short prioritized plan to approve before I change anything. After that I'd work through it with you in small, reviewable increments.
+
+Two questions that would shape that plan:
+1. What is the tool built on, and where do today's forecasts come from (model output, spreadsheet logic, or code)?
+2. Who uses it day to day, and which planning decision should it make easier first?
+
+I'm in Colorado on Mountain Time, one hour ahead of Pacific. [[CONFIRM: weekly hours and start date]] A short call here on Upwork would be a good next step.
+
+Andrew

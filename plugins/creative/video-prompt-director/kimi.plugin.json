@@ -1,0 +1,9 @@
+{
+  "name": "video-prompt-director",
+  "version": "1.0.1",
+  "description": "Create five detailed video prompt variations by default, with scene-by-scene direction, timed action, reference roles, and continuity controls.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Video Prompt Director"
+  }
+}

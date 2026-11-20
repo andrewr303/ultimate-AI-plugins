@@ -1,0 +1,8 @@
+{
+  "domain": "example.com",
+  "entries": [
+    {"query": "invoice template", "domain_cited": false, "cited_sources": ["https://example.org/t"]},
+    {"query": "Example Co pricing", "domain_cited": true, "cited_sources": ["https://example.com/pricing/"]},
+    {"query": "late fee calculator", "domain_cited": false, "error": "rate limited"}
+  ]
+}

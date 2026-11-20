@@ -1,0 +1,145 @@
+{
+  "version": "2",
+  "plugins": [
+    {
+      "id": "apple-compliance",
+      "displayName": "Apple Compliance",
+      "source": "./plugins/apple/apple-compliance"
+    },
+    {
+      "id": "apple-swift-ios-and-macos",
+      "displayName": "Apple Platforms, Swift, SwiftUI, iOS & macOS",
+      "source": "./plugins/apple/apple-swift-ios-and-macos"
+    },
+    {
+      "id": "ios-backend-studio",
+      "displayName": "iOS Backend Studio",
+      "source": "./plugins/apple/ios-backend-studio"
+    },
+    {
+      "id": "ios-development-studio",
+      "displayName": "iOS Development Studio",
+      "source": "./plugins/apple/ios-development-studio"
+    },
+    {
+      "id": "mac-developer",
+      "displayName": "mac-developer",
+      "source": "./plugins/apple/mac-developer"
+    },
+    {
+      "id": "image-prompt-director",
+      "displayName": "Image Prompt Director",
+      "source": "./plugins/creative/image-prompt-director"
+    },
+    {
+      "id": "video-prompt-director",
+      "displayName": "Video Prompt Director",
+      "source": "./plugins/creative/video-prompt-director"
+    },
+    {
+      "id": "anti-slop-and-design-quality",
+      "displayName": "Anti-Slop & Design Quality Guardrails",
+      "source": "./plugins/design/anti-slop-and-design-quality"
+    },
+    {
+      "id": "design-variations",
+      "displayName": "Design Variations",
+      "source": "./plugins/design/design-variations"
+    },
+    {
+      "id": "ui-component-expert",
+      "displayName": "UI Component Expert",
+      "source": "./plugins/design/ui-component-expert"
+    },
+    {
+      "id": "web-design-and-ui-systems",
+      "displayName": "Web Design & UI Systems",
+      "source": "./plugins/design/web-design-and-ui-systems"
+    },
+    {
+      "id": "doc-atlas",
+      "displayName": "Doc Atlas",
+      "source": "./plugins/documentation/doc-atlas"
+    },
+    {
+      "id": "ultimate-prose",
+      "displayName": "Ultimate Prose",
+      "source": "./plugins/documentation/ultimate-prose"
+    },
+    {
+      "id": "ultimate-prose-universal",
+      "displayName": "Ultimate Prose Universal",
+      "source": "./plugins/documentation/ultimate-prose-universal"
+    },
+    {
+      "id": "issue-assistant",
+      "displayName": "Issue Assistant",
+      "source": "./plugins/engineering/issue-assistant"
+    },
+    {
+      "id": "ult-engineer",
+      "displayName": "Ult Engineer",
+      "source": "./plugins/engineering/ult-engineer"
+    },
+    {
+      "id": "ultimate-sdd",
+      "displayName": "Ultimate SDD",
+      "source": "./plugins/engineering/ultimate-sdd"
+    },
+    {
+      "id": "liquid-glass-studio",
+      "displayName": "Liquid Glass Studio",
+      "source": "./plugins/motion/liquid-glass-studio"
+    },
+    {
+      "id": "platform-motion-wizard",
+      "displayName": "Platform Motion Wizard",
+      "source": "./plugins/motion/platform-motion-wizard"
+    },
+    {
+      "id": "creator-intelligence",
+      "displayName": "Creator Intelligence",
+      "source": "./plugins/product-and-growth/creator-intelligence"
+    },
+    {
+      "id": "freelance-legend",
+      "displayName": "Freelance Legend",
+      "source": "./plugins/product-and-growth/freelance-legend"
+    },
+    {
+      "id": "marketing-page-studio",
+      "displayName": "Marketing Page Studio",
+      "source": "./plugins/product-and-growth/marketing-page-studio"
+    },
+    {
+      "id": "product-demo-studio",
+      "displayName": "Product Demo Studio",
+      "source": "./plugins/product-and-growth/product-demo-studio"
+    },
+    {
+      "id": "seo-geo-god",
+      "displayName": "SEO-GEO-god",
+      "source": "./plugins/product-and-growth/seo-geo-god"
+    },
+    {
+      "id": "deepsec-agent",
+      "displayName": "DeepSec Agent",
+      "source": "./plugins/quality/deepsec-agent"
+    },
+    {
+      "id": "security-audit",
+      "displayName": "Security Audit",
+      "source": "./plugins/quality/security-audit"
+    },
+    {
+      "id": "ult-accessability",
+      "displayName": "Ult Accessability",
+      "source": "./plugins/quality/ult-accessability"
+    },
+    {
+      "id": "ult-performance",
+      "displayName": "Ult Performance",
+      "source": "./plugins/quality/ult-performance"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "trial_type": "one manual agent workflow exercise using the actual plugin instructions and helpers",
+  "scope": "Original synthetic Python CLI fixture; no external services or installs; README repair only after fixture creation.",
+  "python": "3.12.14",
+  "instructions_read": [
+    "/workspace/work/doc-atlas/package/doc-atlas/skills/repo-docs/SKILL.md",
+    "/workspace/work/doc-atlas/package/doc-atlas/skills/docs-readme/SKILL.md",
+    "/workspace/work/doc-atlas/package/doc-atlas/skills/repo-docs/references/evidence-and-safety.md",
+    "/workspace/work/doc-atlas/package/doc-atlas/skills/repo-docs/references/quality-bar.md",
+    "/workspace/work/doc-atlas/package/doc-atlas/skills/repo-docs/references/deliverable-contract.md"
+  ],
+  "source_evidence": {
+    "runtime": "pyproject.toml: requires-python >=3.10",
+    "public_flags": "src/tinyroute/cli.py: argparse registers only --name plus built-in --help",
+    "expected_output": "src/tinyroute/cli.py: print(f\"Hello, {args.name}!\")",
+    "license": "No LICENSE or equivalent file supplied"
+  },
+  "before_readme": "# TinyRoute\n\n[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)\n\nThe fastest greeting platform, now with turbo mode.\n\n```sh\ntinyroute --name Ada --fast\n```\n\nSee the [full manual](docs/manual.md).\n",
+  "after_readme": "# TinyRoute\n\nPrint a local greeting from the command line. TinyRoute takes one name and writes a greeting to standard output.\n\n## Get started\n\nUse Python 3.10 or newer. From the repository root in a POSIX shell, run directly from this checkout:\n\n```sh\nPYTHONPATH=src python -m tinyroute --name Ada\n```\n\nExpected output:\n\n```text\nHello, Ada!\n```\n\n`--name` is required. Replace `Ada` with the name you want to greet; quote names that contain spaces.\n\n## Explore the CLI\n\nShow the available options:\n\n```sh\nPYTHONPATH=src python -m tinyroute --help\n```\n\nFor the implementation, read the [argument parser and greeting function](src/tinyroute/cli.py).\n\n## Check the behavior\n\nRun the tests from the repository root:\n\n```sh\nPYTHONPATH=src python -m unittest discover -s tests -v\n```\n\nThe [CLI tests](tests/test_cli.py) cover the greeting, the required name, and rejection of unsupported options.\n",
+  "baseline_docs_check": {
+    "label": "baseline_docs_check",
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/work/doc-atlas/package/doc-atlas/skills/repo-docs/scripts/docs_check.py",
+      "--root",
+      ".",
+      "--path",
+      "README.md"
+    ],
+    "cwd": "/workspace/work/doc-atlas/trial/repo",
+    "environment_overrides": {
+      "PYTHONPATH": "src"
+    },
+    "exit_code": 1,
+    "stdout": "{\n  \"tool\": \"docs_check\",\n  \"schema_version\": 1,\n  \"scope\": \"Offline bounded GitHub-style Markdown subset; no networking, commands, writes, full parser, factual or visual validation.\",\n  \"limits\": {\n    \"truncated\": false,\n    \"read_failures\": 0,\n    \"selection\": \"explicit\",\n    \"document_bytes_read\": 223,\n    \"max_total_document_bytes\": 16777216,\n    \"max_links_per_file\": 2048\n  },\n  \"files_checked\": 1,\n  \"findings\": [\n    {\n      \"path\": \"README.md\",\n      \"line\": 11,\n      \"code\": \"missing-local-file\",\n      \"severity\": \"error\",\n      \"message\": \"Local destination is not an existing regular file.\"\n    }\n  ],\n  \"unresolved\": [\n    {\n      \"path\": \"README.md\",\n      \"line\": 3,\n      \"code\": \"remote-or-scheme-link\",\n      \"message\": \"Non-local destination was not fetched or verified.\"\n    },\n    {\n      \"path\": \"README.md\",\n      \"line\": 3,\n      \"code\": \"extensionless-route\",\n      \"message\": \"Extensionless destination may be a framework route; not verified.\"\n    }\n  ],\n  \"failures\": [],\n  \"limitations\": [\n    \"Heading IDs approximate GitHub; target renderer is authoritative.\",\n    \"MDX, HTML anchors, custom heading IDs, dynamic routes, autolinks and shortcut references without definitions require renderer/manual review.\",\n    \"Passing this preflight does not establish complete link coverage, accessibility, content truth or visual quality.\"\n  ],\n  \"status\": \"errors\"\n}\n",
+    "stderr": ""
+  },
+  "unsupported_flag_check": {
+    "label": "source_contract_rejects_invented_flag",
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "-m",
+      "tinyroute",
+      "--name",
+      "Ada",
+      "--fast"
+    ],
+    "cwd": "/workspace/work/doc-atlas/trial/repo",
+    "environment_overrides": {
+      "PYTHONPATH": "src"
+    },
+    "exit_code": 2,
+    "stdout": "",
+    "stderr": "usage: python -m tinyroute [-h] --name NAME\npython -m tinyroute: error: unrecognized arguments: --fast\n"
+  },
+  "commands": [
+    {
+      "label": "documented_first_success",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "tinyroute",
+        "--name",
+        "Ada"
+      ],
+      "cwd": "/workspace/work/doc-atlas/trial/repo",
+      "environment_overrides": {
+        "PYTHONPATH": "src"
+      },
+      "exit_code": 0,
+      "stdout": "Hello, Ada!\n",
+      "stderr": ""
+    },
+    {
+      "label": "documented_help",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "tinyroute",
+        "--help"
+      ],
+      "cwd": "/workspace/work/doc-atlas/trial/repo",
+      "environment_overrides": {
+        "PYTHONPATH": "src"
+      },
+      "exit_code": 0,
+      "stdout": "usage: python -m tinyroute [-h] --name NAME\n\nPrint a local greeting for a name.\n\noptions:\n  -h, --help   show this help message and exit\n  --name NAME  Name to include in the greeting\n",
+      "stderr": ""
+    },
+    {
+      "label": "documented_tests",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "cwd": "/workspace/work/doc-atlas/trial/repo",
+      "environment_overrides": {
+        "PYTHONPATH": "src"
+      },
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_name_is_required (test_cli.GreetingContract.test_name_is_required) ... ok\ntest_named_greeting (test_cli.GreetingContract.test_named_greeting) ... ok\ntest_unsupported_flag_is_rejected (test_cli.GreetingContract.test_unsupported_flag_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "label": "repaired_docs_check",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/doc-atlas/package/doc-atlas/skills/repo-docs/scripts/docs_check.py",
+        "--root",
+        ".",
+        "--path",
+        "README.md"
+      ],
+      "cwd": "/workspace/work/doc-atlas/trial/repo",
+      "environment_overrides": {
+        "PYTHONPATH": "src"
+      },
+      "exit_code": 0,
+      "stdout": "{\n  \"tool\": \"docs_check\",\n  \"schema_version\": 1,\n  \"scope\": \"Offline bounded GitHub-style Markdown subset; no networking, commands, writes, full parser, factual or visual validation.\",\n  \"limits\": {\n    \"truncated\": false,\n    \"read_failures\": 0,\n    \"selection\": \"explicit\",\n    \"document_bytes_read\": 890,\n    \"max_total_document_bytes\": 16777216,\n    \"max_links_per_file\": 2048\n  },\n  \"files_checked\": 1,\n  \"findings\": [],\n  \"unresolved\": [],\n  \"failures\": [],\n  \"limitations\": [\n    \"Heading IDs approximate GitHub; target renderer is authoritative.\",\n    \"MDX, HTML anchors, custom heading IDs, dynamic routes, autolinks and shortcut references without definitions require renderer/manual review.\",\n    \"Passing this preflight does not establish complete link coverage, accessibility, content truth or visual quality.\"\n  ],\n  \"status\": \"no-errors-detected\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "criteria": {
+    "unsupported_flag_removed": {
+      "verdict": "passed",
+      "evidence": "README no longer advertises the unsupported flag; a direct contract check rejects it with exit 2."
+    },
+    "fake_license_badge_removed": {
+      "verdict": "passed",
+      "evidence": "No license file exists in the fixture; no license badge or license assertion remains."
+    },
+    "documented_commands_work": {
+      "verdict": "passed",
+      "evidence": "First success, --help, and the documented unittest command all executed from the repository root."
+    },
+    "expected_output_matches": {
+      "verdict": "passed",
+      "evidence": "Hello, Ada!\n"
+    },
+    "useful_next_navigation": {
+      "verdict": "passed",
+      "evidence": "A reader can inspect supported options with --help, then follow descriptive links to the implementation or tests."
+    },
+    "local_links_and_markdown_preflight": {
+      "verdict": "passed",
+      "evidence": {
+        "files_checked": 1,
+        "findings": [],
+        "unresolved": []
+      }
+    },
+    "source_unchanged_by_documentation_repair": {
+      "verdict": "passed",
+      "evidence": "Source, pyproject and test SHA-256 hashes match before and after the README rewrite."
+    }
+  },
+  "verdict": "passed",
+  "source_sha256": {
+    "pyproject.toml": "5190c930698d8b61e3880586be5a8431fa4c8754de68b74fd44ff249ddf907ca",
+    "src/tinyroute/__init__.py": "e782a85dd08ef2987b876f86284f99b817826d8c564bd156e92f441ad3a3ccab",
+    "src/tinyroute/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/tinyroute/cli.py": "55edda5c9675a56645f6a8c74b77e464c099dd28a27ce49a013283996b68fe59",
+    "tests/test_cli.py": "07f709cb1951e97b7d7b50e28968f317d4601b6486d0ade5e618b74966a2db90"
+  },
+  "limitations": [
+    "Manual instruction following by one agent, not an automated model benchmark.",
+    "Does not test host skill discovery, automatic triggering, or plugin installation.",
+    "GitHub browser rendering, mobile/light/dark visuals, external links and accessibility were not exercised.",
+    "One small synthetic fixture does not establish broad repository or framework coverage."
+  ]
+}

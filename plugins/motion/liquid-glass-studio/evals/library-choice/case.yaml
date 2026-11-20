@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: library-choice
+expected_outcome: |
+  A recommendation for a Vue 3 app whose glass sidebar must refract in Safari: a path that does not depend on
+  backdrop-filter: url(), such as a WebGL capture library usable from Vue (for example simple-liquid-glass through
+  its custom element with a supplied backdrop) or a content-layer approach, with that path's limits stated, the
+  Chromium-only options ruled out for this requirement, and the license notices the team must carry.

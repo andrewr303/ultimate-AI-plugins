@@ -1,0 +1,82 @@
+{
+  "checked_on": "2026-10-26",
+  "plugin_version": "1.0.0",
+  "isolated_state": true,
+  "model_conversations_started": false,
+  "provider_credentials_configured": false,
+  "claude_code": {
+    "version": "2.1.310",
+    "native_manifest_validation": "passed",
+    "repository_marketplace_validation": "passed",
+    "local_install": "passed",
+    "discovered_skills": 21,
+    "skills": [
+      "backend-apns",
+      "backend-app-intents",
+      "backend-architecture",
+      "backend-auth",
+      "backend-background",
+      "backend-contracts",
+      "backend-cross-platform-qa",
+      "backend-data",
+      "backend-deploy",
+      "backend-discovery",
+      "backend-live-activities",
+      "backend-mac-tooling",
+      "backend-media",
+      "backend-node-api",
+      "backend-observability",
+      "backend-offline-sync",
+      "backend-reliability",
+      "backend-webhooks",
+      "backend-widgets",
+      "backend-xcode",
+      "ios-backend-studio"
+    ],
+    "unexpected_runtime_components": false,
+    "method": [
+      "claude plugin validate <plugin-root>",
+      "claude plugin marketplace update environment-dev",
+      "claude plugin install ios-backend-studio@environment-dev",
+      "claude plugin details ios-backend-studio@environment-dev"
+    ]
+  },
+  "kimi_code": {
+    "version": "2.3.3",
+    "native_install": "passed",
+    "state": "ok",
+    "discovered_skills": 21,
+    "skills": [
+      "ios-backend-studio:backend-apns",
+      "ios-backend-studio:backend-app-intents",
+      "ios-backend-studio:backend-architecture",
+      "ios-backend-studio:backend-auth",
+      "ios-backend-studio:backend-background",
+      "ios-backend-studio:backend-contracts",
+      "ios-backend-studio:backend-cross-platform-qa",
+      "ios-backend-studio:backend-data",
+      "ios-backend-studio:backend-deploy",
+      "ios-backend-studio:backend-discovery",
+      "ios-backend-studio:backend-live-activities",
+      "ios-backend-studio:backend-mac-tooling",
+      "ios-backend-studio:backend-media",
+      "ios-backend-studio:backend-node-api",
+      "ios-backend-studio:backend-observability",
+      "ios-backend-studio:backend-offline-sync",
+      "ios-backend-studio:backend-reliability",
+      "ios-backend-studio:backend-webhooks",
+      "ios-backend-studio:backend-widgets",
+      "ios-backend-studio:backend-xcode",
+      "ios-backend-studio:ios-backend-studio"
+    ],
+    "diagnostics": [],
+    "method": [
+      "Authenticated loopback POST /api/v1/plugins with local source",
+      "GET workspace skills without creating a session"
+    ]
+  },
+  "limits": [
+    "Installation/discovery does not establish model-driven task behavior",
+    "No Xcode/device/signing/App Store/production provider operation was run"
+  ]
+}

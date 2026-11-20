@@ -1,0 +1,6 @@
+interface:
+  display_name: "Search Data Analysis"
+  short_description: "Analyze search and traffic exports"
+  default_prompt: "Use $search-data-analysis to analyze the Search Console, GA4, Bing or log exports I provide with the bundled offline commands and report observed facts separately from hypotheses."
+policy:
+  allow_implicit_invocation: true

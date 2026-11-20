@@ -1,0 +1,6 @@
+interface:
+  display_name: Design
+  short_description: iOS design workflows and verification
+  default_prompt: Use $ios-design to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

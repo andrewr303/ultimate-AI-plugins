@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:capture-job",
+  "title": "Capture Job",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "productRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "viewport": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "deviceScaleFactor": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "deviceScaleFactor"
+      ],
+      "additionalProperties": false
+    },
+    "outputDir": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+    },
+    "mode": {
+      "enum": [
+        "actual",
+        "replay",
+        "illustrative"
+      ]
+    },
+    "syntheticData": {
+      "type": "boolean"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "action": {
+            "enum": [
+              "goto",
+              "click",
+              "fill",
+              "select",
+              "press",
+              "wait-for",
+              "screenshot",
+              "start-recording",
+              "stop-recording"
+            ]
+          },
+          "selector": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+          },
+          "timeoutMs": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 120000
+          },
+          "holdMs": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000,
+            "description": "Optional settled reading hold after wait-for readiness; permitted only on wait-for actions."
+          },
+          "condition": {
+            "description": "Declarative readiness condition. Defaults to visible when absent. Values are not persisted in capture reports.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "state"
+                  },
+                  "state": {
+                    "enum": [
+                      "visible",
+                      "hidden",
+                      "attached",
+                      "detached"
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "state"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "text"
+                  },
+                  "value": {
+                    "type": "string",
+                    "maxLength": 10000
+                  }
+                },
+                "required": [
+                  "type",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "attribute"
+                  },
+                  "name": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z_:][A-Za-z0-9_.:-]{0,199}$",
+                    "maxLength": 200,
+                    "not": {
+                      "pattern": "[^A-Za-z0-9_.:-]"
+                    }
+                  },
+                  "value": {
+                    "type": "string",
+                    "maxLength": 10000
+                  }
+                },
+                "required": [
+                  "type",
+                  "name",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "action"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "condition"
+              ]
+            },
+            "then": {
+              "properties": {
+                "action": {
+                  "const": "wait-for"
+                }
+              },
+              "required": [
+                "selector"
+              ]
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9._-]*$",
+        "maxLength": 100
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "productRevision",
+    "baseUrl",
+    "viewport",
+    "outputDir",
+    "mode",
+    "syntheticData",
+    "steps",
+    "claims"
+  ],
+  "additionalProperties": false
+}

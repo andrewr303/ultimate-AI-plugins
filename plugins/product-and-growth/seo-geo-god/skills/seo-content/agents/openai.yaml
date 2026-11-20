@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Content"
+  short_description: "People-first content and refreshes"
+  default_prompt: "Use $seo-content to write, refresh or review content in this repository for people-first quality, real sources and honest dates, and verify the result with the bundled content checks."
+policy:
+  allow_implicit_invocation: true

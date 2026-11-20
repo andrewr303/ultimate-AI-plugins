@@ -1,0 +1,7 @@
+interface:
+  display_name: Glass Native
+  short_description: Native glass with fallbacks
+  default_prompt: Use $glass-native to adopt liquid glass style material in this
+    native app with availability checks, fallbacks and settings behaviour.
+policy:
+  allow_implicit_invocation: true

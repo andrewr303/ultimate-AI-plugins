@@ -1,0 +1,19 @@
+{
+  "name": "deepsec-agent",
+  "version": "1.0.0",
+  "description": "Local source security review, evidence, baselines, and remediation planning for coding agents.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "DeepSec Agent"
+  },
+  "mcpServers": {
+    "deepsec-agent": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "./scripts/start-server.mjs"
+      ],
+      "cwd": "./"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "RuleID": "synthetic-example-rule",
+    "File": "src/example.js",
+    "StartLine": 3,
+    "Secret": "SYNTHETIC_VALUE_FOR_REDACTION_TEST_ONLY",
+    "Match": "SYNTHETIC_VALUE_FOR_REDACTION_TEST_ONLY",
+    "Description": "Synthetic fixture, not a real credential or scanner execution."
+  }
+]

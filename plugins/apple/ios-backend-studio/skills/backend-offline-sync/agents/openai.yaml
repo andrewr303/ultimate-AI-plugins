@@ -1,0 +1,6 @@
+interface:
+  display_name: Backend Offline Sync
+  short_description: Backend offline sync workflows
+  default_prompt: Use $backend-offline-sync to complete this task using actual project facts and current source evidence.
+policy:
+  allow_implicit_invocation: true

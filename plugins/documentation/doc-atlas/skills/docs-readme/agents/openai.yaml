@@ -1,0 +1,6 @@
+interface:
+  display_name: README Design
+  short_description: Build a useful repo front door
+  default_prompt: Create a polished README from this repository's real behavior and verified setup path.
+policy:
+  allow_implicit_invocation: true

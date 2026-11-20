@@ -1,0 +1,219 @@
+# SEO-GEO-god example GitHub Actions workflow. Copy it to .github/workflows/seo-geo.yml
+# and edit it; nothing runs until a copy exists in your repository.
+#
+# What it does: builds the site, audits the build output offline with the bundled
+# standard-library CLI, writes JSON, Markdown and SARIF reports, adds the Markdown
+# report to the job summary, uploads the reports as an artifact, and fails the job
+# only on the gates configured below. It uses no secrets, needs only read access,
+# and the checks themselves make no network requests.
+#
+# Before you use it:
+#   1. Replace every <FULL_COMMIT_SHA> with the full 40-character commit SHA of an
+#      action release you verified yourself on the action's own repository, and
+#      keep the version comment next to it. Never paste a SHA you have not checked.
+#   2. Replace <PRODUCTION_ORIGIN> with the production origin, for example
+#      https://www.example.com. The job refuses to run with the placeholder.
+#   3. Make the CLI available at SEO_GEO_GOD_DIR: either commit a copy of the
+#      seo-geo-god plugin directory there, or use the pinned checkout shown below.
+#   4. Replace the build steps with your project's documented production build.
+#
+# Facts and defaults as of 2026-11-01. Details: references/ci-recipes.md in the plugin.
+
+name: SEO and GEO checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-geo-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  seo-geo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SEO_GEO_GOD_DIR: tools/seo-geo-god        # plugin copy, relative to the repository root
+      SEO_BUILD_DIR: dist                       # build output directory, relative, no ".."
+      SEO_SITE_URL: "<PRODUCTION_ORIGIN>"       # production origin, e.g. https://www.example.com
+      SEO_PROFILE: default                      # default, launch, programmatic, local, ecommerce or geo
+      SEO_FAIL_ON: never                        # severity gate: error, warning, info or never
+      SEO_BLOCKING_RULES: "SD001 SD002 SD006 SD012 CANON002 CANON003 CRAWL004 AI004 LAUNCH003 LAUNCH004 IDX001"
+      SEO_TEMPLATE_DIR: ""                      # optional source directory with JSON-LD templates, e.g. src
+      SEO_BASELINE: .seo-geo-god/baselines/main.json   # optional committed drift baseline
+    steps:
+      - name: Check out
+        uses: actions/checkout@<FULL_COMMIT_SHA> # vX.Y.Z, verify before use
+        with:
+          persist-credentials: false
+
+      # Alternative to a committed copy: check out the plugin at a pinned commit.
+      # If the plugin sits in a subdirectory of that repository, point
+      # SEO_GEO_GOD_DIR at the subdirectory that contains scripts/seo_geo.py.
+      # - name: Check out SEO-GEO-god
+      #   uses: actions/checkout@<FULL_COMMIT_SHA> # vX.Y.Z, verify before use
+      #   with:
+      #     repository: <OWNER>/<PLUGIN_REPOSITORY>
+      #     ref: <FULL_COMMIT_SHA>
+      #     path: tools/seo-geo-god
+      #     persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@<FULL_COMMIT_SHA> # vX.Y.Z, verify before use
+        with:
+          python-version: "3.12"
+
+      # Replace these two steps with your documented production build.
+      - name: Set up Node.js
+        uses: actions/setup-node@<FULL_COMMIT_SHA> # vX.Y.Z, verify before use
+        with:
+          node-version: "22"
+      - name: Build site
+        run: |
+          npm ci
+          npm run build
+
+      - name: Validate inputs
+        run: |
+          set -euo pipefail
+          fail() { echo "::error::$1"; exit 2; }
+          case "$SEO_SITE_URL" in
+            https://*) ;;
+            *) fail "SEO_SITE_URL must be an https:// origin; replace the <PRODUCTION_ORIGIN> placeholder" ;;
+          esac
+          case "$SEO_SITE_URL" in
+            *[!A-Za-z0-9.:/-]*) fail "SEO_SITE_URL contains unexpected characters" ;;
+          esac
+          case "$SEO_FAIL_ON" in
+            error|warning|info|never) ;;
+            *) fail "SEO_FAIL_ON must be error, warning, info or never" ;;
+          esac
+          case "$SEO_PROFILE" in
+            default|launch|programmatic|local|ecommerce|geo) ;;
+            *) fail "SEO_PROFILE is not a known profile" ;;
+          esac
+          case "$SEO_BLOCKING_RULES" in
+            *[!A-Z0-9\ ]*) fail "SEO_BLOCKING_RULES must be rule IDs separated by spaces" ;;
+          esac
+          for dir in "$SEO_BUILD_DIR" "$SEO_GEO_GOD_DIR" "$SEO_BASELINE" ${SEO_TEMPLATE_DIR:+"$SEO_TEMPLATE_DIR"}; do
+            case "$dir" in
+              ""|/*|*..*) fail "paths must be relative to the repository and must not contain '..'" ;;
+            esac
+          done
+          [ -d "$SEO_BUILD_DIR" ] || fail "build output directory $SEO_BUILD_DIR not found"
+          [ -f "$SEO_GEO_GOD_DIR/scripts/seo_geo.py" ] || fail "SEO-GEO-god CLI not found under $SEO_GEO_GOD_DIR"
+          # Deterministic report timestamps: the commit time, not the wall clock.
+          echo "SEO_GEO_GOD_NOW=$(git log -1 --format=%cI)" >> "$GITHUB_ENV"
+
+      - name: Run SEO and GEO checks
+        id: checks
+        run: |
+          set -euo pipefail
+          sg() { python3 -I "$SEO_GEO_GOD_DIR/scripts/seo_geo.py" "$@"; }
+          out=.seo-geo-god/ci
+          mkdir -p "$out"
+          audit=(audit-build "$SEO_BUILD_DIR" --base-url "$SEO_SITE_URL" --expect-indexable --profile "$SEO_PROFILE")
+          sg "${audit[@]}" --format md --output "$out/seo-geo.md"
+          sg "${audit[@]}" --format sarif --output "$out/seo-geo.sarif"
+          audit_status=0
+          sg "${audit[@]}" --format json --output "$out/seo-geo.json" --fail-on "$SEO_FAIL_ON" || audit_status=$?
+          cat "$out/seo-geo.md" >> "$GITHUB_STEP_SUMMARY"
+          template_status=0
+          if [ -n "$SEO_TEMPLATE_DIR" ]; then
+            sg jsonld "$SEO_TEMPLATE_DIR" --recursive --format md --output "$out/templates-jsonld.md" --fail-on error || template_status=$?
+            [ ! -f "$out/templates-jsonld.md" ] || cat "$out/templates-jsonld.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          drift_status=0
+          if [ -f "$SEO_BASELINE" ]; then
+            sg drift compare "$SEO_BASELINE" "$SEO_BUILD_DIR" --base-url "$SEO_SITE_URL" --format md --output "$out/drift.md" --fail-on error || drift_status=$?
+            [ ! -f "$out/drift.md" ] || cat "$out/drift.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          for code in "$audit_status" "$template_status" "$drift_status"; do
+            if [ "$code" -ge 2 ]; then
+              echo "::error::seo-geo-god stopped with exit code $code (2 input error, 3 refused by safety policy, 4 internal error)"
+              exit "$code"
+            fi
+          done
+          {
+            echo "audit_gate=$audit_status"
+            echo "template_gate=$template_status"
+            echo "drift_gate=$drift_status"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Apply gates
+        env:
+          AUDIT_GATE: ${{ steps.checks.outputs.audit_gate }}
+          TEMPLATE_GATE: ${{ steps.checks.outputs.template_gate }}
+          DRIFT_GATE: ${{ steps.checks.outputs.drift_gate }}
+        run: |
+          python3 -I - .seo-geo-god/ci/seo-geo.json <<'PY'
+          import json
+          import os
+          import sys
+
+
+          def esc_data(text):
+              return str(text).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+
+
+          def esc_prop(text):
+              return esc_data(text).replace(":", "%3A").replace(",", "%2C")
+
+
+          blocking = set(os.environ.get("SEO_BLOCKING_RULES", "").split())
+          with open(sys.argv[1], encoding="utf-8") as handle:
+              report = json.load(handle)
+          findings = [f for f in report.get("findings") or [] if isinstance(f, dict)]
+          hits = [f for f in findings if f.get("rule") in blocking]
+          for finding in hits:
+              props = []
+              if finding.get("file"):
+                  props.append("file=" + esc_prop(finding["file"]))
+                  if isinstance(finding.get("line"), int):
+                      props.append("line=%d" % finding["line"])
+              props.append("title=" + esc_prop(finding.get("rule", "")))
+              where = finding.get("url") or finding.get("file") or ""
+              print("::error %s::%s %s" % (",".join(props), esc_data(finding.get("message", "")), esc_data(where)))
+          failed = []
+          if hits:
+              failed.append("%d finding(s) from blocking rules" % len(hits))
+          if os.environ.get("AUDIT_GATE") == "1":
+              failed.append("severity gate SEO_FAIL_ON=%s reached" % os.environ.get("SEO_FAIL_ON", ""))
+          if os.environ.get("TEMPLATE_GATE") == "1":
+              failed.append("JSON-LD template errors")
+          if os.environ.get("DRIFT_GATE") == "1":
+              failed.append("error-level drift against the baseline")
+          if failed:
+              print("::error::SEO and GEO gate failed: " + "; ".join(failed))
+              sys.exit(1)
+          print("SEO and GEO gates passed; advisory findings remain in the reports.")
+          PY
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@<FULL_COMMIT_SHA> # vX.Y.Z, verify before use
+        with:
+          name: seo-geo-reports
+          path: .seo-geo-god/ci/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      # Optional: show findings in GitHub code scanning. This needs
+      #   permissions:
+      #     contents: read
+      #     security-events: write
+      # on this job, which is a write permission, and code scanning must be available
+      # for the repository. Pull requests from forks do not get that permission.
+      # Leave it commented out to keep the workflow read-only.
+      # - name: Upload SARIF to code scanning
+      #   if: always()
+      #   uses: github/codeql-action/upload-sarif@<FULL_COMMIT_SHA> # vX.Y.Z, verify before use
+      #   with:
+      #     sarif_file: .seo-geo-god/ci/seo-geo.sarif
+      #     category: seo-geo-god

@@ -1,0 +1,8 @@
+# Python development dependencies for scripts/validate_plugin.py,
+# scripts/package_plugin.py and tests/test_validate.py (Python 3.10+).
+PyYAML>=6.0,<7
+
+# Not a Python requirement: scripts/glass_contrast.mjs and its end-to-end tests
+# use the Node "playwright" package and a Chromium build when they are already
+# installed (npm i -D playwright && npx playwright install chromium).
+# Without them the contrast math tests still run and the browser tests skip.

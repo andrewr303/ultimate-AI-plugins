@@ -1,0 +1,19 @@
+# ----------------------------------------
+# Traffic acquisition: Session source / medium
+# Account: Example account
+# Property: Example property
+# Start date: 20261001
+# End date: 20261031
+# ----------------------------------------
+
+Session source / medium,Landing page + query string,Sessions
+chatgpt.com / referral,/guides/send-invoice/,40
+chatgpt.com / (not set),/pricing/?utm_source=chatgpt.com,10
+perplexity.ai / referral,/guides/send-invoice/,12
+www.perplexity.ai / referral,/,3
+gemini.google.com / referral,/templates/,5
+copilot.microsoft.com / referral,/pricing/,2
+deepseek / ai-assistant,/,4
+google / organic,/,500
+(direct) / (none),/,300
+example.org / referral,/,20

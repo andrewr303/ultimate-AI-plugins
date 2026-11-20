@@ -1,0 +1,9 @@
+{
+  "name": "creator-intelligence",
+  "version": "0.2.1",
+  "description": "Find creators, capture their public business contact, vet them with a transparent score, and research their audience and content, from public data only.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Creator Intelligence"
+  }
+}

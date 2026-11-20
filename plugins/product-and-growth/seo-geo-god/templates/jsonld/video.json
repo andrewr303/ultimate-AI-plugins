@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "[REPLACE: absolute https URL of the watch page]#video",
+  "name": "[REPLACE: video title shown on the watch page]",
+  "description": "[REPLACE: video description shown on the watch page]",
+  "thumbnailUrl": [
+    "[REPLACE: absolute https URL of a crawlable thumbnail of at least 60x30 px]"
+  ],
+  "uploadDate": "[REPLACE: ISO 8601 upload date-time, for example 2026-11-01T09:00:00+00:00]",
+  "duration": "[REPLACE: ISO 8601 duration such as PT4M30S]",
+  "contentUrl": "[REPLACE: absolute https URL of the video file; do not block it in robots.txt]",
+  "embedUrl": "[REPLACE: absolute https URL of the embeddable player]",
+  "creator": {
+    "@type": "Person",
+    "name": "[REPLACE: creator name shown on the page]",
+    "url": "[REPLACE: absolute https URL of the creator profile page]"
+  },
+  "hasPart": [
+    {
+      "@type": "Clip",
+      "name": "[REPLACE: chapter title shown in the player or description]",
+      "startOffset": "[REPLACE: chapter start in seconds]",
+      "endOffset": "[REPLACE: chapter end in seconds]",
+      "url": "[REPLACE: absolute https URL of the watch page with the start-time parameter]"
+    }
+  ]
+}

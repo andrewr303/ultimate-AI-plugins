@@ -1,0 +1,7 @@
+interface:
+  display_name: Issue Assistant
+  short_description: Reconcile issues and pick next
+  default_prompt: Reconcile my issues, apply supported updates, then grill me one
+    question at a time.
+policy:
+  allow_implicit_invocation: true

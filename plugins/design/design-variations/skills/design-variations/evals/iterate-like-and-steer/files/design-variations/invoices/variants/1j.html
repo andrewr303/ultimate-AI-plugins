@@ -1,0 +1,170 @@
+<style>
+main{padding:var(--space-6) var(--space-8) var(--space-8);display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.head{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap}
+.head h1{margin:0;font-size:var(--text-2xl);letter-spacing:-.02em}
+.views{display:flex;gap:4px;border-bottom:1px solid var(--border);flex:1;align-self:stretch;align-items:flex-end;margin-left:var(--space-4)}
+.views button{all:unset;cursor:pointer;padding:10px 4px;margin-right:16px;font-weight:600;color:var(--text-2);border-bottom:2px solid transparent;margin-bottom:-1px;display:inline-flex;gap:8px;align-items:center}
+.views button[aria-selected=true]{color:var(--text);border-bottom-color:var(--accent)}
+.views button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.views .n{font:600 var(--text-xs)/1 var(--font-sans);border-radius:999px;padding:3px 8px;background:var(--surface-2);color:var(--text-2)}
+.views .n.hot{background:var(--overdue-soft);color:var(--overdue)}
+.tots{display:flex;gap:var(--space-5);flex-wrap:wrap;font-size:var(--text-xs);color:var(--text-2)}
+.tots b{display:block;font:600 var(--text-md)/1.3 var(--font-mono);color:var(--text);font-variant-numeric:tabular-nums}
+.tots .o b{color:var(--overdue)}
+.chase{max-width:780px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:var(--space-5)}
+.prog{display:flex;flex-direction:column;gap:8px}
+.prog .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prog h2{margin:0;font-size:var(--text-lg)}
+.prog .top span{color:var(--text-2);font-size:var(--text-sm)}
+.meter{height:8px;background:var(--surface-2);border-radius:999px;overflow:hidden;border:1px solid var(--border)}
+.meter i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .3s var(--ease)}
+.rule{margin:0;font-size:var(--text-sm);color:var(--text-2)}
+.focus{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-2);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-5);outline:0}
+.focus:focus-visible{box-shadow:0 0 0 2px var(--accent),var(--shadow-2)}
+.focus .why{display:inline-flex;align-self:flex-start;gap:6px;align-items:center;font-size:var(--text-xs);font-weight:600;color:var(--overdue);background:var(--overdue-soft);border-radius:999px;padding:4px 10px}
+.focus .who{display:flex;justify-content:space-between;gap:var(--space-5);align-items:flex-end;flex-wrap:wrap}
+.focus h3{margin:0;font-size:30px;letter-spacing:-.02em;line-height:1.15;overflow-wrap:anywhere}
+.focus .sub{color:var(--text-2);margin-top:4px} .focus .sub code{font-family:var(--font-mono)}
+.focus .amt{font:600 40px/1 var(--font-mono);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.focus .late{font-size:var(--text-lg);font-weight:600;color:var(--overdue)}
+.focus .dates{display:flex;gap:var(--space-6);font-size:var(--text-sm);color:var(--text-2);flex-wrap:wrap} .focus .dates b{color:var(--text);font-weight:600}
+.focus .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:var(--space-4);border-top:1px solid var(--border)}
+.focus .acts .sp{flex:1}
+.focus .acts .k-btn{min-height:44px}
+.list h2{margin:0 0 8px;font-size:var(--text-sm);color:var(--text-2);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.list ol,.list ul{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.list li{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:14px;align-items:center;padding:9px 14px;border-bottom:1px solid var(--border);font-size:var(--text-sm)}
+.list li:last-child{border-bottom:0}
+.list .c{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .list .c code{font-family:var(--font-mono);font-weight:400;color:var(--text-2);margin-left:6px}
+.list .d{color:var(--overdue);font-weight:600} .list .a{font-family:var(--font-mono)}
+.res{font-size:var(--text-xs);font-weight:600;border-radius:999px;padding:2px 8px}
+.res.remind{background:var(--accent-soft);color:var(--accent)} .res.paid{background:var(--paid-soft);color:var(--paid)} .res.skip{background:var(--surface-2);color:var(--text-2)} .res.gone{background:var(--draft-soft);color:var(--draft)}
+.done{text-align:center;padding:var(--space-8);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);display:flex;flex-direction:column;gap:12px;align-items:center}
+.done h3{margin:0;font-size:var(--text-xl)} .done p{margin:0;color:var(--text-2)}
+.bar{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;background:var(--surface-2);padding:3px;border-radius:var(--radius-sm);overflow-x:auto;max-width:100%}
+.tab{border:0;background:transparent;padding:7px 12px;border-radius:5px;font:500 var(--text-sm)/1 var(--font-sans);color:var(--text-2);cursor:pointer;white-space:nowrap}
+.tab[aria-pressed=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tab .n{margin-left:4px}
+.bar .k-search{flex:1;min-width:220px}
+.bulk{display:none;gap:var(--space-3);align-items:center;background:var(--text);color:#fff;padding:8px 8px 8px 14px;border-radius:var(--radius);flex-wrap:wrap}
+.bulk.on{display:flex}.bulk .sp{flex:1}
+.bulk .k-btn{background:transparent;color:#fff;border-color:#ffffff59}.bulk .k-btn:hover{background:#ffffff1a}
+.bulk .sum{font-family:var(--font-mono);color:#c9d3ce;font-size:var(--text-sm)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);font-weight:600}
+th button{all:unset;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+th button .k-ico{width:12px;height:12px;opacity:.3}
+th[aria-sort=ascending] button,th[aria-sort=descending] button{color:var(--text)}
+th[aria-sort=ascending] .k-ico,th[aria-sort=descending] .k-ico{opacity:1}
+tbody tr:hover{background:var(--surface-2)} tbody tr.sel{background:var(--accent-soft)} tbody tr:last-child td{border-bottom:0}
+td.inv{font-family:var(--font-mono);font-size:var(--text-sm)} td.num,th.num{text-align:right} td.num{font-family:var(--font-mono)}
+.when small{display:block;font-size:var(--text-xs)}
+.acts2{display:flex;justify-content:flex-end}
+[hidden]{display:none!important}
+@media (max-width:1100px){.views{flex-basis:100%;order:3;margin-left:0}.tots{flex:1}}
+@media (max-width:760px){main{padding:var(--space-4)}.tots{flex-basis:100%;order:4;display:grid;grid-template-columns:1fr 1fr;gap:8px}.focus{padding:var(--space-5)}.focus h3{font-size:24px}.focus .amt{font-size:30px}.list li{grid-template-columns:minmax(0,1fr) auto}.list li .a{display:none}.bar .k-search{min-width:100%}.focus .acts .k-btn{flex:1 1 40%}.focus .acts .sp{display:none}}
+</style>
+<div class="k-app" id="app">
+  <div class="k-top-wrap"></div>
+  <main>
+    <div class="head"><h1>Invoices</h1>
+      <div class="views" role="tablist" aria-label="Invoices view" id="views"></div>
+      <div class="tots" id="tots" role="group" aria-label="Summary"></div>
+      <button class="k-btn" id="export" type="button"></button><button class="k-btn primary" id="new" type="button"></button></div>
+    <section id="p-chase" role="tabpanel" aria-labelledby="v-chase" class="chase"></section>
+    <section id="p-all" role="tabpanel" aria-labelledby="v-all" hidden>
+      <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="bar"><div class="tabs" role="group" aria-label="Filter by status" id="tabs"></div>
+          <label class="k-search"><span id="sicon"></span><span class="k-sr">Search invoices</span><input id="q" type="search" placeholder="Search client or invoice #"></label></div>
+        <div class="bulk" id="bulk" role="region" aria-label="Bulk actions"><strong id="bulk-n"></strong><span class="sum" id="bulk-sum"></span><span class="sp"></span>
+          <button class="k-btn sm" id="remind" type="button">Send reminders</button><button class="k-btn sm" id="markpaid" type="button">Mark paid</button><button class="k-btn sm" id="clear" type="button">Clear</button></div>
+        <div class="card"><table><thead><tr id="th"></tr></thead><tbody id="rows"></tbody></table><div id="empty" hidden></div></div>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+(function(){
+const K=KIT,S=K.createStore(),$=s=>document.querySelector(s),f=K.fmt;
+$('#app').insertAdjacentHTML('afterbegin',K.shell());$('.k-top-wrap').outerHTML=K.topbar();K.bindShell(document.body);
+$('#export').innerHTML=K.icon('download')+'Export CSV';$('#new').innerHTML=K.icon('plus')+'New invoice';$('#sicon').innerHTML=K.icon('search');
+let tabv='chase',st={tab:'all',q:'',sort:{k:'issued',dir:-1}},queue=[],handled=new Map(),focusNo=null;
+const COLS=[['no','Invoice'],['client','Client'],['issued','Issued'],['due','Due'],[null,'Status'],['amount','Amount','num']];
+function build(){queue=S.data.filter(r=>r.status==='overdue').sort((a,b)=>K.daysLate(b)-K.daysLate(a)||b.amount-a.amount).map(r=>r.no);handled=new Map();focusNo=null}
+build();
+window.addEventListener('dv:state',()=>{build();render()});
+const remaining=()=>queue.filter(no=>!handled.has(no)&&S.find(no)&&S.find(no).status==='overdue');
+const view=()=>S.view(st);
+function why(r,i){const rs=remaining();if(i===0&&K.daysLate(r)===Math.max(...rs.map(n=>K.daysLate(S.find(n)))))return 'Next: the oldest overdue invoice';return 'Next: '+K.daysLate(r)+' days late'}
+function renderChase(){const p=$('#p-chase');
+ queue.forEach(no=>{const r=S.find(no);if(!handled.has(no)){if(!r)handled.set(no,'gone');else if(r.status==='paid')handled.set(no,'paid')}});
+ const rs=remaining(),total=queue.length,doneN=total-rs.length;if(!focusNo||!rs.includes(focusNo))focusNo=rs[0]||null;
+ const r=focusNo&&S.find(focusNo),idx=rs.indexOf(focusNo);
+ const RES={remind:'Reminder sent',paid:'Marked paid',skip:'Skipped',gone:'Deleted'};
+ const next=S.data.filter(x=>x.status==='due').sort((a,b)=>a.due<b.due?-1:1)[0];
+ p.innerHTML=`<div class="prog"><div class="top"><h2>Today's chase list</h2><span>${doneN} of ${total} handled</span></div>
+   <div class="meter" role="progressbar" aria-label="Chase list progress" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${doneN}"><i style="width:${total?doneN/total*100:0}%"></i></div>
+   <p class="rule">Every overdue invoice, most days late first, then the larger amount. Paying or deleting an invoice anywhere takes it off the list.</p></div>`+
+  (r?`<article class="focus" id="focus" tabindex="-1" aria-label="${f.esc(r.client)}, ${r.no}" aria-keyshortcuts="r p s v">
+    <span class="why">${K.icon('clock')}${why(r,idx)}</span>
+    <div class="who"><div><h3>${f.esc(r.client)}</h3><div class="sub"><code>${r.no}</code> · <span class="k-pill overdue">Overdue</span></div></div><div class="amt">${f.money(r.amount)}</div></div>
+    <div class="late">${f.timing(r)}</div>
+    <div class="dates"><span>Due <b>${f.dateY(r.due)}</b></span><span>Issued <b>${f.dateY(r.issued)}</b></span></div>
+    <div class="acts"><button type="button" class="k-btn primary" data-q="remind" data-focus="q-remind">${K.icon('mail')}Send reminder <kbd>R</kbd></button><button type="button" class="k-btn" data-q="paid" data-focus="q-paid">${K.icon('check')}Mark paid <kbd>P</kbd></button><button type="button" class="k-btn" data-q="skip" data-focus="q-skip">${K.icon('skip')}Skip for now <kbd>S</kbd></button><span class="sp"></span><button type="button" class="k-btn quiet" data-q="view" data-focus="q-view">${K.icon('eye')}View <kbd>V</kbd></button><button type="button" class="k-btn icon" aria-haspopup="menu" aria-expanded="false" aria-label="More actions for ${r.no}" data-qm="${r.no}" data-focus="q-more">${K.icon('more')}</button></div></article>`
+  :`<div class="done"><h3>${total?'Chase list done for today':'Nothing is overdue'}</h3><p>${total?'All '+total+' overdue invoices have been handled.':'Every invoice is either paid, due later or a draft.'}${next?' Next to fall due: '+f.esc(next.client)+', '+next.no+', '+f.timing(next).toLowerCase()+'.':''}</p><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><button type="button" class="k-btn" data-goall data-focus="goall">See all invoices</button>${[...handled.values()].includes('skip')?'<button type="button" class="k-btn" data-reskip data-focus="reskip">Bring back skipped</button>':''}</div></div>`)+
+  (rs.length>1?`<div class="list"><h2>Up next · ${rs.length-1}</h2><ol>${rs.filter(n=>n!==focusNo).map(n=>{const x=S.find(n);return `<li><span class="c">${f.esc(x.client)}<code>${x.no}</code></span><span class="d">${K.daysLate(x)} days</span><span class="a">${f.money(x.amount)}</span><button type="button" class="k-btn sm quiet" data-pick="${n}" data-focus="pick-${n}" aria-label="Work on ${x.no} now">Now</button></li>`}).join('')}</ol></div>`:'')+
+  (handled.size?`<div class="list"><h2>Handled today · ${handled.size}</h2><ul>${[...handled.entries()].reverse().map(([n,res])=>{const x=S.find(n);return `<li><span class="c">${x?f.esc(x.client):n}<code>${n}</code></span><span class="res ${res}">${RES[res]}</span><span class="a">${x?f.money(x.amount):''}</span>${res==='skip'&&x&&x.status==='overdue'?`<button type="button" class="k-btn sm quiet" data-unskip="${n}" data-focus="un-${n}">Back in list</button>`:'<span></span>'}</li>`}).join('')}</ul></div>`:'')}
+function renderAll(){const v=view();
+ $('#tabs').innerHTML=K.TABS.map(([k,l])=>`<button type="button" class="tab" aria-pressed="${st.tab===k}" data-t="${k}" data-focus="tab-${k}">${l}<span class="n">${S.count(k)}</span></button>`).join('');
+ $('#th').innerHTML=`<th style="width:44px"><input type="checkbox" class="k-check" id="all" aria-label="Select all shown invoices"></th>`+COLS.map(([k,l,c])=>k?`<th class="${c||''}" aria-sort="${st.sort.k===k?(st.sort.dir>0?'ascending':'descending'):'none'}"><button type="button" data-k="${k}" data-focus="sort-${k}">${l}${K.icon(st.sort.k===k&&st.sort.dir>0?'up':'down')}</button></th>`:`<th>${l}</th>`).join('')+`<th><span class="k-sr">Actions</span></th>`;
+ $('#rows').innerHTML=v.map(r=>`<tr class="${S.sel.has(r.no)?'sel':''}"><td><input type="checkbox" class="k-check" data-s="${r.no}" data-focus="s-${r.no}" ${S.sel.has(r.no)?'checked':''} aria-label="Select ${r.no}"></td><td class="inv">${r.no}</td><td>${f.esc(r.client)}</td><td>${f.date(r.issued)}</td>
+  <td class="when">${f.date(r.due)}${r.status==='overdue'||r.status==='due'?`<small class="${r.status==='overdue'?'k-late':'k-soon'}">${f.timing(r)}</small>`:''}</td><td><span class="k-pill ${r.status}">${f.status(r.status)}</span></td><td class="num">${f.money(r.amount)}</td>
+  <td><div class="acts2"><button type="button" class="k-btn icon sm" aria-haspopup="menu" aria-expanded="false" aria-label="Actions for ${r.no}" data-m="${r.no}" data-focus="m-${r.no}">${K.icon('more')}</button></div></td></tr>`).join('');
+ const e=$('#empty');e.hidden=v.length>0;e.innerHTML=v.length?'':K.emptyHTML(S);
+ $('#all').checked=v.length>0&&v.every(r=>S.sel.has(r.no));
+ const sel=[...S.sel].map(S.find).filter(Boolean);$('#bulk').classList.toggle('on',sel.length>0);$('#bulk-n').textContent=sel.length+' selected';$('#bulk-sum').textContent=f.money(sel.reduce((a,r)=>a+r.amount,0))}
+function render(){K.keepFocus(document.body,()=>{
+  const t=S.totals(),left=remaining().length;
+  $('#views').innerHTML=`<button type="button" role="tab" id="v-chase" aria-controls="p-chase" aria-selected="${tabv==='chase'}" tabindex="${tabv==='chase'?0:-1}" data-v="chase" data-focus="v-chase">Chase list<span class="n${left?' hot':''}">${left}</span></button><button type="button" role="tab" id="v-all" aria-controls="p-all" aria-selected="${tabv==='all'}" tabindex="${tabv==='all'?0:-1}" data-v="all" data-focus="v-all">All invoices<span class="n">${S.data.length}</span></button>`;
+  $('#tots').innerHTML=`<div><span>Outstanding</span><b>${f.money(t.outstanding)}</b></div><div class="o"><span>Overdue</span><b>${f.money(t.overdue)}</b></div><div><span>Paid this month</span><b>${f.money(t.paid)}</b></div><div><span>Drafts</span><b>${t.drafts}</b></div>`;
+  $('#p-chase').hidden=tabv!=='chase';$('#p-all').hidden=tabv!=='all';
+  renderChase();renderAll();
+})}
+S.on(render);
+function qAct(a){const r=S.find(focusNo);if(!r)return;
+ if(a==='view'){K.act(S,'view',r.no);return}
+ if(a==='skip'){handled.set(r.no,'skip');K.toast('Skipped '+r.no+'; it stays overdue');render()}
+ if(a==='remind'){handled.set(r.no,'remind');K.act(S,'remind',r.no)}
+ if(a==='paid'){handled.set(r.no,'paid');K.act(S,'paid',r.no)}
+ const fc=$('#focus');if(fc)fc.focus({preventScroll:true})}
+document.addEventListener('click',e=>{const b=e.target.closest('button,input');if(!b)return;
+ if(b.dataset.v){tabv=b.dataset.v;render()}
+ if(b.dataset.q)qAct(b.dataset.q);
+ if(b.dataset.qm){const r=S.find(b.dataset.qm);K.menu(b,[{label:'Duplicate',icon:'copy',fn:()=>K.act(S,'dup',r.no)},{label:'Delete',icon:'trash',danger:true,fn:()=>{handled.set(r.no,'gone');K.act(S,'del',r.no)}}])}
+ if(b.dataset.pick){focusNo=b.dataset.pick;render();const fc=$('#focus');if(fc)fc.focus()}
+ if(b.dataset.unskip){handled.delete(b.dataset.unskip);render()}
+ if(b.hasAttribute('data-reskip')){[...handled].forEach(([n,res])=>res==='skip'&&handled.delete(n));render()}
+ if(b.hasAttribute('data-goall')){tabv='all';render();$('#v-all').focus()}
+ if(b.dataset.t){st.tab=b.dataset.t;render()}
+ if(b.dataset.k){st.sort={k:b.dataset.k,dir:st.sort.k===b.dataset.k?-st.sort.dir:1};render()}
+ if(b.dataset.s){b.checked?S.sel.add(b.dataset.s):S.sel.delete(b.dataset.s);render()}
+ if(b.id==='all'){view().forEach(r=>b.checked?S.sel.add(r.no):S.sel.delete(r.no));render()}
+ if(b.dataset.m)K.menu(b,K.rowItems(S,S.find(b.dataset.m)));
+ if(b.id==='remind')K.act(S,'remind',[...S.sel]); if(b.id==='markpaid')K.act(S,'paid',[...S.sel]); if(b.id==='clear'){S.sel.clear();render()}
+ if(b.hasAttribute('data-k-reset')){st.tab='all';st.q='';$('#q').value='';render()}
+ if(b.id==='export')K.toast('Exported '+(tabv==='chase'?remaining().length:view().length)+' rows');
+ if(b.id==='new'||b.hasAttribute('data-k-new'))K.openInvoiceForm(S);
+});
+/* Arrow keys between the two view tabs; R/P/S/V only while focus is inside the chase card */
+$('#views').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();tabv=tabv==='chase'?'all':'chase';render();$('#v-'+tabv).focus()}});
+document.addEventListener('keydown',e=>{const fc=e.target.closest&&e.target.closest('#focus');if(!fc||e.ctrlKey||e.metaKey||e.altKey||document.querySelector('.k-menu'))return;
+ const m={r:'remind',p:'paid',s:'skip',v:'view'}[e.key.toLowerCase()];if(m){e.preventDefault();qAct(m)}});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render()});
+render();
+})();
+</script>

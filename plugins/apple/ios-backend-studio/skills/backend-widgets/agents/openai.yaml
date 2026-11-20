@@ -1,0 +1,6 @@
+interface:
+  display_name: Widgets backed by shared domain state
+  short_description: Widgets backed by shared domain state
+  default_prompt: Use $backend-widgets for this backend integration task, preserving the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

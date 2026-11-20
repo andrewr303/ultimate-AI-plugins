@@ -1,0 +1,6 @@
+interface:
+  display_name: Review Migrate
+  short_description: iOS review migrate workflows and verification
+  default_prompt: Use $ios-review-migrate to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

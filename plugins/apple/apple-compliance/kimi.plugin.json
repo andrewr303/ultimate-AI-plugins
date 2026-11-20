@@ -1,0 +1,9 @@
+{
+  "name": "apple-compliance",
+  "version": "1.0.0",
+  "description": "Prepare Apple-platform apps for policy review, privacy evidence, signing, metadata, TestFlight, submission and distribution with source-backed checks.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Apple Compliance"
+  }
+}

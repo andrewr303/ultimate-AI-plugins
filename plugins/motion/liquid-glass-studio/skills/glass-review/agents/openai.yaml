@@ -1,0 +1,7 @@
+interface:
+  display_name: Glass Review
+  short_description: Evidence-based glass review
+  default_prompt: Use $glass-review to audit the glass surfaces in this project and
+    report findings with severity, repro steps and evidence.
+policy:
+  allow_implicit_invocation: true

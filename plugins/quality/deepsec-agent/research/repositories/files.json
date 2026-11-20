@@ -1,0 +1,654 @@
+[
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/README.md",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/README.md",
+    "bytes": 20250,
+    "status": "ok",
+    "source_id": "src_001"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/LICENSE",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/LICENSE",
+    "bytes": 26526,
+    "status": "ok",
+    "source_id": "src_002"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "cli/src/semgrep/commands/scan.py",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/src/semgrep/commands/scan.py",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/cli/src/semgrep/commands/scan.py",
+    "bytes": 42031,
+    "status": "ok",
+    "source_id": "src_003"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "cli/src/semgrep/formatter/json.py",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/src/semgrep/formatter/json.py",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/cli/src/semgrep/formatter/json.py",
+    "bytes": 1739,
+    "status": "ok",
+    "source_id": "src_004"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "cli/src/semgrep/formatter/sarif.py",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/src/semgrep/formatter/sarif.py",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/cli/src/semgrep/formatter/sarif.py",
+    "bytes": 3167,
+    "status": "ok",
+    "source_id": "src_005"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "cli/pyproject.toml",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/pyproject.toml",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/cli/pyproject.toml",
+    "bytes": 5831,
+    "status": "ok",
+    "source_id": "src_006"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/README.md",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/README.md",
+    "bytes": 29998,
+    "status": "ok",
+    "source_id": "src_007"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/LICENSE",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/LICENSE",
+    "bytes": 1069,
+    "status": "ok",
+    "source_id": "src_008"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "cmd/root.go",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/cmd/root.go",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/cmd/root.go",
+    "bytes": 17157,
+    "status": "ok",
+    "source_id": "src_009"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "cmd/directory.go",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/cmd/directory.go",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/cmd/directory.go",
+    "bytes": 1640,
+    "status": "ok",
+    "source_id": "src_010"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "report/finding.go",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/report/finding.go",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/report/finding.go",
+    "bytes": 2883,
+    "status": "ok",
+    "source_id": "src_011"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "report/json.go",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/report/json.go",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/report/json.go",
+    "bytes": 289,
+    "status": "ok",
+    "source_id": "src_012"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "report/json_test.go",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/report/json_test.go",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/report/json_test.go",
+    "bytes": 1744,
+    "status": "ok",
+    "source_id": "src_013"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "go.mod",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/go.mod",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/go.mod",
+    "bytes": 3677,
+    "status": "ok",
+    "source_id": "src_014"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/README.md",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/README.md",
+    "bytes": 11071,
+    "status": "ok",
+    "source_id": "src_015"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/LICENSE",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/LICENSE",
+    "bytes": 11358,
+    "status": "ok",
+    "source_id": "src_016"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "cmd/osv-scanner/scan/source/command.go",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/cmd/osv-scanner/scan/source/command.go",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/cmd/osv-scanner/scan/source/command.go",
+    "bytes": 6423,
+    "status": "ok",
+    "source_id": "src_017"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "internal/output/machinejson.go",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/internal/output/machinejson.go",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/internal/output/machinejson.go",
+    "bytes": 376,
+    "status": "ok",
+    "source_id": "src_018"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "internal/output/machinejson_test.go",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/internal/output/machinejson_test.go",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/internal/output/machinejson_test.go",
+    "bytes": 1812,
+    "status": "ok",
+    "source_id": "src_019"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "docs/output.md",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/docs/output.md",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/docs/output.md",
+    "bytes": 27757,
+    "status": "ok",
+    "source_id": "src_020"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "go.mod",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/go.mod",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/go.mod",
+    "bytes": 11081,
+    "status": "ok",
+    "source_id": "src_021"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/README.md",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/README.md",
+    "bytes": 5590,
+    "status": "ok",
+    "source_id": "src_022"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/LICENSE",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/LICENSE",
+    "bytes": 11357,
+    "status": "ok",
+    "source_id": "src_023"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/flag/report_flags.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/flag/report_flags.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/flag/report_flags.go",
+    "bytes": 10380,
+    "status": "ok",
+    "source_id": "src_024"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/types/report.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/types/report.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/types/report.go",
+    "bytes": 7402,
+    "status": "ok",
+    "source_id": "src_025"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/report/json.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/report/json.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/report/json.go",
+    "bytes": 1075,
+    "status": "ok",
+    "source_id": "src_026"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/report/json_test.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/report/json_test.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/report/json_test.go",
+    "bytes": 2466,
+    "status": "ok",
+    "source_id": "src_027"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "go.mod",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/go.mod",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/go.mod",
+    "bytes": 25275,
+    "status": "ok",
+    "source_id": "src_028"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "README.rst",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/README.rst",
+    "local": "/workspace/work/repo-research/files/PyCQA__bandit/README.rst",
+    "bytes": 4520,
+    "status": "ok",
+    "source_id": "src_029"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/LICENSE",
+    "local": "/workspace/work/repo-research/files/PyCQA__bandit/LICENSE",
+    "bytes": 10142,
+    "status": "ok",
+    "source_id": "src_030"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "bandit/cli/main.py",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/bandit/cli/main.py",
+    "local": "/workspace/work/repo-research/files/PyCQA__bandit/bandit/cli/main.py",
+    "bytes": 20876,
+    "status": "ok",
+    "source_id": "src_031"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "bandit/formatters/json.py",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/bandit/formatters/json.py",
+    "local": "/workspace/work/repo-research/files/PyCQA__bandit/bandit/formatters/json.py",
+    "bytes": 4330,
+    "status": "ok",
+    "source_id": "src_032"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "tests/unit/formatters/test_json.py",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/tests/unit/formatters/test_json.py",
+    "local": "/workspace/work/repo-research/files/PyCQA__bandit/tests/unit/formatters/test_json.py",
+    "bytes": 3835,
+    "status": "ok",
+    "source_id": "src_033"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "pyproject.toml",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/pyproject.toml",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repo": "bridgecrewio/checkov",
+    "sha": "359a05bc488f9db9e36ae060f3665b9bf324df4c",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/bridgecrewio/checkov/359a05bc488f9db9e36ae060f3665b9bf324df4c/README.md",
+    "local": "/workspace/work/repo-research/files/bridgecrewio__checkov/README.md",
+    "bytes": 23252,
+    "status": "ok",
+    "source_id": "src_034"
+  },
+  {
+    "repo": "bridgecrewio/checkov",
+    "sha": "359a05bc488f9db9e36ae060f3665b9bf324df4c",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/bridgecrewio/checkov/359a05bc488f9db9e36ae060f3665b9bf324df4c/LICENSE",
+    "local": "/workspace/work/repo-research/files/bridgecrewio__checkov/LICENSE",
+    "bytes": 11348,
+    "status": "ok",
+    "source_id": "src_035"
+  },
+  {
+    "repo": "bridgecrewio/checkov",
+    "sha": "359a05bc488f9db9e36ae060f3665b9bf324df4c",
+    "path": "checkov/main.py",
+    "url": "https://raw.githubusercontent.com/bridgecrewio/checkov/359a05bc488f9db9e36ae060f3665b9bf324df4c/checkov/main.py",
+    "local": "/workspace/work/repo-research/files/bridgecrewio__checkov/checkov/main.py",
+    "bytes": 50424,
+    "status": "ok",
+    "source_id": "src_036"
+  },
+  {
+    "repo": "bridgecrewio/checkov",
+    "sha": "359a05bc488f9db9e36ae060f3665b9bf324df4c",
+    "path": "checkov/common/output/report.py",
+    "url": "https://raw.githubusercontent.com/bridgecrewio/checkov/359a05bc488f9db9e36ae060f3665b9bf324df4c/checkov/common/output/report.py",
+    "local": "/workspace/work/repo-research/files/bridgecrewio__checkov/checkov/common/output/report.py",
+    "bytes": 31898,
+    "status": "ok",
+    "source_id": "src_037"
+  },
+  {
+    "repo": "bridgecrewio/checkov",
+    "sha": "359a05bc488f9db9e36ae060f3665b9bf324df4c",
+    "path": "pyproject.toml",
+    "url": "https://raw.githubusercontent.com/bridgecrewio/checkov/359a05bc488f9db9e36ae060f3665b9bf324df4c/pyproject.toml",
+    "local": "/workspace/work/repo-research/files/bridgecrewio__checkov/pyproject.toml",
+    "bytes": 4507,
+    "status": "ok",
+    "source_id": "src_038"
+  },
+  {
+    "repo": "ast-grep/ast-grep",
+    "sha": "58283ad606265eb8ea466705f7e6cc8d83fecc56",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/ast-grep/ast-grep/58283ad606265eb8ea466705f7e6cc8d83fecc56/README.md",
+    "local": "/workspace/work/repo-research/files/ast-grep__ast-grep/README.md",
+    "bytes": 5689,
+    "status": "ok",
+    "source_id": "src_039"
+  },
+  {
+    "repo": "ast-grep/ast-grep",
+    "sha": "58283ad606265eb8ea466705f7e6cc8d83fecc56",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/ast-grep/ast-grep/58283ad606265eb8ea466705f7e6cc8d83fecc56/LICENSE",
+    "local": "/workspace/work/repo-research/files/ast-grep__ast-grep/LICENSE",
+    "bytes": 1077,
+    "status": "ok",
+    "source_id": "src_040"
+  },
+  {
+    "repo": "ast-grep/ast-grep",
+    "sha": "58283ad606265eb8ea466705f7e6cc8d83fecc56",
+    "path": "crates/cli/src/run.rs",
+    "url": "https://raw.githubusercontent.com/ast-grep/ast-grep/58283ad606265eb8ea466705f7e6cc8d83fecc56/crates/cli/src/run.rs",
+    "local": "/workspace/work/repo-research/files/ast-grep__ast-grep/crates/cli/src/run.rs",
+    "bytes": 15762,
+    "status": "ok",
+    "source_id": "src_041"
+  },
+  {
+    "repo": "ast-grep/ast-grep",
+    "sha": "58283ad606265eb8ea466705f7e6cc8d83fecc56",
+    "path": "Cargo.toml",
+    "url": "https://raw.githubusercontent.com/ast-grep/ast-grep/58283ad606265eb8ea466705f7e6cc8d83fecc56/Cargo.toml",
+    "local": "/workspace/work/repo-research/files/ast-grep__ast-grep/Cargo.toml",
+    "bytes": 1326,
+    "status": "ok",
+    "source_id": "src_042"
+  },
+  {
+    "repo": "trailofbits/skills",
+    "sha": "db5393caf5ddc0e158849199930be78ad9539ebb",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/trailofbits/skills/db5393caf5ddc0e158849199930be78ad9539ebb/README.md",
+    "local": "/workspace/work/repo-research/files/trailofbits__skills/README.md",
+    "bytes": 10584,
+    "status": "ok",
+    "source_id": "src_043"
+  },
+  {
+    "repo": "trailofbits/skills",
+    "sha": "db5393caf5ddc0e158849199930be78ad9539ebb",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/trailofbits/skills/db5393caf5ddc0e158849199930be78ad9539ebb/LICENSE",
+    "local": "/workspace/work/repo-research/files/trailofbits__skills/LICENSE",
+    "bytes": 20131,
+    "status": "ok",
+    "source_id": "src_044"
+  },
+  {
+    "repo": "trailofbits/skills",
+    "sha": "db5393caf5ddc0e158849199930be78ad9539ebb",
+    "path": "plugins/static-analysis/skills/semgrep/SKILL.md",
+    "url": "https://raw.githubusercontent.com/trailofbits/skills/db5393caf5ddc0e158849199930be78ad9539ebb/plugins/static-analysis/skills/semgrep/SKILL.md",
+    "local": "/workspace/work/repo-research/files/trailofbits__skills/plugins/static-analysis/skills/semgrep/SKILL.md",
+    "bytes": 15678,
+    "status": "ok",
+    "source_id": "src_045"
+  },
+  {
+    "repo": "trailofbits/skills",
+    "sha": "db5393caf5ddc0e158849199930be78ad9539ebb",
+    "path": ".claude-plugin/marketplace.json",
+    "url": "https://raw.githubusercontent.com/trailofbits/skills/db5393caf5ddc0e158849199930be78ad9539ebb/.claude-plugin/marketplace.json",
+    "local": "/workspace/work/repo-research/files/trailofbits__skills/.claude-plugin/marketplace.json",
+    "bytes": 18994,
+    "status": "ok",
+    "source_id": "src_046"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "cli/tests/default/e2e/test_output.py",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/tests/default/e2e/test_output.py",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/cli/tests/default/e2e/test_output.py",
+    "bytes": 22291,
+    "status": "ok",
+    "source_id": "src_047"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "cli/tests/default/e2e/test_output_sarif.py",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/tests/default/e2e/test_output_sarif.py",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/cli/tests/default/e2e/test_output_sarif.py",
+    "bytes": 11807,
+    "status": "ok",
+    "source_id": "src_048"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "cli/src/semgrep/formatter/base.py",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/cli/src/semgrep/formatter/base.py",
+    "local": "/workspace/work/repo-research/files/semgrep__semgrep/cli/src/semgrep/formatter/base.py",
+    "bytes": 5319,
+    "status": "ok",
+    "source_id": "src_049"
+  },
+  {
+    "repo": "semgrep/semgrep",
+    "sha": "087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b",
+    "path": "interfaces/semgrep_output_v1.atd",
+    "url": "https://raw.githubusercontent.com/semgrep/semgrep/087e93b3a1fdf44f97bc92b5b9c2ba221cb2488b/interfaces/semgrep_output_v1.atd",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "cmd/git.go",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/cmd/git.go",
+    "local": "/workspace/work/repo-research/files/gitleaks__gitleaks/cmd/git.go",
+    "bytes": 2543,
+    "status": "ok",
+    "source_id": "src_050"
+  },
+  {
+    "repo": "gitleaks/gitleaks",
+    "sha": "8d1f98c7967eb1e79cb44ac6241a124e145d2165",
+    "path": "cmd/git_test.go",
+    "url": "https://raw.githubusercontent.com/gitleaks/gitleaks/8d1f98c7967eb1e79cb44ac6241a124e145d2165/cmd/git_test.go",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "pkg/models/results.go",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/pkg/models/results.go",
+    "local": "/workspace/work/repo-research/files/google__osv-scanner/pkg/models/results.go",
+    "bytes": 11335,
+    "status": "ok",
+    "source_id": "src_051"
+  },
+  {
+    "repo": "google/osv-scanner",
+    "sha": "0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115",
+    "path": "cmd/osv-scanner/internal/helper/scan_flags.go",
+    "url": "https://raw.githubusercontent.com/google/osv-scanner/0c8f9eb4570f6e5a8d8fcc9a9fc3c41255d46115/cmd/osv-scanner/internal/helper/scan_flags.go",
+    "status": "error",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/flag/db_flags.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/flag/db_flags.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/flag/db_flags.go",
+    "bytes": 5762,
+    "status": "ok",
+    "source_id": "src_052"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/flag/scan_flags.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/flag/scan_flags.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/flag/scan_flags.go",
+    "bytes": 10649,
+    "status": "ok",
+    "source_id": "src_053"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/types/vulnerability.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/types/vulnerability.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/types/vulnerability.go",
+    "bytes": 2700,
+    "status": "ok",
+    "source_id": "src_054"
+  },
+  {
+    "repo": "aquasecurity/trivy",
+    "sha": "0231990f702f626e6981afaafcb0c97d43be28c7",
+    "path": "pkg/types/misconfiguration.go",
+    "url": "https://raw.githubusercontent.com/aquasecurity/trivy/0231990f702f626e6981afaafcb0c97d43be28c7/pkg/types/misconfiguration.go",
+    "local": "/workspace/work/repo-research/files/aquasecurity__trivy/pkg/types/misconfiguration.go",
+    "bytes": 1626,
+    "status": "ok",
+    "source_id": "src_055"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "setup.cfg",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/setup.cfg",
+    "local": "/workspace/work/repo-research/files/PyCQA__bandit/setup.cfg",
+    "bytes": 7353,
+    "status": "ok",
+    "source_id": "src_056"
+  },
+  {
+    "repo": "PyCQA/bandit",
+    "sha": "92ae8b82fb422a639f0ed8d99e96cea769594e08",
+    "path": "setup.py",
+    "url": "https://raw.githubusercontent.com/PyCQA/bandit/92ae8b82fb422a639f0ed8d99e96cea769594e08/setup.py",
+    "local": "/workspace/work/repo-research/files/PyCQA__bandit/setup.py",
+    "bytes": 397,
+    "status": "ok",
+    "source_id": "src_057"
+  },
+  {
+    "repo": "bridgecrewio/checkov",
+    "sha": "359a05bc488f9db9e36ae060f3665b9bf324df4c",
+    "path": "integration_tests/test_checkov_json_report.py",
+    "url": "https://raw.githubusercontent.com/bridgecrewio/checkov/359a05bc488f9db9e36ae060f3665b9bf324df4c/integration_tests/test_checkov_json_report.py",
+    "local": "/workspace/work/repo-research/files/bridgecrewio__checkov/integration_tests/test_checkov_json_report.py",
+    "bytes": 3674,
+    "status": "ok",
+    "source_id": "src_058"
+  },
+  {
+    "repo": "ast-grep/ast-grep",
+    "sha": "58283ad606265eb8ea466705f7e6cc8d83fecc56",
+    "path": "crates/cli/tests/run_test.rs",
+    "url": "https://raw.githubusercontent.com/ast-grep/ast-grep/58283ad606265eb8ea466705f7e6cc8d83fecc56/crates/cli/tests/run_test.rs",
+    "local": "/workspace/work/repo-research/files/ast-grep__ast-grep/crates/cli/tests/run_test.rs",
+    "bytes": 8407,
+    "status": "ok",
+    "source_id": "src_059"
+  },
+  {
+    "repo": "trailofbits/skills",
+    "sha": "db5393caf5ddc0e158849199930be78ad9539ebb",
+    "path": "plugins/static-analysis/workflows/semgrep-scan.js",
+    "url": "https://raw.githubusercontent.com/trailofbits/skills/db5393caf5ddc0e158849199930be78ad9539ebb/plugins/static-analysis/workflows/semgrep-scan.js",
+    "local": "/workspace/work/repo-research/files/trailofbits__skills/plugins/static-analysis/workflows/semgrep-scan.js",
+    "bytes": 29345,
+    "status": "ok",
+    "source_id": "src_060"
+  },
+  {
+    "repo": "trailofbits/skills",
+    "sha": "db5393caf5ddc0e158849199930be78ad9539ebb",
+    "path": "plugins/static-analysis/skills/semgrep/scripts/test_merge_sarif.py",
+    "url": "https://raw.githubusercontent.com/trailofbits/skills/db5393caf5ddc0e158849199930be78ad9539ebb/plugins/static-analysis/skills/semgrep/scripts/test_merge_sarif.py",
+    "local": "/workspace/work/repo-research/files/trailofbits__skills/plugins/static-analysis/skills/semgrep/scripts/test_merge_sarif.py",
+    "bytes": 22943,
+    "status": "ok",
+    "source_id": "src_061"
+  },
+  {
+    "repo": "trailofbits/skills",
+    "sha": "db5393caf5ddc0e158849199930be78ad9539ebb",
+    "path": "plugins/semgrep-rule-variant-creator/tests/workflow-functions.test.mjs",
+    "url": "https://raw.githubusercontent.com/trailofbits/skills/db5393caf5ddc0e158849199930be78ad9539ebb/plugins/semgrep-rule-variant-creator/tests/workflow-functions.test.mjs",
+    "local": "/workspace/work/repo-research/files/trailofbits__skills/plugins/semgrep-rule-variant-creator/tests/workflow-functions.test.mjs",
+    "bytes": 22608,
+    "status": "ok",
+    "source_id": "src_062"
+  }
+]

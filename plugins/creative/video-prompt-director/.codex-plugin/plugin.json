@@ -1,0 +1,26 @@
+{
+  "name": "video-prompt-director",
+  "version": "1.0.1",
+  "description": "Create five detailed video prompt variations by default, with scene-by-scene direction, timed action, reference roles, and continuity controls.",
+  "keywords": [
+    "creative-direction",
+    "prompt-writing",
+    "video"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Video Prompt Director",
+    "shortDescription": "Five scene-by-scene prompts",
+    "longDescription": "Develop five complete video concepts by default, each with detailed scene and shot direction, timed action, camera choreography, continuity, sound, and copy-ready clip prompts. Covers text-to-video, image-to-video, reference media, first/last frames, narrative endpoints, keyframes, continuation, edits, loops, and longer sequences. Includes dated Grok and Google Omni guidance and a portable workflow for other models. Respects requested counts, duration, brevity, and single-shot requirements. Authors prompts and production plans; rendering and assembly use your chosen tools separately.",
+    "category": "Creativity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Create five detailed scene-by-scene video prompt variations from my brief, with copy-ready shot prompts.",
+      "Plan five video variations between my first and last frames, preserving identity and plausible motion.",
+      "Turn my reference images into five cinematic video prompt variations for Grok video or Google Omni."
+    ]
+  },
+  "author": {
+    "name": "Andrew Rodriguez"
+  }
+}

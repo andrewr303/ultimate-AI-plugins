@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Relay · synthetic custom-template fixture</title>
+<style>
+* { box-sizing:border-box }
+body { margin:0; width:100vw; height:100vh; background:#152921; color:#f5f3e9; font:clamp(12px,3vw,24px)/1.3 Arial,sans-serif }
+.proof { position:absolute; left:6%; top:7%; width:88%; height:62% }
+.eyebrow { margin:0 0 3%; color:#c8ed9a; font-size:.5em; letter-spacing:.15em; text-transform:uppercase }
+h1 { margin:0 0 4%; font-size:1.25em; font-weight:500 }
+.card { padding:4%; background:#f5f3e9; color:#152921; border-radius:10px; display:flex; gap:4%; align-items:center }
+.number { font-size:1.7em; color:#54704b }
+.label { flex:1; min-width:0 }
+.label strong { display:block; font-size:.74em }
+.label span { display:block; margin-top:4px; font-size:.6em }
+.state { border-radius:20px; padding:8px 12px; background:#e2e6db; font-size:.5em; white-space:nowrap }
+.caption { position:absolute; left:6%; bottom:20%; width:88%; font-size:.62em; color:#e1e8dc }
+.cta { position:absolute; left:6%; bottom:8%; font-size:.5em; color:#c8ed9a }
+</style>
+<section class="proof" data-pds-role="content">
+  <p class="eyebrow">Relay / illustrative local fixture</p>
+  <h1>A clear next step.</h1>
+  <div class="card"><span class="number">01</span><div class="label"><strong>Review the launch note</strong><span id="detail">Waiting for the review state</span></div><span class="state">Queued</span></div>
+</section>
+<div class="caption" data-pds-role="caption"></div>
+<div class="cta" data-pds-role="cta"></div>
+<script>
+let config;
+window.configure = async job => {
+  config = job;
+  document.querySelector('h1').textContent = job.hook;
+  document.querySelector('.cta').textContent = job.cta;
+};
+window.seek = async seconds => {
+  const ready = seconds >= 1.25;
+  document.querySelector('.state').textContent = ready ? 'Ready for review' : 'Queued';
+  document.querySelector('.state').style.background = ready ? '#c8ed9a' : '#e2e6db';
+  document.querySelector('#detail').textContent = ready ? 'Inspect the authored result' : 'Waiting for the review state';
+  const caption = config.captions.find(c => c.start <= seconds && seconds < c.end);
+  document.querySelector('.caption').textContent = caption ? caption.text : '';
+  return { seconds, scene:ready ? 'review-ready' : 'queued', synthetic:true };
+};
+</script>
+</html>

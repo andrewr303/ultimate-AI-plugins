@@ -1,0 +1,6 @@
+interface:
+  display_name: Liquid Glass Studio
+  short_description: Plan and route glass UI work
+  default_prompt: Use $liquid-glass-studio to plan the requested liquid glass style work, open the matching skills, and verify every tier.
+policy:
+  allow_implicit_invocation: true

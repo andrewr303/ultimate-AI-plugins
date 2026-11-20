@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:interactive-demo",
+  "title": "Interactive Demo",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "productRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "enum": [
+        "actual",
+        "replay",
+        "illustrative"
+      ]
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "initialState": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "terminal": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "purpose"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "event": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9._-]*$",
+            "maxLength": 100
+          },
+          "announcement": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "from",
+          "event",
+          "to"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "keyboard": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "reducedMotion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataPolicy": {
+      "enum": [
+        "synthetic-local",
+        "supplied-local",
+        "configured-live"
+      ]
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9._-]*$",
+        "maxLength": 100
+      },
+      "minItems": 0
+    },
+    "resourcePaths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "productRevision",
+    "mode",
+    "label",
+    "purpose",
+    "initialState",
+    "states",
+    "transitions",
+    "keyboard",
+    "reducedMotion",
+    "dataPolicy",
+    "claims"
+  ],
+  "additionalProperties": false
+}

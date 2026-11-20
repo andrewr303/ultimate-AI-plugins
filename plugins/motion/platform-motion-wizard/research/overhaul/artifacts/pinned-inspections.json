@@ -1,0 +1,620 @@
+{
+  "mode": "manual source review",
+  "finalists": [
+    {
+      "repo": "motiondivision/motion",
+      "sha": "a03a6daf30d6ff63286e716a0f612d3b3a493802",
+      "grade": "strong",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/README.md",
+          "source_id": "ovr_src_motion_file_0",
+          "kind": "readme"
+        },
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/LICENSE.md",
+          "source_id": "ovr_src_motion_file_1",
+          "kind": "license"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/CHANGELOG.md",
+          "source_id": "ovr_src_motion_file_2",
+          "kind": "history"
+        },
+        {
+          "path": "packages/framer-motion/package.json",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/packages/framer-motion/package.json",
+          "source_id": "ovr_src_motion_file_3",
+          "kind": "manifest"
+        },
+        {
+          "path": "packages/framer-motion/src/components/AnimatePresence/index.tsx",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/packages/framer-motion/src/components/AnimatePresence/index.tsx",
+          "source_id": "ovr_src_motion_presence",
+          "kind": "implementation"
+        },
+        {
+          "path": "packages/framer-motion/src/components/AnimatePresence/__tests__/reentry-during-exit.test.tsx",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/packages/framer-motion/src/components/AnimatePresence/__tests__/reentry-during-exit.test.tsx",
+          "source_id": "ovr_src_motion_reentry",
+          "kind": "test"
+        },
+        {
+          "path": "packages/framer-motion/src/components/Reorder/utils/auto-scroll.ts",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/packages/framer-motion/src/components/Reorder/utils/auto-scroll.ts",
+          "source_id": "ovr_src_motion_file_6",
+          "kind": "implementation"
+        },
+        {
+          "path": "packages/framer-motion/src/components/Reorder/utils/__tests__/auto-scroll.test.ts",
+          "url": "https://github.com/motiondivision/motion/blob/a03a6daf30d6ff63286e716a0f612d3b3a493802/packages/framer-motion/src/components/Reorder/utils/__tests__/auto-scroll.test.ts",
+          "source_id": "ovr_src_motion_file_7",
+          "kind": "test"
+        }
+      ],
+      "dependency_surface": {
+        "path": "packages/framer-motion/package.json",
+        "version_observed": "14.5.0",
+        "dependencies": {
+          "motion-dom": "14.5.0",
+          "motion-utils": "14.1.1",
+          "tslib": "^2.4.0"
+        },
+        "peerDependencies": {
+          "react": "^18.0.0 || ^19.0.0",
+          "react-dom": "^18.0.0 || ^19.0.0"
+        }
+      },
+      "runtime_tests_executed": false,
+      "license_decision": "Original prose and implementation; no upstream source, tests, text or assets incorporated. No legal clearance claim."
+    },
+    {
+      "repo": "mui/base-ui",
+      "sha": "798983a1392f23c53b0740d047eab53a951376ac",
+      "grade": "strong",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/mui/base-ui/blob/798983a1392f23c53b0740d047eab53a951376ac/README.md",
+          "source_id": "ovr_src_base_file_0",
+          "kind": "readme"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/mui/base-ui/blob/798983a1392f23c53b0740d047eab53a951376ac/LICENSE",
+          "source_id": "ovr_src_base_file_1",
+          "kind": "license"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "url": "https://github.com/mui/base-ui/blob/798983a1392f23c53b0740d047eab53a951376ac/CHANGELOG.md",
+          "source_id": "ovr_src_base_file_2",
+          "kind": "history"
+        },
+        {
+          "path": "packages/react/package.json",
+          "url": "https://github.com/mui/base-ui/blob/798983a1392f23c53b0740d047eab53a951376ac/packages/react/package.json",
+          "source_id": "ovr_src_base_file_3",
+          "kind": "manifest"
+        },
+        {
+          "path": "packages/react/src/internals/useAnimationsFinished.ts",
+          "url": "https://github.com/mui/base-ui/blob/798983a1392f23c53b0740d047eab53a951376ac/packages/react/src/internals/useAnimationsFinished.ts",
+          "source_id": "ovr_src_base_finish",
+          "kind": "implementation"
+        },
+        {
+          "path": "packages/react/src/internals/useAnimationsFinished.test.tsx",
+          "url": "https://github.com/mui/base-ui/blob/798983a1392f23c53b0740d047eab53a951376ac/packages/react/src/internals/useAnimationsFinished.test.tsx",
+          "source_id": "ovr_src_base_finish_test",
+          "kind": "test"
+        },
+        {
+          "path": "packages/react/src/utils/getFiniteAnimations.ts",
+          "url": "https://github.com/mui/base-ui/blob/798983a1392f23c53b0740d047eab53a951376ac/packages/react/src/utils/getFiniteAnimations.ts",
+          "source_id": "ovr_src_base_file_6",
+          "kind": "implementation"
+        }
+      ],
+      "dependency_surface": {
+        "path": "packages/react/package.json",
+        "version_observed": "1.9.0",
+        "dependencies": {
+          "@babel/runtime": "^7.29.7 || ^8.0.0",
+          "@base-ui/utils": "workspace:*",
+          "@floating-ui/react-dom": "^2.1.9",
+          "@floating-ui/utils": "^0.2.12",
+          "use-sync-external-store": "^1.7.0"
+        },
+        "peerDependencies": {
+          "@date-fns/tz": "^1.2.0",
+          "@types/react": "^17 || ^18 || ^19",
+          "date-fns": "^4.0.0",
+          "react": "^17 || ^18 || ^19",
+          "react-dom": "^17 || ^18 || ^19"
+        }
+      },
+      "runtime_tests_executed": false,
+      "license_decision": "Original prose and implementation; no upstream source, tests, text or assets incorporated. No legal clearance claim."
+    },
+    {
+      "repo": "adobe/react-spectrum",
+      "sha": "2eb4e0e9154943e92466daf9213183af84b6e6ad",
+      "grade": "strong",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/adobe/react-spectrum/blob/2eb4e0e9154943e92466daf9213183af84b6e6ad/README.md",
+          "source_id": "ovr_src_aria_file_0",
+          "kind": "readme"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/adobe/react-spectrum/blob/2eb4e0e9154943e92466daf9213183af84b6e6ad/LICENSE",
+          "source_id": "ovr_src_aria_file_1",
+          "kind": "license"
+        },
+        {
+          "path": "packages/react-aria/package.json",
+          "url": "https://github.com/adobe/react-spectrum/blob/2eb4e0e9154943e92466daf9213183af84b6e6ad/packages/react-aria/package.json",
+          "source_id": "ovr_src_aria_file_2",
+          "kind": "manifest"
+        },
+        {
+          "path": "packages/react-aria/src/interactions/usePress.ts",
+          "url": "https://github.com/adobe/react-spectrum/blob/2eb4e0e9154943e92466daf9213183af84b6e6ad/packages/react-aria/src/interactions/usePress.ts",
+          "source_id": "ovr_src_aria_press",
+          "kind": "implementation"
+        },
+        {
+          "path": "packages/react-aria/src/overlays/useModalOverlay.ts",
+          "url": "https://github.com/adobe/react-spectrum/blob/2eb4e0e9154943e92466daf9213183af84b6e6ad/packages/react-aria/src/overlays/useModalOverlay.ts",
+          "source_id": "ovr_src_aria_file_4",
+          "kind": "implementation"
+        },
+        {
+          "path": "packages/dev/docs/pages/releases/2025-10-02.mdx",
+          "url": "https://github.com/adobe/react-spectrum/blob/2eb4e0e9154943e92466daf9213183af84b6e6ad/packages/dev/docs/pages/releases/2025-10-02.mdx",
+          "source_id": "ovr_src_aria_file_5",
+          "kind": "history"
+        },
+        {
+          "path": "packages/react-aria/test/interactions/usePress.test.js",
+          "url": "https://github.com/adobe/react-spectrum/blob/2eb4e0e9154943e92466daf9213183af84b6e6ad/packages/react-aria/test/interactions/usePress.test.js",
+          "source_id": "ovr_src_aria_press_test",
+          "kind": "test",
+          "reviewed_ranges": [
+            [
+              691,
+              748
+            ],
+            [
+              3817,
+              3840
+            ]
+          ],
+          "observation": "Source fixtures exercise pointer cancellation and cleanup after unmount; inspected only."
+        }
+      ],
+      "dependency_surface": {
+        "path": "packages/react-aria/package.json",
+        "version_observed": "3.53.1",
+        "dependencies": {
+          "@internationalized/date": "^3.12.4",
+          "@internationalized/number": "^3.6.9",
+          "@internationalized/string": "^3.2.10",
+          "@react-types/shared": "^3.37.0",
+          "@swc/helpers": "^0.5.0",
+          "aria-hidden": "^1.2.3",
+          "clsx": "^2.0.0",
+          "react-stately": "3.51.0",
+          "use-sync-external-store": "^1.6.0"
+        },
+        "peerDependencies": {
+          "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1",
+          "react-dom": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1"
+        }
+      },
+      "runtime_tests_executed": false,
+      "license_decision": "Original prose and implementation; no upstream source, tests, text or assets incorporated. No legal clearance claim."
+    },
+    {
+      "repo": "tailwindlabs/headlessui",
+      "sha": "eea57cf46fd6767ed1059012f7073b88eb159fba",
+      "grade": "strong (category fit); background (activity)",
+      "fit": "Transition lifecycle inside accessible React/Vue primitives.",
+      "gap": "No recent default-branch implementation activity in the requested screen; internal lifecycle helper is not a public API; inspected nested-transition fixtures use xit.",
+      "files": [
+        {
+          "path": "packages/@headlessui-react/src/hooks/use-transition.ts",
+          "lines": [
+            256,
+            280
+          ],
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/src/hooks/use-transition.ts#L256-L280",
+          "observation": "waitForTransition creates its own disposables guard, marks canceled during disposal, completes immediately when there are no CSSTransitions, and waits with Promise.allSettled while suppressing disposed completion.",
+          "kind": "implementation",
+          "source_id": "ovr_src_headless_implementation_0"
+        },
+        {
+          "path": "packages/@headlessui-react/src/hooks/use-transition.ts",
+          "lines": [
+            115,
+            178
+          ],
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/src/hooks/use-transition.ts#L115-L178",
+          "observation": "Transition effect has separate in-flight/cancel state and exposes start/end callbacks around presentation flags; this is rendering lifecycle rather than a domain operation.",
+          "kind": "implementation",
+          "source_id": "ovr_src_headless_implementation_1"
+        },
+        {
+          "path": "packages/@headlessui-react/src/hooks/use-transition.ts",
+          "lines": [
+            283,
+            313
+          ],
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/src/hooks/use-transition.ts#L283-L313",
+          "observation": "Preparation avoids force-cancel/reflow when already in flight; pending transitions are inspected from getAnimations.",
+          "kind": "implementation",
+          "source_id": "ovr_src_headless_implementation_2"
+        },
+        {
+          "path": "packages/@headlessui-react/src/components/transition/transition.test.tsx",
+          "lines": 1194,
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/src/components/transition/transition.test.tsx",
+          "kind": "test",
+          "source_id": "ovr_src_headless_test_0"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/README.md",
+          "kind": "readme",
+          "source_id": "ovr_src_headless_readme"
+        },
+        {
+          "path": "packages/@headlessui-react/package.json",
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/package.json",
+          "kind": "manifest",
+          "source_id": "ovr_src_headless_manifest"
+        },
+        {
+          "path": "packages/@headlessui-react/CHANGELOG.md",
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/CHANGELOG.md",
+          "kind": "history",
+          "source_id": "ovr_src_headless_history"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/LICENSE",
+          "kind": "license",
+          "source_id": "ovr_src_headless_license"
+        }
+      ],
+      "dependency_surface": {
+        "path": "packages/@headlessui-react/package.json",
+        "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/package.json",
+        "observed_version": "2.2.10",
+        "dependencies": {
+          "@floating-ui/react": "^0.26.16",
+          "@react-aria/focus": "^3.20.2",
+          "@react-aria/interactions": "^3.25.0",
+          "@tanstack/react-virtual": "^3.13.9",
+          "use-sync-external-store": "^1.5.0"
+        },
+        "peerDependencies": {
+          "react": "^18 || ^19 || ^19.0.0-rc",
+          "react-dom": "^18 || ^19 || ^19.0.0-rc"
+        },
+        "runtime_dependencies_required_by_local_plugin": false
+      },
+      "test_caveats": [
+        "The nested transition preservation examples shown here are xit (disabled). They are source fixtures only, not runtime proof."
+      ],
+      "license_label_observed": "MIT",
+      "license_decision": "Original prose and implementation; no upstream source, tests, text or assets incorporated. No legal clearance claim.",
+      "runtime_tests_executed": false
+    },
+    {
+      "repo": "formkit/auto-animate",
+      "sha": "06882a8e69ba9bc8456d8f2ae6010f697fd7a37c",
+      "grade": "match (layout utility); background (activity)",
+      "fit": "Automatic layout entry/removal/reordering; useful lifecycle/controller contrast.",
+      "gap": "Core reduced preference check is performed during initialization; re-enabling a controller is not evidence of reinitializing skipped observers; source is much older than head docs/tests. Memory smoke test describes known leaks, not observed current test outcome.",
+      "files": [
+        {
+          "path": "src/index.ts",
+          "lines": [
+            884,
+            913
+          ],
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/src/index.ts#L884-L913",
+          "observation": "autoAnimate reads matchMedia.matches to decide initialization; this function does not register a media-query change listener.",
+          "kind": "implementation",
+          "source_id": "ovr_src_auto_implementation_0"
+        },
+        {
+          "path": "src/index.ts",
+          "lines": [
+            914,
+            934
+          ],
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/src/index.ts#L914-L934",
+          "observation": "Controller enable adds to enabled set; disable removes enabled state and cancels tracked animations and timers.",
+          "kind": "implementation",
+          "source_id": "ovr_src_auto_implementation_1"
+        },
+        {
+          "path": "src/index.ts",
+          "lines": [
+            937,
+            969
+          ],
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/src/index.ts#L937-L969",
+          "observation": "destroy removes parent/options registries, disconnects mutation/intersection observers, unobserves resize and clears timers/state.",
+          "kind": "implementation",
+          "source_id": "ovr_src_auto_implementation_2"
+        },
+        {
+          "path": "src/index.ts",
+          "lines": [
+            641,
+            650
+          ],
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/src/index.ts#L641-L650",
+          "observation": "Removed-element cleanup removes DOM, drops coordinate/sibling/animation maps and disconnects intersection observer.",
+          "kind": "implementation",
+          "source_id": "ovr_src_auto_implementation_3"
+        },
+        {
+          "path": "tests/e2e/disable.spec.ts",
+          "lines": 28,
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/tests/e2e/disable.spec.ts",
+          "kind": "test",
+          "source_id": "ovr_src_auto_test_0"
+        },
+        {
+          "path": "tests/e2e/memory.spec.ts",
+          "lines": 44,
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/tests/e2e/memory.spec.ts",
+          "kind": "test",
+          "source_id": "ovr_src_auto_test_1"
+        },
+        {
+          "path": "tests/e2e/framework-animations.spec.ts",
+          "lines": 126,
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/tests/e2e/framework-animations.spec.ts",
+          "kind": "test",
+          "source_id": "ovr_src_auto_test_2"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/README.md",
+          "kind": "readme",
+          "source_id": "ovr_src_auto_readme"
+        },
+        {
+          "path": "package.json",
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/package.json",
+          "kind": "manifest",
+          "source_id": "ovr_src_auto_manifest"
+        },
+        {
+          "path": "https://github.com/formkit/auto-animate/releases/tag/v0.10.0",
+          "url": "https://github.com/formkit/auto-animate/releases/tag/v0.10.0",
+          "kind": "history",
+          "source_id": "ovr_src_auto_history"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/LICENSE",
+          "kind": "license",
+          "source_id": "ovr_src_auto_license"
+        }
+      ],
+      "dependency_surface": {
+        "path": "package.json",
+        "url": "https://github.com/formkit/auto-animate/blob/06882a8e69ba9bc8456d8f2ae6010f697fd7a37c/package.json",
+        "observed_version": "0.10.0",
+        "dependencies": {},
+        "peerDependencies": {},
+        "runtime_dependencies_required_by_local_plugin": false
+      },
+      "test_caveats": [
+        "Disable e2e waits, records runningBefore but only asserts it >=0 (does not prove an animation started), then asserts zero running animations after disable.",
+        "Memory smoke test explicitly describes itself as coarse, Chromium-specific and expected to fail due to known leaks; tests not executed here."
+      ],
+      "license_label_observed": "MIT",
+      "license_decision": "Original prose and implementation; no upstream source, tests, text or assets incorporated. No legal clearance claim.",
+      "runtime_tests_executed": false
+    },
+    {
+      "repo": "clauderic/dnd-kit",
+      "sha": "01bc678e93477e56a78aa2244c69b08a96cb0da6",
+      "grade": "strong",
+      "fit": "Input ownership, explicit canceled operation state, keyboard alternative and resource cleanup.",
+      "gap": "Modern modular @dnd-kit/dom and adapters differ from legacy @dnd-kit/core; public installed release must be checked. Source inspection does not prove browser/device accessibility or frame rate.",
+      "files": [
+        {
+          "path": "packages/dom/src/core/sensors/pointer/PointerSensor.ts",
+          "lines": [
+            270,
+            290
+          ],
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/src/core/sensors/pointer/PointerSensor.ts#L270-L290",
+          "observation": "Pointer moves are retained while status is initializing or dragging, avoiding a stale initial position when rendering catches up.",
+          "kind": "implementation",
+          "source_id": "ovr_src_dnd_implementation_0"
+        },
+        {
+          "path": "packages/dom/src/core/sensors/pointer/PointerSensor.ts",
+          "lines": [
+            401,
+            434
+          ],
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/src/core/sensors/pointer/PointerSensor.ts#L401-L434",
+          "observation": "Deferred renderer completion checks aborted signal and current drag state before scheduling; cancel marks the domain operation canceled and cleanup aborts the controller, drops latest values and clears owned callbacks.",
+          "kind": "implementation",
+          "source_id": "ovr_src_dnd_implementation_1"
+        },
+        {
+          "path": "packages/dom/src/core/sensors/pointer/PointerSensor.ts",
+          "lines": [
+            437,
+            440
+          ],
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/src/core/sensors/pointer/PointerSensor.ts#L437-L440",
+          "observation": "Destroy runs interaction cleanup and clears listeners.",
+          "kind": "implementation",
+          "source_id": "ovr_src_dnd_implementation_2"
+        },
+        {
+          "path": "packages/dom/tests/pointer-sensor.test.ts",
+          "lines": 268,
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/tests/pointer-sensor.test.ts",
+          "kind": "test",
+          "source_id": "ovr_src_dnd_test_0"
+        },
+        {
+          "path": "packages/dom/tests/keyboard-sensor.test.ts",
+          "lines": 147,
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/tests/keyboard-sensor.test.ts",
+          "kind": "test",
+          "source_id": "ovr_src_dnd_test_1"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/README.md",
+          "kind": "readme",
+          "source_id": "ovr_src_dnd_readme"
+        },
+        {
+          "path": "packages/dom/package.json",
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/package.json",
+          "kind": "manifest",
+          "source_id": "ovr_src_dnd_manifest"
+        },
+        {
+          "path": "packages/dom/CHANGELOG.md",
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/CHANGELOG.md",
+          "kind": "history",
+          "source_id": "ovr_src_dnd_history"
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/LICENSE",
+          "kind": "license",
+          "source_id": "ovr_src_dnd_license"
+        }
+      ],
+      "dependency_surface": {
+        "path": "packages/dom/package.json",
+        "url": "https://github.com/clauderic/dnd-kit/blob/01bc678e93477e56a78aa2244c69b08a96cb0da6/packages/dom/package.json",
+        "observed_version": "0.5.1",
+        "dependencies": {
+          "@dnd-kit/abstract": "^0.5.1",
+          "@dnd-kit/collision": "^0.5.1",
+          "@dnd-kit/geometry": "^0.5.1",
+          "@dnd-kit/state": "^0.5.1",
+          "tslib": "^2.6.2"
+        },
+        "peerDependencies": {},
+        "runtime_dependencies_required_by_local_plugin": false
+      },
+      "test_caveats": [
+        "Pointer regression defers renderer completion, sends movement while initializing, resolves renderer, and asserts current position catches up.",
+        "Keyboard key-matching regression distinguishes logical key from physical code and tests Space alias."
+      ],
+      "license_label_observed": "MIT",
+      "license_decision": "Original prose and implementation; no upstream source, tests, text or assets incorporated. No legal clearance claim.",
+      "runtime_tests_executed": false
+    },
+    {
+      "repo": "juliangarnier/anime",
+      "sha": "34f417983c1d33103c5d6d50d1c435ef2787ece0",
+      "grade": "strong category fit; relaxed-screen background",
+      "fit": "Scoped animation lifetime and preference-change refresh.",
+      "gap": "Source history falls outside preferred activity screen; source tests shown cover scope roots rather than cancellation races.",
+      "files": [
+        {
+          "path": "src/scope/scope.js",
+          "url": "https://github.com/juliangarnier/anime/blob/34f417983c1d33103c5d6d50d1c435ef2787ece0/src/scope/scope.js",
+          "source_id": "ovr_src_anime_0",
+          "kind": "implementation"
+        },
+        {
+          "path": "tests/suites/scope.test.js",
+          "url": "https://github.com/juliangarnier/anime/blob/34f417983c1d33103c5d6d50d1c435ef2787ece0/tests/suites/scope.test.js",
+          "source_id": "ovr_src_anime_1",
+          "kind": "test"
+        },
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/juliangarnier/anime/blob/34f417983c1d33103c5d6d50d1c435ef2787ece0/LICENSE.md",
+          "source_id": "ovr_src_anime_2",
+          "kind": "license"
+        },
+        {
+          "path": "package.json",
+          "url": "https://github.com/juliangarnier/anime/blob/34f417983c1d33103c5d6d50d1c435ef2787ece0/package.json",
+          "source_id": "ovr_src_anime_3",
+          "kind": "manifest"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/juliangarnier/anime/blob/34f417983c1d33103c5d6d50d1c435ef2787ece0/README.md",
+          "kind": "readme",
+          "source_id": "ovr_src_anime_readme",
+          "observation": "README presents ES-module usage and links separate documentation/migration entrypoints; no setup executed."
+        },
+        {
+          "path": "releases/tag/v4.5.0",
+          "url": "https://github.com/juliangarnier/anime/releases/tag/v4.5.0",
+          "kind": "history",
+          "source_id": "ovr_src_anime_release",
+          "observation": "Official release notes inspected for adapters, rendering, timeline and animation changes; no release behavior inferred or tested."
+        }
+      ],
+      "dependency_surface": {
+        "name": "animejs",
+        "version_observed": "4.5.0",
+        "dependencies": {},
+        "peerDependencies": {
+          "three": ">=0.150.0",
+          "@types/three": ">=0.150.0"
+        },
+        "peerDependenciesMeta": {
+          "three": {
+            "optional": true
+          },
+          "@types/three": {
+            "optional": true
+          }
+        },
+        "manifest_read_as": "Parsed JSON object; no runtime dependencies field. Peer dependencies are optional Three.js adapters, not required by this plugin."
+      },
+      "license_label_observed": "MIT",
+      "license_decision": "Original prose and implementation; no upstream source, tests, text or assets incorporated. No legal clearance claim.",
+      "runtime_tests_executed": false,
+      "test_caveats": [
+        "Scope suite inspected covers root-selection forms rather than cancellation or preference races."
+      ],
+      "fetch_limitations": [
+        "CHANGELOG.md returned 404 at recorded pin; official release notes and commit history were inspected instead."
+      ],
+      "history_tag_observation": {
+        "tag": "v4.5.0",
+        "sha_observed": "2c9cf8ea00329f6768c7d7902252ed977d75ce42",
+        "source_pin_matches_tag": false,
+        "source_id": "ovr_src_anime_tag",
+        "boundary": "Release notes are context; source-path pin is a different commit and is not asserted to equal the shipped release."
+      }
+    }
+  ],
+  "fetch_limitations": [
+    "Initial React Aria test path packages/react-aria/test/usePress.test.js returned 404; the interactions/usePress.test.js path was fetched and inspected afterward.",
+    "Anime CHANGELOG.md returned 404 at recorded pin; official v4.5.0 GitHub release notes and commit history inspected instead."
+  ]
+}

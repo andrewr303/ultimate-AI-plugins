@@ -1,0 +1,14 @@
+{
+  "name": "marketing-page-studio",
+  "version": "1.0.1",
+  "description": "Build accurate product marketing sites with working interactive demonstrations and browser evidence.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": [
+    "marketing",
+    "product",
+    "evidence",
+    "local-production"
+  ]
+}

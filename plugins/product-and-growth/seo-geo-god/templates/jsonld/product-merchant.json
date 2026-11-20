@@ -1,0 +1,59 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "[REPLACE: absolute https URL of this product page]#product",
+  "name": "[REPLACE: product name shown on the page]",
+  "description": "[REPLACE: product description shown on the page]",
+  "image": [
+    "[REPLACE: absolute https URL of a crawlable product image]"
+  ],
+  "sku": "[REPLACE: merchant SKU, or delete this line]",
+  "gtin": "[REPLACE: GTIN from the product packaging, or delete this line]",
+  "brand": {
+    "@type": "Brand",
+    "name": "[REPLACE: brand name]"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "[REPLACE: absolute https URL where this offer can be bought]",
+    "price": "[REPLACE: current price above 0 as a plain number such as 19.99]",
+    "priceCurrency": "[REPLACE: ISO 4217 currency code such as USD]",
+    "availability": "[REPLACE: https://schema.org/InStock or another ItemAvailability value]",
+    "itemCondition": "[REPLACE: https://schema.org/NewCondition or another OfferItemCondition value]",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "[REPLACE: shipping cost as a plain number]",
+        "currency": "[REPLACE: ISO 4217 currency code]"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "[REPLACE: ISO 3166-1 alpha-2 country code]"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "[REPLACE: minimum handling days]",
+          "maxValue": "[REPLACE: maximum handling days]",
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": "[REPLACE: minimum transit days]",
+          "maxValue": "[REPLACE: maximum transit days]",
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "[REPLACE: ISO 3166-1 alpha-2 country code]",
+      "returnPolicyCategory": "[REPLACE: https://schema.org/MerchantReturnFiniteReturnWindow or another MerchantReturnEnumeration value]",
+      "merchantReturnDays": "[REPLACE: return window in days]",
+      "returnMethod": "[REPLACE: https://schema.org/ReturnByMail or another ReturnMethodEnumeration value]",
+      "returnFees": "[REPLACE: https://schema.org/FreeReturn or another ReturnFeesEnumeration value]"
+    }
+  }
+}

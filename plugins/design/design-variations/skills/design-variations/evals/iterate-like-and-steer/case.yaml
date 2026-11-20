@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: iterate-like-and-steer
+expected_outcome: |
+  Round 2 is added on top of the existing invoices variations gallery: ten new options 2a to 2j that evolve 1c
+  and 1g (refinements, pushes, crossovers taking whole named parts, a wildcard), bolder overall, none with a
+  left filter sidebar, 1b's direction not revived, round 1 left as it was, and a reply that opens by restating
+  how the feedback was read.
+context:
+  scaffold_script: place-files.sh

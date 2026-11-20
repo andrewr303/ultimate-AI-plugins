@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "apple-compliance",
+  "version": "1.0.0",
+  "description": "Prepare Apple-platform apps for policy review, privacy evidence, signing, metadata, TestFlight, submission and distribution with source-backed checks.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT",
+  "keywords": [
+    "apple",
+    "ios",
+    "compliance",
+    "app-store",
+    "privacy",
+    "submission",
+    "signing",
+    "storekit",
+    "notarization"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Apple Compliance",
+        "shortDescription": "Prepare apps for Apple review",
+        "longDescription": "Prepare Apple-platform apps for review and distribution using source-backed workflows for App Store policies, privacy, SDK manifests, authentication, digital goods, content, entitlements, metadata, TestFlight, submission, rejection handling and macOS distribution. Preserve unknown product facts and current storefront/agreements. Includes original reference libraries, safe evidence helpers and native Codex, Claude Code and Kimi packaging.",
+        "developerName": "Andrew Rodriguez",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Inspect this app and prepare an evidence-backed Apple submission readiness report with concrete blockers and unknowns.",
+          "Review this privacy, commerce, account, or content issue against current Apple sources and the actual app behavior.",
+          "Help me complete the authorized Apple submission or distribution stage without confusing upload, review, and release."
+        ],
+        "logo": "assets/icon.svg",
+        "composerIcon": "assets/icon.svg"
+      }
+    }
+  }
+}

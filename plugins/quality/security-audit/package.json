@@ -1,0 +1,11 @@
+{
+  "name": "security-audit",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Local tools for an evidence-based security audit plugin",
+  "license": "MIT",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "test": "node --test tests/*.test.cjs skills/security-audit/*.test.cjs"
+  }
+}

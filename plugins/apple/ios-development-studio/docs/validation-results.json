@@ -1,0 +1,44 @@
+{
+  "release": "1.1.0",
+  "environment": {
+    "host": "Linux",
+    "python": "3.12.14"
+  },
+  "unit_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s plugins/ios-development-studio/tests -v",
+    "tests": 81,
+    "result": "passed"
+  },
+  "routing_fixtures": {
+    "count": 41,
+    "result": "passed by test_fixture_routes",
+    "scope": "deterministic keyword aid, not host model invocation"
+  },
+  "apple_runtime": {
+    "result": "not_run",
+    "reason": "Linux executor without macOS/Xcode/Apple device runtime"
+  },
+  "research_review": "manual_source_evidence; no automatic research gate verdict",
+  "package_validation": {
+    "result": "passed",
+    "official_manifest_schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "source_links_and_metadata": "passed",
+    "standard_library_only_cli": "passed using python3 -S",
+    "native_manifests": "portable, Codex, Claude and Kimi synchronized"
+  },
+  "independent_review": {
+    "result": "resolved",
+    "findings_fixed": [
+      "Nonregular-file FIFO discovery hang",
+      "Second nested plugin accepted by package validator",
+      "Recognize synchronized host-generated Codex compatibility overlay"
+    ],
+    "remaining_material_findings": []
+  },
+  "native_host_verification": {
+    "record": "docs/native-host-verification.json",
+    "claude_code": "2.1.310; native install and 26 skills verified",
+    "kimi_code": "2.3.3; native install and 26 skills verified",
+    "model_conversations": false
+  }
+}

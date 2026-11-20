@@ -1,0 +1,7 @@
+interface:
+  display_name: Motion Lab
+  short_description: Polish lab behavior
+  default_prompt: Use $motion-lab for the requested product interaction work and verify
+    the changed behavior.
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: Break Down an Issue
+  short_description: Create verifiable subtasks
+  default_prompt: Split this issue into actionable subtasks with acceptance checks
+    and dependencies.
+policy:
+  allow_implicit_invocation: true

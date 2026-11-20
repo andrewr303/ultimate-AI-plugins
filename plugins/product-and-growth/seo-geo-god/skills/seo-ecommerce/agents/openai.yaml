@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Ecommerce"
+  short_description: "Product, facet and variant fixes"
+  default_prompt: "Use $seo-ecommerce to audit and fix product markup, facets, variants, pagination and availability handling in this storefront code and verify the result with the bundled checks."
+policy:
+  allow_implicit_invocation: true

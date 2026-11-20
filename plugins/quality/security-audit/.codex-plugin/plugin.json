@@ -1,0 +1,25 @@
+{
+  "name": "security-audit",
+  "version": "1.0.1",
+  "description": "Source-first security audits with scan planning, scanner-result triage, baseline comparison, and report exports.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "audit",
+    "sarif",
+    "sast",
+    "supply-chain",
+    "triage"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Security Audit",
+    "shortDescription": "Plan, triage, and verify risks",
+    "longDescription": "Review code with evidence-based security audit workflows. Plan local scans, import supported scanner reports as unverified leads, compare baselines, and export Markdown or SARIF using the bundled Node.js toolkit.",
+    "capabilities": [],
+    "defaultPrompt": "Review this repository's security and explain the evidence, coverage, and remaining gaps."
+  }
+}

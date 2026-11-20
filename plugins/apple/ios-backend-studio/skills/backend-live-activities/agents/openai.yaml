@@ -1,0 +1,6 @@
+interface:
+  display_name: Live Activity state and server updates
+  short_description: Live Activity state and server updates
+  default_prompt: Use $backend-live-activities for this backend integration task, preserving the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

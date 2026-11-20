@@ -1,0 +1,6 @@
+Example Widgets synthetic test site.
+
+## Pages
+
+- [About](/about/): relative link
+- [Gone](https://example.com/gone/): page missing from the build

@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "skills": 17,
+  "focused_reference_guides": 51,
+  "reviewed_external_source_records": 137,
+  "source_records_including_execution": 138,
+  "environment": {
+    "host": "Linux",
+    "python": "3.12.14"
+  },
+  "python_tests": {
+    "count": 105,
+    "result": "passed",
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v"
+  },
+  "native_clients": {
+    "record": "native-host-verification.json",
+    "claude_code": "2.1.310; installed and all skills discovered",
+    "kimi_code": "2.3.3; installed and all skills discovered"
+  },
+  "research_review": "manual_source_evidence; no automatic factual/legal PASS or verified_claims.json",
+  "apple_runtime": "not_run; requires target macOS/Xcode/device/account environment",
+  "model_conversations": "not_run",
+  "readiness_behavior_tests": {
+    "count": 28,
+    "result": "passed",
+    "limits": "owner evidence assertions and metadata observations only; no Apple submission/approval or legal certification"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-triage",
+  "productRevision": "tandem-fixture-v1",
+  "mode": "illustrative",
+  "label": "Interactive sample \u2014 synthetic requests",
+  "purpose": "Learn how grouping and editable drafts help review a request.",
+  "initialState": "initial",
+  "states": [
+    {
+      "id": "initial",
+      "label": "Initial",
+      "purpose": "Represent initial state",
+      "terminal": false
+    },
+    {
+      "id": "input",
+      "label": "Input",
+      "purpose": "Represent input state",
+      "terminal": false
+    },
+    {
+      "id": "loading",
+      "label": "Loading",
+      "purpose": "Represent loading state",
+      "terminal": false
+    },
+    {
+      "id": "success",
+      "label": "Success",
+      "purpose": "Represent success state",
+      "terminal": true
+    },
+    {
+      "id": "empty",
+      "label": "Empty",
+      "purpose": "Represent empty state",
+      "terminal": false
+    },
+    {
+      "id": "error",
+      "label": "Error",
+      "purpose": "Represent error state",
+      "terminal": false
+    },
+    {
+      "id": "retry",
+      "label": "Retry",
+      "purpose": "Represent retry state",
+      "terminal": false
+    },
+    {
+      "id": "cancel",
+      "label": "Cancel",
+      "purpose": "Represent cancel state",
+      "terminal": false
+    }
+  ],
+  "transitions": [
+    {
+      "from": "initial",
+      "event": "select",
+      "to": "input"
+    },
+    {
+      "from": "input",
+      "event": "generate",
+      "to": "loading"
+    },
+    {
+      "from": "loading",
+      "event": "resolved",
+      "to": "success"
+    },
+    {
+      "from": "input",
+      "event": "no-results",
+      "to": "empty"
+    },
+    {
+      "from": "loading",
+      "event": "failed",
+      "to": "error"
+    },
+    {
+      "from": "error",
+      "event": "retry",
+      "to": "retry"
+    },
+    {
+      "from": "retry",
+      "event": "generate",
+      "to": "loading"
+    },
+    {
+      "from": "loading",
+      "event": "cancel",
+      "to": "cancel"
+    },
+    {
+      "from": "cancel",
+      "event": "reset",
+      "to": "initial"
+    },
+    {
+      "from": "success",
+      "event": "reset",
+      "to": "initial"
+    },
+    {
+      "from": "empty",
+      "event": "reset",
+      "to": "initial"
+    }
+  ],
+  "keyboard": [
+    "Tab reaches every control",
+    "Enter activates buttons",
+    "Escape cancels pending work"
+  ],
+  "reducedMotion": "State changes remain immediate with no pinned motion.",
+  "dataPolicy": "synthetic-local",
+  "claims": [
+    "triage-draft"
+  ]
+}

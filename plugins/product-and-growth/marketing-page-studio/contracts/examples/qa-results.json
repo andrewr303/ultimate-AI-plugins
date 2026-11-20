@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-qa-example",
+  "subjectId": "tandem-render",
+  "productRevision": "tandem-fixture-v1",
+  "sourceHashes": {
+    "storyboard.json": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "checkedAt": "2026-10-23T04:00:00Z",
+  "checks": [
+    {
+      "id": "example-not-run",
+      "category": "technical",
+      "status": "untested",
+      "method": "Example record only; not execution evidence.",
+      "evidence": [],
+      "details": "Replace after running verification."
+    }
+  ],
+  "reviewer": "Example template"
+}

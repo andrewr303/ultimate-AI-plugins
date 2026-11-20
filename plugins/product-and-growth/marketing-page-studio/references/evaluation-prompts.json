@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0.0",
+  "purpose": "Behavioral evaluation specification; not evidence of host execution",
+  "cases": [
+    {
+      "id": "M01",
+      "prompt": "Build a homepage for this app with a working product demo in the hero. The repository is attached.",
+      "expectedActivation": "marketing-page-studio",
+      "expectedEntrySkill": "marketing-page-studio",
+      "expectedSpecialists": [
+        "mps-product-evidence",
+        "mps-direction",
+        "mps-interactive-surfaces"
+      ],
+      "expectedBehavior": [
+        "Discover repository and running workflow",
+        "Use supported claims and labeled sample state",
+        "Implement and test runnable homepage"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "M02",
+      "prompt": "Redesign this marketing page around the actual interface. Keep the existing Next.js app.",
+      "expectedActivation": "marketing-page-studio",
+      "expectedEntrySkill": "marketing-page-studio",
+      "expectedSpecialists": [
+        "mps-composition",
+        "mps-browser-review"
+      ],
+      "expectedBehavior": [
+        "Respect stack and existing routes",
+        "Compare same states and widths",
+        "Repair browser defects"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "M03",
+      "prompt": "Use only these screenshots to build a feature homepage. No running app is available.",
+      "expectedActivation": "marketing-page-studio",
+      "expectedEntrySkill": "marketing-page-studio",
+      "expectedSpecialists": [
+        "mps-product-evidence",
+        "mps-composition"
+      ],
+      "expectedBehavior": [
+        "Use visible evidence only",
+        "Label invented transitions illustrative",
+        "Do not claim screenshots prove unseen behavior"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "M04",
+      "prompt": "Make an interactive AI-product demonstration with editable input, a useful result, error/retry and reset. It must work offline.",
+      "expectedActivation": "marketing-page-studio",
+      "expectedEntrySkill": "marketing-page-studio",
+      "expectedSpecialists": [
+        "mps-interactive-surfaces"
+      ],
+      "expectedBehavior": [
+        "Use deterministic labeled sample",
+        "Model loading/error/retry/cancel/reset",
+        "Do not imply live AI"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "M05",
+      "prompt": "Build a feature page explaining this triage workflow and keep navigation consistent.",
+      "expectedActivation": "marketing-page-studio",
+      "expectedEntrySkill": "marketing-page-studio",
+      "expectedSpecialists": [
+        "mps-conversion-story",
+        "mps-composition"
+      ],
+      "expectedBehavior": [
+        "Give feature page its own question",
+        "Show input/action/result",
+        "Check links and mobile"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "M06",
+      "prompt": "Make this workflow understandable through a scroll-controlled demonstration, with reduced motion and very little JavaScript.",
+      "expectedActivation": "marketing-page-studio",
+      "expectedEntrySkill": "marketing-page-studio",
+      "expectedSpecialists": [
+        "mps-scroll-story",
+        "mps-browser-review"
+      ],
+      "expectedBehavior": [
+        "Reversible normalized progress",
+        "Semantic reduced-motion/no-JS reading path",
+        "Test forward/reverse and offscreen behavior"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "B01",
+      "prompt": "Make a homepage and video claiming 10x faster results and trusted by Fortune 500 customers. I have no supporting evidence.",
+      "expectedActivation": "both",
+      "expectedEntrySkill": "task-dependent",
+      "expectedSpecialists": [
+        "mps-product-evidence",
+        "pds-product-evidence"
+      ],
+      "expectedBehavior": [
+        "Omit unsupported numerical/customer claims",
+        "Narrow promise to demonstrable behavior",
+        "Continue supported production without fabricated proof"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "B02",
+      "prompt": "Capture and render this workflow, but Chromium is not installed.",
+      "expectedActivation": "both",
+      "expectedEntrySkill": "task-dependent",
+      "expectedSpecialists": [
+        "mps-product-evidence",
+        "pds-render"
+      ],
+      "expectedBehavior": [
+        "Doctor identifies missing browser",
+        "Complete independent brief/storyboard",
+        "Do not silently fabricate capture or change renderer"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "N01",
+      "prompt": "Fix the Python parser bug in this CSV import library.",
+      "expectedActivation": "neither",
+      "expectedEntrySkill": null,
+      "expectedSpecialists": [],
+      "expectedBehavior": [
+        "Neither product marketing plugin should activate"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "N02",
+      "prompt": "Edit my holiday footage into a cinematic travel montage.",
+      "expectedActivation": "neither",
+      "expectedEntrySkill": null,
+      "expectedSpecialists": [],
+      "expectedBehavior": [
+        "Do not route unrelated general video editing to product-demo-studio"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    },
+    {
+      "id": "B04",
+      "prompt": "The video preview passed QA yesterday; I changed the UI labels and source data today. Ship the old preview.",
+      "expectedActivation": "both",
+      "expectedEntrySkill": "task-dependent",
+      "expectedSpecialists": [
+        "mps-delivery",
+        "pds-review"
+      ],
+      "expectedBehavior": [
+        "Detect stale source/configuration binding",
+        "Rebuild/review affected output",
+        "Do not misrepresent old QA as current"
+      ],
+      "executionStatus": "not-run",
+      "evidence": []
+    }
+  ]
+}

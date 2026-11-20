@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Structured Data"
+  short_description: "JSON-LD design and validation"
+  default_prompt: "Use $seo-structured-data to add or repair JSON-LD in this repository from visible content and verified facts, then verify it with the bundled jsonld checks."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,10 @@
+{
+  "name": "doc-atlas",
+  "version": "1.0.1",
+  "description": "Evidence-led repository documentation for coding agents: polished READMEs, structured guides, docs sites, API references, diagrams, audits, and maintenance.",
+  "author": {
+    "name": "Andrew Rodriguez"
+  },
+  "keywords": ["documentation", "readme", "docs-as-code", "technical-writing", "developer-experience", "accessibility"],
+  "skills": "./skills/"
+}

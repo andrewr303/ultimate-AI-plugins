@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Liquid Glass Studio">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b6cff"/>
+      <stop offset="0.55" stop-color="#9b4dff"/>
+      <stop offset="1" stop-color="#ff6a3d"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <circle cx="70" cy="78" r="38" fill="#ffd43b" opacity="0.9"/>
+  <rect x="150" y="150" width="70" height="70" rx="18" fill="#00d1b2" opacity="0.85"/>
+  <rect x="40" y="88" width="176" height="80" rx="40" fill="url(#glass)" stroke="url(#rim)" stroke-width="4"/>
+  <path d="M64 112 Q128 96 192 112" stroke="#ffffff" stroke-opacity="0.85" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

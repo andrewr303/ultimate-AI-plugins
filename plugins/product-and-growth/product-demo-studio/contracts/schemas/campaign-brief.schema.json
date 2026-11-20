@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:studio-contracts:1.0.0:campaign-brief",
+  "title": "Campaign Brief",
+  "description": "Versioned local production interchange. Validate with the bundled validator; schema identifiers do not require network access.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$",
+      "maxLength": 100
+    },
+    "productRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brandPath": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+    },
+    "evidencePath": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Portable forward-slash path relative to the production project. No absolute paths, drive letters, parent traversal, or URLs."
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "awareness": {
+      "enum": [
+        "unaware",
+        "problem-aware",
+        "solution-aware",
+        "product-aware",
+        "most-aware"
+      ]
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 1
+    },
+    "promise": {
+      "type": "string",
+      "minLength": 1
+    },
+    "productAction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "benefit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cta": {
+      "type": "string",
+      "minLength": 1
+    },
+    "offer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "placements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "approach": {
+      "enum": [
+        "workflow-proof",
+        "problem-action",
+        "before-after",
+        "continuous-transformation",
+        "feature-reveal",
+        "narrated-scenario",
+        "music-led"
+      ]
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9._-]*$",
+        "maxLength": 100
+      },
+      "minItems": 1
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "mode": {
+      "enum": [
+        "autonomous",
+        "collaborative",
+        "template"
+      ]
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "productRevision",
+    "brandPath",
+    "evidencePath",
+    "audience",
+    "awareness",
+    "problem",
+    "promise",
+    "productAction",
+    "benefit",
+    "cta",
+    "placements",
+    "approach",
+    "claims",
+    "assumptions",
+    "mode"
+  ],
+  "additionalProperties": false
+}

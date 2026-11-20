@@ -1,0 +1,6 @@
+interface:
+  display_name: API Reference
+  short_description: Document real API contracts
+  default_prompt: Build accurate API, SDK, or CLI reference from this repository's actual contracts and examples.
+policy:
+  allow_implicit_invocation: true

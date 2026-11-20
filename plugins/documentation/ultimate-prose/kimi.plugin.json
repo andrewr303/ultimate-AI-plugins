@@ -1,0 +1,9 @@
+{
+  "name": "ultimate-prose",
+  "version": "4.5.0",
+  "description": "Draft, edit, and review prose in Andrew Rodriguez’s writing voice, with local editorial and fidelity checks.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ultimate Prose"
+  }
+}

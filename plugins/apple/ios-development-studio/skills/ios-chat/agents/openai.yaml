@@ -1,0 +1,6 @@
+interface:
+  display_name: Chat
+  short_description: iOS chat workflows and verification
+  default_prompt: Use $ios-chat to help with this iOS task, following the actual project and authorized scope.
+policy:
+  allow_implicit_invocation: true

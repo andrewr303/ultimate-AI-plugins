@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Technical"
+  short_description: "Crawl and index fixes"
+  default_prompt: "Use $seo-technical to diagnose and fix crawling and indexing issues in this repository and verify the result with the bundled checks."
+policy:
+  allow_implicit_invocation: true

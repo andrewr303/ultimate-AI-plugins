@@ -1,0 +1,7 @@
+interface:
+  display_name: Glass Motion
+  short_description: Press, stretch and morph
+  default_prompt: Use $glass-motion to add or fix press, stretch and morph motion
+    on these glass surfaces, with interruption and reduced motion.
+policy:
+  allow_implicit_invocation: true

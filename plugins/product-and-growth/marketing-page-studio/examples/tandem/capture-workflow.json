@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tandem-workflow",
+  "productRevision": "tandem-4f236886e8ed1dea",
+  "baseUrl": "http://127.0.0.1:8080/app.html",
+  "viewport": {
+    "width": 1440,
+    "height": 1080,
+    "deviceScaleFactor": 1
+  },
+  "outputDir": "captures",
+  "mode": "actual",
+  "syntheticData": true,
+  "steps": [
+    {
+      "id": "ready",
+      "action": "wait-for",
+      "selector": "tandem-workspace[data-state=\"initial\"]"
+    },
+    {
+      "id": "begin",
+      "action": "start-recording"
+    },
+    {
+      "id": "read-request",
+      "action": "wait-for",
+      "selector": "#message-input",
+      "holdMs": 2500
+    },
+    {
+      "id": "initial",
+      "action": "screenshot",
+      "path": "captures/initial.png"
+    },
+    {
+      "id": "organize",
+      "action": "click",
+      "selector": "#triage-button"
+    },
+    {
+      "id": "processing",
+      "action": "wait-for",
+      "selector": "tandem-workspace[data-state=\"loading\"]",
+      "holdMs": 200
+    },
+    {
+      "id": "read-result",
+      "action": "wait-for",
+      "selector": "tandem-workspace[data-state=\"success\"]",
+      "holdMs": 3000
+    },
+    {
+      "id": "result",
+      "action": "screenshot",
+      "path": "captures/result.png"
+    },
+    {
+      "id": "review",
+      "action": "click",
+      "selector": "#approve-button"
+    },
+    {
+      "id": "settled-review",
+      "action": "wait-for",
+      "selector": "tandem-workspace[data-review=\"ready\"]",
+      "holdMs": 4000
+    },
+    {
+      "id": "ready-review",
+      "action": "screenshot",
+      "path": "captures/ready-review.png"
+    },
+    {
+      "id": "end",
+      "action": "stop-recording"
+    }
+  ],
+  "claims": [
+    "triage-context",
+    "human-review"
+  ]
+}

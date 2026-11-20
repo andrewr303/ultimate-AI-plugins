@@ -1,0 +1,23 @@
+{
+  "name": "deepsec-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local source security plugin for Codex, Claude Code and Kimi Code",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "deepsec-agent": "./bin/deepsec-agent.mjs"
+  },
+  "scripts": {
+    "test": "node --test runtime/*.test.mjs scripts/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate-plugin.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "minimatch": "10.2.6"
+  }
+}
