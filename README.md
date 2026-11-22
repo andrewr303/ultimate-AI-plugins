@@ -1,6 +1,6 @@
 # Ultimate AI Plugins
 
-![Ultimate AI Plugins catalog banner](docs/assets/catalog-banner.png)
+![Ultimate AI Plugins catalog banner](docs/assets/catalog-banner.jpg)
 
 Give coding agents a workflow to follow. The catalog includes 21 plugins for
 writing documentation, planning delivery, reviewing code and sites, building
