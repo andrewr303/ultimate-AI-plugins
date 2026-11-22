@@ -14,12 +14,6 @@
       "category": "Apple"
     },
     {
-      "name": "apple-swift-ios-and-macos",
-      "source": "./plugins/apple/apple-swift-ios-and-macos",
-      "description": "Apple platform engineering plugin for Swift 6.2+ concurrency, SwiftUI UI patterns, MV view refactoring, iOS 26+ Liquid Glass adoption, SwiftUI & Instruments performance profiling, XcodeBuildMCP iOS simulator debugging, macOS Tuist menubar apps, Xcode-free SwiftPM app packaging, and App Store release notes.",
-      "category": "Apple"
-    },
-    {
       "name": "ios-backend-studio",
       "source": "./plugins/apple/ios-backend-studio",
       "description": "Integrate native iOS and Node.js backends with shared cross-platform contracts, Apple system surfaces, and reproducible Xcode/Mac workflows.",
@@ -50,12 +44,6 @@
       "category": "Creative"
     },
     {
-      "name": "anti-slop-and-design-quality",
-      "source": "./plugins/design/anti-slop-and-design-quality",
-      "description": "Guardrail and audit layer against generic AI output in UI design, copywriting, responsive layouts, accessibility and contrast, and code comments. Eight skills routed by the antislop core skill; includes an optional WCAG 2.x contrast checker script.",
-      "category": "Design"
-    },
-    {
       "name": "design-variations",
       "source": "./plugins/design/design-variations",
       "description": "Ten fully interactive design variations per round, from small refinements to radical redesigns, with inspiration from connected design-reference MCPs and iteration on your picks.",
@@ -68,39 +56,15 @@
       "category": "Design"
     },
     {
-      "name": "web-design-and-ui-systems",
-      "source": "./plugins/design/web-design-and-ui-systems",
-      "description": "Web design guidance and tools: a searchable UI/UX database (79 styles, 192 palettes, 74 font pairings, 22 stacks), 21 aesthetic design systems, landing and pricing page skills, brand, token and slide tools, 10 UI detail skills, and a router skill ($web-design-router).",
-      "category": "Design"
-    },
-    {
       "name": "doc-atlas",
       "source": "./plugins/documentation/doc-atlas",
       "description": "Evidence-led repository documentation for coding agents: polished READMEs, structured guides, docs sites, API references, diagrams, audits, and maintenance.",
       "category": "Documentation"
     },
     {
-      "name": "ultimate-prose",
-      "source": "./plugins/documentation/ultimate-prose",
-      "description": "Draft, edit, and review prose in Andrew Rodriguez’s writing voice, with local editorial and fidelity checks.",
-      "category": "Documentation"
-    },
-    {
-      "name": "ultimate-prose-universal",
-      "source": "./plugins/documentation/ultimate-prose-universal",
-      "description": "Write and edit natural, accurate prose for any user, with flexible tones and optional personal calibration.",
-      "category": "Documentation"
-    },
-    {
       "name": "issue-assistant",
       "source": "./plugins/engineering/issue-assistant",
       "description": "Reconcile Linear or GitHub issues with source-backed evidence, safely recover planned changes, and resolve one issue decision at a time.",
-      "category": "Engineering"
-    },
-    {
-      "name": "ult-engineer",
-      "source": "./plugins/engineering/ult-engineer",
-      "description": "Ultimate TypeScript, React, and Node.js engineering plugin: write, debug, refactor, review, and health-audit code.",
       "category": "Engineering"
     },
     {
@@ -116,12 +80,6 @@
       "category": "Motion"
     },
     {
-      "name": "platform-motion-wizard",
-      "source": "./plugins/motion/platform-motion-wizard",
-      "description": "Design, implement, and review responsive platform motion and interactions with immediate feedback, spatial continuity, interruption safety, and accessible reduced-motion behavior.",
-      "category": "Motion"
-    },
-    {
       "name": "creator-intelligence",
       "source": "./plugins/product-and-growth/creator-intelligence",
       "description": "Find creators, capture their public business contact, vet them with a transparent score, and research their audience and content, from public data only.",
@@ -130,7 +88,7 @@
     {
       "name": "freelance-legend",
       "source": "./plugins/product-and-growth/freelance-legend",
-      "description": "Upwork and freelance toolkit for Andrew Rodriguez: elite proposals and cover letters, rule-compliant job scanning across platforms, job vetting and scam checks, pricing and milestones, client communications, profile and portfolio writing, a personal portfolio website, contracts, outreach, and a pipeline ledger.",
+      "description": "Upwork and freelance toolkit for independent freelancers: elite proposals and cover letters, rule-compliant job scanning across platforms, job vetting and scam checks, pricing and milestones, client communications, profile and portfolio writing, a personal portfolio website, contracts, outreach, and a pipeline ledger.",
       "category": "Product & Growth"
     },
     {

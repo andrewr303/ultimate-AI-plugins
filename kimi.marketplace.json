@@ -7,11 +7,6 @@
       "source": "./plugins/apple/apple-compliance"
     },
     {
-      "id": "apple-swift-ios-and-macos",
-      "displayName": "Apple Platforms, Swift, SwiftUI, iOS & macOS",
-      "source": "./plugins/apple/apple-swift-ios-and-macos"
-    },
-    {
       "id": "ios-backend-studio",
       "displayName": "iOS Backend Studio",
       "source": "./plugins/apple/ios-backend-studio"
@@ -37,11 +32,6 @@
       "source": "./plugins/creative/video-prompt-director"
     },
     {
-      "id": "anti-slop-and-design-quality",
-      "displayName": "Anti-Slop & Design Quality Guardrails",
-      "source": "./plugins/design/anti-slop-and-design-quality"
-    },
-    {
       "id": "design-variations",
       "displayName": "Design Variations",
       "source": "./plugins/design/design-variations"
@@ -52,34 +42,14 @@
       "source": "./plugins/design/ui-component-expert"
     },
     {
-      "id": "web-design-and-ui-systems",
-      "displayName": "Web Design & UI Systems",
-      "source": "./plugins/design/web-design-and-ui-systems"
-    },
-    {
       "id": "doc-atlas",
       "displayName": "Doc Atlas",
       "source": "./plugins/documentation/doc-atlas"
     },
     {
-      "id": "ultimate-prose",
-      "displayName": "Ultimate Prose",
-      "source": "./plugins/documentation/ultimate-prose"
-    },
-    {
-      "id": "ultimate-prose-universal",
-      "displayName": "Ultimate Prose Universal",
-      "source": "./plugins/documentation/ultimate-prose-universal"
-    },
-    {
       "id": "issue-assistant",
       "displayName": "Issue Assistant",
       "source": "./plugins/engineering/issue-assistant"
-    },
-    {
-      "id": "ult-engineer",
-      "displayName": "Ult Engineer",
-      "source": "./plugins/engineering/ult-engineer"
     },
     {
       "id": "ultimate-sdd",
@@ -90,11 +60,6 @@
       "id": "liquid-glass-studio",
       "displayName": "Liquid Glass Studio",
       "source": "./plugins/motion/liquid-glass-studio"
-    },
-    {
-      "id": "platform-motion-wizard",
-      "displayName": "Platform Motion Wizard",
-      "source": "./plugins/motion/platform-motion-wizard"
     },
     {
       "id": "creator-intelligence",

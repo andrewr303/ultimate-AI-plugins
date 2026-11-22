@@ -1,6 +1,6 @@
 # Client message playbook
 
-Templates show structure and the moves that work; write each reply fresh from the actual thread, in Andrew's voice. Bracketed items are placeholders.
+Templates show structure and the moves that work; write each reply fresh from the actual thread, in the freelancer's voice. Bracketed items are placeholders.
 
 ## Contents
 
@@ -10,7 +10,7 @@ Templates show structure and the moves that work; write each reply fresh from th
 - Status update
 - Deliverable handoff
 - Scope creep or change request
-- Delay, blocker, or Andrew's mistake
+- Delay, blocker, or the freelancer's mistake
 - Declining
 - Off-platform or contact-detail request (pre-contract, Upwork)
 - Unpaid test or free sample request
@@ -29,7 +29,7 @@ Answer the invitation directly, show one sign he read their need, and propose th
 
 > Thanks for the invite. The part I'd want to understand first is [specific risk or unknown from their post], since it decides [what it decides]. I can do a short video call here on Upwork [[CONFIRM: times that work]], or if it's easier, send me [the file, the current spreadsheet, a sample of the data] and I'll come back with how I'd approach it.
 
-On a submitted Upwork proposal the client messages first; Andrew replies in the room the client opens (from Upwork's official skill, unverified elsewhere). Never try a cold first message on Upwork. (clm_gh_014)
+On a submitted Upwork proposal the client messages first; the freelancer replies in the room the client opens (from Upwork's official skill, unverified elsewhere). Never try a cold first message on Upwork. (clm_gh_014)
 
 ## Clarifying questions before quoting
 
@@ -55,7 +55,7 @@ Acknowledge, name it as new scope without refusing, give the options from `contr
 
 > That's a useful addition. It isn't in the current milestone, so here are the options: add it as a new milestone ([[CONFIRM: price]], about [days] days), swap it for [in-scope item of similar size], or keep it for phase two. Which works best for you?
 
-## Delay, blocker, or Andrew's mistake
+## Delay, blocker, or the freelancer's mistake
 
 Say it early and plainly: what happened, the impact, what he is doing, the new date. Own a mistake in one sentence without over-apologizing. Never blame the client in writing.
 
@@ -65,19 +65,19 @@ Thank them briefly, give a short honest reason if useful (fit, capacity, budget)
 
 ## Off-platform or contact-detail request (pre-contract, Upwork)
 
-Use this only when the request has no hard-scam sign. Equipment purchases, pay-to-work fees, overpayment or checks, task scams, credential or account requests, and malware repositories get no reply at all: Andrew reports them through the channel they arrived on (`job-vetting`, section 4).
+Use this only when the request has no hard-scam sign. Equipment purchases, pay-to-work fees, overpayment or checks, task scams, credential or account requests, and malware repositories get no reply at all: the freelancer reports them through the channel they arrived on (`job-vetting`, section 4).
 
 Decline politely in Upwork's own terms and keep the conversation moving on the platform.
 
 > I'm glad to talk this through. Upwork asks us to keep communication here until a contract starts, so let's use a call through Upwork Messages. I'll share my contact information once we have a contract in place.
 
-If they push to pay or be paid outside Upwork: decline, mention that Upwork's only route for moving a relationship off-platform within two years is the Conversion Fee, and flag the request to Andrew as a scam and account risk. Do not argue repeatedly; suggest reporting if it continues.
+If they push to pay or be paid outside Upwork: decline, mention that Upwork's only route for moving a relationship off-platform within two years is the Conversion Fee, and flag the request to the freelancer as a scam and account risk. Do not argue repeatedly; suggest reporting if it continues.
 
 ## Unpaid test or free sample request
 
 > I'm happy to show how I'd approach it. Upwork asks that test projects be paid, so I'd suggest a small fixed-price test: [scoped piece] for [[CONFIRM: price]], which gives you [what it proves]. If it works for you, the rest builds directly on it.
 
-If they insist on free work, flag it to Andrew as a policy problem and suggest reporting. (clm_cr_014)
+If they insist on free work, flag it to the freelancer as a policy problem and suggest reporting. (clm_cr_014)
 
 ## Late payment, unfunded milestone, unapproved submission
 
@@ -111,7 +111,7 @@ Never offer refunds, discounts, bonuses, or extra work for a review, never ask f
 
 ## Asking for a testimonial
 
-For a direct client, or a marketplace client who wants to give a quote Andrew can reuse. Ask only after the client confirms the work is complete, and ask on the channel the relationship lives on (a client met on Upwork within two years is asked in Upwork Messages).
+For a direct client, or a marketplace client who wants to give a quote the freelancer can reuse. Ask only after the client confirms the work is complete, and ask on the channel the relationship lives on (a client met on Upwork within two years is asked in Upwork Messages).
 
 > Thanks again for the project. Would you be willing to share a sentence or two about working together that I could show on my portfolio and profiles? Use whatever wording feels right, and tell me how you'd like it attributed (your name and title, or something like "Founder, B2B SaaS company"). Nothing goes up without your OK on the exact text.
 

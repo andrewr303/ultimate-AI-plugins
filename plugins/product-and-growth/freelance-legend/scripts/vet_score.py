@@ -8,7 +8,7 @@ Order of evaluation:
    Unknown signals earn about half credit and are listed, so missing data never
    reads as good or bad data.
 
-The thresholds are Andrew's own preferences, not platform rules; change them with
+The thresholds are sample screening preferences, not platform rules; change them with
 --apply-at and --caution-at. The score supports judgment; it does not replace it.
 
 Input: a JSON file (or - for stdin) with any of these keys; omit what is unknown.
@@ -30,7 +30,7 @@ off_platform_payment, laptop -> equipment_purchase, ...). Any flag that still is
 not recognized caps the verdict at Hold: judge it by hand. hire_rate above 1 is
 read as a percent (15 -> 0.15). Print the accepted keys with --list-flags.
 
-The $45 floor is a gross rate (pending Andrew's decision on gross versus net);
+The $45 floor is a gross rate (example screening threshold);
 the output also shows the effective rate net of 10% and 15% fees.
 
 Example:  python vet_score.py job.json
@@ -67,7 +67,7 @@ FLAG_SYNONYMS = {
     "crypto": "crypto_or_money_transfer",
     "free_test": "unpaid_test", "unpaid_trial": "unpaid_test",
 }
-RATE_FLOOR = 45.0  # gross $/h, pending Andrew's decision on gross versus net
+RATE_FLOOR = 45.0  # gross $/h, example screening threshold
 NET_FEES = (0.10, 0.15)
 NUMERIC_KEYS = ("budget_low", "budget_high", "budget_fixed", "estimated_hours", "client_spend", "hires",
                 "hire_rate", "rating", "proposals_low", "posted_hours_ago")
@@ -142,7 +142,7 @@ def _score(job: dict, apply_at: int, caution_at: int) -> dict:
         return capped({"verdict": "Skip", "score": None, "reasons": ["someone is already hired"], "unknown": []})
     if job.get("fit") == "mismatch":
         return capped({"verdict": "Skip", "score": None,
-                       "reasons": ["core work is outside Andrew's supported skills"], "unknown": []})
+                       "reasons": ["core work is outside the freelancer's confirmed skills"], "unknown": []})
     rate = effective_rate(job)
     if rate is not None and rate < 30:
         return capped({"verdict": "Skip", "score": None,

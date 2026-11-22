@@ -18,7 +18,6 @@ EXPECTED = {
     "client-communications", "interview-prep", "contracts-scope", "profile-optimizer", "case-studies",
     "portfolio-website", "cold-outreach", "pipeline-tracker",
 }
-PRIVATE = [re.compile(r"720[-. ]?467"), re.compile(r"andrew@andrewvrodriguez\.com", re.I)]
 
 
 class StructureTests(unittest.TestCase):
@@ -48,12 +47,13 @@ class StructureTests(unittest.TestCase):
             for ref in REL_LINK.findall(md.read_text(encoding="utf-8")):
                 self.assertTrue((md.parent / ref).resolve().exists(), f"{md.relative_to(ROOT)} -> {ref}")
 
-    def test_no_private_contact_details_in_package(self):
-        for path in ROOT.rglob("*"):
-            if path.is_file() and path.suffix in {".md", ".txt", ".json", ".jsonl", ".py"} and "tests" not in path.parts:
-                text = path.read_text(encoding="utf-8", errors="replace")
-                for pattern in PRIVATE:
-                    self.assertIsNone(pattern.search(text), f"private contact detail in {path.relative_to(ROOT)}")
+    def test_public_package_ships_only_fixture_profile_and_seeds(self):
+        for name in ("andrew-profile.md", "scanner-seed-ids.txt"):
+            self.assertFalse((ROOT / "references" / name).exists(), name)
+        self.assertIn("Fictional", (ROOT / "examples" / "profile.example.md").read_text())
+        seed = (ROOT / "examples" / "scanner-seed.example.txt").read_text()
+        self.assertRegex(seed, r"(?m)^fixture-")
+        self.assertFalse((ROOT / "research" / "2026-11-04" / "source-material").exists())
 
     def test_agent_frontmatter(self):
         for agent in (ROOT / "agents").glob("*.md"):

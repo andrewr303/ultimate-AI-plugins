@@ -1,4 +1,0 @@
-interface:
-  display_name: "Web Design & UI Systems Router"
-  short_description: "Routes UI/UX design, design tokens, aesthetic systems, landing/pricing pages, brand, and UI chrome tasks to the right skill(s)."
-  default_prompt: "Use $web-design-router to select and execute the best UI/UX design system, landing page, brand, or component styling skill for this task."

@@ -1,7 +1,0 @@
-interface:
-  display_name: Motion Native
-  short_description: Polish native behavior
-  default_prompt: Use $motion-native for the requested product interaction work and
-    verify the changed behavior.
-policy:
-  allow_implicit_invocation: true

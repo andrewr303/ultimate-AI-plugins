@@ -1,7 +1,0 @@
-interface:
-  display_name: Motion Async
-  short_description: Polish async behavior
-  default_prompt: Use $motion-async for the requested product interaction work and
-    verify the changed behavior.
-policy:
-  allow_implicit_invocation: true

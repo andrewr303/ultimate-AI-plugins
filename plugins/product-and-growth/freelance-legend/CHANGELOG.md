@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Keep the freelancer profile, proof approvals and scanner history in the user data directory. Ship fictional configuration and proposal examples.
+
 ## 1.0.1 (2026-11-10)
 
 - `proposal-writer` description no longer contains angle brackets (rejected by the shared lint); trigger phrases unchanged.
@@ -19,7 +23,7 @@
 ## 1.0.0 (2026-11-04)
 
 - First release: 13 skills (router, job scanner, job vetting, proposal writer, pricing and scoping, client communications, interview prep, contracts and scope, profile optimizer, case studies, portfolio website, cold outreach, pipeline tracker) and the `proposal-critic` agent.
-- Shared references: candidate profile and proof library (v2.1, adds résumé-derived claims as Confirm or Internal), dated platform rules for Upwork and 15 other platforms, voice rules, approved-proof template, scanner seed IDs.
+- Shared references: profile and proof guidance, dated platform rules for Upwork and 15 other platforms, voice rules, approved-proof template, scanner seed IDs.
 - Standard-library scripts with tests: `price.py` (estimates, milestones, hourly, gross-up, Connects expected value), `proposal_lint.py`, `pipeline.py`, `vet_score.py` (with calibration anchors), `contact_scan.py`.
 - Worked example package for an AI FP&A job from a 2026-11-04 apply page.
 - Research-first evidence in `research/2026-11-04/` (manual review mode).

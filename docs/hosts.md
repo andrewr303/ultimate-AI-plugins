@@ -18,7 +18,7 @@ For ChatGPT desktop, open the checkout as a project in Work or Codex and select 
 
 ### ChatGPT web and hosted workspaces
 
-For an eligible ChatGPT account with skill uploading enabled, go to **Plugins → Skills → Create → Upload from your computer**. Choose a standalone `.skill` artifact for a self-contained workflow. For example, [Ultimate Prose Universal 5.2.0](../artifacts/ultimate-prose-universal/ultimate-prose-universal-5.2.0.skill) bundles its own instructions, references, and scripts. Use the web skill name `ultimate-prose`. [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
+For an eligible ChatGPT account with skill uploading enabled, go to **Plugins → Skills → Create → Upload from your computer**. Choose a standalone `.skill` artifact for a self-contained workflow. [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
 
 Workspace owners can use ChatGPT’s workspace plugin import or publishing options when enabled. Account eligibility, app registration, tool permissions, and execution location are determined by the workspace. Workflows involving a local MCP server, native SDK, browser, or shell need those capabilities in the selected execution environment. [Plugins in ChatGPT](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt)
 
@@ -60,6 +60,10 @@ python3 scripts/plugin_catalog.py register-skill doc-atlas --project /absolute/p
 ```
 
 The command prints the new `.agents/skills/ucp-doc-atlas/SKILL.md` path. Start a new session in the target project and ask for `ucp-doc-atlas`. The generated skill points to the canonical workflow in the local plugin checkout, so sibling skills, scripts, and references stay available. Recreate the generated file if you move the checkout. If the skill is absent from your host’s list, ask the agent to read the generated `SKILL.md` by its printed absolute path and follow it. You can also point the agent directly at a plugin’s canonical entry from the catalog. [OpenCode skills](https://opencode.ai/docs/skills), [Gemini CLI skills](https://geminicli.com/docs/cli/skills/)
+
+## Verification
+
+See [observed host results](verification.md) for the Doc Atlas starter.
 
 ## Host capabilities
 

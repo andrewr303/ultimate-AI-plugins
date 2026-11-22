@@ -1,9 +1,0 @@
-{
-  "name": "ultimate-prose-universal",
-  "version": "5.2.0",
-  "description": "Write and edit natural, accurate prose for any user, with flexible tones and optional personal calibration.",
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "Ultimate Prose Universal"
-  }
-}

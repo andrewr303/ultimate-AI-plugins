@@ -10,7 +10,7 @@ An agent plugin for documentation that looks deliberate and stays connected to t
 
 ## Try it
 
-After installing from the [host guide](../../../docs/hosts.md), open your target project and select [`repo-docs`](skills/repo-docs/SKILL.md). Try this prompt.
+After installing from the [host guide](https://github.com/andrewr303/ultimate-AI-plugins/blob/main/docs/hosts.md), open your target project and select [`repo-docs`](skills/repo-docs/SKILL.md). Try this prompt.
 
 > Audit this README for someone opening the repository for the first time. Fix missing prerequisites and verify the local links and install steps you can run.
 

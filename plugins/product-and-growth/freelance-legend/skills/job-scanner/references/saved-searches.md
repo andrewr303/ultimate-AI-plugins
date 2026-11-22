@@ -1,6 +1,6 @@
 # Coverage areas and saved-search terms
 
-Use these to suggest saved searches Andrew creates by hand on each platform, and to recognize relevant jobs in alerts. They are discovery terms, not proof that Andrew meets every requirement attached to them. Upwork may cap the number of saved searches (no limit is verified in `../../../references/platform-rules.md`; check the platform's own page), so spend them on the highest-value combinations first.
+Use these to suggest saved searches the freelancer creates by hand on each platform, and to recognize relevant jobs in alerts. They are discovery terms, not proof that the freelancer meets every requirement attached to them. Upwork may cap the number of saved searches (no limit is verified in `../../../references/platform-rules.md`; check the platform's own page), so spend them on the highest-value combinations first.
 
 ## Product engineering
 React, Next.js, TypeScript, Tailwind, full-stack SaaS, MVP build, frontend bug fix, dashboard, API integration.
