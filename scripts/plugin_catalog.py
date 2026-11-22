@@ -12,8 +12,6 @@ MARKETPLACE = "ultimate-ai-plugins"
 TITLE = "Ultimate AI Plugins"
 SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 ENTRY_SKILLS = {
-    "anti-slop-and-design-quality": "antislop",
-    "apple-swift-ios-and-macos": "apple-platform-router",
     "creator-intelligence": "creator-research",
     "deepsec-agent": "deepsec-review",
     "doc-atlas": "repo-docs",
@@ -21,7 +19,6 @@ ENTRY_SKILLS = {
     "ios-development-studio": "ios-development",
     "ultimate-sdd": "orchestrator",
     "video-prompt-director": "video-prompts",
-    "web-design-and-ui-systems": "web-design-router",
 }
 MANIFESTS = {
     "Claude Code": ".claude-plugin/plugin.json",

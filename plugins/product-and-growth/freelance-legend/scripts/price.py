@@ -23,7 +23,7 @@ python price.py gross --net 45 --fee 0.10
 python price.py connects-ev --connects 10 --boost 4 --project-gross 6000 --fee 0.10 --win-prob 0.05
 
 --json works before or after the subcommand. The $45/h floor is a GROSS rate
-(pending Andrew's decision on gross versus net); outputs also show net-at-fee
+(example screening threshold); outputs also show net-at-fee
 rates. Net figures are before income and self-employment tax.
 """
 from __future__ import annotations
@@ -35,7 +35,7 @@ from decimal import ROUND_HALF_UP, Decimal
 from typing import Any
 
 DEFAULT_FEES = (Decimal("0.10"), Decimal("0.15"))
-RATE_FLOOR = Decimal("45")  # gross $/h, pending Andrew's decision on gross versus net
+RATE_FLOOR = Decimal("45")  # gross $/h, example screening threshold
 PHASE_RATIO = Decimal("1.5")
 TAX_NOTE = "Net figures are before income and self-employment tax."
 REC_WITHIN = "bid within budget with stated scope; note the doubled figure"

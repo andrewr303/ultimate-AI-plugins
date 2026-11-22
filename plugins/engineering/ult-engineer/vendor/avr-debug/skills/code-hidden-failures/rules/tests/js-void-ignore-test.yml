@@ -1,5 +1,0 @@
-id: js-void-ignore
-valid:
-  - "await sync();"
-invalid:
-  - "void sync();"

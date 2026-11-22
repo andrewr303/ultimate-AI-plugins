@@ -1,13 +1,13 @@
 ---
 name: contracts-scope
-description: "Protect Andrew Rodriguez's freelance contracts and scope: statements of work, acceptance criteria, assumptions and exclusions, milestone design that keeps Upwork payment protection, change orders when scope grows, hourly vs fixed contract hygiene, disputes and refunds, contract-to-hire and off-platform conversion questions, NDAs and IP clauses to flag, and SOW plus invoice templates for direct clients from LinkedIn or outreach. Use for 'write the SOW', 'the client keeps adding features', 'change order', 'client won't approve the milestone', 'they want to hire me off Upwork', or 'review this contract'. Not legal advice; flags clauses for a lawyer. Not for routine messages (client-communications)."
+description: "Protect the freelancer's freelance contracts and scope: statements of work, acceptance criteria, assumptions and exclusions, milestone design that keeps Upwork payment protection, change orders when scope grows, hourly vs fixed contract hygiene, disputes and refunds, contract-to-hire and off-platform conversion questions, NDAs and IP clauses to flag, and SOW plus invoice templates for direct clients from LinkedIn or outreach. Use for 'write the SOW', 'the client keeps adding features', 'change order', 'client won't approve the milestone', 'they want to hire me off Upwork', or 'review this contract'. Not legal advice; flags clauses for a lawyer. Not for routine messages (client-communications)."
 ---
 
 # Contracts and scope
 
-This skill writes and checks the business side of a contract. It is not legal advice: anything about liability, IP assignment, non-competes, indemnity, taxes, or employment status gets flagged for Andrew to review with a lawyer or accountant, not decided here.
+This skill writes and checks the business side of a contract. It is not legal advice: anything about liability, IP assignment, non-competes, indemnity, taxes, or employment status gets flagged for the freelancer to review with a lawyer or accountant, not decided here.
 
-Read `../../references/platform-rules.md` (contract protection rules) and `../../references/andrew-profile.md` (payment preferences).
+Read `../../references/platform-rules.md` (contract protection rules) and `<data-dir>/profile.md` (payment preferences).
 
 ## Statement of work (any platform)
 
@@ -27,7 +27,7 @@ Draft from the accepted proposal and call notes:
 - **Fixed price:** never start a milestone until Upwork shows it **funded**. Deliver through **Submit Work for Payment**, matching the milestone description; submitting starts a 14-day auto-payment countdown. Split large projects into smaller milestones. Unfunded work cannot be recovered. (`platform-rules.md`)
 - **Hourly:** track time in the Upwork Desktop App with memos, keep screenshots relevant, and stay within the weekly limit to keep Hourly Payment Protection; manual, idle, or over-limit time is excluded. There are 3 days to respond to an hourly dispute.
 - **Scope growth on fixed price:** ask the client to add or update a milestone first. Work outside a funded, matching milestone is unprotected.
-- **Off-platform:** clients met on Upwork stay on Upwork for two years unless the Conversion Fee is paid (client-initiated; 13.5% x rate x 2,080 hours). Never agree to off-platform payment; flag the request (`client-communications` has the decline wording). Record the date the client first met Andrew on the marketplace when the contract starts: `python <plugin-root>/scripts/pipeline.py add <id> --status hired --met-on YYYY-MM-DD` (`<plugin-root>` is defined in the `freelance-legend` router). `cold-outreach` reads that date before any off-platform message.
+- **Off-platform:** clients met on Upwork stay on Upwork for two years unless the Conversion Fee is paid (client-initiated; 13.5% x rate x 2,080 hours). Never agree to off-platform payment; flag the request (`client-communications` has the decline wording). Record the date the client first met the freelancer on the marketplace when the contract starts: `python <plugin-root>/scripts/pipeline.py add <id> --status hired --met-on YYYY-MM-DD` (`<plugin-root>` is defined in the `freelance-legend` router). `cold-outreach` reads that date before any off-platform message.
 - **Contract-to-hire:** route through Upwork's own options in the current help center; do not improvise an off-platform arrangement.
 
 ## Change orders
@@ -53,7 +53,7 @@ Lay out the facts (milestone description, what was submitted and when, messages)
 
 ## Direct clients (LinkedIn, outreach, referrals)
 
-No platform escrow, so require a signed SOW, a deposit (Andrew's preference is roughly 10 to 20 percent upfront or regular billing), milestone invoices, and payment terms (for example net 7 or net 15). Provide a plain invoice template: invoice number, date, client, SOW reference, line items per milestone, amount, due date, and payment instructions Andrew supplies. After Andrew sends an invoice, log it so reminders and the weekly review can find it:
+No platform escrow, so require a signed SOW, a deposit (the freelancer's preference is roughly 10 to 20 percent upfront or regular billing), milestone invoices, and payment terms (for example net 7 or net 15). Provide a plain invoice template: invoice number, date, client, SOW reference, line items per milestone, amount, due date, and payment instructions the freelancer supplies. After the freelancer sends an invoice, log it so reminders and the weekly review can find it:
 
 ```bash
 python <plugin-root>/scripts/pipeline.py add <job-or-client-id> --status invoiced --invoice "INV-001" --amount 1200 --due 2026-11-20

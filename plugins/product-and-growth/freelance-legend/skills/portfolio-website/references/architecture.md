@@ -1,6 +1,6 @@
 # Portfolio site architecture and checklist
 
-Ideas below come from the research ledger (`clm_pf_*`); the code is written fresh for Andrew's site.
+Ideas below come from the research ledger (`clm_pf_*`); the code is written fresh for the freelancer's site.
 
 ## Routes
 

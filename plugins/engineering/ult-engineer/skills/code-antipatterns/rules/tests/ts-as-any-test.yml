@@ -1,5 +1,0 @@
-id: ts-as-any
-valid:
-  - "const n = value as number;"
-invalid:
-  - "const n = value as any;"

@@ -1,13 +1,13 @@
 ---
 name: profile-optimizer
-description: "Write and tune Andrew Rodriguez's freelance profiles so the right clients find and trust him: Upwork title, overview, skills, hourly rate, portfolio order, and Project Catalog offers; LinkedIn headline, About, and Service Page; Contra, Toptal, Braintrust, Arc, and other platform profiles; Fiverr gigs and other gig listings; and a reputation plan for Job Success Score and Upwork badges. Use for 'fix my Upwork profile', 'write my overview', 'what should my title be', 'set up Project Catalog', 'LinkedIn service page', 'set up a Fiverr gig', or 'how do I get Top Rated'. Not for single proposals (proposal-writer) or long-form case studies (case-studies)."
+description: "Write and tune the freelancer's freelance profiles so the right clients find and trust him: Upwork title, overview, skills, hourly rate, portfolio order, and Project Catalog offers; LinkedIn headline, About, and Service Page; Contra, Toptal, Braintrust, Arc, and other platform profiles; Fiverr gigs and other gig listings; and a reputation plan for Job Success Score and Upwork badges. Use for 'fix my Upwork profile', 'write my overview', 'what should my title be', 'set up Project Catalog', 'LinkedIn service page', 'set up a Fiverr gig', or 'how do I get Top Rated'. Not for single proposals (proposal-writer) or long-form case studies (case-studies)."
 ---
 
 # Profile optimizer
 
 Profiles are searched and skimmed. The job is to make the finance-plus-software combination obvious in the first lines, with proof he can back up.
 
-Read `../../references/andrew-profile.md`, `../../references/platform-rules.md`, `../../references/voice.md`, and `<data-dir>/approved-proof.md` (the live approval record, including approved testimonials; `<plugin-root>` and `<data-dir>` are defined in the `freelance-legend` router). Ask Andrew to paste his current profile text first; never fetch it.
+Read `<data-dir>/profile.md`, `../../references/platform-rules.md`, `../../references/voice.md`, and `<data-dir>/approved-proof.md` (the live approval record, including approved testimonials; `<plugin-root>` and `<data-dir>` are defined in the `freelance-legend` router). Ask the freelancer to paste his current profile text first; never fetch it.
 
 ## Upwork main profile
 
@@ -27,10 +27,10 @@ Explain the official mechanics from `platform-rules.md` without promising outcom
 ## Other platforms
 
 - **LinkedIn:** headline (who he helps plus the combination), About (problem-first, short paragraphs), Featured items from approved proof, and a Service Page listing finance-plus-software services. LinkedIn work is paid off-platform, so pair it with `contracts-scope` for an SOW and deposit. No automation of messages or connection requests.
-- **Fiverr:** gigs written offline for Andrew to paste: a client-language title, a description that follows the overview rules above, three package tiers priced with `pricing-scoping` (gross-up from the 20% seller fee, which is **unverified**, so label those prices as an assumption until Andrew reads the fee in his seller dashboard), and FAQ answers. No contact details, and no payment off Fiverr.
+- **Fiverr:** gigs written offline for the freelancer to paste: a client-language title, a description that follows the overview rules above, three package tiers priced with `pricing-scoping` (gross-up from the 20% seller fee, which is **unverified**, so label those prices as an assumption until the freelancer reads the fee in his seller dashboard), and FAQ answers. No contact details, and no payment off Fiverr.
 - **Contra:** project-based profile with case-study style projects (0% freelancer commission per `platform-rules.md`).
 - **Toptal, Braintrust, Arc, Gun.io:** application profiles that stress shipped full-stack work and AI integrations; for Toptal, add a prep checklist for its multi-stage screening. On Arc, compensation is never discussed with clients.
 
 ## Output
 
-For each profile: the paste-ready text per field, a short "why" line per choice, character counts where the platform limits them, and a "Confirm before publishing" list. Run `python <plugin-root>/scripts/proposal_lint.py overview.txt --kind profile-overview` and fix every contact-detail or link error before Andrew publishes.
+For each profile: the paste-ready text per field, a short "why" line per choice, character counts where the platform limits them, and a "Confirm before publishing" list. Run `python <plugin-root>/scripts/proposal_lint.py overview.txt --kind profile-overview` and fix every contact-detail or link error before the freelancer publishes.

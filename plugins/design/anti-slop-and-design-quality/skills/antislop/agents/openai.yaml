@@ -1,4 +1,0 @@
-interface:
-  display_name: "Anti-Slop Core & Router"
-  short_description: "Core anti-slop filter and router for UI, copywriting, mobile layout, human accessibility, code comment hygiene, and AI design audits."
-  default_prompt: "Use $antislop to filter out generic AI clichés and route to the appropriate UI, copy, layout, accessibility, code, or design-slop audit skill."

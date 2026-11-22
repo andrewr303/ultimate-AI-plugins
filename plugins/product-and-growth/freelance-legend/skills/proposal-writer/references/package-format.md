@@ -1,10 +1,10 @@
 # Proposal package format
 
-Return one package per job. Keep internal notes out of the paste-ready sections so Andrew can copy each section straight into the form.
+Return one package per job. Keep internal notes out of the paste-ready sections so the freelancer can copy each section straight into the form.
 
 ```text
 PROPOSAL PACKAGE: <job title> · ID <normalized job ID>
-Status: Draft for Andrew's review. Not submitted.
+Status: Draft for the freelancer's review. Not submitted.
 
 A. Fit and risks (internal)
    Verdict, angle chosen, red flags, gaps (including any "preferred qualifications" warning),

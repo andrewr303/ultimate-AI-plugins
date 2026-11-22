@@ -1,7 +1,0 @@
-interface:
-  display_name: Motion Web
-  short_description: Polish web behavior
-  default_prompt: Use $motion-web for the requested product interaction work and verify
-    the changed behavior.
-policy:
-  allow_implicit_invocation: true

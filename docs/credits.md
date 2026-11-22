@@ -2,7 +2,7 @@
 
 These plugins stand on other people's work. Vendored copies keep their original licenses inside each plugin's `vendor/` or `references/` folder, and each plugin's `ATTRIBUTION.md` or `THIRD_PARTY_NOTICES.md` has the detail. Thank you to every author below.
 
-## ult-engineer
+## ult-engineer (historical)
 
 | Source | Author | License |
 |---|---|---|
